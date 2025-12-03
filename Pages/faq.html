@@ -204,6 +204,75 @@
 
             <div class="category">
                 <div class="category-header">
+                    <h3 data-en="Termux Pro Tips & Tricks" data-gr="Termux Pro Συμβουλές & Κόλπα">Termux Pro Tips & Tricks</h3>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="tools-list">
+                    
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="How to keep Termux running in the background?" data-gr="Πώς να κρατήσω το Termux ανοιχτό στο παρασκήνιο;">How to keep Termux running in the background?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="If Termux closes or stops your attacks when you turn off the screen, you need to acquire a Wake Lock. This prevents Android from killing the process."
+                               data-gr="Εάν το Termux κλείνει ή σταματά τις επιθέσεις όταν σβήνετε την οθόνη, πρέπει να ενεργοποιήσετε το Wake Lock. Αυτό εμποδίζει το Android να τερματίσει τη διαδικασία.">
+                               If Termux closes or stops your attacks when you turn off the screen, you need to acquire a Wake Lock. This prevents Android from killing the process.
+                            </p>
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-wakelock')">Copy</button>
+                                <code id="code-wakelock">termux-wake-lock</code>
+                            </div>
+                            <p data-en="To disable it, simply run: termux-wake-unlock"
+                               data-gr="Για απενεργοποίηση, τρέξτε: termux-wake-unlock">
+                               To disable it, simply run: termux-wake-unlock
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="Download Speed is too slow / Repository Errors" data-gr="Αργή ταχύτητα λήψης / Σφάλματα Repositories">Download Speed is too slow / Repository Errors</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="If packages are downloading very slowly or failing, try changing your repository mirror to a faster one."
+                               data-gr="Εάν τα πακέτα κατεβαίνουν πολύ αργά ή αποτυγχάνουν, δοκιμάστε να αλλάξετε το mirror του αποθετηρίου σε ένα πιο γρήγορο.">
+                               If packages are downloading very slowly or failing, try changing your repository mirror to a faster one.
+                            </p>
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-repo-change')">Copy</button>
+                                <code id="code-repo-change">termux-change-repo</code>
+                            </div>
+                            <p data-en="Select all three options using spacebar, then press enter and choose 'Grimler' or 'Mirrors.bfsu'."
+                               data-gr="Επιλέξτε και τις τρεις επιλογές, πατήστε enter και επιλέξτε 'Grimler' ή 'Mirrors.bfsu'.">
+                               Select all three options using spacebar, then press enter and choose 'Grimler' or 'Mirrors.bfsu'.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="How to clear cache & save space?" data-gr="Πώς να καθαρίσω την cache και να εξοικονομήσω χώρο;">How to clear cache & save space?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="Over time, downloaded package files take up space. You can safely remove them without uninstalling your tools."
+                               data-gr="Με τον καιρό, τα αρχεία πακέτων πιάνουν χώρο. Μπορείτε να τα αφαιρέσετε με ασφάλεια χωρίς να απεγκαταστήσετε τα εργαλεία σας.">
+                               Over time, downloaded package files take up space. You can safely remove them without uninstalling your tools.
+                            </p>
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-clean')">Copy</button>
+                                <code id="code-clean">apt clean && apt autoclean</code>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
                     <h3 data-en="General Questions" data-gr="Γενικές Ερωτήσεις">General Questions</h3>
                     <i class="fas fa-chevron-down toggle-icon"></i>
                 </div>
@@ -292,6 +361,79 @@
                                data-gr="Ο κώδικας είναι ανοιχτός, που σημαίνει ότι μπορείτε να διαβάσετε κάθε γραμμή. Δεν συμπεριλαμβάνουμε κακόβουλο λογισμικό. Ωστόσο, το Antivirus σας μπορεί να τα επισημάνει ως 'HackTools' επειδή έχουν σχεδιαστεί για penetration testing.">
                                The code is open source, meaning you can read every line before running it. We do not include malware. However, your Antivirus might flag them as 'HackTools' because they are designed for penetration testing. Use them responsibly.
                             </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <h3 data-en="Community, Support & Issues" data-gr="Κοινότητα, Υποστήριξη & Προβλήματα">Community, Support & Issues</h3>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="tools-list">
+                    
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="I found a bug. How do I report it?" data-gr="Βρήκα ένα σφάλμα. Πώς το αναφέρω;">I found a bug. How do I report it?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="If you encounter any issues or errors that are not solved in this FAQ, please open an Issue on our GitHub repository. We actively check for bug reports."
+                               data-gr="Εάν αντιμετωπίσετε προβλήματα που δεν λύνονται σε αυτές τις Συχνές Ερωτήσεις, ανοίξτε ένα Issue στο GitHub. Ελέγχουμε ενεργά για αναφορές σφαλμάτων.">
+                               If you encounter any issues or errors that are not solved in this FAQ, please open an Issue on our GitHub repository. We actively check for bug reports.
+                            </p>
+                            <div class="note">
+                                <strong data-en="Open an Issue:" data-gr="Άνοιγμα Issue:">Open an Issue:</strong>
+                            </div>
+                            <p>
+                                <a href="https://github.com/dedsec1121fk/DedSec/issues" target="_blank" style="color: var(--primary-color); text-decoration: underline;">
+                                    https://github.com/dedsec1121fk/DedSec/issues
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="How can I support the project?" data-gr="Πώς μπορώ να υποστηρίξω το έργο;">How can I support the project?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="DedSec Project is free and open source. If you like our work, you can support us in the following ways:"
+                               data-gr="Το DedSec Project είναι δωρεάν και ανοιχτού κώδικα. Αν σας αρέσει η δουλειά μας, μπορείτε να μας υποστηρίξετε με τους εξής τρόπους:">
+                               DedSec Project is free and open source. If you like our work, you can support us in the following ways:
+                            </p>
+                            
+                            <ul style="margin-left: 20px; line-height: 1.8;">
+                                <li>
+                                    <strong data-en="Star the Repository:" data-gr="Δώστε Star στο Repo:">Star the Repository:</strong><br>
+                                    <span data-en="Give us a star on GitHub to help us grow!" data-gr="Δώστε μας ένα αστέρι στο GitHub για να μας βοηθήσετε να μεγαλώσουμε!">Give us a star on GitHub to help us grow!</span><br>
+                                    <a href="https://github.com/dedsec1121fk/DedSec" target="_blank" style="color: var(--primary-color);">
+                                        <i class="fab fa-github"></i> DedSec Repository
+                                    </a>
+                                </li>
+                                <br>
+                                <li>
+                                    <strong data-en="Follow the Developer:" data-gr="Ακολουθήστε τον Developer:">Follow the Developer:</strong><br>
+                                    <span data-en="Follow dedsec1121fk for updates and new tools." data-gr="Ακολουθήστε τον dedsec1121fk για ενημερώσεις.">Follow dedsec1121fk for updates and new tools.</span><br>
+                                    <a href="https://github.com/dedsec1121fk" target="_blank" style="color: var(--primary-color);">
+                                        <i class="fas fa-user-secret"></i> @dedsec1121fk
+                                    </a>
+                                </li>
+                                <br>
+                                <li>
+                                    <strong data-en="Sponsor the Project:" data-gr="Χορηγία (Sponsor):">Sponsor the Project:</strong><br>
+                                    <span data-en="If you want to contribute financially, you can sponsor us via GitHub Sponsors." 
+                                          data-gr="Αν θέλετε να συνεισφέρετε οικονομικά, μπορείτε να μας κάνετε χορηγία μέσω GitHub Sponsors.">
+                                          If you want to contribute financially, you can sponsor us via GitHub Sponsors.
+                                    </span><br>
+                                    <a href="https://github.com/sponsors/dedsec1121fk" target="_blank" style="color: var(--primary-color);">
+                                        <i class="fas fa-heart"></i> GitHub Sponsors
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
