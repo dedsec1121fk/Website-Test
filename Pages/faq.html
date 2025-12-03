@@ -132,6 +132,35 @@
 
                     <div class="tool-item">
                         <div class="tool-header">
+                            <h4 class="tool-title" data-en="I keep getting 'Missing Package' errors. How do I fix them all?" data-gr="Λαμβάνω σφάλματα 'Missing Package'. Πώς τα διορθώνω όλα;">I keep getting 'Missing Package' errors. How do I fix them all?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="Instead of installing packages one by one, you can use the built-in 'Update Packages' feature in Settings. This installs all necessary Python and Termux dependencies automatically."
+                               data-gr="Αντί να εγκαθιστάτε πακέτα ένα προς ένα, μπορείτε να χρησιμοποιήσετε την ενσωματωμένη λειτουργία 'Update Packages' στις Ρυθμίσεις. Αυτό εγκαθιστά αυτόματα όλες τις απαραίτητες εξαρτήσεις.">
+                               Instead of installing packages one by one, you can use the built-in 'Update Packages' feature in Settings. This installs all necessary Python and Termux dependencies automatically.
+                            </p>
+                            
+                            <div class="note">
+                                <strong data-en="Step 1: Open Settings" data-gr="Βήμα 1: Άνοιγμα Ρυθμίσεων">Step 1: Open Settings</strong>
+                            </div>
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-settings')">Copy</button>
+                                <code id="code-settings">python3 Settings.py</code>
+                            </div>
+
+                            <div class="note">
+                                <strong data-en="Step 2: Select Option 3" data-gr="Βήμα 2: Επιλέξτε την Επιλογή 3">Step 2: Select Option 3</strong>
+                                <br>
+                                <span data-en="Choose 'Update Packages & Modules' from the menu. It will install ffmpeg, clang, flask, and everything else needed."
+                                      data-gr="Επιλέξτε 'Update Packages & Modules' από το μενού. Θα εγκαταστήσει ffmpeg, clang, flask και ό,τι άλλο χρειάζεται.">
+                                      Choose 'Update Packages & Modules' from the menu. It will install ffmpeg, clang, flask, and everything else needed.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-header">
                             <h4 class="tool-title" data-en="Permission Denied / Storage Issues" data-gr="Άρνηση Πρόσβασης / Θέματα Αποθήκευσης">Permission Denied / Storage Issues</h4>
                             <i class="fas fa-chevron-down tool-expand-icon"></i>
                         </div>
@@ -180,6 +209,49 @@
                 </div>
                 <div class="tools-list">
                     
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="How do I change the menu style (List/Grid/Number)?" data-gr="Πώς αλλάζω το στυλ μενού (Λίστα/Πλέγμα/Αριθμοί);">How do I change the menu style (List/Grid/Number)?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="DedSec Project supports 3 menu styles. If the 'Grid' style looks broken on your screen, you can switch to 'List' or 'Number' mode via Settings."
+                               data-gr="Το DedSec Project υποστηρίζει 3 στυλ μενού. Εάν το στυλ 'Grid' φαίνεται χαλασμένο στην οθόνη σας, μπορείτε να αλλάξειτε σε 'List' ή 'Number' μέσω των Ρυθμίσεων.">
+                               DedSec Project supports 3 menu styles. If the 'Grid' style looks broken on your screen, you can switch to 'List' or 'Number' mode via Settings.
+                            </p>
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-menu-style')">Copy</button>
+                                <code id="code-menu-style">python3 Settings.py --menu list</code>
+                            </div>
+                            <p data-en="Or simply run Settings.py and select option 5 'Change Menu Style'."
+                               data-gr="Ή απλώς εκτελέστε το Settings.py και επιλέξτε την επιλογή 5 'Change Menu Style'.">
+                               Or simply run Settings.py and select option 5 'Change Menu Style'.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="How do I uninstall DedSec Project safely?" data-gr="Πώς να απεγκαταστήσω το DedSec Project με ασφάλεια;">How do I uninstall DedSec Project safely?</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <div class="note-warning">
+                                <strong data-en="Do not just delete the folder!" data-gr="Μην διαγράψετε απλώς τον φάκελο!">Do not just delete the folder!</strong>
+                            </div>
+                            <p data-en="DedSec modifies your terminal startup files. To uninstall correctly and restore your original settings, use the uninstall option found in Settings."
+                               data-gr="Το DedSec τροποποιεί τα αρχεία εκκίνησης του τερμιναλ. Για σωστή απεγκατάσταση και επαναφορά των ρυθμίσεών σας, χρησιμοποιήστε την επιλογή απεγκατάστασης στις Ρυθμίσεις.">
+                               DedSec modifies your terminal startup files. To uninstall correctly and restore your original settings, use the uninstall option found in Settings.
+                            </p>
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-uninstall')">Copy</button>
+                                <code id="code-uninstall">python3 Settings.py</code>
+                            </div>
+                            <p data-en="Select option 8: 'Uninstall DedSec Project'. This will restore your original bash.bashrc and remove the project."
+                               data-gr="Επιλέξτε την επιλογή 8: 'Uninstall DedSec Project'. Αυτό θα επαναφέρει το αρχικό σας bash.bashrc και θα αφαιρέσει το έργο.">
+                               Select option 8: 'Uninstall DedSec Project'. This will restore your original bash.bashrc and remove the project.
+                            </p>
+                        </div>
+                    </div>
                     <div class="tool-item">
                         <div class="tool-header">
                             <h4 class="tool-title" data-en="Do I need a Rooted device?" data-gr="Χρειάζομαι Root συσκευή;">Do I need a Rooted device?</h4>
