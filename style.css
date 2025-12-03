@@ -1,7 +1,7 @@
 /*
     =================================================================
     DEDSEC PROJECT MULTI-PAGE STYLES
-    VERSION: 4.8 (FAQ Animation Fix & General Polish)
+    VERSION: 4.9 (FAQ Button & Color Fixes)
     =================================================================
 */
 
@@ -236,7 +236,7 @@ body.light-theme::before {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--nm-darkest) !important;
+    background--color: var(--nm-darkest) !important;
     border-bottom: 1px solid var(--nm-border) !important;
     box-shadow: none !important;
     transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -1762,6 +1762,49 @@ body.light-theme .github-stat-dark { display: none; }
     color: var(--nm-text-on-accent);
 }
 
+/* ADDED: FAQ Button Styles to fix rendering issues */
+.faq-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.faq-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.faq-link-btn {
+    background: var(--nm-darkest);
+    border: 1px solid var(--nm-border);
+    color: var(--nm-text);
+    padding: 10px 20px;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.25s var(--ease-out-cubic);
+    width: 100%;
+    text-align: center;
+}
+
+.faq-link-btn:hover {
+    background: var(--nm-accent);
+    color: var(--nm-text-on-accent);
+    border-color: var(--nm-accent);
+    transform: translateY(-3px);
+}
+
+.faq-link-btn:hover i {
+    color: var(--nm-text-on-accent) !important;
+}
+
 .product-price {
     font-family: var(--font-secondary);
     font-size: 1.8rem;
@@ -1897,6 +1940,7 @@ body.light-theme .github-stat-dark { display: none; }
     width: 100%;
     max-width: 300px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .contact-page-btn:hover {
