@@ -1,7 +1,7 @@
 /*
     =================================================================
     DEDSEC PROJECT MULTI-PAGE STYLES
-    VERSION: 4.7 (GitHub Stats Color Fix)
+    VERSION: 4.8 (FAQ Animation Fix & General Polish)
     =================================================================
 */
 
@@ -74,6 +74,7 @@
     --ease-out-cubic: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
     --ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+    --ease-in-out-cubic: cubic-bezier(0.65, 0, 0.35, 1);
 
     /* === SHADOW VARIABLES (SET TO NONE) === */
     --shadow-glow-accent: none;
@@ -1606,6 +1607,7 @@ body.light-theme .github-stat-dark { display: none; }
     /* Removed filter: grayscale(100%); */
 }
 
+/* === IMPROVED FAQ PAGE STYLES === */
 .category-header {
     background: var(--nm-dark);
     border: 1px solid var(--nm-border);
@@ -1616,12 +1618,13 @@ body.light-theme .github-stat-dark { display: none; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s var(--ease-in-out-cubic);
 }
 
 .category-header:hover {
     border-color: var(--nm-accent);
     background: var(--nm-container);
+    transform: translateY(-2px);
 }
 
 .category-header h3,
@@ -1637,7 +1640,7 @@ body.light-theme .github-stat-dark { display: none; }
 
 .toggle-icon {
     color: var(--nm-text);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--ease-in-out-cubic);
 }
 
 .category.active .toggle-icon {
@@ -1647,7 +1650,9 @@ body.light-theme .github-stat-dark { display: none; }
 .tools-list {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s var(--ease-in-out-cubic);
+    margin: 0;
+    padding: 0;
 }
 
 .category.active .tools-list {
@@ -1658,7 +1663,8 @@ body.light-theme .github-stat-dark { display: none; }
     border-bottom: 1px solid var(--nm-border);
     padding: 15px 20px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s var(--ease-in-out-cubic);
+    background: var(--nm-darkest);
 }
 
 .tool-item:last-child {
@@ -1668,11 +1674,24 @@ body.light-theme .github-stat-dark { display: none; }
 .tool-item:hover {
     background: var(--nm-accent);
     color: var(--nm-text-on-accent);
+    border-color: var(--nm-accent);
+    transform: translateY(-2px);
 }
 
 .tool-item:hover .tool-title,
-.tool-item:hover .tool-expand-icon {
-    color: var(--nm-text-on-accent);
+.tool-item:hover .tool-expand-icon,
+.tool-item:hover .note-warning,
+.tool-item:hover .note,
+.tool-item:hover .code-container,
+.tool-item:hover .code-container code,
+.tool-item:hover .copy-btn {
+    color: var(--nm-text-on-accent) !important;
+    border-color: var(--nm-text-on-accent) !important;
+}
+
+.tool-item:hover .copy-btn {
+    background: var(--nm-text-on-accent) !important;
+    color: var(--nm-accent) !important;
 }
 
 .tool-header {
@@ -1686,11 +1705,12 @@ body.light-theme .github-stat-dark { display: none; }
     color: var(--nm-text);
     font-family: var(--font-mono);
     font-size: 1rem;
+    font-weight: 600;
 }
 
 .tool-expand-icon {
     color: var(--nm-text);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--ease-in-out-cubic);
 }
 
 .tool-item.active .tool-expand-icon {
@@ -1700,19 +1720,22 @@ body.light-theme .github-stat-dark { display: none; }
 .tool-description {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s var(--ease-in-out-cubic);
     padding-top: 0;
+    opacity: 0;
 }
 
 .tool-item.active .tool-description {
     max-height: 2000px;
     padding-top: 15px;
+    opacity: 1;
 }
 
 .tool-description p {
     margin-top: 0;
     color: var(--nm-text-muted);
     line-height: 1.5;
+    transition: color 0.3s ease;
 }
 
 .tool-item:hover .tool-description p {
@@ -1728,6 +1751,7 @@ body.light-theme .github-stat-dark { display: none; }
     font-family: var(--font-secondary);
     font-size: 0.9rem;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
 .tool-item:hover .tool-features h5,
@@ -2058,6 +2082,32 @@ body.light-theme .github-stat-dark { display: none; }
         font-size: 1rem;
         max-width: 250px;
     }
+
+    /* FAQ Mobile Improvements */
+    .category-header {
+        padding: 12px 15px;
+    }
+    
+    .category-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .tool-item {
+        padding: 12px 15px;
+    }
+    
+    .tool-title {
+        font-size: 0.95rem;
+    }
+    
+    .tool-description {
+        font-size: 0.9rem;
+    }
+    
+    .code-container {
+        padding-top: 35px;
+        font-size: 0.85rem;
+    }
 }
 
 @media (min-width: 993px) {
@@ -2179,6 +2229,15 @@ body.light-theme .github-stat-dark { display: none; }
     .modal-overlay.banner-style .modal-header h2 {
         font-size: 1.3rem;
     }
+    
+    /* FAQ Desktop Improvements */
+    .category-header:hover {
+        transform: translateY(-3px);
+    }
+    
+    .tool-item:hover {
+        transform: translateY(-3px);
+    }
 }
 
 @media (min-width: 1400px) {
@@ -2220,7 +2279,9 @@ button:focus-visible,
 .nav-link:focus-visible,
 .nav-action-btn:focus-visible,
 .contact-grid .app-icon:focus-visible,
-.feature-card:focus-visible {
+.feature-card:focus-visible,
+.category-header:focus-visible,
+.tool-header:focus-visible {
     outline: 2px solid var(--nm-accent) !important;
     outline-offset: 2px;
     box-shadow: none;
@@ -2231,4 +2292,15 @@ button:focus-visible,
     outline: none !important;
     border-color: var(--nm-accent) !important;
     box-shadow: none !important;
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
