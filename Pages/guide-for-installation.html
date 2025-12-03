@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Guide For Installation - DedSec Project</title>
+    
+    <meta name="description" content="Step-by-step guide to install and setup the DedSec Project on your Android device.">
+    <meta property="og:title" content="Guide For Installation - DedSec Project">
+    <meta property="og:description" content="Learn how to install and setup the DedSec Project cybersecurity toolkit.">
+
+<!-- Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+  img-src 'self' data: https:;
+  connect-src 'self';
+  frame-ancestors 'none';
+">
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://ded-sec.space/Pages/guide-for-installation.html">
+
+    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5860edb8a7468d955336c9cf1d8b357597d6d645/Assets/Images/Logos/Custom%20Black%2Purple%20Fox%20Logo.png">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation Header -->
+<nav class="main-nav">
+    <div class="nav-container">
+        <div class="nav-title"><h1>DedSec Project</h1></div>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        <div class="nav-menu" id="nav-menu">
+    <a href="../index.html" class="nav-link" data-en="Home" data-gr="Αρχική">Home</a>
+    <a href="learn-about-the-tools.html" class="nav-link" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία">Learn About The Tools</a>
+    <a href="guide-for-installation.html" class="nav-link active" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης">Guide For Installation</a>
+    <a href="faq.html" class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις">Frequently Asked Questions</a>
+    <a href="store.html" class="nav-link" data-en="Store" data-gr="Κατάστημα">Store</a>
+    <a href="collaborations.html" class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a>
+    <a href="portfolio-github-info.html" class="nav-link" data-en="Portfolio & GitHub" data-gr="Portfolio & GitHub">Portfolio & GitHub</a>
+    <a href="contact-credits.html" class="nav-link" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές">Contact & Credits</a>
+    <a href="privacy-policy.html" class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
+</div>
+        <div class="nav-actions">
+            <button id="nav-theme-switcher" class="nav-action-btn"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
+            <button id="nav-lang-switcher" class="nav-action-btn"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
+        </div>
+    </div>
+</nav>
+
+    <div class="page-content">
+        <div class="page-header">
+            <h1 data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης">Guide For Installation</h1>
+            <p data-en="Step-by-step instructions to install and setup the DedSec Project on your Android device."
+               data-gr="Βήμα-βήμα οδηγίες για την εγκατάσταση και ρύθμιση του DedSec Project στη συσκευή σας Android.">
+               Step-by-step instructions to install and setup the DedSec Project on your Android device.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2 data-en="Requirements" data-gr="Απαιτήσεις">Requirements</h2>
+            <ul>
+                <li data-en="Device: Android with Termux installed." data-gr="Συσκευή: Android με εγκατεστημένο το Termux.">Device: Android with Termux installed.</li>
+                <li data-en="Storage: Minimum 8GB free space." data-gr="Αποθηκευτικός Χώρος: Ελάχιστο 8GB ελεύθερος χώρος.">Storage: Minimum 8GB free space.</li>
+                <li data-en="RAM: Minimum 2GB." data-gr="RAM: Ελάχιστο 2GB.">RAM: Minimum 2GB.</li>
+            </ul>
+
+            <h2 data-en="Installation Steps" data-gr="Βήματα Εγκατάστασης">Installation Steps</h2>
+            
+            <h3 data-en="1. Install Termux & Add-Ons" data-gr="1. Εγκατάσταση Termux & Πρόσθετων">1. Install Termux & Add-Ons</h3>
+            <div class="tip">
+                <p data-en="Note: To install APKs (e.g., F-Droid), ensure you enable unknown sources in Settings > Security > Install Unknown Apps."
+                   data-gr="Σημείωση: Για την εγκατάσταση APKs (π.χ. F-Droid), βεβαιωθείτε ότι έχετε ενεργοποιήσει άγνωστες πηγές στις Ρυθμίσεις > Ασφάλεια > Εγκατάσταση άγνωστων εφαρμογών.">
+                   Note: To install APKs (e.g., F-Droid), ensure you enable unknown sources in Settings > Security > Install Unknown Apps.
+                </p>
+            </div>
+
+            <!-- NEW SECTION: F-Droid Installation -->
+            <h3 data-en="Install F-Droid" data-gr="Εγκατάσταση F-Droid">Install F-Droid</h3>
+            <p data-en="F-Droid is an alternative app store for Android that provides free and open-source software. It's the recommended way to install Termux and other security tools."
+               data-gr="Το F-Droid είναι ένα εναλλακτικό κατάστημα εφαρμογών για Android που παρέχει ελεύθερο και ανοιχτού κώδικα λογισμικό. Είναι ο συνιστώμενος τρόπος για να εγκαταστήσετε το Termux και άλλα εργαλεία ασφαλείας.">
+               F-Droid is an alternative app store for Android that provides free and open-source software. It's the recommended way to install Termux and other security tools.
+            </p>
+            
+            <div class="contact-grid" style="margin: 20px 0;">
+                <a href="https://f-droid.org/" target="_blank" rel="noopener noreferrer" class="app-icon">
+                    <i class="fab fa-android"></i>
+                    <span data-en="Download F-Droid" data-gr="Λήψη F-Droid">Download F-Droid</span>
+                </a>
+            </div>
+
+            <div class="note">
+                <h4 data-en="How to Install APK Files on Android:" data-gr="Πώς να Εγκαταστήσετε Αρχεία APK στο Android:">How to Install APK Files on Android:</h4>
+                <ol>
+                    <li data-en="Download the F-Droid APK from the link above" data-gr="Κατεβάστε το APK του F-Droid από τον παραπάνω σύνδεσμο">Download the F-Droid APK from the link above</li>
+                    <li data-en="Open your device's Settings > Security (or Apps & Notifications)" data-gr="Ανοίξτε τις Ρυθμίσεις της συσκευής σας > Ασφάλεια (ή Εφαρμογές & Ειδοποιήσεις)">Open your device's Settings > Security (or Apps & Notifications)</li>
+                    <li data-en="Enable 'Install unknown apps' or 'Unknown sources' for your browser or file manager" data-gr="Ενεργοποιήστε την 'Εγκατάσταση από άγνωστες πηγές' για το πρόγραμμα πλοήγησης ή τον διαχειριστή αρχείων">Enable 'Install unknown apps' or 'Unknown sources' for your browser or file manager</li>
+                    <li data-en="Open the downloaded APK file and tap 'Install'" data-gr="Ανοίξτε το κατεβασμένο αρχείο APK και πατήστε 'Εγκατάσταση'">Open the downloaded APK file and tap 'Install'</li>
+                    <li data-en="Once installed, open F-Droid and search for 'Termux' to install it" data-gr="Μόλις εγκατασταθεί, ανοίξτε το F-Droid και αναζητήστε 'Termux' για να το εγκαταστήσετε">Once installed, open F-Droid and search for 'Termux' to install it</li>
+                </ol>
+            </div>
+            <!-- END NEW SECTION -->
+
+            <!-- NEW SECTION: Termux Add-Ons -->
+            <h3 data-en="Install Termux Add-Ons" data-gr="Εγκατάσταση Πρόσθετων Termux">Install Termux Add-Ons</h3>
+            <p data-en="For full functionality, we recommend installing these Termux add-ons from F-Droid:"
+               data-gr="Για πλήρη λειτουργικότητα, συνιστούμε την εγκατάσταση των παρακάτω πρόσθετων Termux από το F-Droid:">
+               For full functionality, we recommend installing these Termux add-ons from F-Droid:
+            </p>
+            
+            <div class="contact-grid" style="margin: 20px 0;">
+                <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener noreferrer" class="app-icon">
+                    <i class="fas fa-terminal"></i>
+                    <span data-en="Termux (Terminal Emulator)" data-gr="Termux (Προσομοιωτής Τερματικού)">Termux (Terminal Emulator)</span>
+                </a>
+                <a href="https://f-droid.org/packages/com.termux.api/" target="_blank" rel="noopener noreferrer" class="app-icon">
+                    <i class="fas fa-code"></i>
+                    <span data-en="Termux:API" data-gr="Termux:API">Termux:API</span>
+                </a>
+                <a href="https://f-droid.org/packages/com.termux.styling/" target="_blank" rel="noopener noreferrer" class="app-icon">
+                    <i class="fas fa-paint-brush"></i>
+                    <span data-en="Termux:Styling" data-gr="Termux:Styling">Termux:Styling</span>
+                </a>
+            </div>
+            <!-- END NEW SECTION -->
+
+            <!-- NEW SECTION: Termux Tips -->
+            <h3 data-en="Termux Tips" data-gr="Συμβουλές για το Termux">Termux Tips</h3>
+            
+            <h4 data-en="Keep Screen On" data-gr="Διατήρηση Οθόνης Ανοιχτής">Keep Screen On</h4>
+            <p data-en="To prevent the screen from turning off during long operations: long-press the Termux terminal, then tap 'More' and select 'Keep screen on'."
+               data-gr="Για να αποτρέψετε την απενεργοποίηση της οθόνης κατά τη διάρκεια μεγάλων εργασιών: κρατήστε πατημένη την οθόνη του Termux, μετά πατήστε 'Περισσότερα' και επιλέξτε 'Διατήρηση οθόνης ανοιχτής'.">
+               To prevent the screen from turning off during long operations: long-press the Termux terminal, then tap 'More' and select 'Keep screen on'.
+            </p>
+
+            <h4 data-en="Change Terminal Style" data-gr="Αλλαγή Στυλ Τερματικού">Change Terminal Style</h4>
+            <p data-en="You can customize the terminal appearance: long-press the Termux terminal, tap 'More' and select 'Style' to change colors and themes."
+               data-gr="Μπορείτε να προσαρμόσετε την εμφάνιση του τερματικού: κρατήστε πατημένη την οθόνη του Termux, πατήστε 'Περισσότερα' και επιλέξτε 'Στυλ' για να αλλάξετε χρώματα και θέματα.">
+               You can customize the terminal appearance: long-press the Termux terminal, tap 'More' and select 'Style' to change colors and themes.
+            </p>
+            <!-- END NEW SECTION -->
+
+            <h3 data-en="2. Update Packages & Install Git" data-gr="2. Ενημέρωση Πακέτων & Εγκατάσταση Git">2. Update Packages & Install Git</h3>
+            <div class="note note-warning">
+                <p data-en="Important: Open the Termux application on your device before copying and pasting the command below."
+                   data-gr="Σημαντικό: Ανοίξτε την εφαρμογή Termux στη συσκευή σας πριν αντιγράψετε και επικολλήσετε την παρακάτω εντολή.">
+                   Important: Open the Termux application on your device before copying and pasting the command below.
+                </p>
+            </div>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyToClipboard(this, 'pkg_cmd')">Copy</button>
+                <code id="pkg_cmd">pkg update -y && pkg upgrade -y && pkg install git nano -y && termux-setup-storage</code>
+            </div>
+
+            <h3 data-en="3. Clone the Repository" data-gr="3. Κλωνοποιήστε το Αποθετήριο">3. Clone the Repository</h3>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyToClipboard(this, 'clone_cmd')">Copy</button>
+                <code id="clone_cmd">git clone https://github.com/dedsec1121fk/DedSec</code>
+            </div>
+
+            <h3 data-en="4. Run the Setup Script" data-gr="4. Εκτελέστε το Script Εγκατάστασης">4. Run the Setup Script</h3>
+            <div class="code-container">
+                <button class="copy-btn" onclick="copyToClipboard(this, 'setup_cmd')">Copy</button>
+                <code id="setup_cmd">cd DedSec && bash Setup.sh</code>
+            </div>
+            <div class="tip">
+                <p data-en="The script will handle the complete installation. After setup, you can open the menu by typing 'e' (English) or 'g' (Greek) in Termux."
+                   data-gr="Το script θα αναλάβει την πλήρη εγκατάσταση. Μετά την εγκατάσταση, μπορείτε να ανοίξετε το μενού πληκτρολογώντας 'e' (Αγγλικά) ή 'g' (Ελληνικά) στο Termux.">
+                   The script will handle the complete installation. After setup, you can open the menu by typing 'e' (English) or 'g' (Greek) in Termux.
+                </p>
+            </div>
+
+            <div class="modal-disclaimer">
+                <p><strong data-en="Legal Disclaimer:" data-gr="Νομική Αποποίηση Ευθύνης:">Legal Disclaimer:</strong> 
+                   <span data-en="All tools and information are for educational and ethical research purposes only. Use them only on systems you own or have explicit permission to test."
+                         data-gr="Όλα τα εργαλεία και οι πληροφορίες προορίζονται αποκλειστικά για εκπαιδευτικούς και ηθικούς ερευνητικούς σκοπούς. Χρησιμοποιήστε τα μόνο σε συστήματα που σας ανήκουν ή έχετε ρητή άδεια να δοκιμάσετε.">
+                         All tools and information are for educational and ethical research purposes only. Use them only on systems you own or have explicit permission to test.
+                   </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer Modal -->
+    <div id="disclaimer-modal" class="modal-overlay">
+      <div class="modal-content">
+          <div class="modal-header"><h2 data-en="Disclaimer & Terms of Use" data-gr="Αποποίηση Ευθύνης & Όροι Χρήσης">Disclaimer & Terms of Use</h2></div>
+          <div class="modal-body" data-lang-section="en">
+            <div class="note">
+                <p><strong>PLEASE READ CAREFULLY BEFORE PROCEEDING.</strong></p>
+                <p><strong>Trademark Disclaimer:</strong> The "DedSec" name and logo used in this project are for thematic and inspirational purposes only. This is an independent, fan-made project created for educational purposes and has no official connection to the "Watch Dogs" franchise. It is not associated with, endorsed by, or affiliated with Ubisoft Entertainment S.A.</p>
+                <p>This project, including all associated tools, scripts, and documentation ("the Software"), is provided strictly for educational, research, and ethical security testing purposes.</p>
+                <p><strong>1. Assumption of Risk and Responsibility:</strong> By accessing or using the Software, you acknowledge and agree that you are doing so at your own risk. You are solely and entirely responsible for your actions and for any consequences that may arise from the use or misuse of this Software.</p>
+                <p><strong>2. Prohibited Activities:</strong> Any use of the Software for unauthorized or malicious activities is strictly prohibited. This includes, without limitation: accessing systems without authorization; performing denial-of-service attacks; data theft; fraud; spreading malware; or any other activity that violates applicable laws.</p>
+            </div>
+            <div class="note"><p><strong>By clicking "Accept," you confirm that you have read, understood, and agree to be bound by all the terms and conditions outlined in this disclaimer. If you do not agree with these terms, you must click "Decline" and cease all use of the Software immediately.</strong></p></div>
+          </div>
+          <div class="modal-body hidden-by-default" data-lang-section="gr">
+            <div class="note">
+                <p><strong>ΠΑΡΑΚΑΛΩ ΔΙΑΒΑΣΤΕ ΠΡΟΣΕΚΤΙΚΑ ΠΡΙΝ ΣΥΝΕΧΙΣΕΤΕ.</strong></p>
+                <p><strong>Αποποίηση Ευθύνης Εμπορικού Σήματος:</strong> Το όνομα και το λογότυπο "DedSec" που χρησιμοποιούνται σε αυτό το έργο είναι μόνο για θεματικούς και εμπνευστικούς σκοπούς. Πρόκειται για ένα ανεξάρτητο, fan-made έργο που δημιουργήθηκε για εκπαιδευτικούς σκοπούς και δεν έχει καμία επίσημη σύνδεση με το franchise "Watch Dogs".</p>
+                <p>Αυτό το έργο, συμπεριλαμβανομένων όλων των σχετικών εργαλείων, σεναρίων και τεκμηρίωσης («το Λογισμικό»), παρέχεται αυστηρά για εκπαιδευτικούς, ερευνητικούς και ηθικούς σκοπούς δοκιμών ασφαλείας.</p>
+                <p><strong>1. Ανάληψη Κινδύνου και Ευθύνης:</strong> Με την πρόσβαση ή τη χρήση του Λογισμικού, αναγνωρίζετε και συμφωνείτε ότι το κάνετε με δική σας ευθύνη. Είστε αποκλειστικά και εξ ολοκλήρου υπεύθυνοι για τις ενέργειές σας και για τυχόν συνέπειες που μπορεί να προκύψουν από τη χρήση ή κακή χρήση αυτού του Λογισμικού.</p>
+                <p><strong>2. Απαγορευμένες Δραστηριότητες:</strong> Απαγορεύεται αυστηρά οποιαδήποτε χρήση του Λογισμικού για μη εξουσιοδοτημένες ή κακόβουλες δραστηριότητες.</p>
+            </div>
+            <div class="note"><p><strong>Με το κλικ στο "Αποδοχή", επιβεβαιώνετε ότι διαβάσατε, κατανοήσατε και συμφωνείτε να δεσμεύεστε από όλους τους όρους και τις προϋποθέσεις που περιγράφονται σε αυτήν την αποποίηση ευθύνης. Εάν δεν συμφωνείτε με αυτούς τους όρους, πρέπει να κάνετε κλικ στο "Απόρριψη" και να διακόψετε αμέσως κάθε χρήση του Λογισμικού.</strong></p></div>
+          </div>
+          <div class="modal-footer">
+            <button id="decline-disclaimer" class="decline-btn" data-en="Decline" data-gr="Απόρριψη">Decline</button>
+            <button id="accept-disclaimer" class="accept-btn" data-en="Accept" data-gr="Αποδοχή">Accept</button>
+          </div>
+      </div>
+    </div>
+
+    <!-- Language Selection Modal -->
+    <div id="language-selection-modal" class="modal-overlay">
+      <div class="modal-content modal-content-auto-height">
+          <div class="modal-header">
+            <h2 data-en="Choose Language" data-gr="Επιλογή Γλώσσας">Choose Language / Επιλογή Γλώσσας</h2>
+            <button class="close-modal" aria-label="Close">×</button>
+          </div>
+          <div class="modal-body modal-body-centered">
+              <button class="language-button" data-lang="en" aria-label="Change language to English">English</button>
+              <button class="language-button" data-lang="gr" aria-label="Change language to Greek">Ελληνικά</button>
+          </div>
+      </div>
+    </div>
+
+    <script src="../script.js" defer></script>
+</body>
+</html>
