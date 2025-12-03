@@ -228,6 +228,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.textContent = text;
             }
         });
+
+        // Update copy button texts
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            const text = button.textContent;
+            if (text === 'Copy' || text === 'Αντιγραφή' || text === 'Copied!' || text === 'Αντιγράφηκε!' || text === 'Error' || text === 'Failed!') {
+                if (text === 'Copied!' || text === 'Αντιγράφηκε!') {
+                    button.textContent = currentLanguage === 'gr' ? 'Αντιγράφηκε!' : 'Copied!';
+                } else if (text === 'Error' || text === 'Failed!') {
+                    button.textContent = currentLanguage === 'gr' ? 'Σφάλμα' : 'Error';
+                } else {
+                    button.textContent = currentLanguage === 'gr' ? 'Αντιγραφή' : 'Copy';
+                }
+            }
+        });
     };
 
     // --- DISCLAIMER FUNCTIONALITY ---
@@ -332,89 +346,159 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- COPY FUNCTIONALITY ---
-    // FIX: Removed the redundant listener function (initializeCopyButtons)
-    // The 'onclick' attribute in the HTML is sufficient.
-    // Make copy function globally accessible
+    // --- IMPROVED COPY FUNCTIONALITY ---
     window.copyToClipboard = (button, targetId) => {
         const codeElement = document.getElementById(targetId);
-        if (!codeElement || !navigator.clipboard) {
-            console.warn('Clipboard API not available or element not found.');
-            button.textContent = 'Error';
+        if (!codeElement) {
+            console.warn('Target element not found for copying.');
+            button.textContent = currentLanguage === 'gr' ? 'Σφάλμα' : 'Error';
             setTimeout(() => { 
-                button.textContent = (currentLanguage === 'gr') ? 'Αντιγραφή' : 'Copy'; 
+                button.textContent = currentLanguage === 'gr' ? 'Αντιγραφή' : 'Copy'; 
             }, 1500);
             return;
         }
         
         const originalText = button.textContent;
-        navigator.clipboard.writeText(codeElement.innerText).then(() => {
-            button.textContent = (currentLanguage === 'gr') ? 'Αντιγράφηκε!' : 'Copied!';
-            setTimeout(() => { button.textContent = originalText; }, 1500);
+        const textToCopy = codeElement.textContent || codeElement.innerText;
+        
+        // Fallback method for older browsers
+        const fallbackCopyTextToClipboard = () => {
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (!successful) {
+                    throw new Error('Fallback copy command failed');
+                }
+            } catch (err) {
+                console.error('Fallback copy failed:', err);
+                throw err;
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        };
+        
+        // Try modern Clipboard API first, then fallback
+        const copyPromise = navigator.clipboard 
+            ? navigator.clipboard.writeText(textToCopy)
+            : new Promise((resolve, reject) => {
+                try {
+                    fallbackCopyTextToClipboard();
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        
+        copyPromise.then(() => {
+            // Success feedback
+            button.textContent = currentLanguage === 'gr' ? 'Αντιγράφηκε!' : 'Copied!';
+            button.style.backgroundColor = 'var(--nm-success, #28a745)';
+            button.style.borderColor = 'var(--nm-success, #28a745)';
+            button.style.color = 'var(--nm-text-on-status, #ffffff)';
+            
+            setTimeout(() => { 
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                button.style.borderColor = '';
+                button.style.color = '';
+            }, 1500);
         }).catch(err => {
-            console.error('Failed to copy text: ', err);
-            button.textContent = 'Failed!';
-            setTimeout(() => { button.textContent = originalText; }, 1500);
+            console.error('Failed to copy text:', err);
+            button.textContent = currentLanguage === 'gr' ? 'Σφάλμα' : 'Error';
+            button.style.backgroundColor = 'var(--nm-danger, #dc3545)';
+            button.style.borderColor = 'var(--nm-danger, #dc3545)';
+            button.style.color = 'var(--nm-text-on-status, #ffffff)';
+            
+            setTimeout(() => { 
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                button.style.borderColor = '';
+                button.style.color = '';
+            }, 1500);
         });
     };
 
-
-    // --- TOOL CATEGORIES FUNCTIONALITY ---
+    // --- TOOL CATEGORIES FUNCTIONALITY (IMPROVED) ---
     function initializeToolCategories(containerSelector) {
         const container = document.querySelector(containerSelector);
         if (!container) return;
 
         console.log(`Initializing tool categories for ${containerSelector}...`);
         
-        // Close all categories and tool items by default
+        // First, ensure all categories and tool items are properly initialized
         container.querySelectorAll('.category, .tool-item').forEach(item => {
-            item.classList.remove('active');
+            if (!item.classList.contains('active')) {
+                item.classList.remove('active');
+            }
         });
         
         // Category toggle functionality
         container.querySelectorAll('.category-header').forEach(header => {
             header.addEventListener('click', function() {
-                console.log('Category header clicked');
                 const category = this.parentElement;
                 const wasActive = category.classList.contains('active');
                 
-                // Close all categories first
-                container.querySelectorAll('.category').forEach(otherCategory => {
-                    otherCategory.classList.remove('active');
-                });
-                
-                // Open the clicked category if it was not active
-                if (!wasActive) {
+                // If this category was already active, close it
+                if (wasActive) {
+                    category.classList.remove('active');
+                } else {
+                    // Close all other categories first
+                    container.querySelectorAll('.category').forEach(otherCategory => {
+                        if (otherCategory !== category) {
+                            otherCategory.classList.remove('active');
+                        }
+                    });
+                    
+                    // Open the clicked category
                     category.classList.add('active');
                 }
             });
         });
         
-        // Tool item toggle functionality
+        // Tool item toggle functionality with improved animations
         container.querySelectorAll('.tool-header').forEach(header => {
             header.addEventListener('click', function(e) {
-                console.log('Tool header clicked');
                 // Prevent the category from closing when clicking on a tool
                 e.stopPropagation();
                 
                 const toolItem = this.parentElement;
                 const wasActive = toolItem.classList.contains('active');
                 
-                // Close all other tool items in the same category
-                const category = toolItem.closest('.category');
-                if (category) {
-                    category.querySelectorAll('.tool-item').forEach(otherTool => {
-                        if (otherTool !== toolItem) {
-                            otherTool.classList.remove('active');
-                        }
-                    });
-                }
-                
-                // Toggle the clicked tool item
-                if (!wasActive) {
-                    toolItem.classList.add('active');
-                } else {
+                // If this tool was already active, close it
+                if (wasActive) {
                     toolItem.classList.remove('active');
+                } else {
+                    // Close all other tool items in the same category
+                    const category = toolItem.closest('.category');
+                    if (category) {
+                        category.querySelectorAll('.tool-item').forEach(otherTool => {
+                            if (otherTool !== toolItem) {
+                                otherTool.classList.remove('active');
+                            }
+                        });
+                    }
+                    
+                    // Open the clicked tool item
+                    toolItem.classList.add('active');
+                }
+            });
+        });
+
+        // Add keyboard accessibility
+        container.querySelectorAll('.category-header, .tool-header').forEach(header => {
+            header.setAttribute('tabindex', '0');
+            header.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    header.click();
                 }
             });
         });
@@ -435,11 +519,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializeStoreCategories() {
         console.log('Initializing store categories...');
         
-        // Close all store categories by default
-        document.querySelectorAll('.store-page .category').forEach(category => {
-            category.classList.remove('active');
-        });
-        
         // Store category toggle functionality
         document.querySelectorAll('.store-page .category-header').forEach(header => {
             header.addEventListener('click', function() {
@@ -457,6 +536,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- PERFORMANCE OPTIMIZATION ---
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
     // --- INITIALIZATION ---
     function initializePortfolio() {
         initializeNavigation();
@@ -464,7 +556,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeLanguageSwitcher();
         initializeModals();
         initializeCarousels();
-        // FIX: Removed call to initializeCopyButtons();
         initializeDisclaimer();
         initializeStorePage();
 
@@ -474,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // This targets the FAQ section on the homepage
         initializeToolCategories('#faq-container');
-
 
         // Set initial language - default to English
         const savedLanguage = localStorage.getItem('language') || 'en';
@@ -498,8 +588,77 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation for elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements that should animate in
+        document.querySelectorAll('.feature-card, .tool-item, .category').forEach(el => {
+            observer.observe(el);
+        });
     }
 
     // Initialize the application
     initializePortfolio();
+
+    // Add CSS for animation classes
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Improve tool description animation */
+        .tool-description {
+            transition: max-height 0.4s cubic-bezier(0.65, 0, 0.35, 1), 
+                       opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1),
+                       padding-top 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        
+        /* Improve category animation */
+        .tools-list {
+            transition: max-height 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+    `;
+    document.head.appendChild(style);
 });
