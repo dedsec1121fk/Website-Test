@@ -1,7 +1,7 @@
 /*
     =================================================================
     DEDSEC PROJECT MULTI-PAGE STYLES
-    VERSION: 4.9.1 (FAQ Button & Color Fixes - Navbar & Code Visibility)
+    VERSION: 4.9.2 (Typography Size Adjustments - Index Hero)
     =================================================================
 */
 
@@ -597,7 +597,7 @@ body.light-theme .page-header h1 {
 
 .hero-section h2 {
     font-family: var(--font-secondary);
-    font-size: 2.1rem; /* MODIFIED: Was 2.5rem */
+    font-size: 1.2rem; /* MODIFIED: Decreased to match Powerful Tools card text */
     color: var(--nm-text-accent);
     text-shadow: none;
     margin: 0 0 25px 0;
@@ -606,7 +606,7 @@ body.light-theme .page-header h1 {
 
 .hero-text {
     color: var(--nm-text);
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* MODIFIED: Matched to title and card text */
     line-height: 1.7;
     margin: 0 auto 35px auto;
     max-width: 700px;
@@ -2045,11 +2045,11 @@ body.light-theme .github-stat-dark { display: none; }
     }
 
     .hero-section h2 {
-        font-size: 1.7rem; /* MODIFIED: Was 2rem */
+        font-size: 1.2rem; /* MODIFIED: Enforced small size on mobile */
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* MODIFIED: Matched title and feature card text */
     }
 
     .trust-indicators {
@@ -2247,11 +2247,11 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .hero-section h2 {
-        font-size: 2.5rem; /* MODIFIED: Was 3rem */
+        font-size: 1.2rem; /* MODIFIED: Enforced small size on desktop */
     }
     
     .hero-text {
-        font-size: 1.3rem;
+        font-size: 1.2rem; /* MODIFIED: Matched title and feature card text */
     }
 
     .store-page .features-grid {
@@ -2314,11 +2314,11 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .hero-section h2 {
-        font-size: 3rem; /* MODIFIED: Was 3.5rem */
+        font-size: 1.2rem; /* MODIFIED: Enforced small size on large screens */
     }
     
     .hero-text {
-        font-size: 1.4rem;
+        font-size: 1.2rem; /* MODIFIED: Matched title and feature card text */
         max-width: 800px;
     }
 }
