@@ -89,8 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Language modal buttons (from the now-unused modal) - change language and close
-        // This code is no longer triggered by the nav bar, but we leave it
-        // as it doesn't cause harm.
         document.querySelectorAll('#language-selection-modal .language-button').forEach(button => {
             button.addEventListener('click', () => {
                 const newLang = button.getAttribute('data-lang');
@@ -115,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update all elements with data attributes
         document.querySelectorAll('[data-en]').forEach(el => {
             const text = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en');
+            // Check if element has text nodes
             const hasDirectText = Array.from(el.childNodes).some(node => 
                 node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
             );
@@ -257,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Show disclaimer modal immediately on page load
             setTimeout(() => {
                 if (disclaimerModal) {
-                    // MODIFICATION: Add 'visible' and 'banner-style' classes
+                    // Add 'visible' and 'banner-style' classes
                     disclaimerModal.classList.add('visible');
                     disclaimerModal.classList.add('banner-style');
                 }
@@ -273,23 +272,18 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 localStorage.setItem('disclaimerAccepted', 'true');
                 if (disclaimerModal) {
-                    // MODIFICATION: Remove 'visible' and 'banner-style' classes
                     disclaimerModal.classList.remove('visible');
                     disclaimerModal.classList.remove('banner-style');
                     disclaimerModal.classList.remove('closing');
                 }
                 console.log('Disclaimer accepted');
-            }, 400); // Increased from 300ms to 400ms for smoother close
+            }, 400); 
         });
 
         // Handle decline button - go to google.com
         declineBtn?.addEventListener('click', () => {
-            // Updated to redirect to google.com
             window.location.href = 'https://www.google.com';
         });
-
-        // MODIFICATION: Removed the click outside prevention logic
-        // The modal overlay click listener in initializeModals will handle this.
     }
 
     // --- MODAL MANAGEMENT ---
@@ -314,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- CAROUSEL FUNCTIONALITY ---
     function initializeCarousels() {
-        // FIX: Updated to use correct class names from collaborations.html
         const carousels = document.querySelectorAll('.collaborations-carousel');
         
         carousels.forEach(carousel => {
@@ -426,12 +419,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // --- TOOL CATEGORIES FUNCTIONALITY (IMPROVED) ---
+    // --- TOOL CATEGORIES FUNCTIONALITY ---
     function initializeToolCategories(containerSelector) {
         const container = document.querySelector(containerSelector);
         if (!container) return;
-
-        console.log(`Initializing tool categories for ${containerSelector}...`);
         
         // First, ensure all categories and tool items are properly initialized
         container.querySelectorAll('.category, .tool-item').forEach(item => {
@@ -506,27 +497,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- STORE PAGE FUNCTIONALITY ---
     function initializeStorePage() {
-        // Check if we're on the store page
         if (document.querySelector('.store-page')) {
-            console.log('Store page detected, initializing store functionality...');
-            
-            // Initialize store categories (foldable sections)
             initializeStoreCategories();
         }
     }
 
     // --- STORE CATEGORIES FUNCTIONALITY ---
     function initializeStoreCategories() {
-        console.log('Initializing store categories...');
-        
-        // Store category toggle functionality
         document.querySelectorAll('.store-page .category-header').forEach(header => {
             header.addEventListener('click', function() {
-                console.log('Store category header clicked');
                 const category = this.parentElement;
                 const wasActive = category.classList.contains('active');
                 
-                // Toggle the clicked category
                 if (!wasActive) {
                     category.classList.add('active');
                 } else {
@@ -534,19 +516,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-    }
-
-    // --- PERFORMANCE OPTIMIZATION ---
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
     }
 
     // --- INITIALIZATION ---
@@ -560,10 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeStorePage();
 
         // Initialize tool categories
-        // This targets the main tools page
         initializeToolCategories('.categories-container');
-        
-        // This targets the FAQ section on the homepage
         initializeToolCategories('#faq-container');
 
         // Set initial language - default to English
@@ -576,14 +542,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('light-theme');
         }
 
-        // FIX: Update active nav link based on current page
+        // Update active nav link based on current page
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(link => {
-            // Remove the static 'active' class from HTML
             link.classList.remove('active'); 
-            
             const linkPage = link.getAttribute('href').split('/').pop();
-            
             if (linkPage === currentPage) {
                 link.classList.add('active');
             }
@@ -648,14 +611,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        /* Improve tool description animation */
         .tool-description {
             transition: max-height 0.4s cubic-bezier(0.65, 0, 0.35, 1), 
                        opacity 0.3s cubic-bezier(0.65, 0, 0.35, 1),
                        padding-top 0.3s cubic-bezier(0.65, 0, 0.35, 1);
         }
         
-        /* Improve category animation */
         .tools-list {
             transition: max-height 0.4s cubic-bezier(0.65, 0, 0.35, 1);
         }
