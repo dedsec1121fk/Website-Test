@@ -159,6 +159,33 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="tool-item">
+                        <div class="tool-header">
+                            <h4 class="tool-title" data-en="The 'Update Packages' process is stuck/frozen" data-gr="Η διαδικασία 'Update Packages' κόλλησε/πάγωσε">The 'Update Packages' process is stuck/frozen</h4>
+                            <i class="fas fa-chevron-down tool-expand-icon"></i>
+                        </div>
+                        <div class="tool-description">
+                            <p data-en="Sometimes the script successfully updates modules, but the loading animation freezes. If the update takes more than 15 minutes, the installation is likely done, but the interface has hung."
+                               data-gr="Μερικές φορές το σενάριο ενημερώνει επιτυχώς τα modules, αλλά η κίνηση φόρτωσης παγώνει. Εάν η ενημέρωση διαρκέσει πάνω από 15 λεπτά, η εγκατάσταση έχει πιθανότατα ολοκληρωθεί αλλά η διεπαφή έχει κολλήσει.">
+                               Sometimes the script successfully updates modules, but the loading animation freezes. If the update takes more than 15 minutes, the installation is likely done, but the interface has hung.
+                            </p>
+                            
+                            <div class="note-warning">
+                                <strong data-en="Solution:" data-gr="Λύση:">Solution:</strong>
+                                <br>
+                                <span data-en="You can safely force close the program using the shortcut below. This will not break the installation."
+                                      data-gr="Μπορείτε να κλείσετε αναγκαστικά το πρόγραμμα με ασφάλεια χρησιμοποιώντας την παρακάτω συντόμευση.">
+                                      You can safely force close the program using the shortcut below. This will not break the installation.
+                                </span>
+                            </div>
+
+                            <div class="code-container">
+                                <button class="copy-btn" onclick="copyToClipboard(this, 'code-force-quit')">Copy</button>
+                                <code id="code-force-quit">CTRL + C</code>
+                            </div>
+                        </div>
+                    </div>
                     <div class="tool-item">
                         <div class="tool-header">
                             <h4 class="tool-title" data-en="Permission Denied / Storage Issues" data-gr="Άρνηση Πρόσβασης / Θέματα Αποθήκευσης">Permission Denied / Storage Issues</h4>
