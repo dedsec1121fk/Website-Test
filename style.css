@@ -281,7 +281,7 @@ p {
 
 .nav-title h1 {
     margin: 0;
-    font-size: 2rem; 
+    font-size: 2rem; /* KEEP ORIGINAL SIZE FOR NAV TITLE */
     color: var(--nm-text-accent);
     font-family: var(--font-secondary);
     text-shadow: none;
@@ -445,7 +445,7 @@ body.light-theme .nav-title h1 {
 .page-header h1 {
     color: var(--nm-text-accent);
     font-family: var(--font-secondary);
-    font-size: 2.5rem;
+    font-size: 2.125rem; /* REDUCED BY 15% from 2.5rem */
     margin-bottom: 10px;
     text-shadow: none;
 }
@@ -482,12 +482,14 @@ body.light-theme .page-header h1 {
     margin-bottom: 20px;
     border-bottom: 2px solid var(--nm-border);
     padding-bottom: 10px;
+    font-size: 1.7rem; /* REDUCED BY 15% from default */
 }
 
 .content-section h3 {
     color: var(--nm-text);
     font-family: var(--font-secondary);
     margin: 25px 0 15px 0;
+    font-size: 1.19rem; /* REDUCED BY 15% from default */
 }
 
 .content-section p {
@@ -527,6 +529,7 @@ body.light-theme .page-header h1 {
     color: var(--nm-text-accent);
     margin-bottom: 10px;
     font-family: var(--font-secondary);
+    font-size: 1.13rem; /* REDUCED BY 15% from default */
 }
 
 /* --- TOOL FEATURES BULLET STYLES --- */
@@ -624,7 +627,7 @@ body.light-theme .page-header h1 {
 
 .hero-section h2 {
     font-family: var(--font-secondary);
-    font-size: 2.1rem;
+    font-size: 1.785rem; /* REDUCED BY 15% from 2.1rem */
     color: var(--nm-text-accent);
     text-shadow: none;
     margin: 0 0 25px 0;
@@ -780,7 +783,7 @@ body.light-theme .page-header h1 {
 
 .stat-number {
     font-family: var(--font-secondary);
-    font-size: 2.2rem;
+    font-size: 1.87rem; /* REDUCED BY 15% from 2.2rem */
     font-weight: 700;
     color: var(--nm-accent);
     margin-bottom: 8px;
@@ -864,7 +867,7 @@ body.light-theme .page-header h1 {
 
 .feature-title {
     font-family: var(--font-secondary);
-    font-size: 1.2rem;
+    font-size: 1.02rem; /* REDUCED BY 15% from 1.2rem */
     color: var(--nm-text-accent);
     margin: 0 0 10px 0;
     transition: color 0.3s ease;
@@ -940,7 +943,7 @@ body.light-theme .page-header h1 {
 .community-card span {
     font-family: var(--font-secondary);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 0.935rem; /* REDUCED BY 15% from 1.1rem */
     text-align: center;
 }
 
@@ -1068,7 +1071,7 @@ body.light-theme .modal-overlay {
     margin: 0;
     font-family: var(--font-secondary);
     color: var(--nm-text-accent);
-    font-size: 1.5rem;
+    font-size: 1.275rem; /* REDUCED BY 15% from 1.5rem */
 }
 
 .modal-body {
@@ -1163,7 +1166,7 @@ body.light-theme .modal-overlay {
 }
 
 .modal-overlay.banner-style .modal-header h2 {
-    font-size: 1.1rem;
+    font-size: 0.935rem; /* REDUCED BY 15% from 1.1rem */
 }
 
 .modal-overlay.banner-style .language-selection-btn {
@@ -1484,6 +1487,7 @@ pre code,
     color: var(--nm-text-accent);
     font-family: var(--font-secondary);
     margin-bottom: 10px;
+    font-size: 1.13rem; /* REDUCED BY 15% from default */
 }
 
 .portfolio-card p {
@@ -1662,7 +1666,7 @@ body.light-theme .github-stat-dark { display: none; }
     margin: 0;
     font-family: var(--font-secondary);
     color: var(--nm-text-accent);
-    font-size: 1.2rem;
+    font-size: 1.02rem; /* REDUCED BY 15% from 1.2rem */
     border-bottom: none;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -1740,7 +1744,7 @@ body.light-theme .github-stat-dark { display: none; }
     margin: 0;
     color: var(--nm-text);
     font-family: var(--font-mono);
-    font-size: 1rem;
+    font-size: 0.85rem; /* REDUCED BY 15% from 1rem */
     font-weight: 600;
 }
 
@@ -1844,7 +1848,7 @@ body.light-theme .github-stat-dark { display: none; }
 
 .product-price {
     font-family: var(--font-secondary);
-    font-size: 1.8rem;
+    font-size: 1.53rem; /* REDUCED BY 15% from 1.8rem */
     font-weight: bold;
     color: var(--nm-accent);
     margin: 15px 0;
@@ -1930,7 +1934,7 @@ body.light-theme .github-stat-dark { display: none; }
 }
 
 .store-page .page-header h1 {
-    font-size: 2.8rem;
+    font-size: 2.38rem; /* REDUCED BY 15% from 2.8rem */
     margin-bottom: 15px;
 }
 
@@ -1949,7 +1953,7 @@ body.light-theme .github-stat-dark { display: none; }
 }
 
 .store-page .feature-title {
-    font-size: 1.5rem;
+    font-size: 1.275rem; /* REDUCED BY 15% from 1.5rem */
     margin-bottom: 15px;
 }
 
@@ -2073,7 +2077,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
 
     .modal-header h2 {
-        font-size: 1.3rem;
+        font-size: 1.105rem; /* REDUCED BY 15% from 1.3rem */
     }
     
     .hero-section {
@@ -2081,7 +2085,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
 
     .hero-section h2 {
-        font-size: 1.7rem;
+        font-size: 1.445rem; /* REDUCED BY 15% from 1.7rem */
     }
 
     .hero-text {
@@ -2129,7 +2133,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
 
     .store-page .page-header h1 {
-        font-size: 2.2rem;
+        font-size: 1.87rem; /* REDUCED BY 15% from 2.2rem */
     }
 
     .store-page .page-header p {
@@ -2151,7 +2155,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
 
     .store-page .product-price {
-        font-size: 1.6rem;
+        font-size: 1.36rem; /* REDUCED BY 15% from 1.6rem */
     }
 
     .store-page .payment-btn {
@@ -2176,7 +2180,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .category-header h3 {
-        font-size: 1.1rem;
+        font-size: 0.935rem; /* REDUCED BY 15% from 1.1rem */
     }
     
     .tool-item {
@@ -2184,7 +2188,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .tool-title {
-        font-size: 0.95rem;
+        font-size: 0.808rem; /* REDUCED BY 15% from 0.95rem */
     }
     
     .tool-description {
@@ -2304,7 +2308,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .hero-section h2 {
-        font-size: 2.5rem;
+        font-size: 2.125rem; /* REDUCED BY 15% from 2.5rem */
     }
     
     .hero-text {
@@ -2334,7 +2338,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .modal-overlay.banner-style .modal-header h2 {
-        font-size: 1.3rem;
+        font-size: 1.105rem; /* REDUCED BY 15% from 1.3rem */
     }
     
     /* FAQ Desktop Improvements */
@@ -2379,7 +2383,7 @@ body.light-theme .github-stat-dark { display: none; }
     }
     
     .hero-section h2 {
-        font-size: 3rem;
+        font-size: 2.55rem; /* REDUCED BY 15% from 3rem */
     }
     
     .hero-text {
