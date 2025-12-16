@@ -1,7 +1,7 @@
 /*
     =================================================================
     DEDSEC PROJECT MULTI-PAGE STYLES
-    VERSION: 4.9.3 (Content Clipping & Alignment Fix)
+    VERSION: 4.9.2 (PC Nav Alignment & Curved Screen Fix)
     =================================================================
 */
 
@@ -149,11 +149,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
     line-height: 1.4;
-}
-
-/* ADDED: Global box-sizing reset to fix clipping/horizontal scrollbar issues */
-*, *::before, *::after {
-    box-sizing: border-box;
 }
 
 /* FORCE ICON COLOR OVERRIDE (Purple by default) */
@@ -2227,6 +2222,11 @@ body.light-theme .github-stat-dark { display: none; }
 }
 
 @media (min-width: 993px) {
+    /* FIX: Adjust padding for curved screens and PC alignment */
+    .main-nav {
+        padding: 0 40px !important;
+    }
+
     .burger-menu {
         display: none;
     }
@@ -2235,15 +2235,15 @@ body.light-theme .github-stat-dark { display: none; }
         display: flex;
         justify-content: flex-end; 
         align-items: center;
-        /* PREVIOUS FIX: Added 20px horizontal padding to match .page-content alignment */
-        padding: 10px 20px; 
+        padding: 10px 0;
         position: relative;
+        /* FIX: Ensure container spans full width for correct alignment */
+        max-width: 100%;
+        width: 100%;
     }
     
     .nav-title {
         margin-inline-end: auto;
-        /* ADDED: Restrict title width to prevent it from pushing action buttons off-screen and causing clipping */
-        max-width: 50%;
     }
     
     .nav-menu {
