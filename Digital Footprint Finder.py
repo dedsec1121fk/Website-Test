@@ -1,0 +1,209 @@
+#!/usr/bin/env python3
+# Digital Footprint Finder
+# Sherlock-grade OSINT username searcher
+# Legitimate OSINT use only
+
+import os
+import sys
+import json
+import time
+import random
+import re
+import socket
+import subprocess
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# ---------------- CONFIG ----------------
+
+SITES_JSON = "websites.json"
+THREADS = 8
+BASE_DELAY = 0.6
+JITTER = 0.4
+
+FP_CACHE = "fp_cache.json"
+
+SAVE_DIR = "/storage/emulated/0/Download/Digital Footprint Finder"
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Digital Footprint Finder OSINT)"
+}
+
+# ---------------- DEPENDENCIES ----------------
+
+def install(pkg):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+
+try:
+    import requests
+except ImportError:
+    install("requests")
+    import requests
+
+# ---------------- TOR AUTO-DETECT ----------------
+
+def tor_running(host="127.0.0.1", port=9050):
+    try:
+        with socket.create_connection((host, port), timeout=2):
+            return True
+    except OSError:
+        return False
+
+USE_TOR = tor_running()
+
+def get_session():
+    s = requests.Session()
+    s.headers.update(HEADERS)
+
+    if USE_TOR:
+        s.proxies = {
+            "http": "socks5h://127.0.0.1:9050",
+            "https": "socks5h://127.0.0.1:9050"
+        }
+    return s
+
+# ---------------- UTILS ----------------
+
+def rate_limit():
+    time.sleep(BASE_DELAY + random.uniform(0, JITTER))
+
+def load_json(path, default=None):
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return default if default is not None else {}
+
+def save_json(path, data):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+# ---------------- VERIFICATION ----------------
+
+def regex_check(text, patterns):
+    for p in patterns:
+        if not re.search(p, text, re.IGNORECASE):
+            return False
+    return True
+
+def content_check(text, rules):
+    t = text.lower()
+
+    for bad in rules.get("must_not_contain", []):
+        if bad.lower() in t:
+            return False
+
+    for good in rules.get("must_contain", []):
+        if good.lower() not in t:
+            return False
+
+    if "regex" in rules:
+        if not regex_check(text, rules["regex"]):
+            return False
+
+    return True
+
+def make_request(session, method, url):
+    if method.upper() == "HEAD":
+        return session.head(url, timeout=10, allow_redirects=True)
+    return session.get(url, timeout=10, allow_redirects=True)
+
+# ---------------- CONFIDENCE ----------------
+
+def calculate_confidence(site_cfg, fp_hits):
+    base = site_cfg.get("confidence_weight", 0.6)
+    penalty = min(fp_hits * 0.1, 0.4)
+    return round(max(0.0, min(1.0, base - penalty)), 2)
+
+# ---------------- CORE SCAN ----------------
+
+def check_site(session, site, cfg, username, fp_cache):
+    url = cfg["url"].format(username)
+    method = cfg.get("method", "GET")
+    valid_status = cfg.get("valid_status", [200])
+    category = cfg.get("category", "Uncategorized")
+    key = f"{site}:{username}"
+
+    try:
+        r = make_request(session, method, url)
+        rate_limit()
+
+        if r.status_code not in valid_status:
+            fp_cache[key] = fp_cache.get(key, 0) + 1
+            return None
+
+        if method != "HEAD":
+            if not content_check(r.text, cfg):
+                fp_cache[key] = fp_cache.get(key, 0) + 1
+                return None
+
+        confidence = calculate_confidence(cfg, fp_cache.get(key, 0))
+        return {
+            "site": site,
+            "category": category,
+            "url": url,
+            "confidence": confidence
+        }
+
+    except requests.RequestException:
+        return None
+
+def scan(username):
+    sites = load_json(SITES_JSON)
+    if not sites:
+        print("[-] websites.json missing or empty")
+        sys.exit(1)
+
+    fp_cache = load_json(FP_CACHE, {})
+    session = get_session()
+    results = []
+
+    with ThreadPoolExecutor(max_workers=THREADS) as executor:
+        futures = [
+            executor.submit(check_site, session, site, cfg, username, fp_cache)
+            for site, cfg in sites.items()
+        ]
+
+        for f in as_completed(futures):
+            r = f.result()
+            if r:
+                results.append(r)
+
+    save_json(FP_CACHE, fp_cache)
+    return results
+
+# ---------------- SAVE RESULTS ----------------
+
+def save_results(username, results):
+    os.makedirs(SAVE_DIR, exist_ok=True)
+    path = os.path.join(SAVE_DIR, f"{username}.txt")
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"Digital Footprint Finder Results\n")
+        f.write(f"Username: {username}\n")
+        f.write(f"Tor Used: {'YES' if USE_TOR else 'NO'}\n\n")
+
+        for r in sorted(results, key=lambda x: x["confidence"], reverse=True):
+            level = "HIGH" if r["confidence"] >= 0.85 else "MEDIUM" if r["confidence"] >= 0.65 else "LOW"
+            f.write(f"[{level}] {r['site']} ({r['category']})\n")
+            f.write(f"URL: {r['url']}\n")
+            f.write(f"Confidence: {r['confidence']}\n\n")
+
+    print(f"\n[✓] Results saved to:\n{path}")
+
+# ---------------- MAIN ----------------
+
+def main():
+    os.system("clear")
+
+    username = input("Enter username: ").strip()
+    if not username:
+        print("[-] Username cannot be empty")
+        return
+
+    results = scan(username)
+
+    print(f"\n[✓] Found {len(results)} confirmed profiles")
+    save_results(username, results)
+
+if __name__ == "__main__":
+    main()
+
