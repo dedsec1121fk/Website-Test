@@ -3,2004 +3,3484 @@
     "category": "Development",
     "url": "https://github.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["repositories", "followers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "repositories",
+      "followers"
+    ],
     "confidence_weight": 0.95
   },
   "GitLab": {
     "category": "Development",
     "url": "https://gitlab.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
     "confidence_weight": 0.9
   },
   "Bitbucket": {
     "category": "Development",
     "url": "https://bitbucket.org/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["repositories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "repositories"
+    ],
     "confidence_weight": 0.85
   },
   "StackOverflow": {
     "category": "Development",
     "url": "https://stackoverflow.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "must_contain": ["reputation"],
+    "valid_status": [
+      200
+    ],
+    "must_contain": [
+      "reputation"
+    ],
     "confidence_weight": 0.9
   },
   "NPM": {
     "category": "Development",
     "url": "https://www.npmjs.com/~{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["packages"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "packages"
+    ],
     "confidence_weight": 0.9
   },
   "PyPi": {
     "category": "Development",
     "url": "https://pypi.org/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
     "confidence_weight": 0.9
   },
   "DockerHub": {
     "category": "Development",
     "url": "https://hub.docker.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["repositories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "repositories"
+    ],
     "confidence_weight": 0.85
   },
   "CodePen": {
     "category": "Development",
     "url": "https://codepen.io/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Pens"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Pens"
+    ],
     "confidence_weight": 0.9
   },
   "Dev.to": {
     "category": "Development",
     "url": "https://dev.to/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["articles"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "articles"
+    ],
     "confidence_weight": 0.85
   },
   "Replit": {
     "category": "Development",
     "url": "https://replit.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Repls"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Repls"
+    ],
     "confidence_weight": 0.9
   },
   "Glitch": {
     "category": "Development",
     "url": "https://glitch.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
     "confidence_weight": 0.85
   },
   "SourceForge": {
     "category": "Development",
     "url": "https://sourceforge.net/u/{}/profile",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["Error 404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "Error 404"
+    ],
     "confidence_weight": 0.8
   },
   "Launchpad": {
     "category": "Development",
     "url": "https://launchpad.net/~{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Registered"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Registered"
+    ],
     "confidence_weight": 0.85
   },
   "LeetCode": {
     "category": "Development",
     "url": "https://leetcode.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["solved"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "solved"
+    ],
     "confidence_weight": 0.9
   },
   "HackerRank": {
     "category": "Development",
     "url": "https://www.hackerrank.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Badges"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Badges"
+    ],
     "confidence_weight": 0.9
   },
   "Codewars": {
     "category": "Development",
     "url": "https://www.codewars.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Clan"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Clan"
+    ],
     "confidence_weight": 0.9
   },
   "Packagist": {
     "category": "Development",
     "url": "https://packagist.org/packages/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Maintainers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Maintainers"
+    ],
     "confidence_weight": 0.8
   },
   "RubyGems": {
     "category": "Development",
     "url": "https://rubygems.org/profiles/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["gems"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "gems"
+    ],
     "confidence_weight": 0.85
   },
   "Kaggle": {
     "category": "Development",
     "url": "https://www.kaggle.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Competitions"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Competitions"
+    ],
     "confidence_weight": 0.9
   },
   "HuggingFace": {
     "category": "Development",
     "url": "https://huggingface.co/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Models"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Models"
+    ],
     "confidence_weight": 0.9
   },
   "CodeChef": {
     "category": "Development",
     "url": "https://www.codechef.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Rating"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Rating"
+    ],
     "confidence_weight": 0.85
   },
   "TopCoder": {
     "category": "Development",
     "url": "https://www.topcoder.com/members/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Member since"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Member since"
+    ],
     "confidence_weight": 0.85
   },
   "GeeksForGeeks": {
     "category": "Development",
     "url": "https://auth.geeksforgeeks.org/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Institute"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Institute"
+    ],
     "confidence_weight": 0.8
   },
   "Pastebin": {
     "category": "Development",
     "url": "https://pastebin.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["Not Found"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "Not Found"
+    ],
     "confidence_weight": 0.75
   },
   "Gist": {
     "category": "Development",
     "url": "https://gist.github.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["All gists"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "All gists"
+    ],
     "confidence_weight": 0.9
   },
   "Instagram": {
     "category": "Social",
     "url": "https://www.instagram.com/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["profilePage"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profilePage"
+    ],
     "confidence_weight": 0.9
   },
   "Facebook": {
     "category": "Social",
     "url": "https://www.facebook.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["profile"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile"
+    ],
     "confidence_weight": 0.7
   },
   "Twitter": {
     "category": "Social",
     "url": "https://x.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["profile"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile"
+    ],
     "confidence_weight": 0.9
   },
   "Reddit": {
     "category": "Social",
     "url": "https://www.reddit.com/user/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["karma"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "karma"
+    ],
     "confidence_weight": 0.95
   },
   "TikTok": {
     "category": "Social",
     "url": "https://www.tiktok.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["share-desc"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "share-desc"
+    ],
     "confidence_weight": 0.9
   },
   "Pinterest": {
     "category": "Social",
     "url": "https://www.pinterest.com/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["pins"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "pins"
+    ],
     "confidence_weight": 0.8
   },
   "Snapchat": {
     "category": "Social",
     "url": "https://www.snapchat.com/add/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Snapchat"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Snapchat"
+    ],
     "confidence_weight": 0.7
   },
   "Telegram": {
     "category": "Social",
     "url": "https://t.me/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["tgme_page"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "tgme_page"
+    ],
     "confidence_weight": 0.85
   },
   "VK": {
     "category": "Social",
     "url": "https://vk.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["profile_header"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile_header"
+    ],
     "confidence_weight": 0.9
   },
   "Tumblr": {
     "category": "Social",
     "url": "https://{}.tumblr.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["tumblr"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "tumblr"
+    ],
     "confidence_weight": 0.8
   },
   "Flickr": {
     "category": "Social",
     "url": "https://www.flickr.com/people/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["photostream"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "photostream"
+    ],
     "confidence_weight": 0.85
   },
   "YouTube": {
     "category": "Video",
     "url": "https://www.youtube.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["videos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "videos"
+    ],
     "confidence_weight": 0.85
   },
   "Twitch": {
     "category": "Streaming",
     "url": "https://www.twitch.tv/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["channel"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "channel"
+    ],
     "confidence_weight": 0.9
   },
   "Vimeo": {
     "category": "Video",
     "url": "https://vimeo.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["bio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "bio"
+    ],
     "confidence_weight": 0.8
   },
   "Steam": {
     "category": "Gaming",
     "url": "https://steamcommunity.com/id/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["profile_header"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile_header"
+    ],
     "confidence_weight": 0.95
   },
   "EpicGames": {
     "category": "Gaming",
     "url": "https://store.epicgames.com/en-US/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Epic"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Epic"
+    ],
     "confidence_weight": 0.75
   },
   "Xbox": {
     "category": "Gaming",
     "url": "https://www.xboxgamertag.com/search/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Gamerscore"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Gamerscore"
+    ],
     "confidence_weight": 0.85
   },
   "PlayStation": {
     "category": "Gaming",
     "url": "https://psnprofiles.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["trophies"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "trophies"
+    ],
     "confidence_weight": 0.9
   },
   "Roblox": {
     "category": "Gaming",
     "url": "https://www.roblox.com/user.aspx?username={}",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["Page cannot be found"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "Page cannot be found"
+    ],
     "confidence_weight": 0.85
   },
   "TrackerGG": {
     "category": "Gaming",
     "url": "https://tracker.gg/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Stats"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Stats"
+    ],
     "confidence_weight": 0.8
   },
   "Speedrun": {
     "category": "Gaming",
     "url": "https://www.speedrun.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Personal Bests"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Personal Bests"
+    ],
     "confidence_weight": 0.9
   },
   "ItchIO": {
     "category": "Gaming",
     "url": "https://{}.itch.io",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
     "confidence_weight": 0.85
   },
   "GOG": {
     "category": "Gaming",
     "url": "https://www.gog.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["games"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "games"
+    ],
     "confidence_weight": 0.8
   },
   "SoundCloud": {
     "category": "Music",
     "url": "https://soundcloud.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["tracks"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "tracks"
+    ],
     "confidence_weight": 0.9
   },
   "Spotify": {
     "category": "Music",
     "url": "https://open.spotify.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["followers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "followers"
+    ],
     "confidence_weight": 0.75
   },
   "Bandcamp": {
     "category": "Music",
     "url": "https://{}.bandcamp.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["music"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "music"
+    ],
     "confidence_weight": 0.85
   },
   "LastFM": {
     "category": "Music",
     "url": "https://www.last.fm/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["scrobbles"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "scrobbles"
+    ],
     "confidence_weight": 0.9
   },
   "Mixcloud": {
     "category": "Music",
     "url": "https://www.mixcloud.com/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["followers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "followers"
+    ],
     "confidence_weight": 0.85
   },
   "Discogs": {
     "category": "Music",
     "url": "https://www.discogs.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Collection"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Collection"
+    ],
     "confidence_weight": 0.85
   },
   "Genius": {
     "category": "Music",
     "url": "https://genius.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["IQ"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "IQ"
+    ],
     "confidence_weight": 0.8
   },
   "Medium": {
     "category": "Blogging",
     "url": "https://medium.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["stories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "stories"
+    ],
     "confidence_weight": 0.9
   },
   "WordPress": {
     "category": "Blogging",
     "url": "https://{}.wordpress.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["blog"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "blog"
+    ],
     "confidence_weight": 0.8
   },
   "Blogger": {
     "category": "Blogging",
     "url": "https://{}.blogspot.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["blog"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "blog"
+    ],
     "confidence_weight": 0.75
   },
   "Wattpad": {
     "category": "Blogging",
     "url": "https://www.wattpad.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Stories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Stories"
+    ],
     "confidence_weight": 0.85
   },
   "Substack": {
     "category": "Blogging",
     "url": "https://{}.substack.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Subscribe"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Subscribe"
+    ],
     "confidence_weight": 0.85
   },
   "Ghost": {
     "category": "Blogging",
     "url": "https://{}.ghost.io",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.8
   },
   "Wix": {
     "category": "Blogging",
     "url": "https://{}.wixsite.com/website",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.7
   },
   "DeviantArt": {
     "category": "Art",
     "url": "https://www.deviantart.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["deviations"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "deviations"
+    ],
     "confidence_weight": 0.95
   },
   "Behance": {
     "category": "Art",
     "url": "https://www.behance.net/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
     "confidence_weight": 0.9
   },
   "Dribbble": {
     "category": "Art",
     "url": "https://dribbble.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["shots"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "shots"
+    ],
     "confidence_weight": 0.9
   },
   "ArtStation": {
     "category": "Art",
     "url": "https://www.artstation.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "portfolio"
+    ],
     "confidence_weight": 0.9
   },
   "500px": {
     "category": "Art",
     "url": "https://500px.com/p/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Galleries"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Galleries"
+    ],
     "confidence_weight": 0.85
   },
   "Unsplash": {
     "category": "Art",
     "url": "https://unsplash.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Collections"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Collections"
+    ],
     "confidence_weight": 0.85
   },
   "VSCO": {
     "category": "Art",
     "url": "https://vsco.co/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Gallery"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Gallery"
+    ],
     "confidence_weight": 0.8
   },
   "LinkedIn": {
     "category": "Professional",
     "url": "https://www.linkedin.com/in/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.6
   },
   "AboutMe": {
     "category": "Personal",
     "url": "https://about.me/{}",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["doesn't exist"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "doesn't exist"
+    ],
     "confidence_weight": 0.85
   },
   "Linktree": {
     "category": "Personal",
     "url": "https://linktr.ee/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.9
   },
   "Carrd": {
     "category": "Personal",
     "url": "https://{}.carrd.co",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["Not Found"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "Not Found"
+    ],
     "confidence_weight": 0.8
   },
   "Patreon": {
     "category": "Finance",
     "url": "https://www.patreon.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["patron"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "patron"
+    ],
     "confidence_weight": 0.9
   },
   "PayPal": {
     "category": "Finance",
     "url": "https://www.paypal.com/paypalme/{}",
     "method": "GET",
-    "valid_status": [200],
-    "must_contain": ["Send"],
+    "valid_status": [
+      200
+    ],
+    "must_contain": [
+      "Send"
+    ],
     "confidence_weight": 0.9
   },
   "Venmo": {
     "category": "Finance",
     "url": "https://account.venmo.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.85
   },
   "CashApp": {
     "category": "Finance",
     "url": "https://cash.app/${}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Cash App"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Cash App"
+    ],
     "confidence_weight": 0.85
   },
   "KoFi": {
     "category": "Finance",
     "url": "https://ko-fi.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Buy a Coffee"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Buy a Coffee"
+    ],
     "confidence_weight": 0.85
   },
   "BuyMeACoffee": {
     "category": "Finance",
     "url": "https://www.buymeacoffee.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Support"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Support"
+    ],
     "confidence_weight": 0.85
   },
   "Gumroad": {
     "category": "Finance",
     "url": "https://{}.gumroad.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["products"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "products"
+    ],
     "confidence_weight": 0.8
   },
   "Ebay": {
     "category": "Finance",
     "url": "https://www.ebay.com/usr/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["feedback"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "feedback"
+    ],
     "confidence_weight": 0.85
   },
   "Etsy": {
     "category": "Finance",
     "url": "https://www.etsy.com/people/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Favorites"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Favorites"
+    ],
     "confidence_weight": 0.85
   },
   "Fiverr": {
     "category": "Professional",
     "url": "https://www.fiverr.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Gigs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Gigs"
+    ],
     "confidence_weight": 0.9
   },
   "Upwork": {
     "category": "Professional",
     "url": "https://www.upwork.com/freelancers/~{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Job Success"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Job Success"
+    ],
     "confidence_weight": 0.85
   },
   "Freelancer": {
     "category": "Professional",
     "url": "https://www.freelancer.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Reviews"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Reviews"
+    ],
     "confidence_weight": 0.85
   },
   "ProductHunt": {
     "category": "Tech",
     "url": "https://www.producthunt.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Maker"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Maker"
+    ],
     "confidence_weight": 0.85
   },
   "Quora": {
     "category": "Forum",
     "url": "https://www.quora.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Answers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Answers"
+    ],
     "confidence_weight": 0.85
   },
   "Disqus": {
     "category": "Forum",
     "url": "https://disqus.com/by/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["comments"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "comments"
+    ],
     "confidence_weight": 0.8
   },
   "HubPages": {
     "category": "Blogging",
     "url": "https://hubpages.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Hubs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Hubs"
+    ],
     "confidence_weight": 0.8
   },
   "Instructables": {
     "category": "DIY",
     "url": "https://www.instructables.com/member/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Instructables"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Instructables"
+    ],
     "confidence_weight": 0.85
   },
   "SlideShare": {
     "category": "Professional",
     "url": "https://www.slideshare.net/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Presentations"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Presentations"
+    ],
     "confidence_weight": 0.8
   },
   "Scribd": {
     "category": "Reading",
     "url": "https://www.scribd.com/user/{}/profile",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Reading"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Reading"
+    ],
     "confidence_weight": 0.8
   },
   "GoodReads": {
     "category": "Reading",
     "url": "https://www.goodreads.com/user/show/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["bookshelves"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "bookshelves"
+    ],
     "confidence_weight": 0.85
   },
   "Letterboxd": {
     "category": "Entertainment",
     "url": "https://letterboxd.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["films"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "films"
+    ],
     "confidence_weight": 0.9
   },
   "MyAnimeList": {
     "category": "Entertainment",
     "url": "https://myanimelist.net/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Anime"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Anime"
+    ],
     "confidence_weight": 0.9
   },
   "AniList": {
     "category": "Entertainment",
     "url": "https://anilist.co/user/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Manga"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Manga"
+    ],
     "confidence_weight": 0.9
   },
   "Trakt": {
     "category": "Entertainment",
     "url": "https://trakt.tv/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Collection"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Collection"
+    ],
     "confidence_weight": 0.85
   },
   "Duolingo": {
     "category": "Education",
     "url": "https://www.duolingo.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["XP"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "XP"
+    ],
     "confidence_weight": 0.85
   },
   "KhanAcademy": {
     "category": "Education",
     "url": "https://www.khanacademy.org/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Points"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Points"
+    ],
     "confidence_weight": 0.85
   },
   "Quizlet": {
     "category": "Education",
     "url": "https://quizlet.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Sets"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Sets"
+    ],
     "confidence_weight": 0.8
   },
   "Udemy": {
     "category": "Education",
     "url": "https://www.udemy.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.8
   },
   "Codecademy": {
     "category": "Education",
     "url": "https://www.codecademy.com/profiles/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Badges"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Badges"
+    ],
     "confidence_weight": 0.85
   },
   "Gravatar": {
     "category": "Tech",
     "url": "https://en.gravatar.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Profile"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Profile"
+    ],
     "confidence_weight": 0.9
   },
   "Keybase": {
     "category": "Security",
     "url": "https://keybase.io/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Devices"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Devices"
+    ],
     "confidence_weight": 0.95
   },
   "TryHackMe": {
     "category": "Security",
     "url": "https://tryhackme.com/p/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Rank"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Rank"
+    ],
     "confidence_weight": 0.9
   },
   "HackTheBox": {
     "category": "Security",
     "url": "https://www.hackthebox.com/home/users/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Ownership"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Ownership"
+    ],
     "confidence_weight": 0.9
   },
   "IFTTT": {
     "category": "Tech",
     "url": "https://ifttt.com/p/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Applets"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Applets"
+    ],
     "confidence_weight": 0.8
   },
   "TripAdvisor": {
     "category": "Travel",
     "url": "https://www.tripadvisor.com/Profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Contributions"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Contributions"
+    ],
     "confidence_weight": 0.85
   },
   "Yelp": {
     "category": "Travel",
     "url": "https://www.yelp.com/user_details?userid={}",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["Page Not Found"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "Page Not Found"
+    ],
     "confidence_weight": 0.8
   },
   "Airbnb": {
     "category": "Travel",
     "url": "https://www.airbnb.com/users/show/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Reviews"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Reviews"
+    ],
     "confidence_weight": 0.75
   },
   "Booking": {
     "category": "Travel",
     "url": "https://www.booking.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "Chess": {
     "category": "Gaming",
     "url": "https://www.chess.com/member/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Rating"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Rating"
+    ],
     "confidence_weight": 0.9
   },
   "Lichess": {
     "category": "Gaming",
     "url": "https://lichess.org/@/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Games"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Games"
+    ],
     "confidence_weight": 0.9
   },
   "Osu": {
     "category": "Gaming",
     "url": "https://osu.ppy.sh/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Play Count"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Play Count"
+    ],
     "confidence_weight": 0.9
   },
   "Minecraft": {
     "category": "Gaming",
     "url": "https://namemc.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["UUID"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "UUID"
+    ],
     "confidence_weight": 0.9
   },
   "Faceit": {
     "category": "Gaming",
     "url": "https://www.faceit.com/en/players/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Matches"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Matches"
+    ],
     "confidence_weight": 0.85
   },
   "Kongregate": {
     "category": "Gaming",
     "url": "https://www.kongregate.com/accounts/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Level"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Level"
+    ],
     "confidence_weight": 0.85
   },
   "Newgrounds": {
     "category": "Gaming",
     "url": "https://{}.newgrounds.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Medals"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Medals"
+    ],
     "confidence_weight": 0.85
   },
   "ArmorGames": {
     "category": "Gaming",
     "url": "https://armorgames.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Quests"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Quests"
+    ],
     "confidence_weight": 0.8
   },
   "GameJolt": {
     "category": "Gaming",
     "url": "https://gamejolt.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Trophies"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Trophies"
+    ],
     "confidence_weight": 0.85
   },
   "Carbonmade": {
     "category": "Art",
     "url": "https://{}.carbonmade.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Projects"
+    ],
     "confidence_weight": 0.8
   },
   "Cargo": {
     "category": "Art",
     "url": "https://cargocollective.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.8
   },
   "Coroflot": {
     "category": "Art",
     "url": "https://www.coroflot.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Pixabay": {
     "category": "Art",
     "url": "https://pixabay.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Uploads"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Uploads"
+    ],
     "confidence_weight": 0.85
   },
   "Pexels": {
     "category": "Art",
     "url": "https://www.pexels.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Photos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Photos"
+    ],
     "confidence_weight": 0.85
   },
   "Redbubble": {
     "category": "Art",
     "url": "https://www.redbubble.com/people/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Shop"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Shop"
+    ],
     "confidence_weight": 0.85
   },
   "Society6": {
     "category": "Art",
     "url": "https://society6.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Collection"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Collection"
+    ],
     "confidence_weight": 0.85
   },
   "Tidal": {
     "category": "Music",
     "url": "https://listen.tidal.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "Audiomack": {
     "category": "Music",
     "url": "https://audiomack.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Uploads"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Uploads"
+    ],
     "confidence_weight": 0.85
   },
   "ReverbNation": {
     "category": "Music",
     "url": "https://www.reverbnation.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Fans"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Fans"
+    ],
     "confidence_weight": 0.85
   },
   "Weebly": {
     "category": "Blogging",
     "url": "https://{}.weebly.com",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.75
   },
   "LiveJournal": {
     "category": "Blogging",
     "url": "https://{}.livejournal.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Journal"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Journal"
+    ],
     "confidence_weight": 0.8
   },
   "Dreamwidth": {
     "category": "Blogging",
     "url": "https://{}.dreamwidth.org",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Journal"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Journal"
+    ],
     "confidence_weight": 0.8
   },
   "TelegraPh": {
     "category": "Blogging",
     "url": "https://telegra.ph/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.6
   },
   "AngelList": {
     "category": "Professional",
     "url": "https://angel.co/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Investments"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Investments"
+    ],
     "confidence_weight": 0.85
   },
   "Crunchbase": {
     "category": "Professional",
     "url": "https://www.crunchbase.com/person/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Overview"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Overview"
+    ],
     "confidence_weight": 0.85
   },
   "Xing": {
     "category": "Professional",
     "url": "https://www.xing.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.8
   },
   "Myspace": {
     "category": "Social",
     "url": "https://myspace.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Connections"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Connections"
+    ],
     "confidence_weight": 0.75
   },
   "OKru": {
     "category": "Social",
     "url": "https://ok.ru/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["profile"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile"
+    ],
     "confidence_weight": 0.9
   },
   "AskFM": {
     "category": "Social",
     "url": "https://ask.fm/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Answers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Answers"
+    ],
     "confidence_weight": 0.85
   },
   "Meetup": {
     "category": "Social",
     "url": "https://www.meetup.com/members/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Groups"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Groups"
+    ],
     "confidence_weight": 0.8
   },
   "Foursquare": {
     "category": "Social",
     "url": "https://foursquare.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Tips"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Tips"
+    ],
     "confidence_weight": 0.8
   },
   "Imgur": {
     "category": "Social",
     "url": "https://imgur.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["points"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "points"
+    ],
     "confidence_weight": 0.9
   },
   "Giphy": {
     "category": "Social",
     "url": "https://giphy.com/channel/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["GIFs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "GIFs"
+    ],
     "confidence_weight": 0.85
   },
   "Tenor": {
     "category": "Social",
     "url": "https://tenor.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["GIFs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "GIFs"
+    ],
     "confidence_weight": 0.85
   },
   "Dailymotion": {
     "category": "Video",
     "url": "https://www.dailymotion.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["videos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "videos"
+    ],
     "confidence_weight": 0.8
   },
   "BitChute": {
     "category": "Video",
     "url": "https://www.bitchute.com/channel/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Subscribers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Subscribers"
+    ],
     "confidence_weight": 0.85
   },
   "Rumble": {
     "category": "Video",
     "url": "https://rumble.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["videos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "videos"
+    ],
     "confidence_weight": 0.8
   },
   "Coursera": {
     "category": "Education",
     "url": "https://www.coursera.org/user/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.8
   },
   "EdX": {
     "category": "Education",
     "url": "https://courses.edx.org/u/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.8
   },
   "Pluralsight": {
     "category": "Education",
     "url": "https://app.pluralsight.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Skills"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Skills"
+    ],
     "confidence_weight": 0.85
   },
   "FutureLearn": {
     "category": "Education",
     "url": "https://www.futurelearn.com/profiles/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.8
   },
   "BitcoinTalk": {
     "category": "Crypto",
     "url": "https://bitcointalk.org/index.php?action=profile;u={}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Position"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Position"
+    ],
     "confidence_weight": 0.85
   },
   "Steemit": {
     "category": "Crypto",
     "url": "https://steemit.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["posts"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "posts"
+    ],
     "confidence_weight": 0.9
   },
   "TradingView": {
     "category": "Finance",
     "url": "https://www.tradingview.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Ideas"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Ideas"
+    ],
     "confidence_weight": 0.85
   },
   "StockTwits": {
     "category": "Finance",
     "url": "https://stocktwits.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Watchlist"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Watchlist"
+    ],
     "confidence_weight": 0.85
   },
   "InvestingCom": {
     "category": "Finance",
     "url": "https://www.investing.com/members/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Comments"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Comments"
+    ],
     "confidence_weight": 0.8
   },
   "SeekingAlpha": {
     "category": "Finance",
     "url": "https://seekingalpha.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Comments"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Comments"
+    ],
     "confidence_weight": 0.8
   },
   "OpenCollective": {
     "category": "Finance",
     "url": "https://opencollective.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["contributed"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "contributed"
+    ],
     "confidence_weight": 0.85
   },
   "Liberapay": {
     "category": "Finance",
     "url": "https://liberapay.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["income"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "income"
+    ],
     "confidence_weight": 0.85
   },
   "Trello": {
     "category": "Productivity",
     "url": "https://trello.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Boards"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Boards"
+    ],
     "confidence_weight": 0.9
   },
   "Notion": {
     "category": "Productivity",
     "url": "https://www.notion.so/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.6
   },
   "Evernote": {
     "category": "Productivity",
     "url": "https://www.evernote.com/pub/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "Prezi": {
     "category": "Productivity",
     "url": "https://prezi.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Presentations"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Presentations"
+    ],
     "confidence_weight": 0.8
   },
   "Canva": {
     "category": "Design",
     "url": "https://www.canva.com/p/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "Figma": {
     "category": "Design",
     "url": "https://www.figma.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Community"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Community"
+    ],
     "confidence_weight": 0.85
   },
   "Houzz": {
     "category": "Design",
     "url": "https://www.houzz.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Projects"
+    ],
     "confidence_weight": 0.8
   },
   "WarriorForum": {
     "category": "Forum",
     "url": "https://www.warriorforum.com/members/{}.html",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Join Date"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Join Date"
+    ],
     "confidence_weight": 0.8
   },
   "BlackHatWorld": {
     "category": "Forum",
     "url": "https://www.blackhatworld.com/members/{}/",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Messages"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Messages"
+    ],
     "confidence_weight": 0.8
   },
   "Wildberries": {
     "category": "Shopping",
     "url": "https://www.wildberries.ru/brands/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "AliExpress": {
     "category": "Shopping",
     "url": "https://aliexpress.com/store/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Store"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Store"
+    ],
     "confidence_weight": 0.7
   },
   "Amazon": {
     "category": "Shopping",
     "url": "https://www.amazon.com/gp/profile/amzn1.account.{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Reviews"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Reviews"
+    ],
     "confidence_weight": 0.6
   },
   "Target": {
     "category": "Shopping",
     "url": "https://www.target.com/gift-registry/gift/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.6
   },
   "Walmart": {
     "category": "Shopping",
     "url": "https://www.walmart.com/lists/shared/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.6
   },
   "CodeBerg": {
     "category": "Development",
     "url": "https://codeberg.org/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Repositories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Repositories"
+    ],
     "confidence_weight": 0.9
   },
   "MastodonSocial": {
     "category": "Social",
     "url": "https://mastodon.social/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Posts"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Posts"
+    ],
     "confidence_weight": 0.85
   },
   "Gitea": {
     "category": "Development",
     "url": "https://gitea.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Repositories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Repositories"
+    ],
     "confidence_weight": 0.9
   },
   "KeybaseIO": {
     "category": "Security",
     "url": "https://keybase.io/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Proofs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Proofs"
+    ],
     "confidence_weight": 0.95
   },
   "Gab": {
     "category": "Social",
     "url": "https://gab.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Timeline"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Timeline"
+    ],
     "confidence_weight": 0.85
   },
   "Gettr": {
     "category": "Social",
     "url": "https://gettr.com/user/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Posts"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Posts"
+    ],
     "confidence_weight": 0.85
   },
   "Parler": {
     "category": "Social",
     "url": "https://parler.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Comments"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Comments"
+    ],
     "confidence_weight": 0.85
   },
   "TruthSocial": {
     "category": "Social",
     "url": "https://truthsocial.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Truths"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Truths"
+    ],
     "confidence_weight": 0.85
   },
   "Minds": {
     "category": "Social",
     "url": "https://www.minds.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Subscribers"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Subscribers"
+    ],
     "confidence_weight": 0.85
   },
   "MeWe": {
     "category": "Social",
     "url": "https://mewe.com/i/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["My World"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "My World"
+    ],
     "confidence_weight": 0.8
   },
   "Polywork": {
     "category": "Professional",
     "url": "https://www.polywork.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Badges"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Badges"
+    ],
     "confidence_weight": 0.85
   },
   "PeerList": {
     "category": "Professional",
     "url": "https://peerlist.io/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Work"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Work"
+    ],
     "confidence_weight": 0.85
   },
   "Hashnode": {
     "category": "Blogging",
     "url": "https://hashnode.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Blog"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Blog"
+    ],
     "confidence_weight": 0.85
   },
   "Showwcase": {
     "category": "Professional",
     "url": "https://www.showwcase.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Shows"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Shows"
+    ],
     "confidence_weight": 0.85
   },
   "Layers": {
     "category": "Design",
     "url": "https://layers.to/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Contra": {
     "category": "Professional",
     "url": "https://contra.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Services"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Services"
+    ],
     "confidence_weight": 0.85
   },
   "Bento": {
     "category": "Personal",
     "url": "https://bento.me/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Bento"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Bento"
+    ],
     "confidence_weight": 0.85
   },
   "SoloTo": {
     "category": "Personal",
     "url": "https://solo.to/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Bio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Bio"
+    ],
     "confidence_weight": 0.85
   },
   "BioFm": {
     "category": "Personal",
     "url": "https://bio.fm/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Bio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Bio"
+    ],
     "confidence_weight": 0.85
   },
   "LnkBio": {
     "category": "Personal",
     "url": "https://lnk.bio/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Campsite": {
     "category": "Personal",
     "url": "https://campsite.bio/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Beacons": {
     "category": "Personal",
     "url": "https://beacons.ai/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Snipfeed": {
     "category": "Personal",
     "url": "https://snipfeed.co/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Shorby": {
     "category": "Personal",
     "url": "https://shor.by/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Taplink": {
     "category": "Personal",
     "url": "https://taplink.cc/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Instabio": {
     "category": "Personal",
     "url": "https://instabio.cc/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "AllMyLinks": {
     "category": "Personal",
     "url": "https://allmylinks.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Links"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Links"
+    ],
     "confidence_weight": 0.85
   },
   "Koji": {
     "category": "Personal",
     "url": "https://koji.to/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Profile"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Profile"
+    ],
     "confidence_weight": 0.85
   },
   "StartPage": {
     "category": "Personal",
     "url": "https://start.page/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Bio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Bio"
+    ],
     "confidence_weight": 0.85
   },
   "CardCo": {
     "category": "Personal",
     "url": "https://card.co/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Profile"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Profile"
+    ],
     "confidence_weight": 0.85
   },
   "Desmos": {
     "category": "Education",
     "url": "https://www.desmos.com/calculator/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "GeoGebra": {
     "category": "Education",
     "url": "https://www.geogebra.org/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Resources"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Resources"
+    ],
     "confidence_weight": 0.85
   },
   "Scratch": {
     "category": "Education",
     "url": "https://scratch.mit.edu/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Projects"
+    ],
     "confidence_weight": 0.9
   },
   "Thingiverse": {
     "category": "DIY",
     "url": "https://www.thingiverse.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.85
   },
   "MyMiniFactory": {
     "category": "DIY",
     "url": "https://www.myminifactory.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.85
   },
   "Cults3D": {
     "category": "DIY",
     "url": "https://cults3d.com/en/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.85
   },
   "Pinshape": {
     "category": "DIY",
     "url": "https://pinshape.com/users/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.85
   },
   "GrabCAD": {
     "category": "DIY",
     "url": "https://grabcad.com/library?per_page=20&query={}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Models"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Models"
+    ],
     "confidence_weight": 0.8
   },
   "Sketchfab": {
     "category": "3D",
     "url": "https://sketchfab.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Models"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Models"
+    ],
     "confidence_weight": 0.9
   },
   "TurboSquid": {
     "category": "3D",
     "url": "https://www.turbosquid.com/Search/Artists/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Models"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Models"
+    ],
     "confidence_weight": 0.8
   },
   "CGTrader": {
     "category": "3D",
     "url": "https://www.cgtrader.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Models"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Models"
+    ],
     "confidence_weight": 0.85
   },
   "Unity": {
     "category": "Development",
     "url": "https://connect.unity.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Projects"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Projects"
+    ],
     "confidence_weight": 0.85
   },
   "UnrealEngine": {
     "category": "Development",
     "url": "https://forums.unrealengine.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Badges"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Badges"
+    ],
     "confidence_weight": 0.85
   },
   "BlenderArtists": {
     "category": "Art",
     "url": "https://blenderartists.org/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Polycount": {
     "category": "Art",
     "url": "https://polycount.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Discussions"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Discussions"
+    ],
     "confidence_weight": 0.85
   },
   "CGSociety": {
     "category": "Art",
     "url": "https://{}.cgsociety.org",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "ZBrushCentral": {
     "category": "Art",
     "url": "https://www.zbrushcentral.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Topics"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Topics"
+    ],
     "confidence_weight": 0.85
   },
   "ConceptArt": {
     "category": "Art",
     "url": "https://www.conceptart.org/forums/member.php?u={}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.8
   },
   "Photobucket": {
     "category": "Photo",
     "url": "https://s{}.photobucket.com/user/{}/profile",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Library"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Library"
+    ],
     "confidence_weight": 0.8
   },
   "SmugMug": {
     "category": "Photo",
     "url": "https://{}.smugmug.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Galleries"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Galleries"
+    ],
     "confidence_weight": 0.85
   },
   "Zenfolio": {
     "category": "Photo",
     "url": "https://{}.zenfolio.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Galleries"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Galleries"
+    ],
     "confidence_weight": 0.85
   },
   "ViewBug": {
     "category": "Photo",
     "url": "https://www.viewbug.com/member/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Photos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Photos"
+    ],
     "confidence_weight": 0.85
   },
   "EyeEm": {
     "category": "Photo",
     "url": "https://www.eyeem.com/u/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Photos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Photos"
+    ],
     "confidence_weight": 0.85
   },
   "GuruShots": {
     "category": "Photo",
     "url": "https://gurushots.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Achievements"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Achievements"
+    ],
     "confidence_weight": 0.85
   },
   "YouPic": {
     "category": "Photo",
     "url": "https://youpic.com/photographer/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Photos"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Photos"
+    ],
     "confidence_weight": 0.85
   },
   "Exposure": {
     "category": "Photo",
     "url": "https://{}.exposure.co",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Stories"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Stories"
+    ],
     "confidence_weight": 0.85
   },
   "Format": {
     "category": "Photo",
     "url": "https://{}.format.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Crevado": {
     "category": "Photo",
     "url": "https://{}.crevado.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Dunked": {
     "category": "Photo",
     "url": "https://{}.dunked.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Portfoliobox": {
     "category": "Photo",
     "url": "https://{}.portfoliobox.net",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Portfolio"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Portfolio"
+    ],
     "confidence_weight": 0.85
   },
   "Jimdo": {
     "category": "Web",
     "url": "https://{}.jimdosite.com",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.75
   },
   "Strikingly": {
     "category": "Web",
     "url": "https://{}.mystrikingly.com",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.75
   },
   "Webflow": {
     "category": "Web",
     "url": "https://{}.webflow.io",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.75
   },
   "Squarespace": {
     "category": "Web",
     "url": "https://{}.squarespace.com",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["expired"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "expired"
+    ],
     "confidence_weight": 0.75
   },
   "Shopify": {
     "category": "Shopping",
     "url": "https://{}.myshopify.com",
     "method": "GET",
-    "valid_status": [200],
-    "must_not_contain": ["404"],
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
     "confidence_weight": 0.75
   },
   "BigCartel": {
     "category": "Shopping",
     "url": "https://{}.bigcartel.com",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Products"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Products"
+    ],
     "confidence_weight": 0.8
   },
   "Teespring": {
     "category": "Shopping",
     "url": "https://teespring.com/stores/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Store"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Store"
+    ],
     "confidence_weight": 0.8
   },
   "Spreadshirt": {
     "category": "Shopping",
     "url": "https://shop.spreadshirt.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Shop"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Shop"
+    ],
     "confidence_weight": 0.8
   },
   "Zazzle": {
     "category": "Shopping",
     "url": "https://www.zazzle.com/mbr/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Store"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Store"
+    ],
     "confidence_weight": 0.8
   },
   "CafePress": {
     "category": "Shopping",
     "url": "https://www.cafepress.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.8
   },
   "Threadless": {
     "category": "Shopping",
     "url": "https://www.threadless.com/@{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.8
   },
   "DesignByHumans": {
     "category": "Shopping",
     "url": "https://www.designbyhumans.com/shop/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Designs"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Designs"
+    ],
     "confidence_weight": 0.8
   },
   "Kiva": {
     "category": "Charity",
     "url": "https://www.kiva.org/lender/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Loans"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Loans"
+    ],
     "confidence_weight": 0.85
   },
   "DonorsChoose": {
     "category": "Charity",
     "url": "https://www.donorschoose.org/donor/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Impact"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Impact"
+    ],
     "confidence_weight": 0.85
   },
   "GoFundMe": {
     "category": "Charity",
     "url": "https://www.gofundme.com/profile/{}-{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "Crowdrise": {
     "category": "Charity",
     "url": "https://www.crowdrise.com/{}",
     "method": "GET",
-    "valid_status": [200],
+    "valid_status": [
+      200
+    ],
     "confidence_weight": 0.7
   },
   "JustGiving": {
     "category": "Charity",
     "url": "https://www.justgiving.com/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Fundraising"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Fundraising"
+    ],
     "confidence_weight": 0.8
   },
   "Indiegogo": {
     "category": "Finance",
     "url": "https://www.indiegogo.com/individuals/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Campaigns"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Campaigns"
+    ],
     "confidence_weight": 0.85
   },
   "Kickstarter": {
     "category": "Finance",
     "url": "https://www.kickstarter.com/profile/{}",
     "method": "GET",
-    "valid_status": [200],
-    "regex": ["Backed"],
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Backed"
+    ],
     "confidence_weight": 0.85
+  },
+  "ResearchGate": {
+    "category": "Academic",
+    "url": "https://www.researchgate.net/profile/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "ResearchGate"
+    ],
+    "confidence_weight": 0.85
+  },
+  "AcademiaEdu": {
+    "category": "Academic",
+    "url": "https://www.academia.edu/people/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Academia.edu"
+    ],
+    "confidence_weight": 0.85
+  },
+  "ORCID": {
+    "category": "Academic",
+    "url": "https://orcid.org/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "orcid"
+    ],
+    "confidence_weight": 0.8
+  },
+  "GoogleScholar": {
+    "category": "Academic",
+    "url": "https://scholar.google.com/citations?user={}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Citations"
+    ],
+    "confidence_weight": 0.85
+  },
+  "Mastodon": {
+    "category": "Social",
+    "url": "https://mastodon.social/@{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "mastodon"
+    ],
+    "confidence_weight": 0.8
+  },
+  "LetterboxdUser": {
+    "category": "Entertainment",
+    "url": "https://letterboxd.com/{}/",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "films"
+    ],
+    "confidence_weight": 0.85
+  },
+  "Ravelry": {
+    "category": "Hobby",
+    "url": "https://www.ravelry.com/people/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
+    "confidence_weight": 0.75
+  },
+  "Goodwall": {
+    "category": "Professional",
+    "url": "https://www.goodwall.io/u/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "BehanceProfile": {
+    "category": "Art",
+    "url": "https://www.behance.net/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "projects"
+    ],
+    "confidence_weight": 0.9
+  },
+  "DribbleAlt": {
+    "category": "Art",
+    "url": "https://dribbble.com/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "shots"
+    ],
+    "confidence_weight": 0.9
+  },
+  "Zerply": {
+    "category": "Creative",
+    "url": "https://www.zerply.com/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "Crunchyroll": {
+    "category": "Entertainment",
+    "url": "https://www.crunchyroll.com/users/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "GoodreadsUser": {
+    "category": "Reading",
+    "url": "https://www.goodreads.com/user/show/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "bookshelves"
+    ],
+    "confidence_weight": 0.85
+  },
+  "FanFictionNet": {
+    "category": "Writing",
+    "url": "https://www.fanfiction.net/u/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "ArchiveOfOurOwn": {
+    "category": "Writing",
+    "url": "https://archiveofourown.org/users/{}/works",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Works"
+    ],
+    "confidence_weight": 0.8
+  },
+  "DeviantArtAlt": {
+    "category": "Art",
+    "url": "https://{}.deviantart.com",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "deviations"
+    ],
+    "confidence_weight": 0.9
+  },
+  "VKGroups": {
+    "category": "Social",
+    "url": "https://vk.com/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile_header"
+    ],
+    "confidence_weight": 0.85
+  },
+  "ScribbleHub": {
+    "category": "Writing",
+    "url": "https://www.scribblehub.com/profile/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "WixSiteUser": {
+    "category": "Web",
+    "url": "https://{}.wixsite.com/website",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
+    "confidence_weight": 0.7
+  },
+  "WebflowUser": {
+    "category": "Web",
+    "url": "https://{}.webflow.io",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "must_not_contain": [
+      "404"
+    ],
+    "confidence_weight": 0.75
+  },
+  "TrelloProfile": {
+    "category": "Productivity",
+    "url": "https://trello.com/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Boards"
+    ],
+    "confidence_weight": 0.8
+  },
+  "NotionProfile": {
+    "category": "Productivity",
+    "url": "https://www.notion.so/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.6
+  },
+  "BandcampArtist": {
+    "category": "Music",
+    "url": "https://{}.bandcamp.com",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "music"
+    ],
+    "confidence_weight": 0.85
+  },
+  "MixcloudAlt": {
+    "category": "Music",
+    "url": "https://www.mixcloud.com/{}/",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "followers"
+    ],
+    "confidence_weight": 0.8
+  },
+  "Audius": {
+    "category": "Music",
+    "url": "https://audius.co/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "AnchorFM": {
+    "category": "Podcast",
+    "url": "https://anchor.fm/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "Podbean": {
+    "category": "Podcast",
+    "url": "https://www.podbean.com/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "SoundClick": {
+    "category": "Music",
+    "url": "https://www.soundclick.com/artist/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "Rdio": {
+    "category": "Music",
+    "url": "https://rd.io/artist/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.65
+  },
+  "PeerTube": {
+    "category": "Video",
+    "url": "https://peertube.social/accounts/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "OpenSea": {
+    "category": "NFT",
+    "url": "https://opensea.io/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "Rarible": {
+    "category": "NFT",
+    "url": "https://rarible.com/user/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "EtsyAlt": {
+    "category": "Shopping",
+    "url": "https://www.etsy.com/people/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Favorites"
+    ],
+    "confidence_weight": 0.8
+  },
+  "HouzzUser": {
+    "category": "Design",
+    "url": "https://www.houzz.com/user/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Projects"
+    ],
+    "confidence_weight": 0.75
+  },
+  "HouzzPro": {
+    "category": "Design",
+    "url": "https://www.houzz.com/professionals/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "Envato": {
+    "category": "Creative",
+    "url": "https://themeforest.net/user/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "GraphicRiver": {
+    "category": "Creative",
+    "url": "https://graphicriver.net/user/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.7
+  },
+  "EtsySeller": {
+    "category": "Shopping",
+    "url": "https://www.etsy.com/shop/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "RedditAlt": {
+    "category": "Forum",
+    "url": "https://old.reddit.com/user/{}/",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "karma"
+    ],
+    "confidence_weight": 0.9
+  },
+  "Discourse": {
+    "category": "Forum",
+    "url": "https://forum.{}/u/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.6
+  },
+  "ProBoards": {
+    "category": "Forum",
+    "url": "https://{}.proboards.com/user/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.6
+  },
+  "Vero": {
+    "category": "Social",
+    "url": "https://vero.co/{}/",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.6
+  },
+  "GabAlt": {
+    "category": "Social",
+    "url": "https://gab.com/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Timeline"
+    ],
+    "confidence_weight": 0.8
+  },
+  "GettrAlt": {
+    "category": "Social",
+    "url": "https://gettr.com/user/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "Posts"
+    ],
+    "confidence_weight": 0.8
+  },
+  "CitationProfile": {
+    "category": "Academic",
+    "url": "https://scholar.google.com/citations?user={}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "StackOverflowAlt": {
+    "category": "Development",
+    "url": "https://stackoverflow.com/users/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "must_contain": [
+      "reputation"
+    ],
+    "confidence_weight": 0.9
+  },
+  "StackExchangeProfile": {
+    "category": "Forum",
+    "url": "https://stackexchange.com/users/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "confidence_weight": 0.75
+  },
+  "SteamAlt": {
+    "category": "Gaming",
+    "url": "https://steamcommunity.com/id/{}",
+    "method": "GET",
+    "valid_status": [
+      200
+    ],
+    "regex": [
+      "profile_header"
+    ],
+    "confidence_weight": 0.9
   }
 }
