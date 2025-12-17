@@ -10,7 +10,6 @@
     <meta property="og:description" content="Contact information and credits for the DedSec Project team.">
     <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5860edb8a7468d955336c9cf1d8b357597d6d645/Assets/Images/Logos/Custom%20Black%2Purple%20Fox%20Logo.png">
 
-<!-- Security Headers -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
   script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
@@ -37,8 +36,7 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body class="dark-theme">
-    <!-- Navigation Header -->
-<nav class="main-nav">
+    <nav class="main-nav">
     <div class="nav-container">
         <div class="nav-title"><h1>DedSec Project</h1></div>
         <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
@@ -53,14 +51,6 @@
     <a href="contact-credits.html" class="nav-link active" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές">Contact & Credits</a>
     <a href="privacy-policy.html" class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
 </div>
-        <div class="nav-actions">
-            <button id="nav-theme-switcher" class="nav-action-btn"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
-            <button id="nav-lang-switcher" class="nav-action-btn"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
-        </div>
-    </div>
-</nav>
-            <a href="privacy-policy.html" class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
-        </div>
         <div class="nav-actions">
             <button id="nav-theme-switcher" class="nav-action-btn"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
             <button id="nav-lang-switcher" class="nav-action-btn"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
@@ -104,10 +94,17 @@
             <p><strong data-en="Creator:" data-gr="Δημιουργός:">Creator:</strong> dedsec1121fk</p>
             <p><strong data-en="Artwork:" data-gr="Καλλιτεχνική Επιμέλεια:">Artwork:</strong> Christina Chatzidimitriou</p>
             <p><strong data-en="Technical Help:" data-gr="Τεχνική Βοήθεια:">Technical Help:</strong> lamprouil, UKI_hunter</p>
+
+            <footer class="main-footer">
+                <p data-lang-section="en">© 2025 DedSec Project. All Rights Reserved.</p>
+                <p data-lang-section="gr" class="hidden-by-default">© 2025 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
+                <p data-lang-section="en" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Trademark Disclaimer: The "DedSec" name and logo are inspired by the "Watch Dogs" series and are used for thematic purposes only. This project is not affiliated with or endorsed by Ubisoft Entertainment S.A.</p>
+                <p data-lang-section="gr" class="hidden-by-default" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Αποποίηση Ευθύνης Εμπορικού Σήματος: Το όνομα και το λογότυπο "DedSec" είναι εμπνευσμένα από τη σειρά "Watch Dogs" και χρησιμοποιούνται μόνο για θεματικούς σκοπούς. Αυτό το έργο δεν συνδέεται ούτε υποστηρίζεται από την Ubisoft Entertainment S.A.</p>
+                <p>Made by dedsec1121fk.</p>
+            </footer>
         </div>
     </div>
 
-    <!-- Language Selection Modal -->
     <div id="language-selection-modal" class="modal-overlay">
       <div class="modal-content modal-content-auto-height">
           <div class="modal-header">
