@@ -981,7 +981,7 @@ body.light-theme .page-header h1 {
     font-size: 0.8rem;
     color: var(--nm-text-muted);
     padding: 20px 0;
-    margin-top: 40px;
+    margin: 40px auto 0 auto;
     border-top: 1px solid var(--nm-border);
     width: 100%;
     max-width: 1200px;

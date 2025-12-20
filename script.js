@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
-    let currentLanguage = 'en'; // Set default to English
+    let currentLanguage = 'en';
 
     // --- NAVIGATION FUNCTIONALITY ---
     function initializeNavigation() {
@@ -14,23 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Close menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                if (burgerMenu && navMenu) {
-                    burgerMenu.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
+                burgerMenu?.classList.remove('active');
+                navMenu?.classList.remove('active');
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (burgerMenu && navMenu && navMenu.classList.contains('active')) {
+            if (navMenu?.classList.contains('active')) {
                 const navActions = document.querySelector('.nav-actions');
-                if (!navMenu.contains(e.target) && !burgerMenu.contains(e.target) && !navActions.contains(e.target)) {
-                    burgerMenu.classList.remove('active');
-                    navMenu.classList.remove('active');
+                if (!navMenu.contains(e.target) && !burgerMenu?.contains(e.target) && !navActions?.contains(e.target)) {
+                    burgerMenu?.classList.remove('active');
+                    navMenu?.classList.remove('active');
                 }
             }
         });
@@ -44,19 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const updateThemeButton = (isLightTheme) => {
             if (!themeBtn || !themeIcon || !themeSpan) return;
-            
             if (isLightTheme) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
+                themeIcon.className = 'fas fa-sun';
                 themeSpan.setAttribute('data-en', 'Light Theme');
                 themeSpan.setAttribute('data-gr', 'Φωτεινό Θέμα');
             } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
+                themeIcon.className = 'fas fa-moon';
                 themeSpan.setAttribute('data-en', 'Dark Theme');
                 themeSpan.setAttribute('data-gr', 'Σκοτεινό Θέμα');
             }
-            themeSpan.textContent = themeSpan.getAttribute(`data-${currentLanguage}`) || themeSpan.getAttribute('data-en');
+            themeSpan.textContent = themeSpan.getAttribute(`data-${currentLanguage}`);
         };
 
         themeBtn?.addEventListener('click', () => {
@@ -66,29 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
             updateThemeButton(isLight);
         });
 
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-theme');
-        }
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
         updateThemeButton(document.body.classList.contains('light-theme'));
-    }
-
-    // --- LANGUAGE SWITCHER ---
-    function initializeLanguageSwitcher() {
-        const langBtn = document.getElementById('nav-lang-switcher');
-        
-        langBtn?.addEventListener('click', () => {
-            const newLang = currentLanguage === 'en' ? 'gr' : 'en';
-            changeLanguage(newLang);
-        });
-
-        // Handle dynamically injected disclaimer language button
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('#disclaimer-lang-btn')) {
-                const newLang = currentLanguage === 'en' ? 'gr' : 'en';
-                changeLanguage(newLang);
-            }
-        });
     }
 
     // --- LANGUAGE MANAGEMENT ---
@@ -99,66 +71,32 @@ document.addEventListener('DOMContentLoaded', () => {
         
         document.querySelectorAll('[data-en]').forEach(el => {
             const text = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en');
-            const hasDirectText = Array.from(el.childNodes).some(node => 
-                node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0
-            );
-            
-            if (hasDirectText) {
+            // Update text while preserving icons/children if they exist
+            if (el.children.length === 0) {
+                el.textContent = text;
+            } else {
                 Array.from(el.childNodes).forEach(node => {
                     if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
                         node.textContent = text;
                     }
                 });
-            } else if (el.children.length === 0) {
-                el.textContent = text;
             }
         });
 
         document.querySelectorAll('[data-lang-section]').forEach(el => {
-            el.style.display = el.dataset.langSection === lang ? 'block' : 'none';
-            el.classList.toggle('hidden', el.dataset.langSection !== lang);
-            if (el.dataset.langSection === lang) {
-                el.classList.remove('hidden-by-default');
-            }
+            const isMatch = el.dataset.langSection === lang;
+            el.style.display = isMatch ? 'block' : 'none';
+            el.classList.toggle('hidden-by-default', !isMatch);
         });
 
-        // Update nav, features, stats, products, trust items, etc.
-        const selectors = [
-            '.nav-link', '.nav-action-btn span', '.feature-title', 
-            '.feature-description', '.feature-cta', '.stat-label', 
-            '.product-price', '.payment-btn', '.trust-item span', 
-            '.hero-badge span', '.hero-cta', '.community-card span'
-        ];
-
-        selectors.forEach(selector => {
-            document.querySelectorAll(selector).forEach(el => {
-                const text = el.getAttribute(`data-${lang}`) || el.textContent;
-                if (el.getAttribute('data-en')) {
-                    el.textContent = text;
-                }
-            });
-        });
-
+        // Update Dynamic Links (like Stripe)
         document.querySelectorAll('.payment-btn').forEach(link => {
             const newLink = link.getAttribute(`data-${lang}-link`);
             if (newLink) link.href = newLink;
         });
-
-        document.querySelectorAll('.copy-btn').forEach(button => {
-            const text = button.textContent;
-            if (['Copy', 'Αντιγραφή', 'Copied!', 'Αντιγράφηκε!', 'Error', 'Failed!'].includes(text)) {
-                if (text === 'Copied!' || text === 'Αντιγράφηκε!') {
-                    button.textContent = lang === 'gr' ? 'Αντιγράφηκε!' : 'Copied!';
-                } else if (text === 'Error' || text === 'Failed!') {
-                    button.textContent = lang === 'gr' ? 'Σφάλμα' : 'Error';
-                } else {
-                    button.textContent = lang === 'gr' ? 'Αντιγραφή' : 'Copy';
-                }
-            }
-        });
     };
 
-    // --- UNIVERSAL DISCLAIMER INJECTION & LOGIC ---
+    // --- UNIVERSAL DISCLAIMER INJECTION ---
     function injectDisclaimerHTML() {
         if (document.getElementById('disclaimer-modal')) return;
 
@@ -175,27 +113,44 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="modal-body" data-lang-section="en">
                 <div class="note">
                     <p><strong>PLEASE READ CAREFULLY BEFORE PROCEEDING.</strong></p>
-                    <p><strong>Trademark Disclaimer:</strong> The "DedSec" name and logo used in this project are for thematic and inspirational purposes only. This is an independent, fan-made project created for educational purposes and has no official connection to the "Watch Dogs" franchise...</p>
-                    <p><strong>1. Assumption of Risk and Responsibility:</strong> By accessing or using the Software, you acknowledge and agree that you are doing so at your own risk...</p>
-                    <p><strong>2. Prohibited Activities:</strong> Any use of the Software for unauthorized or malicious activities is strictly prohibited...</p>
+                    <p><strong>Trademark Disclaimer:</strong> The "DedSec" name and logo used in this project are for thematic and inspirational purposes only. This is an independent, fan-made project created for educational purposes and has no official connection to the "Watch Dogs" franchise. It is not associated with, endorsed by, or affiliated with Ubisoft Entertainment S.A. All trademarks and copyrights for "Watch Dogs" and "DedSec" as depicted in the games belong to their respective owners, Ubisoft Entertainment S.A.</p>
+                    <p>This project, including all associated tools, scripts, and documentation ("the Software"), is provided strictly for educational, research, and ethical security testing purposes. It is intended for use exclusively in controlled, authorized environments by users who have obtained explicit, prior written permission from the owners of any systems they intend to test.</p>
+                    <p><strong>1. Assumption of Risk and Responsibility:</strong> By accessing or using the Software, you acknowledge and agree that you are doing so at your own risk. You are solely and entirely responsible for your actions and for any consequences that may arise from the use or misuse of this Software. This includes, but is not limited to, compliance with all applicable local, state, national, and international laws and regulations related to cybersecurity, data privacy, and electronic communications.</p>
+                    <p><strong>2. Prohibited Activities:</strong> Any use of the Software for unauthorized or malicious activities is strictly prohibited. This includes, without limitation: accessing systems, systems, or data without authorization; performing denial-of-service attacks; data theft; fraud; spreading malware; or any other activity that violates applicable laws. Engaging in such activities may result in severe civil and criminal penalties.</p>
+                    <p><strong>3. No Warranty:</strong> The Software is provided "AS IS," without any warranty of any kind, express or implied. This includes, but is not to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. The developers and contributors make no guarantee that the Software will be error-free, secure, or uninterrupted.</p>
+                    <p><strong>4. Limitation of Liability:</strong> In no event shall the developers, contributors, or distributors of the Software be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connectionwith the Software or the use or other dealings in the Software. This includes any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption).</p>
+                    <p><strong>5. No Refund Policy:</strong> All sales are final. Due to the digital nature of our products, we do not offer refunds once a product has been delivered. Please make sure you understand what you're purchasing before completing your order.</p>
+                    <p><strong>6. Receipt Delivery:</strong> Please note: Your official payment receipt will be delivered automatically to your email address by Stripe shortly after your purchase. You will need this receipt to contact us for product delivery.</p>
+                    <p><strong>7. Payment & Delivery Process:</strong> After completing your payment, you must contact us through our contact page and provide your payment receipt (which you received via email from Stripe). We will then verify your payment and deliver your purchased product(s) as soon as possible. Without contacting us with your receipt, we cannot process your order.</p>
+                    <p><strong>8. Payment Disclaimer:</strong> If you have any doubts or questions about our products or payment process, please contact us through our contact page before making a purchase. We're here to help clarify any uncertainties you may have.</p>
                 </div>
                 <hr class="modal-divider">
                 <h3 class="text-center">Privacy Policy Summary</h3>
                 <div class="privacy-policy-embed">
-                    <p>We are committed to protecting your privacy. We do not store or transmit your personal data.</p>
+                    <p>We are committed to protecting your privacy. We do not store or transmit your personal data. By using our service, you agree to our full Privacy Policy.</p>
                 </div>
+                <div class="note"><p><strong>By clicking "Accept," you confirm that you have read, understood, and agree to be bound by all the terms and conditions outlined in this disclaimer and our full Privacy Policy. If you do not agree with these terms, you must click "Decline" and cease all use of the Software immediately.</strong></p></div>
               </div>
               <div class="modal-body hidden-by-default" data-lang-section="gr">
                 <div class="note">
                     <p><strong>ΠΑΡΑΚΑΛΩ ΔΙΑΒΑΣΤΕ ΠΡΟΣΕΚΤΙΚΑ ΠΡΙΝ ΣΥΝΕΧΙΣΕΤΕ.</strong></p>
-                    <p><strong>Αποποίηση Ευθύνης Εμπορικού Σήματος:</strong> Το όνομα και το λογότυπο "DedSec" είναι μόνο για θεματικούς και εμπνευστικούς σκοπούς...</p>
-                    <p><strong>1. Ανάληψη Κινδύνου και Ευθύνης:</strong> Με την πρόσβαση ή τη χρήση του Λογισμικού, αναγνωρίζετε ότι το κάνετε με δική σας ευθύνη...</p>
+                    <p><strong>Αποποίηση Ευθύνης Εμπορικού Σήματος:</strong> Το όνομα και το λογότυπο "DedSec" που χρησιμοποιούνται σε αυτό το έργο είναι μόνο για θεματικούς και εμπνευστικούς σκοπούς. Πρόκειται για ένα ανεξάρτητο, fan-made έργο που δημιουργήθηκε για εκπαιδευτικούς σκοπούς και δεν έχει καμία επίσημη σύνδεση με το franchise "Watch Dogs". Δεν συνδέεται, δεν υποστηρίζεται από, ούτε σχετίζεται με την Ubisoft Entertainment S.A. Όλα τα εμπορικά σήματα και τα πνευματικά δικαιώματα για το "Watch Dogs" και το "DedSec" όπως απεικονίζονται στα παιχνίδια ανήκουν στους αντίστοιχους κατόχους τους, την Ubisoft Entertainment S.A.</p>
+                    <p>Αυτό το έργο, συμπεριλαμβανομένων όλων των σχετικών εργαλείων, σεναρίων και τεκμηρίωσης («το Λογισμικό»), παρέχεται αυστηρά για εκπαιδευτικούς, ερευνητικούς και ηθικούς σκοπούς δοκιμών ασφαλείας. Προορίζεται για χρήση αποκλειστικά σε ελεγχόμενα, εξουσιοδοτημένα περιβάλλοντα από χρήστες που έχουν λάβει ρητή, προηγούμενη γραπτή άδεια από τους ιδιοκτήτες οποιωνδήποτε συστημάτων σκοπεύουν να δοκιμάσουν.</p>
+                    <p><strong>1. Ανάληψη Κινδύνου και Ευθύνης:</strong> Με την πρόσβαση ή τη χρήση του Λογισμικού, αναγνωρίζετε και συμφωνείτε ότι το κάνετε με δική σας ευθύνη. Είστε αποκλειστικά και εξ ολοκλήρου υπεύθυνοι για τις ενέργειές σας και για τυχόν συνέπειες που μπορεί να προκύψουν από τη χρήση ή κακή χρήση αυτού του Λογισμικού. Αυτό περιλαμβάνει, ενδεικτικά, τη συμμόcompliance με όλους τους ισχύοντες τοπικούς, πολιτειακούς, εθνικούς και διεθνείς νόμους και κανονισμούς που σχετίζονται με την κυβερνοασφάλεια, την προστασία δεδομένων και τις ηλεκτρονικές επικοινωνίες.</p>
+                    <p><strong>2. Απαγορευμένες Δραστηριότητες:</strong> Απαγορεύεται αυστηρά οποιαδήποτε χρήση του Λογισμικού για μη εξουσιοδοτημένες ή κακόβουλες δραστηριότητες. Αυτό περιλαμβάνει, χωρίς περιορισμό: πρόσβαση σε συστήματα ή δεδομένα χωρίς εξουσιοδοτημένη πρόσβαση, εκτέλεση επιθέσεων άρνησης υπηρεσίας (denial-of-service), κλοπή δεδομένων, απάτη, διάδοση κακόβουλου λογισμικού ή οποιαδήποτε άλλη δραστηριότητα που παραβιάζει την ισχύουσα νομοθεσία. Η συμμετοχή σε τέτοιες δραστηριότητες μπορεί να οδηγήσει σε σοβαρές αστικές και ποινικές κυρώσεις.</p>
+                    <p><strong>3. Καμία Εγγύηση:</strong> Το Λογισμικό παρέχεται "ΩΣ ΕΧΕΙ", χωρίς καμία εγγύηση οποιουδήποτε είδους, ρητή ή σιωπηρή. Αυτό περιλαμβάνει, ενδεικτικά, τις σιωπηρές εγγυήσεις εμπορευσιμότητας, καταλληλότητας για συγκεκριμένο σκοπό και μη παραβίασης. Οι προγραμματιστές και οι συντελεστές δεν παρέχουν καμία εγγύηση ότι το Λογισμικό θα είναι απαλλαγμένο από σφάλματα, ασφαλές ή αδιάλειπτο.</p>
+                    <p><strong>4. Περιορισμός Ευθύνης:</strong> Σε καμία περίπτωση οι προγραμματιστές, οι συντελεστές ή οι διανομείς του Λογισμικού δεν φέρουν ευθύνη για οποιαδήποτε αξίμη, ζημιές ή άλλη ευθύνη, είτε πρόκειται για αγωγή σύμβασης, αδικοπραξίας ή άλλως, που προκύπτει από, ή σε σχέση με το Λογισμικό ή τη χρήση ή άλλες συναλλαγές με το Λογισμικό. Αυτό περιλαμβάνει τυχόν άμεσες, έμμεσες, τυχαίες, ειδικές, παραδειγματικές ή επακόλουθες ζημιές (συμπεριλαμβανομένης, αλλά όχι μόνο, της προμήθειας υποκατάστατων αγαθών ή υπηρεσιών, απώλειας χρήσης, δεδομένων ή κερδών ή διακοπής εργασιών).</p>
+                    <p><strong>5. Πολιτική Χωρίς Επιστροφή Χρημάτων:</strong> Όλες οι πωλήσεις είναι οριστικές. Λόγω της ψηφιακής φύσης των προϊόντων μας, δεν προσφέρουμε επιστροφή χρημάτων αφού παραδοθεί ένα προϊόν. Παρακαλούμε βεβαιωθείτε ότι καταλαβαίνετε τι αγοράζετε πριν ολοκληρώσετε την παραγγελία σας.</p>
+                    <p><strong>6. Παράδοση Απόδειξης:</strong> Παρακαλούμε σημειώστε: Η επίσημη απόδειξη πληρωμής σας θα παραδοθεί αυτόματα στη διεύθυνση email σας από το Stripe λίγο μετά την αγορά σας. Θα χρειαστείτε αυτήν την απόδειξη για να επικοινωνήσετε μαζί μας για την παράδοση του προϊόντος.</p>
+                    <p><strong>7. Διαδικασία Πληρωμής & Παράδοσης:</strong> Μετά την ολοκλήρωση της πληρωμής σας, πρέπει να επικοινωνήσετε μαζί μας μέσω της σελίδας επικοινωνίας και να μας δώσετε την απόδειξη πληρωμής σας (την οποία λάβατε μέσω email από το Stripe). Στη συνέχεια, θα επαληθεύσουμε την πληρωμή σας και θα σας παραδώσουμε το αγορασμένο προϊόν(τα) το συντομότερο δυνατό. Χωρίς να επικοινωνήσετε μαζί μας με την απόδειξή σας, δεν μπορούμε να επεξεργαστούμε την παραγγελία σας.</p>
+                    <p><strong>8. Αποποίηση Ευθύνης Πληρωμής:</strong> Εάν έχετε οποιεσδήποτε αμφιβολίες ή ερωτήσεις σχετικά με τα προϊόντα μας ή τη διαδικασία πληρωμής, παρακαλούμε επικοινωνήστε μαζί μας μέσω της σελίδας επικοινωνίας πριν από οποιαδήποτε αγορά. Είμαστε εδώ για να διευκρινίσουμε οποιεσδήποτε αβεβαιότητες μπορεί να έχετε.</p>
                 </div>
                 <hr class="modal-divider">
                 <h3 class="text-center">Περίληψη Πολιτικής Απορήτου</h3>
                 <div class="privacy-policy-embed">
-                    <p>Δεσμευόμαστε να προστατεύουμε το απόρρητό σας. Δεν αποθηκεύουμε ή μεταδίδουμε τα προσωπικά σας δεδομένα.</p>
+                    <p>Δεσμευόμαστε να προστατεύουμε το απόρρητό σας. Δεν αποθηκεύουμε ή μεταδίδουμε τα προσωπικά σας δεδομένα. Με τη χρήση της υπηρεσίας μας, συμφωνείτε με την πλήρη Πολιτική Απορρήτου μας.</p>
                 </div>
+                <div class="note"><p><strong>Με το κλικ στο "Αποδοχή", επιβεβαιώνετε ότι διαβάσατε, κατανοήσατε και συμφωνείτε να δεσμεύεστε από όλους τους όρους και τις προϋποθέσεις που περιγράφονται σε αυτήν την αποποίηση ευθύνης και την πλήρη Πολιτική Απορρήτου μας. Εάν δεν συμφωνείτε με αυτούς τους όρους, πρέπει να κάνετε κλικ στο "Απόρριψη" και να διακόψετε αμέσως κάθε χρήση του Λογισμικού.</strong></p></div>
               </div>
               <div class="modal-footer disclaimer-footer">
                 <button id="decline-disclaimer" class="decline-btn" data-en="Decline" data-gr="Απόρριψη">Decline</button>
@@ -207,157 +162,102 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initializeDisclaimer() {
-        const disclaimerAccepted = localStorage.getItem('disclaimerAccepted');
-        if (disclaimerAccepted) return;
+        if (localStorage.getItem('disclaimerAccepted') === 'true') return;
 
-        // Ensure modal exists on current page
         injectDisclaimerHTML();
         
-        const disclaimerModal = document.getElementById('disclaimer-modal');
-        const acceptBtn = document.getElementById('accept-disclaimer');
-        const declineBtn = document.getElementById('decline-disclaimer');
-
+        const modal = document.getElementById('disclaimer-modal');
+        const langBtn = document.getElementById('disclaimer-lang-btn');
+        
         setTimeout(() => {
-            if (disclaimerModal) {
-                disclaimerModal.classList.add('visible');
-                disclaimerModal.classList.add('banner-style');
-                // Ensure correct language is showing in the newly injected modal
-                window.changeLanguage(currentLanguage);
-            }
+            modal?.classList.add('visible', 'banner-style');
+            window.changeLanguage(currentLanguage); // Sync language
         }, 100);
 
-        acceptBtn?.addEventListener('click', () => {
-            disclaimerModal.classList.add('closing');
+        langBtn?.addEventListener('click', () => {
+            window.changeLanguage(currentLanguage === 'en' ? 'gr' : 'en');
+        });
+
+        document.getElementById('accept-disclaimer')?.addEventListener('click', () => {
+            modal.classList.add('closing');
             setTimeout(() => {
                 localStorage.setItem('disclaimerAccepted', 'true');
-                disclaimerModal.classList.remove('visible');
-                disclaimerModal.classList.remove('closing');
+                modal.classList.remove('visible', 'banner-style', 'closing');
             }, 400);
         });
 
-        declineBtn?.addEventListener('click', () => {
+        document.getElementById('decline-disclaimer')?.addEventListener('click', () => {
             window.location.href = 'https://www.google.com';
         });
     }
 
-    // --- MODAL MANAGEMENT ---
-    function initializeModals() {
-        document.querySelectorAll('.modal-overlay').forEach(modal => {
-            const closeModalBtn = modal.querySelector('.close-modal');
-            modal.addEventListener('click', e => {
-                if (e.target === modal && modal.id !== 'disclaimer-modal') {
-                    modal.classList.remove('visible');
-                }
-            });
-            closeModalBtn?.addEventListener('click', () => modal.classList.remove('visible'));
-        });
-    }
-
-    // --- CAROUSEL FUNCTIONALITY ---
-    function initializeCarousels() {
-        document.querySelectorAll('.collaborations-carousel').forEach(carousel => {
-            const images = carousel.querySelectorAll('.slide-image');
-            const prevBtn = carousel.querySelector('.prev-btn');
-            const nextBtn = carousel.querySelector('.next-btn');
-            
-            if (images.length > 0 && prevBtn && nextBtn) {
-                let currentIndex = 0;
-                const showImage = (index) => {
-                    images.forEach((img, i) => img.classList.toggle('active', i === index));
-                };
-                prevBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-                    showImage(currentIndex);
-                });
-                nextBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-                    showImage(currentIndex);
-                });
-                showImage(0);
-            }
-        });
-    }
-
-    // --- COPY FUNCTIONALITY ---
+    // --- SHARED UTILITIES (COPY, CAROUSEL, ACCORDION) ---
     window.copyToClipboard = (button, targetId) => {
-        const codeElement = document.getElementById(targetId);
-        if (!codeElement) return;
+        const text = document.getElementById(targetId)?.innerText;
+        if (!text) return;
         
-        const originalText = button.textContent;
-        const textToCopy = codeElement.textContent || codeElement.innerText;
-        
-        navigator.clipboard.writeText(textToCopy).then(() => {
+        navigator.clipboard.writeText(text).then(() => {
+            const original = button.textContent;
             button.textContent = currentLanguage === 'gr' ? 'Αντιγράφηκε!' : 'Copied!';
             button.classList.add('copy-success');
             setTimeout(() => { 
-                button.textContent = originalText;
+                button.textContent = original;
                 button.classList.remove('copy-success');
             }, 1500);
         });
     };
 
-    // --- CATEGORIES & STORE ---
-    function initializeToolCategories(containerSelector) {
-        const container = document.querySelector(containerSelector);
+    function initializeToolCategories(selector) {
+        const container = document.querySelector(selector);
         if (!container) return;
+        container.querySelectorAll('.category-header').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('active')));
+        container.querySelectorAll('.tool-header').forEach(h => h.addEventListener('click', (e) => { e.stopPropagation(); h.parentElement.classList.toggle('active'); }));
+    }
 
-        container.querySelectorAll('.category-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const category = header.parentElement;
-                category.classList.toggle('active');
-            });
-        });
-
-        container.querySelectorAll('.tool-header').forEach(header => {
-            header.addEventListener('click', (e) => {
-                e.stopPropagation();
-                header.parentElement.classList.toggle('active');
-            });
+    function initializeCarousels() {
+        document.querySelectorAll('.collaborations-carousel').forEach(c => {
+            const imgs = c.querySelectorAll('.slide-image');
+            let idx = 0;
+            c.querySelector('.prev-btn')?.addEventListener('click', () => { idx = (idx > 0) ? idx - 1 : imgs.length - 1; show(); });
+            c.querySelector('.next-btn')?.addEventListener('click', () => { idx = (idx < imgs.length - 1) ? idx + 1 : 0; show(); });
+            const show = () => imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
+            show();
         });
     }
 
-    // --- INITIALIZATION ---
-    function initializePortfolio() {
+    // --- MAIN INIT ---
+    function init() {
         initializeNavigation();
         initializeThemeSwitcher();
-        initializeLanguageSwitcher();
-        initializeModals();
         initializeCarousels();
-        initializeDisclaimer(); // Now works on all pages
-        
         initializeToolCategories('.categories-container');
         initializeToolCategories('#faq-container');
-
-        const savedLanguage = localStorage.getItem('language') || 'en';
-        window.changeLanguage(savedLanguage);
-
-        // Update active nav link
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href').split('/').pop() === currentPage);
+        
+        // Language Switcher (Navbar)
+        document.getElementById('nav-lang-switcher')?.addEventListener('click', () => {
+            window.changeLanguage(currentLanguage === 'en' ? 'gr' : 'en');
         });
 
-        // Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+        // Modals
+        document.querySelectorAll('.modal-overlay').forEach(m => {
+            m.addEventListener('click', (e) => { if(e.target === m && m.id !== 'disclaimer-modal') m.classList.remove('visible'); });
+            m.querySelector('.close-modal')?.addEventListener('click', () => m.classList.remove('visible'));
+        });
 
+        // Final Setup
+        window.changeLanguage(localStorage.getItem('language') || 'en');
+        initializeDisclaimer();
+
+        // Active Link
+        const page = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.getAttribute('href').includes(page)));
+
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animate-in'); observer.unobserve(e.target); }});
+        });
         document.querySelectorAll('.feature-card, .tool-item, .category').forEach(el => observer.observe(el));
     }
 
-    initializePortfolio();
-
-    // Style injection for animations
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-in { animation: fadeIn 0.6s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .copy-success { background-color: var(--nm-success, #28a745) !important; color: white !important; }
-    `;
-    document.head.appendChild(style);
+    init();
 });
