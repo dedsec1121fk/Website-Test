@@ -203,7 +203,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://github.com/dedsec1121fk/dedsec1121fk.github.io/raw/47ad8e5cbaaee04af552ae6b90edc49cd75b324b/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg');
+    background-image: url('https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -228,7 +228,7 @@ body::after {
 }
 
 body.light-theme::before {
-    background-image: url('https://github.com/dedsec1121fk/dedsec1121fk.github.io/raw/47ad8e5cbaaee04af552ae6b90edc49cd75b324b/Assets/Images/Logos/Custom%20White%20Purple%20Fox%20Logo.jpg');
+    background-image: url('https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg');
     opacity: 0.1;
 }
 
