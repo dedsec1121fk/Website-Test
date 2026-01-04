@@ -1,293 +1,44 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>DedSec Project — Watch Dogs Is Now More Real Than Ever!</title>
-  <meta name="title" content="DedSec Project — Watch Dogs Is Now More Real Than Ever!">
-  <meta name="description" content="DedSec Project: ethical Termux tools, guides, and community resources for learning security and building useful utilities.">
-  <meta name="theme-color" content="#000000">
-  <link rel="icon" type="image/jpeg" href="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DedSec Project</title>
+<link rel="stylesheet" href="Assets/CSS/style.css">
 </head>
-<body>
-<header class="topbar">
-  <a class="skip-link" href="#main" data-en="Skip to content" data-gr="Μετάβαση στο περιεχόμενο">Skip to content</a>
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <img src="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
-      <div class="brand-text">
-        <strong>DEDSEC</strong>
-        <span data-en="PROJECT" data-gr="PROJECT">PROJECT</span>
-      </div>
-    </a>
-
-    <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link" href="index.html" data-en="Home" data-gr="Αρχική">Home</a>
-      <a class="nav-link" href="Pages/learn-about-the-tools.html" data-en="Tools" data-gr="Εργαλεία">Tools</a>
-      <a class="nav-link" href="Pages/guide-for-installation.html" data-en="Install" data-gr="Εγκατάσταση">Install</a>
-      <a class="nav-link" href="Pages/store.html" data-en="Store" data-gr="Κατάστημα">Store</a>
-      <a class="nav-link" href="Pages/collaborations.html" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a>
-      <a class="nav-link" href="Pages/portfolio-github-info.html" data-en="Portfolio" data-gr="Portfolio">Portfolio</a>
-      <a class="nav-link" href="Pages/contact-credits.html" data-en="Contact" data-gr="Επικοινωνία">Contact</a>
-      <a class="nav-link" href="Pages/faq.html" data-en="FAQ" data-gr="FAQ">FAQ</a>
-    </nav>
-
-    <div class="nav-actions">
-      <div class="lang-select" aria-label="Language">
-        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
-        <button class="lang-btn" data-lang="gr" onclick="changeLanguage('gr')">GR</button>
-      </div>
-
-      <button class="icon-btn" id="nav-theme-switcher" type="button" aria-label="Theme">
-        <i class="fas fa-moon" aria-hidden="true"></i>
-        <span data-en="Dark Theme" data-gr="Σκοτεινό Θέμα">Dark Theme</span>
-      </button>
-
-      <button class="burger" id="burger-menu" type="button" aria-label="Menu">
-        <span></span>
-      </button>
-    </div>
+<body class="dark">
+<header class="header">
+  <div class="logo">
+    <img src="Assets/Images/Logos/Black Purple Butterfly Logo.jpeg" alt="DedSec">
+    <span>DEDSEC PROJECT</span>
   </div>
-
-  <div class="container mobile-menu" id="mobile-menu" aria-label="Mobile menu">
-    <a class="nav-link" href="index.html"><b data-en="Home" data-gr="Αρχική">Home</b><span data-en="Start here" data-gr="Ξεκίνα εδώ">Start here</span></a>
-    <a class="nav-link" href="Pages/learn-about-the-tools.html"><b data-en="Tools" data-gr="Εργαλεία">Tools</b><span data-en="What you can use" data-gr="Τι μπορείς να χρησιμοποιήσεις">What you can use</span></a>
-    <a class="nav-link" href="Pages/guide-for-installation.html"><b data-en="Install" data-gr="Εγκατάσταση">Install</b><span data-en="Setup guides" data-gr="Οδηγοί εγκατάστασης">Setup guides</span></a>
-    <a class="nav-link" href="Pages/store.html"><b data-en="Store" data-gr="Κατάστημα">Store</b><span data-en="Support the project" data-gr="Στήριξε το project">Support the project</span></a>
-    <a class="nav-link" href="Pages/collaborations.html"><b data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</b><span data-en="Work together" data-gr="Ας συνεργαστούμε">Work together</span></a>
-    <a class="nav-link" href="Pages/portfolio-github-info.html"><b data-en="Portfolio" data-gr="Portfolio">Portfolio</b><span data-en="Projects & code" data-gr="Projects & κώδικας">Projects & code</span></a>
-    <a class="nav-link" href="Pages/contact-credits.html"><b data-en="Contact" data-gr="Επικοινωνία">Contact</b><span data-en="Reach us fast" data-gr="Επικοινώνησε γρήγορα">Reach us fast</span></a>
-    <a class="nav-link" href="Pages/faq.html"><b data-en="FAQ" data-gr="FAQ">FAQ</b><span data-en="Answers" data-gr="Απαντήσεις">Answers</span></a>
-    <a class="nav-link" href="Pages/privacy-policy.html"><b data-en="Privacy" data-gr="Απόρρητο">Privacy</b><span data-en="Policy" data-gr="Πολιτική">Policy</span></a>
-  </div>
+  <button class="menu-btn">☰</button>
 </header>
-<main id="main">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="kicker">
-          <i class="fas fa-shield-alt" aria-hidden="true"></i>
-          <span data-en="Ethical tools • Termux • Community" data-gr="Ηθικά εργαλεία • Termux • Κοινότητα">Ethical tools • Termux • Community</span>
-        </div>
 
-        <h1 class="h-title" data-en="DedSec Project" data-gr="DedSec Project">DedSec Project</h1>
-        <p class="h-sub"
-          data-en="Watch Dogs is now more real than ever — but here we build the safe side: tools, guides, and resources to learn security, automate tasks, and grow skills. No illegal activity."
-          data-gr="Το Watch Dogs είναι πιο αληθινό από ποτέ — αλλά εδώ χτίζουμε τη σωστή πλευρά: εργαλεία, οδηγοί και resources για να μάθεις ασφάλεια, αυτοματοποίηση και να εξελιχθείς. Όχι παράνομες ενέργειες.">
-          Watch Dogs is now more real than ever — but here we build the safe side: tools, guides, and resources to learn security, automate tasks, and grow skills. No illegal activity.
-        </p>
-
-        <div class="cta-row">
-          <a class="btn" href="Pages/learn-about-the-tools.html">
-            <i class="fas fa-toolbox" aria-hidden="true"></i>
-            <span data-en="Explore Tools" data-gr="Δες τα Εργαλεία">Explore Tools</span>
-            <span class="pill" data-en="Most visited" data-gr="Δημοφιλέστερο">Most visited</span>
-          </a>
-          <a class="btn secondary" href="Pages/guide-for-installation.html">
-            <i class="fas fa-bolt" aria-hidden="true"></i>
-            <span data-en="Start Installing" data-gr="Ξεκίνα Εγκατάσταση">Start Installing</span>
-          </a>
-          <a class="btn secondary" href="#community">
-            <i class="fas fa-users" aria-hidden="true"></i>
-            <span data-en="Join Community" data-gr="Μπες στην Κοινότητα">Join Community</span>
-          </a>
-        </div>
-
-        <div class="mini" aria-label="Quick facts">
-          <span class="badge" data-en="Mobile-first design" data-gr="Mobile-first σχεδιασμός">Mobile-first design</span>
-          <span class="badge" data-en="Fast navigation" data-gr="Γρήγορη πλοήγηση">Fast navigation</span>
-          <span class="badge" data-en="Bilingual (EN/GR)" data-gr="Δίγλωσσο (EN/GR)">Bilingual (EN/GR)</span>
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Project card">
-        <div class="card-top">
-          <img src="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
-          <div>
-            <div class="kicker" style="margin:0">
-              <i class="fas fa-code" aria-hidden="true"></i>
-              <span data-en="Build. Learn. Share." data-gr="Χτίσε. Μάθε. Μοιράσου.">Build. Learn. Share.</span>
-            </div>
-          </div>
-        </div>
-
-        <h3 data-en="Quick links" data-gr="Γρήγοροι σύνδεσμοι">Quick links</h3>
-        <p data-en="Copy & go. Designed for people who want answers fast." data-gr="Αντιγραφή & φύγαμε. Για όσους θέλουν γρήγορα αποτελέσματα.">
-          Copy & go. Designed for people who want answers fast.
-        </p>
-
-        <div class="hr"></div>
-
-        <div class="list">
-          <div class="item">
-            <h3 data-en="Website" data-gr="Ιστότοπος">Website</h3>
-            <div class="row">
-              <code class="code" style="flex:1">ded-sec.space</code>
-              <button class="copy" data-copy="https://ded-sec.space"><i class="far fa-copy"></i> <span data-en="Copy" data-gr="Αντιγραφή">Copy</span></button>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 data-en="Instagram" data-gr="Instagram">Instagram</h3>
-            <div class="row">
-              <code class="code" style="flex:1">@dedsec_project_official</code>
-              <button class="copy" data-copy="@dedsec_project_official"><i class="far fa-copy"></i> <span data-en="Copy" data-gr="Αντιγραφή">Copy</span></button>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 data-en="WhatsApp / Telegram" data-gr="WhatsApp / Telegram">WhatsApp / Telegram</h3>
-            <div class="row">
-              <code class="code" style="flex:1">+37257263676</code>
-              <button class="copy" data-copy="+37257263676"><i class="far fa-copy"></i> <span data-en="Copy" data-gr="Αντιγραφή">Copy</span></button>
-            </div>
-          </div>
-
-          <div class="item">
-            <h3 data-en="GitHub" data-gr="GitHub">GitHub</h3>
-            <div class="row">
-              <code class="code" style="flex:1">dedsec1121fk/DedSec</code>
-              <button class="copy" data-copy="https://github.com/dedsec1121fk/DedSec"><i class="far fa-copy"></i> <span data-en="Copy" data-gr="Αντιγραφή">Copy</span></button>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2 data-en="What you’ll find here" data-gr="Τι θα βρεις εδώ">What you’ll find here</h2>
-          <p data-en="A cleaner path from curiosity → setup → learning → building." data-gr="Μια καθαρή διαδρομή από την περιέργεια → εγκατάσταση → μάθηση → δημιουργία.">
-            A cleaner path from curiosity → setup → learning → building.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid">
-        <div class="card span-4">
-          <a class="card-link" href="Pages/learn-about-the-tools.html">
-            <div>
-              <h3 data-en="Tool Library" data-gr="Βιβλιοθήκη Εργαλείων">Tool Library</h3>
-              <p data-en="Browse curated Termux scripts & utilities, with clear purpose and safe use." data-gr="Δες επιλεγμένα Termux scripts & utilities, με ξεκάθαρο σκοπό και ασφαλή χρήση.">
-                Browse curated Termux scripts & utilities, with clear purpose and safe use.
-              </p>
-              <div class="meta">
-                <span class="tag" data-en="Categories" data-gr="Κατηγορίες">Categories</span>
-                <span class="tag" data-en="Descriptions" data-gr="Περιγραφές">Descriptions</span>
-              </div>
-            </div>
-            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="card span-4">
-          <a class="card-link" href="Pages/guide-for-installation.html">
-            <div>
-              <h3 data-en="Installation Guides" data-gr="Οδηγοί Εγκατάστασης">Installation Guides</h3>
-              <p data-en="Step-by-step Termux setup for beginners—optimized for Android." data-gr="Βήμα-βήμα setup Termux για αρχάριους—βελτιστοποιημένο για Android.">
-                Step-by-step Termux setup for beginners—optimized for Android.
-              </p>
-              <div class="meta">
-                <span class="tag" data-en="Beginner-friendly" data-gr="Για αρχάριους">Beginner-friendly</span>
-                <span class="tag" data-en="Copy/paste commands" data-gr="Εντολές copy/paste">Copy/paste commands</span>
-              </div>
-            </div>
-            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="card span-4">
-          <a class="card-link" href="Pages/store.html">
-            <div>
-              <h3 data-en="Support the Project" data-gr="Στήριξε το Project">Support the Project</h3>
-              <p data-en="Optional ways to support: digital products, resources, and future releases." data-gr="Προαιρετικοί τρόποι στήριξης: ψηφιακά προϊόντα, resources και μελλοντικά releases.">
-                Optional ways to support: digital products, resources, and future releases.
-              </p>
-              <div class="meta">
-                <span class="tag" data-en="Store" data-gr="Κατάστημα">Store</span>
-                <span class="tag" data-en="Community-driven" data-gr="Από την κοινότητα">Community-driven</span>
-              </div>
-            </div>
-            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="card span-6">
-          <h3 data-en="Safety-first policy" data-gr="Πολιτική ασφάλειας">Safety-first policy</h3>
-          <p data-en="We focus on legal/ethical learning: privacy, defense, automation, and responsible research. Anything that enables harm is not supported."
-             data-gr="Εστιάζουμε σε νόμιμη/ηθική μάθηση: ιδιωτικότητα, άμυνα, αυτοματοποίηση και υπεύθυνο research. Οτιδήποτε επιτρέπει βλάβη δεν υποστηρίζεται.">
-            We focus on legal/ethical learning: privacy, defense, automation, and responsible research. Anything that enables harm is not supported.
-          </p>
-          <div class="meta">
-            <span class="tag" data-en="Responsible use" data-gr="Υπεύθυνη χρήση">Responsible use</span>
-            <span class="tag" data-en="Educational" data-gr="Εκπαιδευτικό">Educational</span>
-          </div>
-        </div>
-
-        <div class="card span-6" id="community">
-          <h3 data-en="Join our community" data-gr="Μπες στην κοινότητα">Join our community</h3>
-          <p data-en="Want updates, releases, and collabs? Reach out using the fastest channel below."
-             data-gr="Θες updates, releases και συνεργασίες; Επικοινώνησε από το πιο γρήγορο κανάλι παρακάτω.">
-            Want updates, releases, and collabs? Reach out using the fastest channel below.
-          </p>
-          <div class="meta">
-            <a class="btn" href="Pages/contact-credits.html"><i class="fas fa-paper-plane"></i> <span data-en="Contact page" data-gr="Σελίδα επικοινωνίας">Contact page</span></a>
-            <a class="btn secondary" href="Pages/collaborations.html"><i class="fas fa-handshake"></i> <span data-en="Collaborate" data-gr="Συνεργασία">Collaborate</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hr"></div>
-
-      <div class="card">
-        <h3 data-en="Disclaimer" data-gr="Αποποίηση ευθύνης">Disclaimer</h3>
-        <p data-en="All information is provided for educational purposes. You are responsible for how you use tools and knowledge. Respect laws and privacy."
-           data-gr="Όλες οι πληροφορίες παρέχονται για εκπαιδευτικούς σκοπούς. Εσύ είσαι υπεύθυνος για τη χρήση εργαλείων και γνώσης. Σεβασμός σε νόμους και ιδιωτικότητα.">
-          All information is provided for educational purposes. You are responsible for how you use tools and knowledge. Respect laws and privacy.
-        </p>
-      </div>
-    </div>
-  </section>
-</main>
-<footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="brand" style="margin-bottom:10px">
-        <img src="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
-        <div class="brand-text">
-          <strong>DEDSEC</strong>
-          <span data-en="PROJECT" data-gr="PROJECT">PROJECT</span>
-        </div>
-      </div>
-      <small data-en="Educational security & tooling hub. Use responsibly. No illegal activity." data-gr="Εκπαιδευτικό hub ασφάλειας & εργαλείων. Χρήση με υπευθυνότητα. Όχι παράνομες ενέργειες.">
-        Educational security & tooling hub. Use responsibly. No illegal activity.
-      </small>
-      <div class="hr"></div>
-      <small>© 2026 DedSec Project</small>
-    </div>
-
-    <div>
-      <div class="links">
-        <a href="https://ded-sec.space" data-en="Website" data-gr="Ιστότοπος">Website</a>
-        <a href="Pages/contact-credits.html" data-en="Contact" data-gr="Επικοινωνία">Contact</a>
-        <a href="Pages/privacy-policy.html" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
-        <a href="Pages/faq.html" data-en="FAQ" data-gr="FAQ">FAQ</a>
-      </div>
-      <div class="hr"></div>
-      <small data-en="Tip: Replace placeholder images inside /Assets/Images with your real logo/photos." data-gr="Tip: Αντικατέστησε τις προσωρινές εικόνες στο /Assets/Images με το πραγματικό σου logo/φωτογραφίες.">
-        Tip: Replace placeholder images inside /Assets/Images with your real logo/photos.
-      </small>
-    </div>
+<section class="hero">
+  <span class="tag">Ethical tools • Termux • Community</span>
+  <h1>DedSec Project</h1>
+  <p>
+    Watch Dogs is now more real than ever — but here we build the safe side:
+    tools, guides, and resources to learn security, automate tasks,
+    and grow skills. No illegal activity.
+  </p>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="#">Explore Tools</a>
+    <a class="btn-secondary" href="#">Start Installing</a>
+    <a class="btn-tertiary" href="#">Join Community</a>
   </div>
+  <div class="features">
+    <div class="feature-pill">Mobile-first design</div>
+    <div class="feature-pill">Fast navigation</div>
+    <div class="feature-pill">Bilingual (EN/GR)</div>
+    <div class="feature-pill">Open community</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© DedSec Project</p>
 </footer>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="https://kit.fontawesome.com/a2e0e6ad45.js" crossorigin="anonymous"></script>
-<script src="script.js"></script>
 </body>
 </html>
