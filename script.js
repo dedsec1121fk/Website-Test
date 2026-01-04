@@ -1,444 +1,263 @@
-// DedSec Project — UI + Language + Theme + Search
-// Lightweight vanilla JS. No tracking.
+document.addEventListener('DOMContentLoaded', () => {
+    // --- GLOBAL STATE ---
+    let currentLanguage = 'en';
 
-(() => {
-  const LOGO_DARK = "https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg";
-  const LOGO_LIGHT = "https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg";
+    // --- NAVIGATION FUNCTIONALITY ---
+    function initializeNavigation() {
+        const burgerMenu = document.getElementById('burger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (burgerMenu && navMenu) {
+            burgerMenu.addEventListener('click', () => {
+                burgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
 
-  let currentLanguage = localStorage.getItem('language') || 'en';
-
-  const $ = (sel, root=document) => root.querySelector(sel);
-  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-
-  function setFaviconForTheme() {
-    const isLight = document.body.classList.contains('light-theme');
-    const href = isLight ? LOGO_DARK : LOGO_LIGHT; // match logo contrast
-    const icon = document.querySelector('link[rel="icon"]') || document.querySelector('link[rel="shortcut icon"]');
-    if (icon) icon.setAttribute('href', href);
-  }
-
-  function setLogoForTheme() {
-    const isLight = document.body.classList.contains('light-theme');
-    const logo = $('#site-logo');
-    if (logo) {
-      // White logo for dark theme, dark logo for light theme
-      logo.src = isLight ? LOGO_DARK : LOGO_LIGHT;
-    }
-  
-    setFaviconForTheme();
-  }
-
-
-  function applyLanguage(lang) {
-    currentLanguage = lang;
-    document.documentElement.lang = lang;
-    localStorage.setItem('language', lang);
-
-    $$('[data-en]').forEach(el => {
-      const t = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en');
-      if (!t) return;
-      if (el.children.length === 0) {
-        el.textContent = t;
-      } else {
-        // Preserve icons/children; replace text nodes.
-        el.childNodes.forEach(node => {
-          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
-            node.textContent = t;
-          }
-        });
-      }
-    });
-
-    // Toggle language-specific sections if they exist
-    $$('[data-lang-section]').forEach(el => {
-      const isMatch = el.dataset.langSection === lang;
-      el.style.display = isMatch ? 'block' : 'none';
-    });
-  }
-
-  function initNavigation() {
-    const burger = $('#burger-menu');
-    const menu = $('#nav-menu');
-    if (!burger || !menu) return;
-
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      menu.classList.toggle('active');
-    });
-
-    $$('.nav-link').forEach(a => a.addEventListener('click', () => {
-      burger.classList.remove('active');
-      menu.classList.remove('active');
-    }));
-
-    document.addEventListener('click', (e) => {
-      if (!menu.classList.contains('active')) return;
-      const actions = document.querySelector('.nav-actions');
-      if (!menu.contains(e.target) && !burger.contains(e.target) && !actions?.contains(e.target)) {
-        burger.classList.remove('active');
-        menu.classList.remove('active');
-      }
-    });
-  }
-
-  function initTheme() {
-    const btn = $('#nav-theme-switcher');
-    const updateLabel = () => {
-      const span = btn?.querySelector('span');
-      if (!span) return;
-      const isLight = document.body.classList.contains('light-theme');
-      span.setAttribute('data-en', isLight ? 'Light' : 'Dark');
-      span.setAttribute('data-gr', isLight ? 'Φωτεινό' : 'Σκοτεινό');
-      span.textContent = span.getAttribute(`data-${currentLanguage}`) || span.getAttribute('data-en') || span.textContent;
-    };
-
-    if (localStorage.getItem('theme') === 'light') {
-      document.body.classList.add('light-theme');
-    }
-    setLogoForTheme();
-    updateLabel();
-
-    btn?.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
-      const isLight = document.body.classList.contains('light-theme');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      setLogoForTheme();
-      updateLabel();
-    });
-  }
-
-  // ---------- MODALS ----------
-  function makeModal(id, titleEn, titleGr, bodyHtmlEn, bodyHtmlGr) {
-    if (document.getElementById(id)) return;
-
-    const overlay = document.createElement('div');
-    overlay.id = id;
-    overlay.className = 'modal-overlay';
-    overlay.innerHTML = `
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="${id}-title">
-        <div class="modal-header">
-          <h2 id="${id}-title" data-en="${titleEn}" data-gr="${titleGr}">${titleEn}</h2>
-          <button class="modal-close" type="button" aria-label="Close">✕</button>
-        </div>
-        <div class="modal-body">
-          <div data-lang-section="en">${bodyHtmlEn}</div>
-          <div data-lang-section="gr" style="display:none">${bodyHtmlGr}</div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(overlay);
-
-    const close = () => overlay.classList.remove('active');
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) close();
-    });
-    overlay.querySelector('.modal-close')?.addEventListener('click', close);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
-    });
-
-    return overlay;
-  }
-
-  function showModal(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add('active');
-    // keep language content in sync
-    applyLanguage(currentLanguage);
-  }
-
-  function initLanguageModal() {
-    const overlay = makeModal(
-      'language-modal',
-      'Choose Language',
-      'Επιλογή Γλώσσας',
-      `<p class="muted">Switch language across the whole website.</p>
-       <div style="display:flex;gap:10px;flex-wrap:wrap">
-         <button class="chip" id="lang-en" type="button">English</button>
-         <button class="chip" id="lang-gr" type="button">Ελληνικά</button>
-       </div>`,
-      `<p class="muted">Αλλαγή γλώσσας σε όλο το website.</p>
-       <div style="display:flex;gap:10px;flex-wrap:wrap">
-         <button class="chip" id="lang-en" type="button">English</button>
-         <button class="chip" id="lang-gr" type="button">Ελληνικά</button>
-       </div>`
-    );
-
-    $('#nav-lang-switcher')?.addEventListener('click', () => showModal('language-modal'));
-    overlay?.querySelector('#lang-en')?.addEventListener('click', () => {
-      applyLanguage('en');
-      overlay.classList.remove('active');
-    });
-    overlay?.querySelector('#lang-gr')?.addEventListener('click', () => {
-      applyLanguage('gr');
-      overlay.classList.remove('active');
-    });
-  }
-
-  function initDisclaimerModal() {
-    makeModal(
-      'disclaimer-modal',
-      'Disclaimer & Terms of Use',
-      'Αποποίηση Ευθύνης & Όροι Χρήσης',
-      `
-        <div class="glass" style="padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.04)">
-          <p><strong>Read before using the resources.</strong></p>
-          <ul class="muted" style="line-height:1.7;margin:10px 0 0;padding-left:18px">
-            <li>Use everything responsibly and legally.</li>
-            <li>Educational / informational purpose only.</li>
-            <li>No warranties; you are responsible for your actions and compliance.</li>
-            <li>Trademarks belong to their owners; this project is independent.</li>
-          </ul>
-        </div>
-      `,
-      `
-        <div class="glass" style="padding:14px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.04)">
-          <p><strong>Διάβασέ το πριν χρησιμοποιήσεις τους πόρους.</strong></p>
-          <ul class="muted" style="line-height:1.7;margin:10px 0 0;padding-left:18px">
-            <li>Χρησιμοποίησε τα πάντα υπεύθυνα και νόμιμα.</li>
-            <li>Μόνο για εκπαιδευτικούς / ενημερωτικούς σκοπούς.</li>
-            <li>Χωρίς εγγυήσεις· εσύ είσαι υπεύθυνος/η για πράξεις και συμμόρφωση.</li>
-            <li>Τα trademarks ανήκουν στους ιδιοκτήτες τους· το project είναι ανεξάρτητο.</li>
-          </ul>
-        </div>
-      `
-    );
-
-    const openers = ['#open-disclaimer', '#open-disclaimer-2'];
-    openers.forEach(sel => $(sel)?.addEventListener('click', () => showModal('disclaimer-modal')));
-  }
-
-  // ---------- SEARCH ----------
-  const SEARCH_PAGES = [
-    { url: 'index.html', title: 'Home' },
-    { url: 'Pages/learn-about-the-tools.html', title: 'Tools' },
-    { url: 'Pages/guide-for-installation.html', title: 'Setup Guide' },
-    { url: 'Pages/faq.html', title: 'FAQ' },
-    { url: 'Pages/store.html', title: 'Store' },
-    { url: 'Pages/collaborations.html', title: 'Collaborations' },
-    { url: 'Pages/portfolio-github-info.html', title: 'Portfolio & GitHub' },
-    { url: 'Pages/contact-credits.html', title: 'Contact & Credits' },
-    { url: 'Pages/privacy-policy.html', title: 'Privacy Policy' },
-  ];
-
-  let searchIndex = null;
-
-  function normalize(s) {
-    return (s || '').toLowerCase().normalize('NFKD').replace(/\p{Diacritic}/gu,'');
-  }
-
-  function inferBase() {
-    // If we're in /Pages/, prefix '../' for fetches.
-    const isInPages = location.pathname.includes('/Pages/');
-    return isInPages ? '../' : '';
-  }
-
-  async function buildSearchIndex() {
-    if (searchIndex) return searchIndex;
-
-    const base = inferBase();
-    const results = [];
-
-    for (const p of SEARCH_PAGES) {
-      const url = base + p.url;
-      try {
-        const res = await fetch(url, { cache: 'force-cache' });
-        if (!res.ok) continue;
-        const text = await res.text();
-        const doc = new DOMParser().parseFromString(text, 'text/html');
-
-        const main = doc.querySelector('.page-content') || doc.body;
-        const headings = Array.from(main.querySelectorAll('h1,h2,h3'));
-
-        // page entry
-        const pageTitle = doc.title || p.title;
-        const pageText = normalize(main.innerText).slice(0, 20000);
-        results.push({
-          title: pageTitle,
-          url: p.url,
-          hash: '',
-          snippet: main.innerText.trim().slice(0, 220),
-          hay: normalize(pageTitle + ' ' + pageText)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu?.classList.remove('active');
+                navMenu?.classList.remove('active');
+            });
         });
 
-        headings.forEach(h => {
-          const id = h.getAttribute('id');
-          if (!id) return;
-          const title = h.innerText.trim();
-          const section = h.closest('.content-section, .tool-category, .faq-item, .glass, section, article') || h.parentElement;
-          const snippet = (section?.innerText || '').trim().replace(/\s+/g,' ').slice(0, 240);
-          const hay = normalize(title + ' ' + snippet);
-          results.push({
-            title,
-            url: p.url,
-            hash: '#' + id,
-            snippet,
-            hay
-          });
-        });
-      } catch (_) {
-        // ignore
-      }
-    }
-
-    searchIndex = results;
-    return results;
-  }
-
-  function injectSearchModal() {
-    if (document.getElementById('search-modal')) return;
-
-    const overlay = document.createElement('div');
-    overlay.id = 'search-modal';
-    overlay.className = 'modal-overlay';
-    overlay.innerHTML = `
-      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="search-title">
-        <div class="modal-header">
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <h2 id="search-title" data-en="Search" data-gr="Αναζήτηση">Search</h2>
-            <div class="tiny muted">
-              <span data-en="Tip: press" data-gr="Tip: πάτα">Tip: press</span> <kbd>/</kbd>
-              <span data-en="to open search" data-gr="για να ανοίξεις αναζήτηση">to open search</span>
-            </div>
-          </div>
-          <button class="modal-close" type="button" aria-label="Close">✕</button>
-        </div>
-        <div class="modal-body">
-          <div class="search-box">
-            <input class="search-input" id="search-input" type="search" autocomplete="off"
-              placeholder="Search pages & sections..." />
-            <button class="chip" id="search-clear" type="button" data-en="Clear" data-gr="Καθαρισμός">Clear</button>
-          </div>
-          <div class="search-results" id="search-results"></div>
-          <div class="tiny muted" id="search-status" style="margin-top:10px"></div>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(overlay);
-
-    const close = () => overlay.classList.remove('active');
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) close();
-    });
-    overlay.querySelector('.modal-close')?.addEventListener('click', close);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') close();
-    });
-
-    return overlay;
-  }
-
-  function openSearch(prefill = '') {
-    const overlay = injectSearchModal();
-    if (!overlay) return;
-    overlay.classList.add('active');
-    applyLanguage(currentLanguage);
-
-    const input = overlay.querySelector('#search-input');
-    const list = overlay.querySelector('#search-results');
-    const status = overlay.querySelector('#search-status');
-
-    if (input) {
-      input.value = prefill || '';
-      setTimeout(() => input.focus(), 50);
-    }
-
-    const render = (items, q) => {
-      if (!list) return;
-      list.innerHTML = '';
-      if (!q) {
-        status.textContent = currentLanguage === 'gr'
-          ? 'Πληκτρολόγησε για να δεις αποτελέσματα.'
-          : 'Type to see results.';
-        return;
-      }
-      if (!items.length) {
-        status.textContent = currentLanguage === 'gr'
-          ? 'Δεν βρέθηκαν αποτελέσματα.'
-          : 'No results found.';
-        return;
-      }
-      status.textContent = currentLanguage === 'gr'
-        ? `${items.length} αποτελέσματα`
-        : `${items.length} results`;
-
-      items.slice(0, 18).forEach(item => {
-        const el = document.createElement('div');
-        el.className = 'search-result';
-        el.innerHTML = `
-          <div class="sr-title">${item.title}</div>
-          <div class="sr-meta">${item.url}${item.hash}</div>
-          <div class="sr-snippet">${item.snippet}</div>
-        `;
-        el.addEventListener('click', () => {
-          overlay.classList.remove('active');
-          const target = inferBase() + item.url + item.hash;
-          // same-page smooth scroll when possible
-          const current = (inferBase() + location.pathname.replace(/.*\//,''));
-          if (item.url.endsWith(current) || location.pathname.endsWith(item.url)) {
-            if (item.hash) {
-              const id = item.hash.slice(1);
-              const node = document.getElementById(id);
-              if (node) {
-                node.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                history.replaceState(null, '', item.hash);
-                return;
-              }
+        document.addEventListener('click', (e) => {
+            if (navMenu?.classList.contains('active')) {
+                const navActions = document.querySelector('.nav-actions');
+                if (!navMenu.contains(e.target) && !burgerMenu?.contains(e.target) && !navActions?.contains(e.target)) {
+                    burgerMenu?.classList.remove('active');
+                    navMenu?.classList.remove('active');
+                }
             }
-          }
-          location.href = target;
         });
-        list.appendChild(el);
-      });
+    }
+
+    // --- THEME SWITCHER ---
+    function initializeThemeSwitcher() {
+        const themeBtn = document.getElementById('nav-theme-switcher');
+        const themeIcon = themeBtn?.querySelector('i');
+        const themeSpan = themeBtn?.querySelector('span');
+
+        const updateThemeButton = (isLightTheme) => {
+            if (!themeBtn || !themeIcon || !themeSpan) return;
+            if (isLightTheme) {
+                themeIcon.className = 'fas fa-sun';
+                themeSpan.setAttribute('data-en', 'Light Theme');
+                themeSpan.setAttribute('data-gr', 'Φωτεινό Θέμα');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeSpan.setAttribute('data-en', 'Dark Theme');
+                themeSpan.setAttribute('data-gr', 'Σκοτεινό Θέμα');
+            }
+            themeSpan.textContent = themeSpan.getAttribute(`data-${currentLanguage}`);
+        };
+
+        themeBtn?.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            updateThemeButton(isLight);
+        });
+
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
+        updateThemeButton(document.body.classList.contains('light-theme'));
+    }
+
+    // --- LANGUAGE MANAGEMENT ---
+    window.changeLanguage = (lang) => {
+        currentLanguage = lang;
+        document.documentElement.lang = lang;
+        localStorage.setItem('language', lang);
+        
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en');
+            // Update text while preserving icons/children if they exist
+            if (el.children.length === 0) {
+                el.textContent = text;
+            } else {
+                Array.from(el.childNodes).forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
+                        node.textContent = text;
+                    }
+                });
+            }
+        });
+
+        document.querySelectorAll('[data-lang-section]').forEach(el => {
+            const isMatch = el.dataset.langSection === lang;
+            el.style.display = isMatch ? 'block' : 'none';
+            el.classList.toggle('hidden-by-default', !isMatch);
+        });
+
+        // Update Dynamic Links (like Stripe)
+        document.querySelectorAll('.payment-btn').forEach(link => {
+            const newLink = link.getAttribute(`data-${lang}-link`);
+            if (newLink) link.href = newLink;
+        });
     };
 
-    const run = async () => {
-      const q = normalize(input?.value || '');
-      if (!q) return render([], '');
-      status.textContent = currentLanguage === 'gr' ? 'Φόρτωση…' : 'Loading…';
-      const idx = await buildSearchIndex();
-      const matches = idx.filter(it => it.hay.includes(q));
-      render(matches, q);
+    // --- UNIVERSAL DISCLAIMER INJECTION ---
+    function injectDisclaimerHTML() {
+        if (document.getElementById('disclaimer-modal')) return;
+
+        const modalHTML = `
+        <div id="disclaimer-modal" class="modal-overlay">
+          <div class="modal-content">
+              <div class="modal-header">
+                <h2 data-en="Disclaimer & Terms of Use" data-gr="Αποποίηση Ευθύνης & Όροι Χρήσης">Disclaimer & Terms of Use</h2>
+                <button id="disclaimer-lang-btn" class="language-selection-btn">
+                    <i class="fas fa-globe"></i>
+                    <span data-en="Change Language" data-gr="Αλλαγή Γλώσσας">Change Language</span>
+                </button>
+              </div>
+              <div class="modal-body" data-lang-section="en">
+                <div class="note">
+                    <p><strong>PLEASE READ CAREFULLY BEFORE PROCEEDING.</strong></p>
+                    <p><strong>Trademark Disclaimer:</strong> The "DedSec" name and logo used in this project are for thematic and inspirational purposes only. This is an independent, fan-made project created for educational purposes and has no official connection to the "Watch Dogs" franchise. It is not associated with, endorsed by, or affiliated with Ubisoft Entertainment S.A. All trademarks and copyrights for "Watch Dogs" and "DedSec" as depicted in the games belong to their respective owners, Ubisoft Entertainment S.A.</p>
+                    <p>This project, including all associated tools, scripts, and documentation ("the Software"), is provided strictly for educational, research, and ethical security testing purposes. It is intended for use exclusively in controlled, authorized environments by users who have obtained explicit, prior written permission from the owners of any systems they intend to test.</p>
+                    <p><strong>1. Assumption of Risk and Responsibility:</strong> By accessing or using the Software, you acknowledge and agree that you are doing so at your own risk. You are solely and entirely responsible for your actions and for any consequences that may arise from the use or misuse of this Software. This includes, but is not limited to, compliance with all applicable local, state, national, and international laws and regulations related to cybersecurity, data privacy, and electronic communications.</p>
+                    <p><strong>2. Prohibited Activities:</strong> Any use of the Software for unauthorized or malicious activities is strictly prohibited. This includes, without limitation: accessing systems, systems, or data without authorization; performing denial-of-service attacks; data theft; fraud; spreading malware; or any other activity that violates applicable laws. Engaging in such activities may result in severe civil and criminal penalties.</p>
+                    <p><strong>3. No Warranty:</strong> The Software is provided "AS IS," without any warranty of any kind, express or implied. This includes, but is not to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. The developers and contributors make no guarantee that the Software will be error-free, secure, or uninterrupted.</p>
+                    <p><strong>4. Limitation of Liability:</strong> In no event shall the developers, contributors, or distributors of the Software be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connectionwith the Software or the use or other dealings in the Software. This includes any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption).</p>
+                    <p><strong>5. No Refund Policy:</strong> All sales are final. Due to the digital nature of our products, we do not offer refunds once a product has been delivered. Please make sure you understand what you're purchasing before completing your order.</p>
+                    <p><strong>6. Receipt Delivery:</strong> Please note: Your official payment receipt will be delivered automatically to your email address by Stripe shortly after your purchase. You will need this receipt to contact us for product delivery.</p>
+                    <p><strong>7. Payment & Delivery Process:</strong> After completing your payment, you must contact us through our contact page and provide your payment receipt (which you received via email from Stripe). We will then verify your payment and deliver your purchased product(s) as soon as possible. Without contacting us with your receipt, we cannot process your order.</p>
+                    <p><strong>8. Payment Disclaimer:</strong> If you have any doubts or questions about our products or payment process, please contact us through our contact page before making a purchase. We're here to help clarify any uncertainties you may have.</p>
+                </div>
+                <hr class="modal-divider">
+                <h3 class="text-center">Privacy Policy Summary</h3>
+                <div class="privacy-policy-embed">
+                    <p>We are committed to protecting your privacy. We do not store or transmit your personal data. By using our service, you agree to our full Privacy Policy.</p>
+                </div>
+                <div class="note"><p><strong>By clicking "Accept," you confirm that you have read, understood, and agree to be bound by all the terms and conditions outlined in this disclaimer and our full Privacy Policy. If you do not agree with these terms, you must click "Decline" and cease all use of the Software immediately.</strong></p></div>
+              </div>
+              <div class="modal-body hidden-by-default" data-lang-section="gr">
+                <div class="note">
+                    <p><strong>ΠΑΡΑΚΑΛΩ ΔΙΑΒΑΣΤΕ ΠΡΟΣΕΚΤΙΚΑ ΠΡΙΝ ΣΥΝΕΧΙΣΕΤΕ.</strong></p>
+                    <p><strong>Αποποίηση Ευθύνης Εμπορικού Σήματος:</strong> Το όνομα και το λογότυπο "DedSec" που χρησιμοποιούνται σε αυτό το έργο είναι μόνο για θεματικούς και εμπνευστικούς σκοπούς. Πρόκειται για ένα ανεξάρτητο, fan-made έργο που δημιουργήθηκε για εκπαιδευτικούς σκοπούς και δεν έχει καμία επίσημη σύνδεση με το franchise "Watch Dogs". Δεν συνδέεται, δεν υποστηρίζεται από, ούτε σχετίζεται με την Ubisoft Entertainment S.A. Όλα τα εμπορικά σήματα και τα πνευματικά δικαιώματα για το "Watch Dogs" και το "DedSec" όπως απεικονίζονται στα παιχνίδια ανήκουν στους αντίστοιχους κατόχους τους, την Ubisoft Entertainment S.A.</p>
+                    <p>Αυτό το έργο, συμπεριλαμβανομένων όλων των σχετικών εργαλείων, σεναρίων και τεκμηρίωσης («το Λογισμικό»), παρέχεται αυστηρά για εκπαιδευτικούς, ερευνητικούς και ηθικούς σκοπούς δοκιμών ασφαλείας. Προορίζεται για χρήση αποκλειστικά σε ελεγχόμενα, εξουσιοδοτημένα περιβάλλοντα από χρήστες που έχουν λάβει ρητή, προηγούμενη γραπτή άδεια από τους ιδιοκτήτες οποιωνδήποτε συστημάτων σκοπεύουν να δοκιμάσουν.</p>
+                    <p><strong>1. Ανάληψη Κινδύνου και Ευθύνης:</strong> Με την πρόσβαση ή τη χρήση του Λογισμικού, αναγνωρίζετε και συμφωνείτε ότι το κάνετε με δική σας ευθύνη. Είστε αποκλειστικά και εξ ολοκλήρου υπεύθυνοι για τις ενέργειές σας και για τυχόν συνέπειες που μπορεί να προκύψουν από τη χρήση ή κακή χρήση αυτού του Λογισμικού. Αυτό περιλαμβάνει, ενδεικτικά, τη συμμόcompliance με όλους τους ισχύοντες τοπικούς, πολιτειακούς, εθνικούς και διεθνείς νόμους και κανονισμούς που σχετίζονται με την κυβερνοασφάλεια, την προστασία δεδομένων και τις ηλεκτρονικές επικοινωνίες.</p>
+                    <p><strong>2. Απαγορευμένες Δραστηριότητες:</strong> Απαγορεύεται αυστηρά οποιαδήποτε χρήση του Λογισμικού για μη εξουσιοδοτημένες ή κακόβουλες δραστηριότητες. Αυτό περιλαμβάνει, χωρίς περιορισμό: πρόσβαση σε συστήματα ή δεδομένα χωρίς εξουσιοδοτημένη πρόσβαση, εκτέλεση επιθέσεων άρνησης υπηρεσίας (denial-of-service), κλοπή δεδομένων, απάτη, διάδοση κακόβουλου λογισμικού ή οποιαδήποτε άλλη δραστηριότητα που παραβιάζει την ισχύουσα νομοθεσία. Η συμμετοχή σε τέτοιες δραστηριότητες μπορεί να οδηγήσει σε σοβαρές αστικές και ποινικές κυρώσεις.</p>
+                    <p><strong>3. Καμία Εγγύηση:</strong> Το Λογισμικό παρέχεται "ΩΣ ΕΧΕΙ", χωρίς καμία εγγύηση οποιουδήποτε είδους, ρητή ή σιωπηρή. Αυτό περιλαμβάνει, ενδεικτικά, τις σιωπηρές εγγυήσεις εμπορευσιμότητας, καταλληλότητας για συγκεκριμένο σκοπό και μη παραβίασης. Οι προγραμματιστές και οι συντελεστές δεν παρέχουν καμία εγγύηση ότι το Λογισμικό θα είναι απαλλαγμένο από σφάλματα, ασφαλές ή αδιάλειπτο.</p>
+                    <p><strong>4. Περιορισμός Ευθύνης:</strong> Σε καμία περίπτωση οι προγραμματιστές, οι συντελεστές ή οι διανομείς του Λογισμικού δεν φέρουν ευθύνη για οποιαδήποτε αξίμη, ζημιές ή άλλη ευθύνη, είτε πρόκειται για αγωγή σύμβασης, αδικοπραξίας ή άλλως, που προκύπτει από, ή σε σχέση με το Λογισμικό ή τη χρήση ή άλλες συναλλαγές με το Λογισμικό. Αυτό περιλαμβάνει τυχόν άμεσες, έμμεσες, τυχαίες, ειδικές, παραδειγματικές ή επακόλουθες ζημιές (συμπεριλαμβανομένης, αλλά όχι μόνο, της προμήθειας υποκατάστατων αγαθών ή υπηρεσιών, απώλειας χρήσης, δεδομένων ή κερδών ή διακοπής εργασιών).</p>
+                    <p><strong>5. Πολιτική Χωρίς Επιστροφή Χρημάτων:</strong> Όλες οι πωλήσεις είναι οριστικές. Λόγω της ψηφιακής φύσης των προϊόντων μας, δεν προσφέρουμε επιστροφή χρημάτων αφού παραδοθεί ένα προϊόν. Παρακαλούμε βεβαιωθείτε ότι καταλαβαίνετε τι αγοράζετε πριν ολοκληρώσετε την παραγγελία σας.</p>
+                    <p><strong>6. Παράδοση Απόδειξης:</strong> Παρακαλούμε σημειώστε: Η επίσημη απόδειξη πληρωμής σας θα παραδοθεί αυτόματα στη διεύθυνση email σας από το Stripe λίγο μετά την αγορά σας. Θα χρειαστείτε αυτήν την απόδειξη για να επικοινωνήσετε μαζί μας για την παράδοση του προϊόντος.</p>
+                    <p><strong>7. Διαδικασία Πληρωμής & Παράδοσης:</strong> Μετά την ολοκλήρωση της πληρωμής σας, πρέπει να επικοινωνήσετε μαζί μας μέσω της σελίδας επικοινωνίας και να μας δώσετε την απόδειξη πληρωμής σας (την οποία λάβατε μέσω email από το Stripe). Στη συνέχεια, θα επαληθεύσουμε την πληρωμή σας και θα σας παραδώσουμε το αγορασμένο προϊόν(τα) το συντομότερο δυνατό. Χωρίς να επικοινωνήσετε μαζί μας με την απόδειξή σας, δεν μπορούμε να επεξεργαστούμε την παραγγελία σας.</p>
+                    <p><strong>8. Αποποίηση Ευθύνης Πληρωμής:</strong> Εάν έχετε οποιεσδήποτε αμφιβολίες ή ερωτήσεις σχετικά με τα προϊόντα μας ή τη διαδικασία πληρωμής, παρακαλούμε επικοινωνήστε μαζί μας μέσω της σελίδας επικοινωνίας πριν από οποιαδήποτε αγορά. Είμαστε εδώ για να διευκρινίσουμε οποιεσδήποτε αβεβαιότητες μπορεί να έχετε.</p>
+                </div>
+                <hr class="modal-divider">
+                <h3 class="text-center">Περίληψη Πολιτικής Απορήτου</h3>
+                <div class="privacy-policy-embed">
+                    <p>Δεσμευόμαστε να προστατεύουμε το απόρρητό σας. Δεν αποθηκεύουμε ή μεταδίδουμε τα προσωπικά σας δεδομένα. Με τη χρήση της υπηρεσίας μας, συμφωνείτε με την πλήρη Πολιτική Απορρήτου μας.</p>
+                </div>
+                <div class="note"><p><strong>Με το κλικ στο "Αποδοχή", επιβεβαιώνετε ότι διαβάσατε, κατανοήσατε και συμφωνείτε να δεσμεύεστε από όλους τους όρους και τις προϋποθέσεις που περιγράφονται σε αυτήν την αποποίηση ευθύνης και την πλήρη Πολιτική Απορρήτου μας. Εάν δεν συμφωνείτε με αυτούς τους όρους, πρέπει να κάνετε κλικ στο "Απόρριψη" και να διακόψετε αμέσως κάθε χρήση του Λογισμικού.</strong></p></div>
+              </div>
+              <div class="modal-footer disclaimer-footer">
+                <button id="decline-disclaimer" class="decline-btn" data-en="Decline" data-gr="Απόρριψη">Decline</button>
+                <button id="accept-disclaimer" class="accept-btn" data-en="Accept" data-gr="Αποδοχή">Accept</button>
+              </div>
+          </div>
+        </div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+
+    function initializeDisclaimer() {
+        if (localStorage.getItem('disclaimerAccepted') === 'true') return;
+
+        injectDisclaimerHTML();
+        
+        const modal = document.getElementById('disclaimer-modal');
+        const langBtn = document.getElementById('disclaimer-lang-btn');
+        
+        setTimeout(() => {
+            modal?.classList.add('visible', 'banner-style');
+            window.changeLanguage(currentLanguage); // Sync language
+        }, 100);
+
+        langBtn?.addEventListener('click', () => {
+            window.changeLanguage(currentLanguage === 'en' ? 'gr' : 'en');
+        });
+
+        document.getElementById('accept-disclaimer')?.addEventListener('click', () => {
+            modal.classList.add('closing');
+            setTimeout(() => {
+                localStorage.setItem('disclaimerAccepted', 'true');
+                modal.classList.remove('visible', 'banner-style', 'closing');
+            }, 400);
+        });
+
+        document.getElementById('decline-disclaimer')?.addEventListener('click', () => {
+            window.location.href = 'https://www.google.com';
+        });
+    }
+
+    // --- SHARED UTILITIES (COPY, CAROUSEL, ACCORDION) ---
+    window.copyToClipboard = (button, targetId) => {
+        const text = document.getElementById(targetId)?.innerText;
+        if (!text) return;
+        
+        navigator.clipboard.writeText(text).then(() => {
+            const original = button.textContent;
+            button.textContent = currentLanguage === 'gr' ? 'Αντιγράφηκε!' : 'Copied!';
+            button.classList.add('copy-success');
+            setTimeout(() => { 
+                button.textContent = original;
+                button.classList.remove('copy-success');
+            }, 1500);
+        });
     };
 
-    input?.addEventListener('input', () => run());
-    overlay.querySelector('#search-clear')?.addEventListener('click', () => {
-      if (input) input.value = '';
-      render([], '');
-      input?.focus();
-    });
+    function initializeToolCategories(selector) {
+        const container = document.querySelector(selector);
+        if (!container) return;
+        container.querySelectorAll('.category-header').forEach(h => h.addEventListener('click', () => h.parentElement.classList.toggle('active')));
+        container.querySelectorAll('.tool-header').forEach(h => h.addEventListener('click', (e) => { e.stopPropagation(); h.parentElement.classList.toggle('active'); }));
+    }
 
-    // initial
-    run();
-  }
+    function initializeCarousels() {
+        document.querySelectorAll('.collaborations-carousel').forEach(c => {
+            const imgs = c.querySelectorAll('.slide-image');
+            let idx = 0;
+            c.querySelector('.prev-btn')?.addEventListener('click', () => { idx = (idx > 0) ? idx - 1 : imgs.length - 1; show(); });
+            c.querySelector('.next-btn')?.addEventListener('click', () => { idx = (idx < imgs.length - 1) ? idx + 1 : 0; show(); });
+            const show = () => imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
+            show();
+        });
+    }
 
-  function initSearchTriggers() {
-    $('#nav-search')?.addEventListener('click', () => openSearch(''));
-    $$('[data-open-search]').forEach(b => b.addEventListener('click', () => openSearch('')));
+    // --- MAIN INIT ---
+    function init() {
+        initializeNavigation();
+        initializeThemeSwitcher();
+        initializeCarousels();
+        initializeToolCategories('.categories-container');
+        initializeToolCategories('#faq-container');
+        
+        // Language Switcher (Navbar)
+        document.getElementById('nav-lang-switcher')?.addEventListener('click', () => {
+            window.changeLanguage(currentLanguage === 'en' ? 'gr' : 'en');
+        });
 
-    document.addEventListener('keydown', (e) => {
-      // "/" to open search (ignore inputs)
-      const t = e.target;
-      const isTyping = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
-      if (!isTyping && e.key === '/') {
-        e.preventDefault();
-        openSearch('');
-      }
-    });
+        // Modals
+        document.querySelectorAll('.modal-overlay').forEach(m => {
+            m.addEventListener('click', (e) => { if(e.target === m && m.id !== 'disclaimer-modal') m.classList.remove('visible'); });
+            m.querySelector('.close-modal')?.addEventListener('click', () => m.classList.remove('visible'));
+        });
 
-    // handle ?q=
-    const q = new URLSearchParams(location.search).get('q');
-    if (q) openSearch(q);
-  }
+        // Final Setup
+        window.changeLanguage(localStorage.getItem('language') || 'en');
+        initializeDisclaimer();
 
-  // ---------- INIT ----------
-  document.addEventListener('DOMContentLoaded', () => {
-    initNavigation();
-    initTheme();
-    initLanguageModal();
-    initDisclaimerModal();
-    applyLanguage(currentLanguage);
-    initSearchTriggers();
-  });
-})();
+        // Active Link
+        const page = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.getAttribute('href').includes(page)));
+
+        // Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animate-in'); observer.unobserve(e.target); }});
+        });
+        document.querySelectorAll('.feature-card, .tool-item, .category').forEach(el => observer.observe(el));
+    }
+
+    init();
+});
