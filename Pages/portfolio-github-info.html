@@ -1,160 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Portfolio & GitHub - DedSec Project</title>
-    <link rel="icon" type="image/jpeg" href="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
-    <meta name="description" content="DedSec Project portfolio and GitHub: open-source Termux tools, updates, contribution info, and development stats.">
-
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-  img-src 'self' data: https:;
-  connect-src 'self';
-  frame-ancestors 'none';
-">
-
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://ded-sec.space/Pages/portfolio-github-info.html">
-
-    <meta property="og:title" content="Portfolio & GitHub - DedSec Project">
-    <meta property="og:description" content="View our project portfolio and GitHub statistics.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Portfolio &amp; GitHub — DedSec Project</title>
+  <meta name="description" content="Explore DedSec Project releases, GitHub activity, and community contributions. Follow updates and join the build.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="dedsec1121fk">
+  <link rel="canonical" href="https://ded-sec.space/Pages/portfolio-github-info.html">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="icon" type="image/jpeg" href="../Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio &amp; GitHub — DedSec Project">
+  <meta property="og:description" content="Explore DedSec Project releases, GitHub activity, and community contributions. Follow updates and join the build.">
+  <meta property="og:url" content="https://ded-sec.space/Pages/portfolio-github-info.html">
+  <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio &amp; GitHub — DedSec Project">
+  <meta name="twitter:description" content="Explore DedSec Project releases, GitHub activity, and community contributions. Follow updates and join the build.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://img.shields.io https://raw.githubusercontent.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"DedSec Project",
+    "url":"https://ded-sec.space/",
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://ded-sec.space/?q={search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
+  }
+  </script>
 </head>
-<body class="dark-theme">
-    <a class=\"skip-link\" href=\"#main-content\" data-en=\"Skip to content\" data-gr=\"Μετάβαση στο περιεχόμενο\">Skip to content</a>
-    <nav class="main-nav">
-    <div class="nav-container">
-        <div class="nav-title"><h1>DedSec Project</h1></div>
-        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
-        <div class="nav-menu" id="nav-menu">
-    <a href="../index.html" class="nav-link" data-en="Home" data-gr="Αρχική">Home</a>
-    <a href="learn-about-the-tools.html" class="nav-link" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία">Learn About The Tools</a>
-    <a href="guide-for-installation.html" class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης">Guide For Installation</a>
-    <a href="faq.html" class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις">Frequently Asked Questions</a>
-    <a href="store.html" class="nav-link" data-en="Store" data-gr="Κατάστημα">Store</a>
-    <a href="collaborations.html" class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a>
-    <a href="portfolio-github-info.html" class="nav-link active" data-en="Portfolio & GitHub" data-gr="Portfolio & GitHub">Portfolio & GitHub</a>
-    <a href="contact-credits.html" class="nav-link" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές">Contact & Credits</a>
-    <a href="privacy-policy.html" class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
+
+<body class="theme-dark">
+
+<header class="site-header">
+  <a class="skip-link" href="#main" data-en="Skip to content" data-gr="Μετάβαση στο περιεχόμενο">Skip to content</a>
+  <div class="header-inner">
+    <a class="brand" href="../index.html">
+      <img class="brand-logo" src="../Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
+      <span class="brand-name">DedSec Project</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-panel" id="nav-panel">
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link" data-en="Home" data-gr="Αρχική">Home</a><a href="learn-about-the-tools.html" class="nav-link" data-en="Learn" data-gr="Εργαλεία">Learn</a><a href="guide-for-installation.html" class="nav-link" data-en="Install" data-gr="Εγκατάσταση">Install</a><a href="faq.html" class="nav-link" data-en="FAQ" data-gr="FAQ">FAQ</a><a href="store.html" class="nav-link" data-en="Store" data-gr="Κατάστημα">Store</a><a href="collaborations.html" class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a><a href="portfolio-github-info.html" aria-current="page" class="nav-link active" data-en="Portfolio" data-gr="Portfolio">Portfolio</a><a href="contact-credits.html" class="nav-link" data-en="Contact" data-gr="Επικοινωνία">Contact</a><a href="privacy-policy.html" class="nav-link" data-en="Privacy" data-gr="Απόρρητο">Privacy</a>
+        </div>
+        <div class="nav-tools">
+          <div class="search-wrap" role="search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input id="site-search" type="search" placeholder="Search…" data-en-placeholder="Search…" data-gr-placeholder="Αναζήτηση…" autocomplete="off" aria-label="Search this page">
+            <button class="search-clear" id="search-clear" aria-label="Clear search"><i class="fa-solid fa-xmark"></i></button>
+            <div class="search-results" id="search-results" aria-live="polite"></div>
+          </div>
+          <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button class="icon-btn" id="lang-toggle" type="button" aria-label="Toggle language">
+            <i class="fa-solid fa-globe"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="site-main">
+<section class="page-banner"><h2>Built for learning. Used responsibly.</h2><p>DedSec Project focuses on education, privacy, and authorized security testing. Always get permission and follow local laws.</p></section><div class="page-header">
+<h1 data-en="Portfolio &amp; GitHub Info" data-gr="Portfolio &amp; GitHub Info">Portfolio &amp; GitHub Info</h1>
+<p data-en="Explore DedSec Project releases, GitHub activity, and community contributions. Follow updates and join the build." data-gr="Δείτε τις κυκλοφορίες, το GitHub και τις συνεισφορές. Ακολουθήστε ενημερώσεις και μπείτε στην κοινότητα.">Explore DedSec Project releases, GitHub activity, and community contributions. Follow updates and join the build.</p>
 </div>
-        <div class="nav-actions">
-            <button id="nav-theme-switcher" class="nav-action-btn"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
-            <button id="nav-lang-switcher" class="nav-action-btn"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
-        </div>
-    </div>
-</nav>
-
-    <div class="page-content" id="main-content">
-        <div class="page-header">
-            <h1 data-en="Portfolio & GitHub Info" data-gr="Portfolio & GitHub Info">Portfolio & GitHub Info</h1>
-            <p data-en="See what we’re building, track updates, and contribute. Everything is organized so you can fork, learn, and improve it."
-               data-gr="Δες τι χτίζουμε, παρακολούθησε updates και συνεισέφερε. Όλα είναι οργανωμένα για να κάνεις fork, να μάθεις και να το βελτιώσεις.">
-               See what we’re building, track updates, and contribute. Everything is organized so you can fork, learn, and improve it.
-            </p>
-        </div>
-        <div class="helper-panel">
-            <div class="helper-item">
-                <i class="fab fa-github"></i>
-                <div>
-                    <h2 data-en="Want to contribute?" data-gr="Θες να συνεισφέρεις;">Want to contribute?</h2>
-                    <p data-en="Open an issue for bugs or ideas. PRs are welcome—small fixes and documentation help a lot." data-gr="Άνοιξε issue για bugs ή ιδέες. PRs ευπρόσδεκτα—ακόμα και μικρές διορθώσεις/τεκμηρίωση βοηθούν πολύ.">Open an issue for bugs or ideas. PRs are welcome—small fixes and documentation help a lot.</p>
-                </div>
-            </div>
-            <div class="helper-item">
-                <i class="fas fa-share-alt"></i>
-                <div>
-                    <h2 data-en="Help us reach more people" data-gr="Βοήθησε να το δει περισσότερος κόσμος">Help us reach more people</h2>
-                    <p data-en="Star the repo, share the site, or mention DedSec Project in your Termux videos/posts." data-gr="Κάνε star στο repo, μοιράσου το site ή αναφέρσου στο DedSec Project σε Termux videos/posts.">Star the repo, share the site, or mention DedSec Project in your Termux videos/posts.</p>
-                </div>
-            </div>
-        </div>
-
 <div class="content-section">
 <h2 data-en="Portfolio" data-gr="Portfolio">Portfolio</h2>
-            <div class="contact-grid">
-                <a href="https://www.ded-sec.space" target="_blank" class="app-icon">
-                    <i class="fas fa-project-diagram"></i>
-                    <span data-en="DedSec Project" data-gr="DedSec Project">DedSec Project</span>
-                </a>
-                <a href="https://www.ded-sec.space/Zepo-And-Xan-Project/" target="_blank" class="app-icon">
-                    <i class="fas fa-project-diagram"></i>
-                    <span data-en="Zepo And Xan Project" data-gr="Zepo And Xan Project">Zepo And Xan Project</span>
-                </a>
-                <a href="https://www.ded-sec.space/ICE-Project/" target="_blank" class="app-icon">
-                    <i class="fas fa-project-diagram"></i>
-                    <span data-en="ICE Project" data-gr="ICE Project">ICE Project</span>
-                </a>
-                <a href="https://www.ded-sec.space/Scav-Project" target="_blank" class="app-icon">
-                    <i class="fas fa-project-diagram"></i>
-                    <span data-en="Scav Project" data-gr="Scav Project">Scav Project</span>
-                </a>
-                <a href="https://www.ded-sec.space/KuNuPi-Project/" target="_blank" class="app-icon">
-                    <i class="fas fa-project-diagram"></i>
-                    <span data-en="KuNuPi Project" data-gr="KuNuPi Project">KuNuPi Project</span>
-                </a>
-            </div>
+<div class="contact-grid">
+<a class="app-icon" href="https://www.ded-sec.space" target="_blank">
+<i class="fas fa-project-diagram"></i>
+<span data-en="DedSec Project" data-gr="DedSec Project">DedSec Project</span>
+</a>
+<a class="app-icon" href="https://www.ded-sec.space/Zepo-And-Xan-Project/" target="_blank">
+<i class="fas fa-project-diagram"></i>
+<span data-en="Zepo And Xan Project" data-gr="Zepo And Xan Project">Zepo And Xan Project</span>
+</a>
+<a class="app-icon" href="https://www.ded-sec.space/ICE-Project/" target="_blank">
+<i class="fas fa-project-diagram"></i>
+<span data-en="ICE Project" data-gr="ICE Project">ICE Project</span>
+</a>
+<a class="app-icon" href="https://www.ded-sec.space/Scav-Project" target="_blank">
+<i class="fas fa-project-diagram"></i>
+<span data-en="Scav Project" data-gr="Scav Project">Scav Project</span>
+</a>
+<a class="app-icon" href="https://www.ded-sec.space/KuNuPi-Project/" target="_blank">
+<i class="fas fa-project-diagram"></i>
+<span data-en="KuNuPi Project" data-gr="KuNuPi Project">KuNuPi Project</span>
+</a>
+</div>
+<hr class="modal-divider"/>
+<h2 data-en="Repositories" data-gr="Αποθετήρια">Repositories</h2>
+<div class="contact-grid">
+<a class="app-icon" href="https://github.com/dedsec1121fk/DedSec" target="_blank">
+<i class="fab fa-github"></i>
+<span data-en="DedSec (The Official Project)" data-gr="DedSec (Το Επίσημο Έργο)">DedSec (The Official Project)</span>
+</a>
+</div>
+<hr class="modal-divider"/>
+<h2 data-en="Statistics" data-gr="Στατιστικά">Statistics</h2>
+<div class="github-stats">
+<img alt="GitHub Stats Dark Theme" class="github-stat-dark" src="https://github-readme-stats.vercel.app/api?username=dedsec1121fk&amp;show_icons=true&amp;theme=transparent&amp;border_color=9966ff&amp;text_color=d0d8e0&amp;title_color=9966ff&amp;icon_color=e6d9ff"/>
+<img alt="GitHub Streak Stats Dark Theme" class="github-stat-dark" src="https://streak-stats.demolab.com/?user=dedsec1121fk&amp;theme=transparent&amp;border=9966ff&amp;ring=9966ff&amp;fire=9966ff&amp;currStreakLabel=9966ff&amp;sideLabels=d0d8e0&amp;sideNums=d0d8e0&amp;dates=d0d8e0"/>
+<img alt="Top Languages Dark Theme" class="github-stat-dark" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dedsec1121fk&amp;layout=compact&amp;theme=transparent&amp;border_color=9966ff&amp;text_color=d0d8e0&amp;title_color=9966ff&amp;icon_color=e6d9ff"/>
+<img alt="GitHub Stats Light Theme" class="github-stat-light" src="https://github-readme-stats.vercel.app/api?username=dedsec1121fk&amp;show_icons=true&amp;theme=transparent&amp;border_color=9966ff&amp;text_color=333333&amp;title_color=9966ff&amp;icon_color=9966ff"/>
+<img alt="GitHub Streak Stats Light Theme" class="github-stat-light" src="https://streak-stats.demolab.com/?user=dedsec1121fk&amp;theme=transparent&amp;border=9966ff&amp;ring=9966ff&amp;fire=9966ff&amp;currStreakLabel=9966ff&amp;sideLabels=333333&amp;sideNums=333333&amp;dates=333333"/>
+<img alt="Top Languages Light Theme" class="github-stat-light" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dedsec1121fk&amp;layout=compact&amp;theme=transparent&amp;border_color=9966ff&amp;text_color=333333&amp;title_color=9966ff&amp;icon_color=9966ff"/>
+</div>
+<footer class="main-footer">
+<p data-lang-section="en">© 2026 DedSec Project. All Rights Reserved.</p>
+<p class="hidden-by-default" data-lang-section="gr">© 2026 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
+<p data-lang-section="en" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Trademark Disclaimer: The "DedSec" name and logo are inspired by the "Watch Dogs" series and are used for thematic purposes only. This project is not affiliated with or endorsed by Ubisoft Entertainment S.A.</p>
+<p class="hidden-by-default" data-lang-section="gr" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Αποποίηση Ευθύνης Εμπορικού Σήματος: Το όνομα και το λογότυπο "DedSec" είναι εμπνευσμένα από τη σειρά "Watch Dogs" και χρησιμοποιούνται μόνο για θεματικούς σκοπούς. Αυτό το έργο δεν συνδέεται ούτε υποστηρίζεται από την Ubisoft Entertainment S.A.</p>
+<p>Made by dedsec1121fk.</p>
+</footer>
+</div>
+</main>
 
-            <hr class="modal-divider">
-
-            <h2 data-en="Repositories" data-gr="Αποθετήρια">Repositories</h2>
-            <div class="contact-grid">
-                <a href="https://github.com/dedsec1121fk/DedSec" target="_blank" class="app-icon">
-                    <i class="fab fa-github"></i>
-                    <span data-en="DedSec (The Official Project)" data-gr="DedSec (Το Επίσημο Έργο)">DedSec (The Official Project)</span>
-                </a>
-            </div>
-
-            <hr class="modal-divider">
-
-            <h2 data-en="Statistics" data-gr="Στατιστικά">Statistics</h2>
-            <div class="github-stats">
-                <img class="github-stat-dark" src="https://github-readme-stats.vercel.app/api?username=dedsec1121fk&show_icons=true&theme=transparent&border_color=9966ff&text_color=d0d8e0&title_color=9966ff&icon_color=e6d9ff" alt="GitHub Stats Dark Theme">
-                <img class="github-stat-dark" src="https://streak-stats.demolab.com/?user=dedsec1121fk&theme=transparent&border=9966ff&ring=9966ff&fire=9966ff&currStreakLabel=9966ff&sideLabels=d0d8e0&sideNums=d0d8e0&dates=d0d8e0" alt="GitHub Streak Stats Dark Theme">
-                <img class="github-stat-dark" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dedsec1121fk&layout=compact&theme=transparent&border_color=9966ff&text_color=d0d8e0&title_color=9966ff&icon_color=e6d9ff" alt="Top Languages Dark Theme">
-                
-                <img class="github-stat-light" src="https://github-readme-stats.vercel.app/api?username=dedsec1121fk&show_icons=true&theme=transparent&border_color=9966ff&text_color=333333&title_color=9966ff&icon_color=9966ff" alt="GitHub Stats Light Theme">
-                <img class="github-stat-light" src="https://streak-stats.demolab.com/?user=dedsec1121fk&theme=transparent&border=9966ff&ring=9966ff&fire=9966ff&currStreakLabel=9966ff&sideLabels=333333&sideNums=333333&dates=333333" alt="GitHub Streak Stats Light Theme">
-                <img class="github-stat-light" src="https://github-readme-stats.vercel.app/api/top-langs/?username=dedsec1121fk&layout=compact&theme=transparent&border_color=9966ff&text_color=333333&title_color=9966ff&icon_color=9966ff" alt="Top Languages Light Theme">
-            </div>
-
-            <footer class="main-footer">
-                <p data-lang-section="en">© 2026 DedSec Project. All Rights Reserved.</p>
-                <p data-lang-section="gr" class="hidden-by-default">© 2026 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
-                <p data-lang-section="en" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Trademark Disclaimer: The "DedSec" name and logo are inspired by the "Watch Dogs" series and are used for thematic purposes only. This project is not affiliated with or endorsed by Ubisoft Entertainment S.A.</p>
-                <p data-lang-section="gr" class="hidden-by-default" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Αποποίηση Ευθύνης Εμπορικού Σήματος: Το όνομα και το λογότυπο "DedSec" είναι εμπνευσμένα από τη σειρά "Watch Dogs" και χρησιμοποιούνται μόνο για θεματικούς σκοπούς. Αυτό το έργο δεν συνδέεται ούτε υποστηρίζεται από την Ubisoft Entertainment S.A.</p>
-                <p>Made by dedsec1121fk.</p>
-            </footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <img class="footer-logo" src="../Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
+        <div>
+          <strong>DedSec Project</strong>
+          <p class="muted" data-en="Available in English & Greek." data-gr="Διαθέσιμο σε Αγγλικά & Ελληνικά.">Available in English & Greek.</p>
         </div>
-    </div>
-
-    <div id="language-selection-modal" class="modal-overlay">
-      <div class="modal-content modal-content-auto-height">
-          <div class="modal-header">
-            <h2 data-en="Choose Language" data-gr="Επιλογή Γλώσσας">Choose Language / Επιλογή Γλώσσας</h2>
-            <button class="close-modal" aria-label="Close">×</button>
-          </div>
-          <div class="modal-body modal-body-centered">
-              <button class="language-button" data-lang="en" aria-label="Change language to English">English</button>
-              <button class="language-button" data-lang="gr" aria-label="Change language to Greek">Ελληνικά</button>
-          </div>
       </div>
+      <p class="muted" data-en="Education, privacy, and authorized security testing." data-gr="Εκπαίδευση, ιδιωτικότητα και εξουσιοδοτημένο testing.">
+        Education, privacy, and authorized security testing.
+      </p>
     </div>
 
-    <script src="../script.js" defer></script>
+    <div class="footer-col">
+      <h3 data-en="Community" data-gr="Κοινότητα">Community</h3>
+      <ul>
+        <li><a href="https://github.com/dedsec1121fk" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.instagram.com/dedsec_project_official" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://t.me/dedsecproject" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 data-en="Pages" data-gr="Σελίδες">Pages</h3>
+      <ul>
+        <li><a href="../Pages/guide-for-installation.html" data-en="Installation" data-gr="Εγκατάσταση">Installation</a></li>
+        <li><a href="../Pages/learn-about-the-tools.html" data-en="Tools" data-gr="Εργαλεία">Tools</a></li>
+        <li><a href="../Pages/faq.html">FAQ</a></li>
+        <li><a href="../Pages/privacy-policy.html" data-en="Privacy" data-gr="Απόρρητο">Privacy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 data-en="Contact" data-gr="Επικοινωνία">Contact</h3>
+      <ul>
+        <li><a href="../Pages/contact-credits.html" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές">Contact & Credits</a></li>
+        <li><a href="https://ded-sec.space" target="_blank" rel="noopener">ded-sec.space</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="muted">© <span id="year"></span> DedSec Project</span>
+    <span class="muted" data-en="Built with lavender energy." data-gr="Χτισμένο με lavender ενέργεια.">Built with lavender energy.</span>
+  </div>
+</footer>
+
+<script src="../script.js" defer></script>
 </body>
 </html>
