@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="alternate" hreflang="en" href="https://ded-sec.space/" />
+<link rel="alternate" hreflang="el" href="https://ded-sec.space/el/" />
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="el_GR">
+
 <meta name="theme-color" content="#b38cff">
 <link rel="preconnect" href="https://raw.githubusercontent.com">
 <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
@@ -133,6 +139,40 @@
       }
     ]
     </script>
+
+<style>
+@keyframes floatGlow {
+  0% { transform: translateY(0); box-shadow: 0 0 25px rgba(179,140,255,.35); }
+  50% { transform: translateY(-6px); box-shadow: 0 0 45px rgba(179,140,255,.6); }
+  100% { transform: translateY(0); box-shadow: 0 0 25px rgba(179,140,255,.35); }
+}
+.hero-glass {
+  animation: floatGlow 6s ease-in-out infinite;
+}
+.ai-hint {
+  font-size: .9rem;
+  opacity: .8;
+}
+</style>
+
+<style>
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(179,140,255,0.18), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,170,255,0.12), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(140,100,255,0.10), transparent 50%);
+  animation: aiFlow 20s ease-in-out infinite alternate;
+  z-index: -1;
+}
+@keyframes aiFlow {
+  from { filter: blur(20px) hue-rotate(0deg); }
+  to { filter: blur(35px) hue-rotate(25deg); }
+}
+</style>
+
 </head>
 <body class="dark-theme">
     <nav class="main-nav">
@@ -400,6 +440,21 @@
             </div>
         </div>
     </div>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "DedSec Project",
+  "url": "https://ded-sec.space",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://ded-sec.space/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
 </body>
 </html>
