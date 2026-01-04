@@ -2,12 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
     let currentLanguage = 'en';
 
-    // --- BRAND ASSETS (DO NOT CHANGE LINKS) ---
-    const BRAND_LOGOS = {
-        dark: 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg',
-        light: 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg'
-    };
-
     // --- NAVIGATION FUNCTIONALITY ---
     function initializeNavigation() {
         const burgerMenu = document.getElementById('burger-menu');
@@ -63,34 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const isLight = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
             updateThemeButton(isLight);
-            updateBranding();
         });
 
         if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
         updateThemeButton(document.body.classList.contains('light-theme'));
-        updateBranding();
     }
 
-    
-    // --- BRANDING (LOGO + FAVICON) ---
-    function updateBranding() {
-        const isLight = document.body.classList.contains('light-theme');
-        const logoUrl = isLight ? BRAND_LOGOS.light : BRAND_LOGOS.dark;
-
-        const logo = document.getElementById('site-logo');
-        if (logo) logo.setAttribute('src', logoUrl);
-
-        const favicon = document.getElementById('favicon');
-        if (favicon) favicon.setAttribute('href', logoUrl);
-
-        const searchInput = document.getElementById('site-search-input');
-        if (searchInput) {
-            const ph = searchInput.getAttribute(`data-${currentLanguage}-placeholder`) || searchInput.getAttribute('data-en-placeholder') || '';
-            if (ph) searchInput.setAttribute('placeholder', ph);
-        }
-    }
-
-// --- LANGUAGE MANAGEMENT ---
+    // --- LANGUAGE MANAGEMENT ---
     window.changeLanguage = (lang) => {
         currentLanguage = lang;
         document.documentElement.lang = lang;
@@ -253,197 +226,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- MAIN INIT ---
-    
-    // --- SITE SEARCH ---
-    function slugify(text) {
-        return (text || '').toLowerCase()
-            .replace(/&/g, ' and ')
-            .replace(/[^a-z0-9\u0370-\u03ff]+/g, '-')
-            .replace(/(^-|-$)/g, '')
-            .slice(0, 64);
-    }
-
-    function ensureId(el, prefix='sec') {
-        if (!el) return '';
-        if (el.id) return el.id;
-        const base = slugify(el.textContent) || prefix;
-        let id = base;
-        let i = 2;
-        while (document.getElementById(id)) { id = `${base}-${i++}`; }
-        el.id = id;
-        return id;
-    }
-
-    function buildSearchIndex() {
-        const items = [];
-
-        // Primary navigation (cross-page)
-        document.querySelectorAll('a.nav-link[href]').forEach(a => {
-            const title = (a.getAttribute(`data-${currentLanguage}`) || a.textContent || '').trim();
-            const href = a.getAttribute('href');
-            if (!href || !title) return;
-            items.push({ title, href, badge: currentLanguage === 'gr' ? 'Σελίδα' : 'Page' });
-        });
-
-        // In-page sections (headings + key cards)
-        const selectors = [
-            'main h1','main h2','main h3',
-            '.feature-card .feature-title',
-            '.category-header h2',
-            '.tool-item .tool-title',
-            '.faq-buttons-container a',
-            '.carousel-slide h3',
-            '.contact-grid h3'
-        ];
-
-        document.querySelectorAll(selectors.join(',')).forEach(el => {
-            const rawTitle = (el.getAttribute(`data-${currentLanguage}`) || el.textContent || '').trim();
-            if (!rawTitle || rawTitle.length < 3) return;
-
-            const container = el.closest('.tool-item, .feature-card, .category, .faq-buttons-container, section, .carousel-slide, .contact-grid') || el;
-            const id = ensureId(container, 'section');
-            if (!id) return;
-            items.push({ title: rawTitle, href: `#${id}`, badge: currentLanguage === 'gr' ? 'Ενότητα' : 'Section' });
-        });
-
-        const seen = new Set();
-        return items.filter(it => (it.href && !seen.has(it.href) && seen.add(it.href)));
-    }
-
-    function scoreMatch(q, title) {
-        const t = (title || '').toLowerCase();
-        if (t === q) return 100;
-        if (t.startsWith(q)) return 80;
-        if (t.includes(q)) return 60;
-        const words = q.split(/\s+/).filter(Boolean);
-        let hits = 0;
-        words.forEach(w => { if (t.includes(w)) hits += 1; });
-        return hits ? 40 + hits * 5 : 0;
-    }
-
-    function initializeSiteSearch() {
-        const openBtn = document.getElementById('nav-search-btn');
-        const modal = document.getElementById('site-search-modal');
-        const input = document.getElementById('site-search-input');
-        const resultsEl = document.getElementById('site-search-results');
-        const clearBtn = document.getElementById('site-search-clear');
-
-        if (!openBtn || !modal || !input || !resultsEl) return;
-
-        let index = [];
-        let isOpen = false;
-
-        const render = (list, q) => {
-            resultsEl.innerHTML = '';
-
-            if (!q) {
-                const hint = document.createElement('div');
-                hint.className = 'search-result';
-                hint.style.cursor = 'default';
-                hint.innerHTML = `
-                    <div>
-                        <div class="search-result-title">${currentLanguage === 'gr' ? 'Δοκίμασε να ψάξεις:' : 'Try searching for:'}</div>
-                        <div class="search-result-meta">${currentLanguage === 'gr' ? 'Termux, εργαλεία, εγκατάσταση, FAQ…' : 'Termux, tools, installation, FAQ…'}</div>
-                    </div>
-                    <div class="search-result-badge">${currentLanguage === 'gr' ? 'Συμβουλή' : 'Tip'}</div>
-                `;
-                resultsEl.appendChild(hint);
-                return;
-            }
-
-            if (!list.length) {
-                const empty = document.createElement('div');
-                empty.className = 'search-result';
-                empty.style.cursor = 'default';
-                empty.innerHTML = `
-                    <div>
-                        <div class="search-result-title">${currentLanguage === 'gr' ? 'Δεν βρέθηκαν αποτελέσματα' : 'No results found'}</div>
-                        <div class="search-result-meta">${currentLanguage === 'gr' ? 'Δοκίμασε άλλη λέξη.' : 'Try a different keyword.'}</div>
-                    </div>
-                    <div class="search-result-badge">0</div>
-                `;
-                resultsEl.appendChild(empty);
-                return;
-            }
-
-            list.slice(0, 10).forEach(it => {
-                const row = document.createElement('div');
-                row.className = 'search-result';
-                row.setAttribute('role', 'button');
-                row.tabIndex = 0;
-                row.innerHTML = `
-                    <div>
-                        <div class="search-result-title">${it.title}</div>
-                        <div class="search-result-meta">${it.href.startsWith('#') ? (currentLanguage === 'gr' ? 'Σε αυτή τη σελίδα' : 'On this page') : it.href}</div>
-                    </div>
-                    <div class="search-result-badge">${it.badge}</div>
-                `;
-                row.addEventListener('click', () => openResult(it.href));
-                row.addEventListener('keydown', (e) => { if (e.key === 'Enter') openResult(it.href); });
-                resultsEl.appendChild(row);
-            });
-        };
-
-        const openModal = () => {
-            modal.hidden = false;
-            document.body.style.overflow = 'hidden';
-            isOpen = true;
-            index = buildSearchIndex();
-            updateBranding();
-            input.value = '';
-            if (clearBtn) clearBtn.hidden = true;
-            render([], '');
-            setTimeout(() => input.focus(), 10);
-        };
-
-        const closeModal = () => {
-            modal.hidden = true;
-            document.body.style.overflow = '';
-            isOpen = false;
-        };
-
-        const openResult = (href) => {
-            closeModal();
-            if (!href) return;
-            if (href.startsWith('#')) {
-                const el = document.getElementById(href.slice(1));
-                el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                history.replaceState(null, '', href);
-            } else {
-                window.location.href = href;
-            }
-        };
-
-        const filter = () => {
-            const q = input.value.trim().toLowerCase();
-            if (clearBtn) clearBtn.hidden = !q;
-            const list = q ? index
-                .map(it => ({ ...it, _score: scoreMatch(q, it.title) }))
-                .filter(it => it._score > 0)
-                .sort((a,b) => b._score - a._score) : [];
-            render(list, q);
-        };
-
-        openBtn.addEventListener('click', openModal);
-        modal.querySelectorAll('[data-close-search]').forEach(el => el.addEventListener('click', closeModal));
-        document.addEventListener('keydown', (e) => { if (isOpen && e.key === 'Escape') closeModal(); });
-
-        input.addEventListener('input', filter);
-        clearBtn?.addEventListener('click', () => { input.value=''; filter(); input.focus(); });
-
-        // Live language placeholders
-        const originalChangeLanguage = window.changeLanguage;
-        window.changeLanguage = (lang) => {
-            originalChangeLanguage(lang);
-            index = buildSearchIndex();
-            updateBranding();
-            if (isOpen) filter();
-        };
-    }
-
-function init() {
+    function init() {
         initializeNavigation();
-        initializeSiteSearch();
         initializeThemeSwitcher();
         initializeCarousels();
         initializeToolCategories('.categories-container');
