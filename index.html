@@ -1,336 +1,401 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DedSec Project — Learn Security & Privacy on Android (Termux)</title>
-<meta name="title" content="DedSec Project — Learn Security & Privacy on Android (Termux)">
-<meta name="description" content="DedSec Project is a security-minded learning hub for Android & Termux: guides, learning paths, community, and responsible practice.">
-<meta name="keywords" content="DedSec Project, Termux, Android, cybersecurity, learning, open source, privacy, digital safety, community">
-<meta name="author" content="dedsec1121fk">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://ded-sec.space/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="DedSec Project">
-<meta property="og:title" content="DedSec Project — Learn Security & Privacy on Android (Termux)">
-<meta property="og:description" content="DedSec Project is a security-minded learning hub for Android & Termux: guides, learning paths, community, and responsible practice.">
-<meta property="og:url" content="https://ded-sec.space/">
-<meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="DedSec Project — Learn Security & Privacy on Android (Termux)">
-<meta name="twitter:description" content="DedSec Project is a security-minded learning hub for Android & Termux: guides, learning paths, community, and responsible practice.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<link rel="icon" href="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "DedSec Project", "url": "https://ded-sec.space", "potentialAction": {"@type": "SearchAction", "target": "https://ded-sec.space/index.html?query={search_term_string}", "query-input": "required name=search_term_string"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "DedSec Project", "url": "https://ded-sec.space", "logo": "https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg", "sameAs": ["https://github.com/dedsec1121fk/DedSec", "https://www.instagram.com/dedsec_project_official/"]}</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <title>DedSec Project — Free Termux Toolkit, OSINT & Security Learning (EN/GR)</title>
+    <meta name="title" content="DedSec Project — Free Termux Toolkit, OSINT & Security Learning (EN/GR)">
+    <meta name="description" content="DedSec Project is a free, open toolkit for Termux: learn OSINT, networking, privacy, and security skills with clear guides and a community-first approach. Available in English & Greek.">
+    <link rel="icon" type="image/jpeg" href="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+    <meta name="keywords" content="DedSec Project, Termux Tools, Android Hacking, OSINT Tools, Dark Web Crawler, Phishing Tools, Ethical Hacking Kit, No Root Hacking, Cybersecurity Toolkit, Penetration Testing Android, dedsec1121fk, DedSec,Watch Dogs, Root, Watch Dogs IRL">
+    <meta name="author" content="dedsec1121fk">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
 
+    <link rel="canonical" href="https://ded-sec.space/">
+
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+      img-src 'self' data: https: https://img.shields.io https://raw.githubusercontent.com;
+      connect-src 'self';
+      frame-ancestors 'none';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ded-sec.space/">
+    <meta property="og:title" content="DedSec - Watch Dogs Is Now More Real Than Ever!">
+    <meta property="og:description" content="The DedSec Project is a free, all-in-one ethical hacking toolkit for cybersecurity education and authorized penetration testing. It includes network scanners, OSINT tools, social engineering modules (fake login pages, data capture), secure communications, system utilities, and games, all designed for legal security research and skill development">
+    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="DedSec Project">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ded-sec.space/">
+    <meta property="twitter:title" content="DedSec - Watch Dogs Is Now More Real Than Ever!">
+    <meta property="twitter:description" content="DedSec - Watch Dogs Is Now More Real Than Ever!.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DedSec Project",
+        "url": "https://ded-sec.space/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://ded-sec.space/#search={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "DedSec Project Toolkit",
+        "operatingSystem": "Android, Termux",
+        "applicationCategory": "SecurityApplication",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "The DedSec Project is a free, all-in-one ethical hacking toolkit for cybersecurity education and authorized penetration testing. It includes network scanners, OSINT tools, social engineering modules (fake login pages, data capture), secure communications, system utilities, and games, all designed for legal security research and skill development",
+        "author": {
+            "@type": "Person",
+            "name": "dedsec1121fk",
+            "url": "https://github.com/dedsec1121fk"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DedSec Project",
+        "url": "https://ded-sec.space/",
+        "logo": "https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg",
+        "sameAs": [
+          "https://github.com/dedsec1121fk",
+          "https://t.me/dedsecproject",
+          "https://www.instagram.com/dedsec_project_official"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need a Rooted device to use DedSec Project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. 95% of the tools in DedSec Project are designed to work without Root access on Android devices via Termux."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is DedSec Project free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the core DedSec Project toolkit is 100% free and open source. We also offer premium development services and specialized scripts in our store."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I install DedSec Project?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can install it easily using Termux. Run 'pkg update', install git, clone our repository from GitHub, and run the setup script. Detailed instructions are available on our Installation Guide page."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
 </head>
-<body>
-
-<a class="skip-link" href="#content">Skip to content</a>
-<header class="site-header" id="top">
-  <div class="header-inner">
-    <a class="brand" href="/index.html#top" aria-label="DedSec Project home">
-      <img id="siteLogo" class="brand-logo" src="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg" data-logo-light="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg" data-logo-dark="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo" width="48" height="48" loading="eager">
-      <span class="brand-text">
-        <span class="brand-title">DedSec Project</span>
-        <span class="brand-subtitle">Learn • Build • Share — with responsible intent</span>
-      </span>
-    </a>
-
-    <div class="header-actions">
-      <button class="icon-btn" id="openSearchBtn" type="button" aria-label="Search the site" title="Search">
-        <span aria-hidden="true">⌕</span>
-      </button>
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme" title="Theme">
-        <span aria-hidden="true">◐</span>
-      </button>
-      <button class="icon-btn" id="menuToggle" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false" title="Menu">
-        <span aria-hidden="true">☰</span>
-      </button>
-    </div>
-  </div>
-
-  <nav class="desktop-nav" aria-label="Primary">
-    <div class="desktop-nav-inner">
-      <a class="nav-link" href="/index.html" aria-current="page">Home</a>
-<a class="nav-link" href="/Pages/guide-for-installation.html">Get Started</a>
-<a class="nav-link" href="/Pages/learn-about-the-tools.html">Tools Overview</a>
-<a class="nav-link" href="/Pages/faq.html">FAQ</a>
-<a class="nav-link" href="/Pages/collaborations.html">Collaborations</a>
-<a class="nav-link" href="/Pages/portfolio-github-info.html">Portfolio & GitHub</a>
-<a class="nav-link" href="/Pages/store.html">Store</a>
-<a class="nav-link" href="/Pages/contact-credits.html">Contact & Credits</a>
-<a class="nav-link" href="/Pages/privacy-policy.html">Privacy Policy</a>
-    </div>
-  </nav>
-
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
-    <div class="mobile-nav-inner">
-      <a class="nav-link" href="/index.html" aria-current="page">Home</a>
-<a class="nav-link" href="/Pages/guide-for-installation.html">Get Started</a>
-<a class="nav-link" href="/Pages/learn-about-the-tools.html">Tools Overview</a>
-<a class="nav-link" href="/Pages/faq.html">FAQ</a>
-<a class="nav-link" href="/Pages/collaborations.html">Collaborations</a>
-<a class="nav-link" href="/Pages/portfolio-github-info.html">Portfolio & GitHub</a>
-<a class="nav-link" href="/Pages/store.html">Store</a>
-<a class="nav-link" href="/Pages/contact-credits.html">Contact & Credits</a>
-<a class="nav-link" href="/Pages/privacy-policy.html">Privacy Policy</a>
-    </div>
-  </nav>
-</header>
-
-<div class="search-modal" id="searchModal" aria-hidden="true">
-  <div class="search-backdrop" data-close-search="true"></div>
-  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Site search">
-    <div class="search-top">
-      <label class="sr-only" for="siteSearchInput">Search</label>
-      <input id="siteSearchInput" class="search-input" type="search" placeholder="Search pages, sections, keywords…" autocomplete="off">
-      <button class="icon-btn" id="closeSearchBtn" type="button" aria-label="Close search" title="Close">✕</button>
-    </div>
-    <div class="search-hint">Tip: try “install”, “community”, “privacy”, “collab”.</div>
-    <div class="search-results" id="searchResults" role="listbox" aria-label="Search results"></div>
-  </div>
+<body class="dark-theme">
+    <nav class="main-nav">
+    <div class="nav-container">
+        <div class="nav-title">
+            <a class="brand" href="index.html" data-home-link>
+                    <img class="brand-logo" id="site-logo" src="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" data-logo-dark="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" data-logo-light="https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo" width="40" height="40" decoding="async" loading="eager">
+                    <span class="brand-text">DedSec Project</span>
+                </a></div>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+    <a href="index.html" class="nav-link active" data-en="Home" data-gr="Αρχική">Home</a>
+    <a href="Pages/learn-about-the-tools.html" class="nav-link" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία">Learn About The Tools</a>
+    <a href="Pages/guide-for-installation.html" class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης">Guide For Installation</a>
+    <a href="Pages/faq.html" class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις">Frequently Asked Questions</a>
+    <a href="Pages/store.html" class="nav-link" data-en="Store" data-gr="Κατάστημα">Store</a>
+    <a href="Pages/collaborations.html" class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a>
+    <a href="Pages/portfolio-github-info.html" class="nav-link" data-en="Portfolio & GitHub" data-gr="Portfolio & GitHub">Portfolio & GitHub</a>
+    <a href="Pages/contact-credits.html" class="nav-link" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές">Contact & Credits</a>
+    <a href="Pages/privacy-policy.html" class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
 </div>
-
-<main id="content" class="page">
-
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <h1 class="hero-title">Build skills. Stay private. Create with purpose.</h1>
-      <p class="hero-lead">
-        DedSec Project is a security-minded learning hub for Android & Termux — made for curious builders who want a clean path from “beginner” to “confident”.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="/Pages/guide-for-installation.html">Start Here</a>
-        <a class="btn btn-ghost" href="/Pages/learn-about-the-tools.html">Explore What We Offer</a>
-      </div>
-
-      <div class="hero-badges" aria-label="Highlights">
-        <div class="badge"><span class="badge-dot"></span> Fast, mobile-first UI</div>
-        <div class="badge"><span class="badge-dot"></span> Open source mindset</div>
-        <div class="badge"><span class="badge-dot"></span> Safety & responsibility</div>
-      </div>
-    </div>
-
-    <div class="hero-card" aria-label="Quick snapshot">
-      <div class="card">
-        <div class="card-kicker">Quick Snapshot</div>
-        <div class="card-title">What you’ll find</div>
-        <ul class="checklist">
-          <li>Clear setup guides for Android & Termux</li>
-          <li>Learning paths: fundamentals → advanced</li>
-          <li>Community updates & collaboration options</li>
-          <li>Privacy-first approach on the website</li>
-        </ul>
-        <div class="card-actions">
-          <a class="btn btn-secondary" href="#mission">Why DedSec</a>
-          <a class="btn btn-outline" href="#community">Join Community</a>
+        <div class="nav-actions">
+            
+            <button id="nav-search" class="nav-action-btn" aria-label="Search">
+                <i class="fas fa-search"></i>
+                <span data-en="Search" data-gr="Αναζήτηση">Search</span>
+            </button>
+<button id="nav-theme-switcher" class="nav-action-btn">
+                <i class="fas fa-moon"></i>
+                <span data-en="Theme" data-gr="Θέμα">Theme</span>
+            </button>
+            <button id="nav-lang-switcher" class="nav-action-btn">
+                <i class="fas fa-globe"></i>
+                <span data-en="Language" data-gr="Γλώσσα">Language</span>
+            </button>
         </div>
-      </div>
     </div>
-  </div>
+</nav>
 
-  <div class="hero-glow" aria-hidden="true"></div>
-</section>
+    <div class="phone-container">
+        <div class="screen">
+            
+            <main class="home-screen">
 
-<section class="section" id="mission">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>Mission & values</h2>
-      <p>We make learning security and privacy less confusing — and more practical — while staying on the right side of ethics and the law.</p>
-    </div>
+                <div class="hero-section">
+                    <h2 data-en="Watch Dogs feels real now — learn, build, and stay in control." 
+                        data-gr="Το Watch Dogs μοιάζει πιο πραγματικό από ποτέ — μάθε, δημιούργησε και κράτα τον έλεγχο.">
+                        Watch Dogs feels real now — learn, build, and stay in control.
+                    </h2>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <img src="https://img.shields.io/github/stars/dedsec1121fk/DedSec?style=social&label=Stars" alt="GitHub Stars" style="height: 20px;">
+                            <span data-en="Community Verified" data-gr="Επαληθευμένο από την Κοινότητα" style="margin-top: 5px; font-size: 0.75rem;">Community Verified</span>
+                        </div>
 
-    <div class="grid-3">
-      <article class="feature">
-        <h3>Responsible learning</h3>
-        <p>Everything is framed around safe, authorized practice — so you can grow skills without crossing boundaries.</p>
-      </article>
-      <article class="feature">
-        <h3>Real-world clarity</h3>
-        <p>Simple explanations, clean UI, and step-by-step guides. No fluff — just what you need to move forward.</p>
-      </article>
-      <article class="feature">
-        <h3>Community-led</h3>
-        <p>Built in public, improved by feedback. Collaboration is welcome — from translations to documentation and design.</p>
-      </article>
-    </div>
+                        <div class="trust-item">
+                            <i class="fas fa-lock"></i>
+                            <span data-en="No Root Required" data-gr="Χωρίς Root">No Root Required</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fab fa-github"></i>
+                            <span data-en="100% Open Source" data-gr="100% Ανοιχτού Κώδικα">100% Open Source</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span data-en="Educational Focus" data-gr="Εκπαιδευτικό Focus">Educational Focus</span>
+                        </div>
+                    </div>
+                    
+                    <p class="hero-text" 
+                       data-en="DedSec Project is a free, open-source collection of Termux-friendly tools, guides, and resources built for learning, experimentation, and authorized security research. No hype—just practical skills, clear steps, and a community that helps you level up."
+                       data-gr="Το DedSec Project είναι μια δωρεάν, open‑source συλλογή από εργαλεία, οδηγούς και πόρους για Termux, φτιαγμένη για μάθηση, πειραματισμό και εξουσιοδοτημένη έρευνα ασφαλείας. Χωρίς υπερβολές—μόνο πρακτικές δεξιότητες, καθαρά βήματα και μια κοινότητα που σε βοηθά να εξελιχθείς.">
+                       DedSec Project is a free, open-source collection of Termux-friendly tools, guides, and resources built for learning, experimentation, and authorized security research. No hype—just practical skills, clear steps, and a community that helps you level up.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a class="cta primary" href="Pages/learn-about-the-tools.html" data-en="Explore the Toolkit" data-gr="Εξερεύνησε το Toolkit">Explore the Toolkit</a>
+                        <a class="cta secondary" href="Pages/guide-for-installation.html" data-en="Quick Installation Guide" data-gr="Γρήγορος Οδηγός Εγκατάστασης">Quick Installation Guide</a>
+                        <a class="cta ghost" href="Pages/collaborations.html" data-en="Collaborate" data-gr="Συνεργασία">Collaborate</a>
+                    </div>
+                </div>
 
-    <div class="callout">
-      <div class="callout-title">Important</div>
-      <p class="callout-text">
-        DedSec Project is educational. Use knowledge and tools only where you have explicit permission.
-      </p>
-    </div>
-  </div>
-</section>
+                <div class="features-grid">
+                    <a href="Pages/learn-about-the-tools.html" class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fas fa-tools feature-icon"></i>
+                        </div>
+                        <h3 class="feature-title" data-en="Powerful Tools" data-gr="Ισχυρά Εργαλεία">Powerful Tools</h3>
+                        <p class="feature-description" data-en="Access 50+ specialized tools for network analysis, OSINT, security testing, and digital forensics." 
+                           data-gr="Προσπελάστε 50+ εξειδικευμένα εργαλεία για ανάλυση δικτύου, OSINT, δοκιμές ασφαλείας και ψηφιακή εγκληματολογία.">
+                           Access 50+ specialized tools for network analysis, OSINT, security testing, and digital forensics.
+                        </p>
+                        <span class="feature-cta" data-en="Explore Tools" data-gr="Εξερευνήστε Εργαλεία">
+                            Explore Tools <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </a>
 
-<section class="section alt" id="learn">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>What you can learn here</h2>
-      <p>Pick a path, follow it at your pace, and track your progress.</p>
-    </div>
+                    <a href="Pages/guide-for-installation.html" class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fas fa-download feature-icon"></i>
+                        </div>
+                        <h3 class="feature-title" data-en="Quick Installation" data-gr="Γρήγορη Εγκατάσταση">Quick Installation</h3>
+                        <p class="feature-description" data-en="Get started in minutes with our automated setup process. Works on any Android device with Termux." 
+                           data-gr="Ξεκινήστε σε λίγα λεπτά με την αυτοματοποιημένη διαδικασία εγκατάστασής μας. Λειτουργεί σε οποιαδήποτε συσκευή Android με Termux.">
+                           Get started in minutes with our automated setup process. Works on any Android device with Termux.
+                        </p>
+                        <span class="feature-cta" data-en="Install Now" data-gr="Εγκαταστήστε Τώρα">
+                            Install Now <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </a>
 
-    <div class="grid-2">
-      <article class="path">
-        <h3>Beginner → Confident</h3>
-        <p>Start with the basics: Termux setup, safe CLI workflow, files, networking fundamentals, and common utilities.</p>
-        <a class="text-link" href="/Pages/guide-for-installation.html">See the start guide →</a>
-      </article>
+                    <a href="Pages/portfolio-github-info.html" class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fab fa-github feature-icon"></i>
+                        </div>
+                        <h3 class="feature-title" data-en="Open Source" data-gr="Ανοιχτού Κώδικα">Open Source</h3>
+                        <p class="feature-description" data-en="Completely free and open source. Contribute, customize, or learn from our codebase on GitHub." 
+                           data-gr="Πλήρως δωρεάν και ανοιχτού κώδικα. Συμβάλλετε, προσαρμόστε ή μάθετε από τον κώδικά μας στο GitHub.">
+                           Completely free and open source. Contribute, customize, or learn from our codebase on GitHub.
+                        </p>
+                        <span class="feature-cta" data-en="View GitHub" data-gr="Δείτε το GitHub">
+                            View GitHub <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </a>
 
-      <article class="path">
-        <h3>Intermediate → Builder</h3>
-        <p>Move into scripting, automation, problem solving, debugging, and building your own lightweight tools.</p>
-        <a class="text-link" href="/Pages/learn-about-the-tools.html#learning-paths">Explore learning paths →</a>
-      </article>
+                    <a href="Pages/store.html" class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fas fa-shopping-cart feature-icon"></i>
+                        </div>
+                        <h3 class="feature-title" data-en="Premium Services" data-gr="Προχωρημένες Υπηρεσίες">Premium Services</h3>
+                        <p class="feature-description" data-en="Professional web development services and custom Python scripts for Termux. Get exactly what you need." 
+                           data-gr="Επαγγελματικές υπηρεσίες ανάπτυξης ιστοσελίδων και προσαρμοσμένα σενάρια Python για Termux. Αποκτήστε ακριβώς αυτό που χρειάζεστε.">
+                           Professional web development services and custom Python scripts for Termux. Get exactly what you need.
+                        </p>
+                        <span class="feature-cta" data-en="Visit Store" data-gr="Επισκεφτείτε το Κατάστημα">
+                            Visit Store <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
 
-      <article class="path">
-        <h3>Advanced → Specialist</h3>
-        <p>Deepen your understanding: threat modeling, privacy, incident response thinking, and defensive testing in controlled environments.</p>
-        <a class="text-link" href="/Pages/faq.html#responsible-use">Read responsible-use FAQ →</a>
-      </article>
+                <div class="content-section community-section">
+                    <h2 data-en="Join Our Community" data-gr="Γίνετε Μέλος της Κοινότητάς Μας">Join Our Community</h2>
+                    <p data-en="Connect with other cybersecurity enthusiasts, get help, share knowledge, and contribute to the project."
+                       data-gr="Συνδεθείτε με άλλους ενθουσιώδεις κυβερνοασφαλείας, λάβετε βοήθεια, μοιραστείτε γνώσεις και συμβάλλετε στο έργο.">
+                       Connect with other cybersecurity enthusiasts, get help, share knowledge, and contribute to the project.
+                    </p>
+                    <div class="community-grid">
+                        <a href="https://github.com/dedsec1121fk/DedSec" target="_blank" class="community-card">
+                            <i class="fab fa-github"></i>
+                            <span data-en="GitHub Repository" data-gr="Αποθετήριο GitHub">GitHub Repository</span>
+                        </a>
+                        <a href="Pages/contact-credits.html" class="community-card">
+                            <i class="fas fa-comments"></i>
+                            <span data-en="Get Support" data-gr="Λάβετε Υποστήριξη">Get Support</span>
+                        </a>
+                    </div>
+                </div>
 
-      <article class="path">
-        <h3>Greek support</h3>
-        <p>Διαθέσιμο και στα Ελληνικά — because accessibility matters. We’re expanding bilingual content where it helps most.</p>
-        <a class="text-link" href="/Pages/contact-credits.html#translations">Help with translations →</a>
-      </article>
-    </div>
-  </div>
-</section>
+                <div class="content-section support-section">
+                    <h2 data-en="Support Our Project" data-gr="Υποστηρίξτε το Έργο Μας">Support Our Project</h2>
+                    <p data-en="Help us continue developing and maintaining our open-source tools by sponsoring us on GitHub."
+                       data-gr="Βοηθήστε μας να συνεχίσουμε να αναπτύσσουμε και να συντηρούμε τα εργαλεία ανοιχτού κώδικα μας υποστηρίζοντάς μας στο GitHub.">
+                       Help us continue developing and maintaining our open-source tools by sponsoring us on GitHub.
+                    </p>
+                    <div class="contact-grid">
+                        <a href="https://github.com/sponsors/dedsec1121fk" target="_blank" class="app-icon sponsor-btn">
+                            <i class="fas fa-heart"></i>
+                            <span data-en="Sponsor Us on GitHub" data-gr="Υποστηρίξτε μας στο GitHub">Sponsor Us on GitHub</span>
+                        </a>
+                    </div>
+                </div>
 
-<section class="section" id="community">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>Join the community</h2>
-      <p>Follow updates, contribute improvements, and connect with others building the same mindset.</p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card mini">
-        <div class="mini-title">GitHub</div>
-        <p class="mini-text">Follow releases, browse code, and open issues or suggestions.</p>
-        <a class="btn btn-outline" href="https://github.com/dedsec1121fk/DedSec" rel="noopener">Open GitHub</a>
-      </div>
-
-      <div class="card mini">
-        <div class="mini-title">Instagram</div>
-        <p class="mini-text">Short updates, visuals, announcements, and community highlights.</p>
-        <a class="btn btn-outline" href="https://www.instagram.com/dedsec_project_official/" rel="noopener">Open Instagram</a>
-      </div>
-
-      <div class="card mini">
-        <div class="mini-title">Contact</div>
-        <p class="mini-text">Questions, feedback, or collaboration ideas? Reach out directly.</p>
-        <a class="btn btn-outline" href="/Pages/contact-credits.html">Contact page</a>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-head">
-      <h3>Support the project</h3>
-      <p>If DedSec helps you learn or build, your support keeps it alive — from documentation to better design and translations.</p>
-    </div>
-
-    <div class="grid-2" id="support">
-      <div class="support-card">
-        <h4>Contribute</h4>
-        <p>Submit improvements: UI, docs, translations, tutorials, or design polish.</p>
-        <a class="btn btn-secondary" href="/Pages/collaborations.html">See collaboration options</a>
-      </div>
-      <div class="support-card">
-        <h4>Premium extras</h4>
-        <p>Optional premium items help fund development while keeping the core project accessible.</p>
-        <a class="btn btn-secondary" href="/Pages/store.html">Visit the store</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section alt" id="trust">
-  <div class="section-inner">
-    <div class="section-head">
-      <h2>Trust & transparency</h2>
-      <p>Privacy-first, lightweight, and built with clarity. No dark patterns.</p>
-    </div>
-
-    <div class="grid-3">
-      <article class="feature">
-        <h3>Minimal tracking</h3>
-        <p>We aim to keep analytics lightweight and privacy-respecting. See details in the privacy policy.</p>
-        <a class="text-link" href="/Pages/privacy-policy.html">Privacy policy →</a>
-      </article>
-
-      <article class="feature">
-        <h3>Clear expectations</h3>
-        <p>We’re explicit about responsible use and the boundaries of what’s acceptable.</p>
-        <a class="text-link" href="/Pages/faq.html#responsible-use">Responsible use →</a>
-      </article>
-
-      <article class="feature">
-        <h3>Secure-by-default UX</h3>
-        <p>Strong content security policy, simple code, and fast-loading pages for mobile.</p>
-        <a class="text-link" href="/Pages/portfolio-github-info.html#quality">Quality & standards →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-title">DedSec Project</div>
-        <p class="footer-text">A community project for learning, building, and sharing security-minded tools and knowledge — with a strong focus on responsibility, privacy, and clarity.</p>
-      </div>
-
-      <div>
-        <div class="footer-title">Quick Links</div>
-        <div class="footer-links">
-          <a href="/Pages/guide-for-installation.html">Get Started</a>
-          <a href="/Pages/learn-about-the-tools.html">Tools Overview</a>
-          <a href="/Pages/faq.html">FAQ</a>
-          <a href="/Pages/privacy-policy.html">Privacy Policy</a>
+                <footer class="main-footer">
+                    <p data-lang-section="en">© 2026 DedSec Project. All Rights Reserved.</p>
+                    <p data-lang-section="gr" class="hidden-by-default">© 2026 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
+                    <p data-lang-section="en" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Trademark Disclaimer: The "DedSec" name and logo are inspired by the "Watch Dogs" series and are used for thematic purposes only. This project is not affiliated with or endorsed by Ubisoft Entertainment S.A.</p>
+                    <p data-lang-section="gr" class="hidden-by-default" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Αποποίηση Ευθύνης Εμπορικού Σήματος: Το όνομα και το λογότυπο "DedSec" είναι εμπνευσμένα από τη σειρά "Watch Dogs" και χρησιμοποιούνται μόνο για θεματικούς σκοπούς. Αυτό το έργο δεν συνδέεται ούτε υποστηρίζεται από την Ubisoft Entertainment S.A.</p>
+                    <p>Made by dedsec1121fk.</p>
+                </footer>
+            </main>
         </div>
-      </div>
+    </div>
 
-      <div>
-        <div class="footer-title">Connect</div>
-        <div class="footer-links">
-          <a href="https://ded-sec.space" rel="noopener">Website</a>
-          <a href="https://github.com/dedsec1121fk/DedSec" rel="noopener">GitHub</a>
-          <a href="https://www.instagram.com/dedsec_project_official/" rel="noopener">Instagram</a>
+    <div id="disclaimer-modal" class="modal-overlay">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h2 data-en="Disclaimer & Terms of Use" data-gr="Αποποίηση Ευθύνης & Όροι Χρήσης">Disclaimer & Terms of Use</h2>
+            <button id="disclaimer-lang-btn" class="language-selection-btn">
+                <i class="fas fa-globe"></i>
+                <span data-en="Change Language" data-gr="Αλλαγή Γλώσσας">Change Language</span>
+            </button>
+          </div>
+          <div class="modal-body" data-lang-section="en">
+            <div class="note">
+                <p><strong>PLEASE READ CAREFULLY BEFORE PROCEEDING.</strong></p>
+                <p><strong>Trademark Disclaimer:</strong> The "DedSec" name and logo used in this project are for thematic and inspirational purposes only. This is an independent, fan-made project created for educational purposes and has no official connection to the "Watch Dogs" franchise. It is not associated with, endorsed by, or affiliated with Ubisoft Entertainment S.A. All trademarks and copyrights for "Watch Dogs" and "DedSec" as depicted in the games belong to their respective owners, Ubisoft Entertainment S.A.</p>
+                <p>This project, including all associated tools, scripts, and documentation ("the Software"), is provided strictly for educational, research, and ethical security testing purposes. It is intended for use exclusively in controlled, authorized environments by users who have obtained explicit, prior written permission from the owners of any systems they intend to test.</p>
+                <p><strong>1. Assumption of Risk and Responsibility:</strong> By accessing or using the Software, you acknowledge and agree that you are doing so at your own risk. You are solely and entirely responsible for your actions and for any consequences that may arise from the use or misuse of this Software. This includes, but is not limited to, compliance with all applicable local, state, national, and international laws and regulations related to cybersecurity, data privacy, and electronic communications.</p>
+                <p><strong>2. Prohibited Activities:</strong> Any use of the Software for unauthorized or malicious activities is strictly prohibited. This includes, without limitation: accessing systems, systems, or data without authorization; performing denial-of-service attacks; data theft; fraud; spreading malware; or any other activity that violates applicable laws. Engaging in such activities may result in severe civil and criminal penalties.</p>
+                <p><strong>3. No Warranty:</strong> The Software is provided "AS IS," without any warranty of any kind, express or implied. This includes, but is not to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. The developers and contributors make no guarantee that the Software will be error-free, secure, or uninterrupted.</p>
+                <p><strong>4. Limitation of Liability:</strong> In no event shall the developers, contributors, or distributors of the Software be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connectionwith the Software or the use or other dealings in the Software. This includes any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption).</p>
+                <p><strong>5. No Refund Policy:</strong> All sales are final. Due to the digital nature of our products, we do not offer refunds once a product has been delivered. Please make sure you understand what you're purchasing before completing your order.</p>
+                <p><strong>6. Receipt Delivery:</strong> Please note: Your official payment receipt will be delivered automatically to your email address by Stripe shortly after your purchase. You will need this receipt to contact us for product delivery.</p>
+                <p><strong>7. Payment & Delivery Process:</strong> After completing your payment, you must contact us through our contact page and provide your payment receipt (which you received via email from Stripe). We will then verify your payment and deliver your purchased product(s) as soon as possible. Without contacting us with your receipt, we cannot process your order.</p>
+                <p><strong>8. Payment Disclaimer:</strong> If you have any doubts or questions about our products or payment process, please contact us through our contact page before making a purchase. We're here to help clarify any uncertainties you may have.</p>
+            </div>
+          <hr class="modal-divider">
+            <h3 class="text-center">Privacy Policy Summary</h3>
+            <div class="privacy-policy-embed">
+                <p>We are committed to protecting your privacy. We do not store or transmit your personal data. By using our service, you agree to our full Privacy Policy.</p>
+            </div>
+            <div class="note"><p><strong>By clicking "Accept," you confirm that you have read, understood, and agree to be bound by all the terms and conditions outlined in this disclaimer and our full Privacy Policy. If you do not agree with these terms, you must click "Decline" and cease all use of the Software immediately.</strong></p></div>
+          </div>
+          <div class="modal-body hidden-by-default" data-lang-section="gr">
+            <div class="note">
+                <p><strong>ΠΑΡΑΚΑΛΩ ΔΙΑΒΑΣΤΕ ΠΡΟΣΕΚΤΙΚΑ ΠΡΙΝ ΣΥΝΕΧΙΣΕΤΕ.</strong></p>
+                <p><strong>Αποποίηση Ευθύνης Εμπορικού Σήματος:</strong> Το όνομα και το λογότυπο "DedSec" που χρησιμοποιούνται σε αυτό το έργο είναι μόνο για θεματικούς και εμπνευστικούς σκοπούς. Πρόκειται για ένα ανεξάρτητο, fan-made έργο που δημιουργήθηκε για εκπαιδευτικούς σκοπούς και δεν έχει καμία επίσημη σύνδεση με το franchise "Watch Dogs". Δεν συνδέεται, δεν υποστηρίζεται από, ούτε σχετίζεται με την Ubisoft Entertainment S.A. Όλα τα εμπορικά σήματα και τα πνευματικά δικαιώματα για το "Watch Dogs" και το "DedSec" όπως απεικονίζονται στα παιχνίδια ανήκουν στους αντίστοιχους κατόχους τους, την Ubisoft Entertainment S.A.</p>
+                <p>Αυτό το έργο, συμπεριλαμβανομένων όλων των σχετικών εργαλείων, σεναρίων και τεκμηρίωσης («το Λογισμικό»), παρέχεται αυστηρά για εκπαιδευτικούς, ερευνητικούς και ηθικούς σκοπούς δοκιμών ασφαλείας. Προορίζεται για χρήση αποκλειστικά σε ελεγχόμενα, εξουσιοδοτημένα περιβάλλοντα από χρήστες που έχουν λάβει ρητή, προηγούμενη γραπτή άδεια από τους ιδιοκτήτες οποιωνδήποτε συστημάτων σκοπεύουν να δοκιμάσουν.</p>
+                <p><strong>1. Ανάληψη Κινδύνου και Ευθύνης:</strong> Με την πρόσβαση ή τη χρήση του Λογισμικού, αναγνωρίζετε και συμφωνείτε ότι το κάνετε με δική σας ευθύνη. Είστε αποκλειστικά και εξ ολοκλήρου υπεύθυνοι για τις ενέργειές σας και για τυχόν συνέπειες που μπορεί να προκύψουν από τη χρήση ή κακή χρήση αυτού του Λογισμικού. Αυτό περιλαμβάνει, ενδεικτικά, τη συμμόcompliance με όλους τους ισχύοντες τοπικούς, πολιτειακούς, εθνικούς και διεθνείς νόμους και κανονισμούς που σχετίζονται με την κυβερνοασφάλεια, την προστασία δεδομένων και τις ηλεκτρονικές επικοινωνίες.</p>
+                <p><strong>2. Απαγορευμένες Δραστηριότητες:</strong> Απαγορεύεται αυστηρά οποιαδήποτε χρήση του Λογισμικού για μη εξουσιοδοτημένες ή κακόβουλες δραστηριότητες. Αυτό περιλαμβάνει, χωρίς περιορισμό: πρόσβαση σε συστήματα ή δεδομένα χωρίς εξουσιοδοτημένη πρόσβαση, εκτέλεση επιθέσεων άρνησης υπηρεσίας (denial-of-service), κλοπή δεδομένων, απάτη, διάδοση κακόβουλου λογισμικού ή οποιαδήποτε άλλη δραστηριότητα που παραβιάζει την ισχύουσα νομοθεσία. Η συμμετοχή σε τέτοιες δραστηριότητες μπορεί να οδηγήσει σε σοβαρές αστικές και ποινικές κυρώσεις.</p>
+                <p><strong>3. Καμία Εγγύηση:</strong> Το Λογισμικό παρέχεται "ΩΣ ΕΧΕΙ", χωρίς καμία εγγύηση οποιουδήποτε είδους, ρητή ή σιωπηρή. Αυτό περιλαμβάνει, ενδεικτικά, τις σιωπηρές εγγυήσεις εμπορευσιμότητας, καταλληλότητας για συγκεκριμένο σκοπό και μη παραβίασης. Οι προγραμματιστές και οι συντελεστές δεν παρέχουν καμία εγγύηση ότι το Λογισμικό θα είναι απαλλαγμένο από σφάλματα, ασφαλές ή αδιάλειπτο.</p>
+                <p><strong>4. Περιορισμός Ευθύνης:</strong> Σε καμία περίπτωση οι προγραμματιστές, οι συντελεστές ή οι διανομείς του Λογισμικού δεν φέρουν ευθύνη για οποιαδήποτε αξίμη, ζημιές ή άλλη ευθύνη, είτε πρόκειται για αγωγή σύμβασης, αδικοπραξίας ή άλλως, που προκύπτει από, ή σε σχέση με το Λογισμικό ή τη χρήση ή άλλες συναλλαγές με το Λογισμικό. Αυτό περιλαμβάνει τυχόν άμεσες, έμμεσες, τυχαίες, ειδικές, παραδειγματικές ή επακόλουθες ζημιές (συμπεριλαμβανομένης, αλλά όχι μόνο, της προμήθειας υποκατάστατων αγαθών ή υπηρεσιών, απώλειας χρήσης, δεδομένων ή κερδών ή διακοπής εργασιών).</p>
+                <p><strong>5. Πολιτική Χωρίς Επιστροφή Χρημάτων:</strong> Όλες οι πωλήσεις είναι οριστικές. Λόγω της ψηφιακής φύσης των προϊόντων μας, δεν προσφέρουμε επιστροφή χρημάτων αφού παραδοθεί ένα προϊόν. Παρακαλούμε βεβαιωθείτε ότι καταλαβαίνετε τι αγοράζετε πριν ολοκληρώσετε την παραγγελία σας.</p>
+                <p><strong>6. Παράδοση Απόδειξης:</strong> Παρακαλούμε σημειώστε: Η επίσημη απόδειξη πληρωμής σας θα παραδοθεί αυτόματα στη διεύθυνση email σας από το Stripe λίγο μετά την αγορά σας. Θα χρειαστείτε αυτήν την απόδειξη για να επικοινωνήσετε μαζί μας για την παράδοση του προϊόντος.</p>
+                <p><strong>7. Διαδικασία Πληρωμής & Παράδοσης:</strong> Μετά την ολοκλήρωση της πληρωμής σας, πρέπει να επικοινωνήσετε μαζί μας μέσω της σελίδας επικοινωνίας και να μας δώσετε την απόδειξη πληρωμής σας (την οποία λάβατε μέσω email από το Stripe). Στη συνέχεια, θα επαληθεύσουμε την πληρωμή σας και θα σας παραδώσουμε το αγορασμένο προϊόν(τα) το συντομότερο δυνατό. Χωρίς να επικοινωνήσετε μαζί μας με την απόδειξή σας, δεν μπορούμε να επεξεργαστούμε την παραγγελία σας.</p>
+                <p><strong>8. Αποποίηση Ευθύνης Πληρωμής:</strong> Εάν έχετε οποιεσδήποτε αμφιβολίες ή ερωτήσεις σχετικά με τα προϊόντα μας ή τη διαδικασία πληρωμής, παρακαλούμε επικοινωνήστε μαζί μας μέσω της σελίδας επικοινωνίας πριν από οποιαδήποτε αγορά. Είμαστε εδώ για να διευκρινίσουμε οποιεσδήποτε αβεβαιότητες μπορεί να έχετε.</p>
+            </div>
+            <hr class="modal-divider">
+            <h3 class="text-center">Περίληψη Πολιτικής Απορήτου</h3>
+            <div class="privacy-policy-embed">
+                <p>Δεσμευόμαστε να προστατεύουμε το απόρρητό σας. Δεν αποθηκεύουμε ή μεταδίδουμε τα προσωπικά σας δεδομένα. Με τη χρήση της υπηρεσίας μας, συμφωνείτε με την πλήρη Πολιτική Απορρήτου μας.</p>
+            </div>
+            <div class="note"><p><strong>Με το κλικ στο "Αποδοχή", επιβεβαιώνετε ότι διαβάσατε, κατανοήσατε και συμφωνείτε να δεσμεύεστε από όλους τους όρους και τις προϋποθέσεις που περιγράφονται σε αυτήν την αποποίηση ευθύνης και την πλήρη Πολιτική Απορρήτου μας. Εάν δεν συμφωνείτε με αυτούς τους όρους, πρέπει να κάνετε κλικ στο "Απόρριψη" και να διακόψετε αμέσως κάθε χρήση του Λογισμικού.</strong></p></div>
+          </div>
+          <div class="modal-footer disclaimer-footer">
+            <button id="decline-disclaimer" class="decline-btn" data-en="Decline" data-gr="Απόρριψη">Decline</button>
+            <button id="accept-disclaimer" class="accept-btn" data-en="Accept" data-gr="Αποδοχή">Accept</button>
+          </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+
+    <!-- Site Search Overlay -->
+    <div id="site-search-overlay" class="search-overlay" aria-hidden="true">
+        <div class="search-panel" role="dialog" aria-modal="true" aria-label="Site search">
+            <div class="search-header">
+                <input id="site-search-input" type="search" inputmode="search" autocomplete="off"
+                    placeholder="Search the site..."
+                    data-en-placeholder="Search the site..."
+                    data-gr-placeholder="Αναζήτηση στον ιστότοπο...">
+                <button id="site-search-close" class="icon-btn" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="site-search-results" class="search-results" role="listbox" aria-label="Search results"></div>
+            <p class="search-hint" data-en="Tip: type 2+ letters. Press Enter to open the first result."
+               data-gr="Συμβουλή: γράψτε 2+ γράμματα. Πατήστε Enter για να ανοίξετε το πρώτο αποτέλεσμα.">
+               Tip: type 2+ letters. Press Enter to open the first result.
+            </p>
         </div>
-      </div>
     </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 DedSec Project. All rights reserved.</span>
-      <span class="dot">•</span>
-      <a href="/Pages/privacy-policy.html">Privacy</a>
-      <span class="dot">•</span>
-      <a href="/Pages/contact-credits.html">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  window.__DEDSEC_SEARCH_INDEX__ = [{"title": "Home", "url": "/index.html#top", "keywords": ["dedsec", "project", "home", "cybersecurity", "termux", "android", "community"]}, {"title": "Mission & Values", "url": "/index.html#mission", "keywords": ["mission", "values", "ethics", "responsible"]}, {"title": "What You Can Learn", "url": "/index.html#learn", "keywords": ["learn", "skills", "tutorials", "guides", "practice"]}, {"title": "Community", "url": "/index.html#community", "keywords": ["community", "instagram", "github", "telegram", "whatsapp"]}, {"title": "Support", "url": "/index.html#support", "keywords": ["support", "donate", "contribute", "sponsor"]}, {"title": "Get Started", "url": "/Pages/guide-for-installation.html#top", "keywords": ["install", "setup", "guide", "termux", "android"]}, {"title": "Tools Overview", "url": "/Pages/learn-about-the-tools.html#top", "keywords": ["tools", "overview", "categories", "learn"]}, {"title": "FAQ", "url": "/Pages/faq.html#top", "keywords": ["faq", "questions", "answers", "help"]}, {"title": "Collaborations", "url": "/Pages/collaborations.html#top", "keywords": ["collaboration", "partners", "work", "together"]}, {"title": "Portfolio & GitHub", "url": "/Pages/portfolio-github-info.html#top", "keywords": ["github", "portfolio", "open source", "repo"]}, {"title": "Store", "url": "/Pages/store.html#top", "keywords": ["store", "premium", "ebooks", "support"]}, {"title": "Contact & Credits", "url": "/Pages/contact-credits.html#top", "keywords": ["contact", "credits", "team", "reach"]}, {"title": "Privacy Policy", "url": "/Pages/privacy-policy.html#top", "keywords": ["privacy", "policy", "data"]}];
-</script>
-<script src="/script.js" defer></script>
 
 </body>
 </html>
