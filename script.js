@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
     let currentLanguage = 'en';
 
+    // --- BRAND ASSETS (DO NOT CHANGE LINKS) ---
+    const BRAND_LOGOS = {
+        dark: 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg',
+        light: 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg'
+    };
+
     // --- NAVIGATION FUNCTIONALITY ---
     function initializeNavigation() {
         const burgerMenu = document.getElementById('burger-menu');
@@ -57,13 +63,34 @@ document.addEventListener('DOMContentLoaded', () => {
             const isLight = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
             updateThemeButton(isLight);
+            updateBranding();
         });
 
         if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
         updateThemeButton(document.body.classList.contains('light-theme'));
+        updateBranding();
     }
 
-    // --- LANGUAGE MANAGEMENT ---
+    
+    // --- BRANDING (LOGO + FAVICON) ---
+    function updateBranding() {
+        const isLight = document.body.classList.contains('light-theme');
+        const logoUrl = isLight ? BRAND_LOGOS.light : BRAND_LOGOS.dark;
+
+        const logo = document.getElementById('site-logo');
+        if (logo) logo.setAttribute('src', logoUrl);
+
+        const favicon = document.getElementById('favicon');
+        if (favicon) favicon.setAttribute('href', logoUrl);
+
+        const searchInput = document.getElementById('site-search-input');
+        if (searchInput) {
+            const ph = searchInput.getAttribute(`data-${currentLanguage}-placeholder`) || searchInput.getAttribute('data-en-placeholder') || '';
+            if (ph) searchInput.setAttribute('placeholder', ph);
+        }
+    }
+
+// --- LANGUAGE MANAGEMENT ---
     window.changeLanguage = (lang) => {
         currentLanguage = lang;
         document.documentElement.lang = lang;
@@ -227,224 +254,196 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- MAIN INIT ---
     
-    // --- BRAND LOGO (LIGHT/DARK) ---
-    function initializeBrandLogo() {
-        const logo = document.getElementById('site-logo');
-        const apply = () => {
-            if (!logo) return;
-            const isLight = document.body.classList.contains('light-theme');
-            const darkSrc = logo.getAttribute('data-logo-dark');
-            const lightSrc = logo.getAttribute('data-logo-light');
-            logo.src = isLight ? (lightSrc || logo.src) : (darkSrc || logo.src);
-        };
-        apply();
-        // Keep in sync with theme toggle
-        const themeBtn = document.getElementById('nav-theme-switcher');
-        themeBtn?.addEventListener('click', () => setTimeout(apply, 0));
-        window.addEventListener('storage', (e) => { if (e.key === 'theme') apply(); });
-    }
-
-    // --- AUTO-ID HEADINGS (FOR SEARCH + HASH LINKS) ---
+    // --- SITE SEARCH ---
     function slugify(text) {
-        return (text || '')
-            .toLowerCase()
-            .trim()
-            .replace(/[\u0300-\u036f]/g, '') // accents
-            .replace(/[^a-z0-9\u0370-\u03ff\s-]/g, '') // keep greek letters too
-            .replace(/\s+/g, '-')
-            .replace(/-+/g, '-')
-            .replace(/^-|-$/g, '');
+        return (text || '').toLowerCase()
+            .replace(/&/g, ' and ')
+            .replace(/[^a-z0-9\u0370-\u03ff]+/g, '-')
+            .replace(/(^-|-$)/g, '')
+            .slice(0, 64);
     }
 
-    function ensureHeadingIds(root=document) {
-        const headings = root.querySelectorAll('h1, h2, h3');
-        const used = new Set(Array.from(root.querySelectorAll('[id]')).map(el => el.id));
-        headings.forEach(h => {
-            if (h.id) return;
-            const base = slugify(h.textContent);
-            if (!base) return;
-            let id = base;
-            let i = 2;
-            while (used.has(id)) { id = `${base}-${i++}`; }
-            h.id = id;
-            used.add(id);
+    function ensureId(el, prefix='sec') {
+        if (!el) return '';
+        if (el.id) return el.id;
+        const base = slugify(el.textContent) || prefix;
+        let id = base;
+        let i = 2;
+        while (document.getElementById(id)) { id = `${base}-${i++}`; }
+        el.id = id;
+        return id;
+    }
+
+    function buildSearchIndex() {
+        const items = [];
+
+        // Primary navigation (cross-page)
+        document.querySelectorAll('a.nav-link[href]').forEach(a => {
+            const title = (a.getAttribute(`data-${currentLanguage}`) || a.textContent || '').trim();
+            const href = a.getAttribute('href');
+            if (!href || !title) return;
+            items.push({ title, href, badge: currentLanguage === 'gr' ? 'Σελίδα' : 'Page' });
         });
+
+        // In-page sections (headings + key cards)
+        const selectors = [
+            'main h1','main h2','main h3',
+            '.feature-card .feature-title',
+            '.category-header h2',
+            '.tool-item .tool-title',
+            '.faq-buttons-container a',
+            '.carousel-slide h3',
+            '.contact-grid h3'
+        ];
+
+        document.querySelectorAll(selectors.join(',')).forEach(el => {
+            const rawTitle = (el.getAttribute(`data-${currentLanguage}`) || el.textContent || '').trim();
+            if (!rawTitle || rawTitle.length < 3) return;
+
+            const container = el.closest('.tool-item, .feature-card, .category, .faq-buttons-container, section, .carousel-slide, .contact-grid') || el;
+            const id = ensureId(container, 'section');
+            if (!id) return;
+            items.push({ title: rawTitle, href: `#${id}`, badge: currentLanguage === 'gr' ? 'Ενότητα' : 'Section' });
+        });
+
+        const seen = new Set();
+        return items.filter(it => (it.href && !seen.has(it.href) && seen.add(it.href)));
     }
 
-    // --- SITE SEARCH (INDEX + OVERLAY) ---
-    function initializeSiteSearch() {
-        const openBtn = document.getElementById('nav-search');
-        const overlay = document.getElementById('site-search-overlay');
-        const input = document.getElementById('site-search-input');
-        const closeBtn = document.getElementById('site-search-close');
-        const resultsEl = document.getElementById('site-search-results');
+    function scoreMatch(q, title) {
+        const t = (title || '').toLowerCase();
+        if (t === q) return 100;
+        if (t.startsWith(q)) return 80;
+        if (t.includes(q)) return 60;
+        const words = q.split(/\s+/).filter(Boolean);
+        let hits = 0;
+        words.forEach(w => { if (t.includes(w)) hits += 1; });
+        return hits ? 40 + hits * 5 : 0;
+    }
 
-        if (!openBtn || !overlay || !input || !closeBtn || !resultsEl) return;
+    function initializeSiteSearch() {
+        const openBtn = document.getElementById('nav-search-btn');
+        const modal = document.getElementById('site-search-modal');
+        const input = document.getElementById('site-search-input');
+        const resultsEl = document.getElementById('site-search-results');
+        const clearBtn = document.getElementById('site-search-clear');
+
+        if (!openBtn || !modal || !input || !resultsEl) return;
 
         let index = [];
-        let indexBuilt = false;
+        let isOpen = false;
 
-        const getNavPages = () => {
-            return Array.from(document.querySelectorAll('.nav-menu .nav-link'))
-                .map(a => ({ href: a.getAttribute('href'), title: a.textContent.trim() }))
-                .filter(p => p.href);
-        };
-
-        const buildIndexFromDoc = (doc, url) => {
-            ensureHeadingIds(doc);
-            const items = [];
-            doc.querySelectorAll('h1, h2, h3, [data-search]').forEach(el => {
-                const text = (el.getAttribute('data-search') || el.textContent || '').trim();
-                if (!text || text.length < 3) return;
-                const id = el.id || '';
-                if (!id) return;
-                items.push({ text, id, url });
-            });
-            return items;
-        };
-
-        const buildSiteIndex = async () => {
-            if (indexBuilt) return index;
-            ensureHeadingIds(document);
-            const currentUrl = window.location.pathname.split('/').pop() || 'index.html';
-            index = buildIndexFromDoc(document, currentUrl);
-
-            const pages = getNavPages();
-            const cacheKey = 'dedsec_site_index_v1';
-            try {
-                const cached = sessionStorage.getItem(cacheKey);
-                if (cached) {
-                    const parsed = JSON.parse(cached);
-                    if (Array.isArray(parsed) && parsed.length) {
-                        // merge current page fresh
-                        index = [...parsed.filter(i => i.url !== currentUrl), ...index];
-                        indexBuilt = true;
-                        return index;
-                    }
-                }
-            } catch {}
-
-            // fetch other pages same-origin (small site)
-            for (const p of pages) {
-                try {
-                    const href = p.href;
-                    const samePage = href === currentUrl || href.endsWith('/' + currentUrl);
-                    if (samePage) continue;
-                    const res = await fetch(href, { cache: 'force-cache' });
-                    if (!res.ok) continue;
-                    const html = await res.text();
-                    const doc = new DOMParser().parseFromString(html, 'text/html');
-                    index.push(...buildIndexFromDoc(doc, href));
-                } catch {}
-            }
-
-            // de-dup
-            const seen = new Set();
-            index = index.filter(item => {
-                const key = item.url + '#' + item.id;
-                if (seen.has(key)) return false;
-                seen.add(key);
-                return true;
-            });
-
-            try { sessionStorage.setItem(cacheKey, JSON.stringify(index)); } catch {}
-            indexBuilt = true;
-            return index;
-        };
-
-        const open = async () => {
-            overlay.classList.add('open');
-            overlay.setAttribute('aria-hidden', 'false');
-            document.body.classList.add('no-scroll');
-            input.value = '';
+        const render = (list, q) => {
             resultsEl.innerHTML = '';
-            input.focus();
 
-            // Build index lazily
-            await buildSiteIndex();
-        };
-
-        const close = () => {
-            overlay.classList.remove('open');
-            overlay.setAttribute('aria-hidden', 'true');
-            document.body.classList.remove('no-scroll');
-        };
-
-        const render = (items) => {
-            resultsEl.innerHTML = '';
-            if (!items.length) {
-                resultsEl.innerHTML = `<div class="search-empty" data-en="No results." data-gr="Δεν βρέθηκαν αποτελέσματα.">No results.</div>`;
-                // keep language consistent
-                window.changeLanguage?.(localStorage.getItem('language') || 'en');
+            if (!q) {
+                const hint = document.createElement('div');
+                hint.className = 'search-result';
+                hint.style.cursor = 'default';
+                hint.innerHTML = `
+                    <div>
+                        <div class="search-result-title">${currentLanguage === 'gr' ? 'Δοκίμασε να ψάξεις:' : 'Try searching for:'}</div>
+                        <div class="search-result-meta">${currentLanguage === 'gr' ? 'Termux, εργαλεία, εγκατάσταση, FAQ…' : 'Termux, tools, installation, FAQ…'}</div>
+                    </div>
+                    <div class="search-result-badge">${currentLanguage === 'gr' ? 'Συμβουλή' : 'Tip'}</div>
+                `;
+                resultsEl.appendChild(hint);
                 return;
             }
-            const frag = document.createDocumentFragment();
-            items.slice(0, 12).forEach((it, idx) => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'search-result';
-                btn.setAttribute('role', 'option');
-                btn.innerHTML = `<span class="sr-title">${it.text}</span><span class="sr-meta">${it.url}</span>`;
-                btn.addEventListener('click', () => {
-                    close();
-                    const target = `${it.url}#${it.id}`;
-                    const current = (window.location.pathname.split('/').pop() || 'index.html') + window.location.hash;
-                    if (target === current) {
-                        document.getElementById(it.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else {
-                        window.location.href = target;
-                    }
-                });
-                frag.appendChild(btn);
+
+            if (!list.length) {
+                const empty = document.createElement('div');
+                empty.className = 'search-result';
+                empty.style.cursor = 'default';
+                empty.innerHTML = `
+                    <div>
+                        <div class="search-result-title">${currentLanguage === 'gr' ? 'Δεν βρέθηκαν αποτελέσματα' : 'No results found'}</div>
+                        <div class="search-result-meta">${currentLanguage === 'gr' ? 'Δοκίμασε άλλη λέξη.' : 'Try a different keyword.'}</div>
+                    </div>
+                    <div class="search-result-badge">0</div>
+                `;
+                resultsEl.appendChild(empty);
+                return;
+            }
+
+            list.slice(0, 10).forEach(it => {
+                const row = document.createElement('div');
+                row.className = 'search-result';
+                row.setAttribute('role', 'button');
+                row.tabIndex = 0;
+                row.innerHTML = `
+                    <div>
+                        <div class="search-result-title">${it.title}</div>
+                        <div class="search-result-meta">${it.href.startsWith('#') ? (currentLanguage === 'gr' ? 'Σε αυτή τη σελίδα' : 'On this page') : it.href}</div>
+                    </div>
+                    <div class="search-result-badge">${it.badge}</div>
+                `;
+                row.addEventListener('click', () => openResult(it.href));
+                row.addEventListener('keydown', (e) => { if (e.key === 'Enter') openResult(it.href); });
+                resultsEl.appendChild(row);
             });
-            resultsEl.appendChild(frag);
         };
 
-        const search = (q) => {
-            q = (q || '').trim().toLowerCase();
-            if (q.length < 2) { resultsEl.innerHTML = ''; return; }
-            const hits = index
-                .filter(it => it.text.toLowerCase().includes(q))
-                .sort((a,b) => a.text.length - b.text.length);
-            render(hits);
+        const openModal = () => {
+            modal.hidden = false;
+            document.body.style.overflow = 'hidden';
+            isOpen = true;
+            index = buildSearchIndex();
+            updateBranding();
+            input.value = '';
+            if (clearBtn) clearBtn.hidden = true;
+            render([], '');
+            setTimeout(() => input.focus(), 10);
         };
 
-        openBtn.addEventListener('click', open);
-        closeBtn.addEventListener('click', close);
-        overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && overlay.classList.contains('open')) close();
-            // Ctrl/Cmd+K to open
-            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-                e.preventDefault();
-                open();
-            }
-        });
+        const closeModal = () => {
+            modal.hidden = true;
+            document.body.style.overflow = '';
+            isOpen = false;
+        };
 
-        input.addEventListener('input', () => search(input.value));
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                const first = resultsEl.querySelector('.search-result');
-                if (first) first.click();
+        const openResult = (href) => {
+            closeModal();
+            if (!href) return;
+            if (href.startsWith('#')) {
+                const el = document.getElementById(href.slice(1));
+                el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', href);
+            } else {
+                window.location.href = href;
             }
-        });
-    }
+        };
 
-    // --- HASH SCROLL FIX (AFTER AUTO-IDS) ---
-    function scrollToHashIfPresent() {
-        const hash = window.location.hash;
-        if (!hash || hash.length < 2) return;
-        const id = decodeURIComponent(hash.slice(1));
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const filter = () => {
+            const q = input.value.trim().toLowerCase();
+            if (clearBtn) clearBtn.hidden = !q;
+            const list = q ? index
+                .map(it => ({ ...it, _score: scoreMatch(q, it.title) }))
+                .filter(it => it._score > 0)
+                .sort((a,b) => b._score - a._score) : [];
+            render(list, q);
+        };
+
+        openBtn.addEventListener('click', openModal);
+        modal.querySelectorAll('[data-close-search]').forEach(el => el.addEventListener('click', closeModal));
+        document.addEventListener('keydown', (e) => { if (isOpen && e.key === 'Escape') closeModal(); });
+
+        input.addEventListener('input', filter);
+        clearBtn?.addEventListener('click', () => { input.value=''; filter(); input.focus(); });
+
+        // Live language placeholders
+        const originalChangeLanguage = window.changeLanguage;
+        window.changeLanguage = (lang) => {
+            originalChangeLanguage(lang);
+            index = buildSearchIndex();
+            updateBranding();
+            if (isOpen) filter();
+        };
     }
 
 function init() {
-        
-        initializeBrandLogo();
-        ensureHeadingIds(document);
+        initializeNavigation();
         initializeSiteSearch();
-initializeNavigation();
         initializeThemeSwitcher();
         initializeCarousels();
         initializeToolCategories('.categories-container');
@@ -477,6 +476,4 @@ initializeNavigation();
     }
 
     init();
-        // After headings get IDs, support deep links
-        setTimeout(scrollToHashIfPresent, 50);
 });
