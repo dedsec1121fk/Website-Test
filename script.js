@@ -10,6 +10,13 @@
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+  function setFaviconForTheme() {
+    const isLight = document.body.classList.contains('light-theme');
+    const href = isLight ? LOGO_DARK : LOGO_LIGHT; // match logo contrast
+    const icon = document.querySelector('link[rel="icon"]') || document.querySelector('link[rel="shortcut icon"]');
+    if (icon) icon.setAttribute('href', href);
+  }
+
   function setLogoForTheme() {
     const isLight = document.body.classList.contains('light-theme');
     const logo = $('#site-logo');
@@ -17,7 +24,10 @@
       // White logo for dark theme, dark logo for light theme
       logo.src = isLight ? LOGO_DARK : LOGO_LIGHT;
     }
+  
+    setFaviconForTheme();
   }
+
 
   function applyLanguage(lang) {
     currentLanguage = lang;
