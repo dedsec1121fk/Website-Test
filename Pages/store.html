@@ -1,246 +1,388 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>DedSec Project — Store</title>
-  <meta name="title" content="DedSec Project — Store">
-  <meta name="description" content="Support the project via digital products and resources.">
-  <meta name="theme-color" content="#000000">
-  <link rel="icon" type="image/jpeg" href="../Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-<header class="topbar">
-  <a class="skip-link" href="#main" data-en="Skip to content" data-gr="Μετάβαση στο περιεχόμενο">Skip to content</a>
-  <div class="container nav">
-    <a class="brand" href="../index.html">
-      <img src="../Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
-      <div class="brand-text">
-        <strong>DEDSEC</strong>
-        <span data-en="PROJECT" data-gr="PROJECT">PROJECT</span>
-      </div>
-    </a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>DedSec Project Store</title>
+<link rel="icon" type="image/jpeg" href="Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+    <meta name="description" content="DedSec Project Store: premium web design and automation services, plus digital resources for Termux learners. Built with the same clean, fast DedSec aesthetic (EN/GR).">
+    <meta name="keywords" content="DedSec, DedSec Project, Web Development, Python Scripts, Termux, HTML, CSS, JavaScript">
 
-    <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link" href="../index.html" data-en="Home" data-gr="Αρχική">Home</a>
-      <a class="nav-link" href="../Pages/learn-about-the-tools.html" data-en="Tools" data-gr="Εργαλεία">Tools</a>
-      <a class="nav-link" href="../Pages/guide-for-installation.html" data-en="Install" data-gr="Εγκατάσταση">Install</a>
-      <a class="nav-link" href="../Pages/store.html" data-en="Store" data-gr="Κατάστημα">Store</a>
-      <a class="nav-link" href="../Pages/collaborations.html" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a>
-      <a class="nav-link" href="../Pages/portfolio-github-info.html" data-en="Portfolio" data-gr="Portfolio">Portfolio</a>
-      <a class="nav-link" href="../Pages/contact-credits.html" data-en="Contact" data-gr="Επικοινωνία">Contact</a>
-      <a class="nav-link" href="../Pages/faq.html" data-en="FAQ" data-gr="FAQ">FAQ</a>
-    </nav>
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+      img-src 'self' data: https:;
+      connect-src 'self';
+      frame-ancestors 'none';
+    ">
 
-    <div class="nav-actions">
-      <div class="lang-select" aria-label="Language">
-        <button class="lang-btn" data-lang="en" onclick="changeLanguage('en')">EN</button>
-        <button class="lang-btn" data-lang="gr" onclick="changeLanguage('gr')">GR</button>
-      </div>
+<link rel="canonical" href="https://ded-sec.space/Pages/store.html">
 
-      <button class="icon-btn" id="nav-theme-switcher" type="button" aria-label="Theme">
-        <i class="fas fa-moon" aria-hidden="true"></i>
-        <span data-en="Dark Theme" data-gr="Σκοτεινό Θέμα">Dark Theme</span>
-      </button>
-
-      <button class="burger" id="burger-menu" type="button" aria-label="Menu">
-        <span></span>
-      </button>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ded-sec.space/Pages/store.html">
+    <meta property="og:title" content="DedSec Project Store">
+    <meta property="og:description" content="DedSec Project Store: Premium web development services and Python scripts for Termux.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="DedSec Project Store">
+    
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ded-sec.space/Pages/store.html">
+    <meta property="twitter:title" content="DedSec Project Store">
+    <meta property="twitter:description" content="DedSec Project Store: Premium web development services and Python scripts for Termux.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5860edb8a7468d955336c9cf1d8b357597d6d645/Assets/Images/Logos/Custom%20Black%2Purple%20Fox%20Logo.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    </head>
+<body class="dark-theme store-page">
+    <a class=\"skip-link\" href=\"#main-content\" data-en=\"Skip to content\" data-gr=\"Μετάβαση στο περιεχόμενο\">Skip to content</a>
+    <nav class="main-nav">
+    <div class="nav-container">
+        <div class="nav-title">
+            <h1>DedSec Project</h1>
+        </div>
+        <button class="burger-menu" id="burger-menu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="nav-menu">
+    <a href="../index.html" class="nav-link" data-en="Home" data-gr="Αρχική">Home</a>
+    <a href="learn-about-the-tools.html" class="nav-link" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία">Learn About The Tools</a>
+    <a href="guide-for-installation.html" class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης">Guide For Installation</a>
+    <a href="faq.html" class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις">Frequently Asked Questions</a>
+    <a href="store.html" class="nav-link active" data-en="Store" data-gr="Κατάστημα">Store</a>
+    <a href="collaborations.html" class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</a>
+    <a href="portfolio-github-info.html" class="nav-link" data-en="Portfolio & GitHub" data-gr="Portfolio & GitHub">Portfolio & GitHub</a>
+    <a href="contact-credits.html" class="nav-link" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές">Contact & Credits</a>
+    <a href="privacy-policy.html" class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
+</div>
+        <div class="nav-actions">
+            <button id="nav-theme-switcher" class="nav-action-btn">
+                <i class="fas fa-moon"></i>
+                <span data-en="Theme" data-gr="Θέμα">Theme</span>
+            </button>
+            <button id="nav-lang-switcher" class="nav-action-btn">
+                <i class="fas fa-globe"></i>
+                <span data-en="Language" data-gr="Γλώσσα">Language</span>
+            </button>
+        </div>
     </div>
-  </div>
+</nav>
 
-  <div class="container mobile-menu" id="mobile-menu" aria-label="Mobile menu">
-    <a class="nav-link" href="../index.html"><b data-en="Home" data-gr="Αρχική">Home</b><span data-en="Start here" data-gr="Ξεκίνα εδώ">Start here</span></a>
-    <a class="nav-link" href="../Pages/learn-about-the-tools.html"><b data-en="Tools" data-gr="Εργαλεία">Tools</b><span data-en="What you can use" data-gr="Τι μπορείς να χρησιμοποιήσεις">What you can use</span></a>
-    <a class="nav-link" href="../Pages/guide-for-installation.html"><b data-en="Install" data-gr="Εγκατάσταση">Install</b><span data-en="Setup guides" data-gr="Οδηγοί εγκατάστασης">Setup guides</span></a>
-    <a class="nav-link" href="../Pages/store.html"><b data-en="Store" data-gr="Κατάστημα">Store</b><span data-en="Support the project" data-gr="Στήριξε το project">Support the project</span></a>
-    <a class="nav-link" href="../Pages/collaborations.html"><b data-en="Collaborations" data-gr="Συνεργασίες">Collaborations</b><span data-en="Work together" data-gr="Ας συνεργαστούμε">Work together</span></a>
-    <a class="nav-link" href="../Pages/portfolio-github-info.html"><b data-en="Portfolio" data-gr="Portfolio">Portfolio</b><span data-en="Projects & code" data-gr="Projects & κώδικας">Projects & code</span></a>
-    <a class="nav-link" href="../Pages/contact-credits.html"><b data-en="Contact" data-gr="Επικοινωνία">Contact</b><span data-en="Reach us fast" data-gr="Επικοινώνησε γρήγορα">Reach us fast</span></a>
-    <a class="nav-link" href="../Pages/faq.html"><b data-en="FAQ" data-gr="FAQ">FAQ</b><span data-en="Answers" data-gr="Απαντήσεις">Answers</span></a>
-    <a class="nav-link" href="../Pages/privacy-policy.html"><b data-en="Privacy" data-gr="Απόρρητο">Privacy</b><span data-en="Policy" data-gr="Πολιτική">Policy</span></a>
-  </div>
-</header>
-<main id="main">
+    <div class="page-content" id="main-content">
+        <div class="page-header">
+            <h1 data-en="DedSec Project Store" data-gr="Κατάστημα DedSec Project">DedSec Project Store</h1>
+            <p data-en="Get premium services and digital resources built with the DedSec mindset: clean design, fast performance, and practical automation."
+               data-gr="Premium υπηρεσίες και digital resources με νοοτροπία DedSec: καθαρό design, γρήγορη απόδοση και πρακτικός αυτοματισμός.">
+               Get premium services and digital resources built with the DedSec mindset: clean design, fast performance, and practical automation.
+            </p>
+        </div>
 
-<section class="page-header">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="../index.html" data-en="Home" data-gr="Αρχική">Home</a>
-      <span>›</span>
-      <span data-en="Store" data-gr="Κατάστημα">Store</span>
+        <div class="warning">
+            <p><strong data-en="Important Notice:" data-gr="Σημαντική Ειδοποίηση:">Important Notice:</strong> 
+            <span data-en="If you are unsure about any payment or have questions about our products, please contact us first through our contact page before proceeding."
+                  data-gr="Εάν δεν είστε βέβαιος για οποιαδήποτε πληρωμή ή έχετε ερωτήσεις σχετικά με τα προϊόντα μας, παρακαλούμε επικοινωνήστε μαζί μας πρώτα μέσω της σελίδας επικοινωνίας πριν προχωρήσετε.">
+                  If you are unsure about any payment or have questions about our products, please contact us first through our contact page before proceeding.
+            </span></p>
+        </div>
+
+        <div class="content-section product-list-section">
+            <div class="features-grid">
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-code feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Multi-Page HTML Website" data-gr="Πολυσέλιδος Ιστότοπος HTML">Multi-Page HTML Website</h3>
+                    <p class="feature-description" data-en="Launch your online presence quickly with a professional, mobile-ready website. Perfect for small businesses or personal portfolios needing multiple pages without complexity."
+                       data-gr="Εκκινήστε την online παρουσία σας γρήγορα με έναν επαγγελματικό, έτοιμο για κινητά ιστότοπο. Ιδανικό για μικρές επιχειρήσεις ή προσωπικά portfolios που χρειάζονται πολλές σελίδες χωρίς πολυπλοκότητα.">
+                       Launch your online presence quickly with a professional, mobile-ready website. Perfect for small businesses or personal portfolios needing multiple pages without complexity.
+                    </p>
+                    <div class="product-price">180€ / Year</div>
+                    <a href="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" target="_blank" class="payment-btn" data-en-link="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" data-gr-link="https://buy.stripe.com/3cI3cw3Bi7ecftA0kS8Zq0f" data-en="Purchase Now" data-gr="Αγοράστε Τώρα">Purchase Now</a>
+                    <div class="tool-features">
+                        <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
+                        <ul>
+                            <li data-en="Multi-page website (Home, About, Services, Contact)" data-gr="Πολυσέλιδος ιστότοπος (Αρχική, Σχετικά, Υπηρεσίες, Επικοινωνία)"><i class="fas fa-check"></i> Multi-page website (Home, About, Services, Contact)</li>
+                            <li data-en="Hand-coded with HTML, CSS, and JavaScript" data-gr="Χειροποίητος κώδικας με HTML, CSS και JavaScript"><i class="fas fa-check"></i> Hand-coded with HTML, CSS, and JavaScript</li>
+                            <li data-en="Responsive design for desktop and mobile" data-gr="Ανταποκρινόμενη σχεδίαση για υπολογιστές και κινητά"><i class="fas fa-check"></i> Responsive design for desktop and mobile</li>
+                            <li data-en="Simple contact form without backend" data-gr="Απλή φόρμα επικοινωνίας χωρίς backend"><i class="fas fa-check"></i> Simple contact form without backend</li>
+                            <li data-en="Clean, organized, and commented code" data-gr="Καθαρός, οργανωμένος και σχολιασμένος κώδικας"><i class="fas fa-check"></i> Clean, organized, and commented code</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                         <i class="fas fa-laptop-code feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Advanced Multi-Page HTML & JS Site" data-gr="Προχωρημένος Πολυσέλιδος Ιστότοπος HTML & JS">Advanced Multi-Page HTML & JS Site</h3>
+                    <p class="feature-description" data-en="Stand out with custom animations and interactive features. Solves the need for a unique, engaging website that captures attention and improves user experience."
+                       data-gr="Ξεχωρίστε με προσαρμοσμένες κινούμενες εικόνες και διαδραστικά στοιχεία. Λύνει την ανάγκη για έναν μοναδικό, ελκυστικό ιστότοπο που τραβά την προσοχή και βελτιώνει την εμπειρία χρήστη.">
+                       Stand out with custom animations and interactive features. Solves the need for a unique, engaging website that captures attention and improves user experience.
+                    </p>
+                    <div class="product-price">280€ / Year</div>
+                    <a href="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" target="_blank" class="payment-btn" data-en-link="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" data-gr-link="https://buy.stripe.com/28E9AUb3Kbusbdk7Nk8Zq0g" data-en="Purchase Now" data-gr="Αγοράστε Τώρα">Purchase Now</a>
+                    <div class="tool-features">
+                        <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
+                        <ul>
+                            <li data-en="Complex multi-page site with custom layouts" data-gr="Σύνθετος πολυσέλιδος ιστότοπος με προσαρμοσμένες διατάξεις"><i class="fas fa-check"></i> Complex multi-page site with custom layouts</li>
+                            <li data-en="Advanced JavaScript features" data-gr="Προχωρημένες λειτουργίες JavaScript"><i class="fas fa-check"></i> Advanced JavaScript features</li>
+                            <li data-en="Integration with third-party APIs" data-gr="Ενσωμάτωση με APIs τρίτων"><i class="fas fa-check"></i> Integration with third-party APIs</li>
+                            <li data-en="Complex CSS animations and transitions" data-gr="Σύνθετες κινούμενες εικόνες και μεταβάσεις CSS"><i class="fas fa-check"></i> Complex CSS animations and transitions</li>
+                            <li data-en="All code hand-written in standard files" data-gr="Όλος ο κώδικας είναι χειροποίητος σε τυπικά αρχεία"><i class="fas fa-check"></i> All code hand-written in standard files</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fab fa-python feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Single-Task Python Script for Termux" data-gr="Σενάριο Python για Μια Μόνο Εργασία στο Termux">Single-Task Python Script for Termux</h3>
+                    <p class="feature-description" data-en="Automate repetitive Android tasks to save time. Solves manual work like file management or data collection with a simple, focused Python script."
+                       data-gr="Αυτοματοποιήστε επαναλαμβανόμενες εργασίες Android για εξοικονόμηση χρόνου. Λύνει χειρωνακτική εργασία όπως διαχείριση αρχείων ή συλλογή δεδομένων με ένα απλό, συγκεντρωμένο σενάριο Python.">
+                       Automate repetitive Android tasks to save time. Solves manual work like file management or data collection with a simple, focused Python script.
+                    </p>
+                    <div class="product-price">40€</div>
+                    <a href="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" target="_blank" class="payment-btn" data-en-link="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" data-gr-link="https://buy.stripe.com/bJefZiefWcywftA1oW8Zq0h" data-en="Purchase Now" data-gr="Αγοράστε Τώρα">Purchase Now</a>
+                    <div class="tool-features">
+                        <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
+                        <ul>
+                            <li data-en="One Python script (.py file) for a single task" data-gr="Ένα σενάrio Python (.py αρχείο) για μια single εργασία"><i class="fas fa-check"></i> One Python script (.py file) for a single task</li>
+                            <li data-en="Basic instructions for running in Termux" data-gr="Βασικές οδηγίες για την εκτέλεσή στο Termux"><i class="fas fa-check"></i> Basic instructions for running in Termux</li>
+                            <li data-en="Simple error handling" data-gr="Απλός χειρισμός σφαλμάτων"><i class="fas fa-check"></i> Simple error handling</li>
+                        </ul>
+                        <h5 data-en="Example Tasks:" data-gr="Παραδείγματα Εργασιών:">Example Tasks:</h5>
+                        <ul>
+                            <li data-en="Auto-renaming files in a folder" data-gr="Αυτόματη μετονομασία αρχείων σε έναν φάκελο"><i class="fas fa-check"></i> Auto-renaming files in a folder</li>
+                            <li data-en="A simple web scraper for one page" data-gr="Ένας απλός 'web scraper' για μια ιστοσελίδα"><i class="fas fa-check"></i> A simple web scraper for one page</li>
+                            <li data-en="A script to send you a daily notification" data-gr="Ένα σενάριο για να σας στέλνει μια ημερήσια ειδοποίηση"><i class="fas fa-check"></i> A script to send you a daily notification</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-cogs feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Multi-Feature Python Script for Termux" data-gr="Σενάριο Python με Πολλαπλές Λειτουργίες για Termux">Multi-Feature Python Script for Termux</h3>
+                    <p class="feature-description" data-en="Handle complex Android automation with one powerful tool. Solves multiple related tasks through a menu-driven interface, perfect for advanced users."
+                       data-gr="Χειριστείτε σύνθετη αυτοματοποίηση Android με ένα ισχυρό εργαλείο. Λύνει πολλαπλές σχετικές εργασίες μέσω μενού, ιδανικό για προχωρημένους χρήστες.">
+                       Handle complex Android automation with one powerful tool. Solves multiple related tasks through a menu-driven interface, perfect for advanced users.
+                    </p>
+                    <div class="product-price">80€</div>
+                    <a href="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" target="_blank" class="payment-btn" data-en-link="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" data-gr-link="https://buy.stripe.com/5kQdRa0p60POdlsc3A8Zq0i" data-en="Purchase Now" data-gr="Αγοράστε Τώρα">Purchase Now</a>
+                    <div class="tool-features">
+                        <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
+                        <ul>
+                            <li data-en="Robust Python script with multiple features" data-gr="Ισχυρό σενάrio Python με πολλαπλές λειτουργίες"><i class="fas fa-check"></i> Robust Python script with multiple features</li>
+                            <li data-en="Handles complex logic and error checking" data-gr="Χειρίζεται πιο σύνθετη λογική και έλεγχο σφαλμάτων"><i class="fas fa-check"></i> Handles complex logic and error checking</li>
+                            <li data-en="May include a simple text-based menu" data-gr="Μπορεί να περιλαμβάνει ένα απλό μενού βάσει κειμένου"><i class="fas fa-check"></i> May include a simple text-based menu</li>
+                            <li data-en="Can interact with multiple Termux features or APIs" data-gr="Μπορεί να αλληλεπιδρά με πολλαπλές λειτουργίες ή APIs του Termux"><i class="fas fa-check"></i> Can interact with multiple Termux features or APIs</li>
+                        </ul>
+                        <h5 data-en="Example Tasks:" data-gr="Παραδείγματα Εργασιών:">Example Tasks:</h5>
+                        <ul>
+                            <li data-en="A download manager with menu options" data-gr="Ένας διαχειριστής λήψεων με μενού για διαφορετικές επιλογές"><i class="fas fa-check"></i> A download manager with menu options</li>
+                            <li data-en="A system info tool that checks multiple stats" data-gr="Ένα εργαλείο πληροφοριών συστήματος που ελέγχει και καταγράφει πολλαπλά στατιστικά"><i class="fas fa-check"></i> A system info tool that checks multiple stats</li>
+                            <li data-en="A script that manages backups for several apps" data-gr="Ένα σενάριο που διαχειρίζεται αντίγραφα ασφαλείας για πολλές εφαρμογές"><i class="fas fa-check"></i> A script that manages backups for several apps</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-boxes feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Termux Scripts Bundle (15 Scripts Max)" data-gr="Πακέτο Σεναρίων Termux (Μέχρι 15 Σενάρια)">Termux Scripts Bundle (15 Scripts Max)</h3>
+                    <p class="feature-description" data-en="Get a complete toolkit for specific automation needs. Solves the problem of scattered tools by providing coordinated scripts that work together efficiently."
+                       data-gr="Αποκτήστε ένα πλήρες κιτ εργαλείων για συγκεκριμένες ανάγκες αυτοματοποίησης. Λύνει το πρόβλημα των διασκορπισμένων εργαλείων με συντονισμένα σενάρια που λειτουργούν αποτελεσματικά μαζί.">
+                       Get a complete toolkit for specific automation needs. Solves the problem of scattered tools by providing coordinated scripts that work together efficiently.
+                    </p>
+                    <div class="product-price">160€</div>
+                    <a href="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" target="_blank" class="payment-btn" data-en-link="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" data-gr-link="https://buy.stripe.com/cNi4gA2xe9mk5T06Jg8Zq0j" data-en="Purchase Now" data-gr="Αγοράστε Τώρα">Purchase Now</a>
+                    <div class="tool-features">
+                        <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
+                        <ul>
+                            <li data-en="Set of up to 15 Python scripts organized in a folder" data-gr="Σύνολο μέχρι 15 σεναρίων Python οργανωμένα σε έναν φάκελο"><i class="fas fa-check"></i> Set of up to 15 Python scripts organized in a folder</li>
+                            <li data-en="All scripts focused on a central theme" data-gr="Όλα τα σενάρια εστιάζουν σε ένα κεντρικό θέμα"><i class="fas fa-check"></i> All scripts focused on a central theme</li>
+                            <li data-en="Main menu script to easily launch all tools" data-gr="Κύριο σενάριο μενού για εύκολη εκκίνηση όλων των εργαλείων"><i class="fas fa-check"></i> Main menu script to easily launch all tools</li>
+                            <li data-en="Comprehensive instructions for the entire bundle" data-gr="Ολοκληρωμένες οδηγίες για ολόκληρο το πακέτο"><i class="fas fa-check"></i> Comprehensive instructions for the entire bundle</li>
+                        </ul>
+                        <h5 data-en="Example Bundles:" data-gr="Παραδείγματα Πακέτων:">Example Bundles:</h5>
+                        <ul>
+                            <li data-en="File Manager's Bundle: Scripts for sorting, renaming, finding duplicates, and backing up files" data-gr="Πακέτο Διαχειριστή Αρχείων: Σενάρια για ταξινόμηση, μετονομασία, εύρεση διπλοεγγράφων και δημιουργία αντιγράφων ασφαλείας αρχείων"><i class="fas fa-check"></i> File Manager's Bundle: Scripts for sorting, renaming, finding duplicates, and backing up files</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-user-secret feature-icon"></i>
+                    </div>
+                    <h3 class="feature-title" data-en="Termux Phishing Demonstration Script" data-gr="Σενάριο Επίδειξης Phishing για Termux">Termux Phishing Demonstration Script</h3>
+                    <p class="feature-description" data-en="Learn security vulnerabilities hands-on in a safe environment. Essential for cybersecurity education, demonstrating real phishing techniques for awareness training."
+                       data-gr="Μάθετε για τρωτά σημεία ασφαλείας πρακτικά σε ασφαλές περιβάλλον. Απαραίτητο για εκπαίδευση κυβερνοασφαλείας, επιδεικνύοντας πραγματικές τεχνικές phishing για ευαισθητοποίηση.">
+                       Learn security vulnerabilities hands-on in a safe environment. Essential for cybersecurity education, demonstrating real phishing techniques for awareness training.
+                    </p>
+                    <div class="product-price">320€</div>
+                    <a href="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" target="_blank" class="payment-btn" data-en-link="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" data-gr-link="https://buy.stripe.com/3cIdRac7O7ec8180kS8Zq0l" data-en="Purchase Now" data-gr="Αγοράστε Τώρα">Purchase Now</a>
+                    <div class="tool-features">
+                        <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
+                        <ul>
+                            <li data-en="Custom replica page (e.g., Social Media login)" data-gr="Προσαρμοσμένη σελίδα αντιγράφου (π.χ. είσοδος Social Media)"><i class="fas fa-check"></i> Custom replica page (e.g., Social Media login)</li>
+                            <li data-en="Runs locally on Termux using Flask & Python" data-gr="Εκτελείται τοπικά στο Termux χρησιμοποιώντας Flask & Python"><i class="fas fa-check"></i> Runs locally on Termux using Flask & Python</li>
+                            <li data-en="Captures entered data to a local text file" data-gr="Καταγράφει τα δεδομένα που εισάγονται σε τοπικό αρχείο κειμένου"><i class="fas fa-check"></i> Captures entered data to a local text file</li>
+                            <li data-en="Includes Cloudflare Tunnel for remote testing demo" data-gr="Περιλαμβάνει Cloudflare Tunnel για επίδειξη απομακρυσμένης δοκιμής"><i class="fas fa-check"></i> Includes Cloudflare Tunnel for remote testing demo</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> </div>
+        <div class="cta-strip">
+            <div class="cta-text">
+                <h3 data-en="Need something custom?" data-gr="Θες κάτι custom;">Need something custom?</h3>
+                <p data-en="Tell us your goal (website, automation, or a Termux setup). We’ll propose the best approach for your budget and device." data-gr="Πες μας τι θες να πετύχεις (site, automation ή Termux setup). Θα προτείνουμε την καλύτερη λύση για το budget και τη συσκευή σου.">Tell us your goal (website, automation, or a Termux setup). We’ll propose the best approach for your budget and device.</p>
+            </div>
+            <div class="cta-actions">
+                <a class="btn btn-primary" href="contact-credits.html" data-en="Message us" data-gr="Στείλε μήνυμα">Message us</a>
+                <a class="btn btn-secondary" href="portfolio-github-info.html" data-en="See examples" data-gr="Δες παραδείγματα">See examples</a>
+            </div>
+        </div>
+
+<div class="content-section">
+            <div class="category">
+                <div class="category-header">
+                    <h2 data-en="Store Policies" data-gr="Πολιτικές Καταστήματος">Store Policies</h2>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </div>
+                <div class="tools-list">
+                    <div class="note">
+                        <h3 data-en="No Refund Policy" data-gr="Πολιτική Χωρίς Επιστροφή Χρημάτων">No Refund Policy</h3>
+                        <p data-en="All sales are final. Due to the digital nature of our products, we do not offer refunds once a product has been delivered. Please make sure you understand what you're purchasing before completing your order."
+                           data-gr="Όλες οι πωλήσεις είναι οριστικές. Λόγω της ψηφιακής φύσης των προϊόντων μας, δεν προσφέρουμε επιστροφή χρημάτων αφού παραδοθεί ένα προϊόν. Παρακαλούμε βεβαιωθείτε ότι καταλαβαίνετε τι αγοράζετε πριν ολοκληρώσετε την παραγγελία σας.">
+                           All sales are final. Due to the digital nature of our products, we do not offer refunds once a product has been delivered. Please make sure you understand what you're purchasing before completing your order.
+                        </p>
+                    </div>
+
+                    <div class="note">
+                        <h3 data-en="Receipt Delivery" data-gr="Παράδοση Απόδειξης">Receipt Delivery</h3>
+                        <p data-en="Please note: Your official payment receipt will be delivered automatically to your email address by Stripe shortly after your purchase. You will need this receipt to contact us for product delivery."
+                           data-gr="Παρακαλούμε σημειώστε: Η επίσημη απόδειξη πληρωμής σας θα παραδοθεί αυτόματα στη διεύθυνση email σας από το Stripe λίγο μετά την αγορά σας. Θα χρειαστείτε αυτήν την απόδειξη για να επικοινωνήσετε μαζί μας για την παράδοση του προϊόντος.">
+                           Please note: Your official payment receipt will be delivered automatically to your email address by Stripe shortly after your purchase. You will need this receipt to contact us for product delivery.
+                        </p>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3 data-en="Payment & Delivery Process" data-gr="Διαδικασία Πληρωμής & Παράδοσης">Payment & Delivery Process</h3>
+                        <p data-en="After completing your payment, you must contact us through our contact page and provide your payment receipt (which you received via email from Stripe). We will then verify your payment and deliver your purchased product(s) as soon as possible. Without contacting us with your receipt, we cannot process your order."
+                           data-gr="Μετά την ολοκλήρωση της πληρωμής σας, πρέπει να επικοινωνήσετε μαζί μας μέσω της σελίδας επικοινωνίας και να μας δώσετε την απόδειξη πληρωμής σας (την οποία λάβατε μέσω email από το Stripe). Στη συνέχεια, θα επαληθεύσουμε την πληρωμή σας και θα σας παραδώσουμε το αγορασμένο προϊόν(τα) το συντομότερο δυνατό. Χωρίς να επικοινωνήσετε μαζί μας με την απόδειξή σας, δεν μπορούμε να επεξεργαστούμε την παραγγελία σας.">
+                           After completing your payment, you must contact us through our contact page and provide your payment receipt (which you received via email from Stripe). We will then verify your payment and deliver your purchased product(s) as soon as possible. Without contacting us with your receipt, we cannot process your order.
+                        </p>
+                    </div>
+                    
+                    <div class="warning">
+                        <h3 data-en="Payment Disclaimer" data-gr="Αποποίηση Ευθύνης Πληρωμής">Payment Disclaimer</h3>
+                        <p data-en="If you have any doubts or questions about our products or payment process, please contact us through our contact page before making a purchase. We're here to help clarify any uncertainties you may have."
+                           data-gr="Εάν έχετε οποιεσδήποτε αμφιβολίες ή ερωτήσεις σχετικά με τα προϊόντα μας ή τη διαδικασία πληρωμής, παρακαλούμε επικοινωνήστε μαζί μας μέσω της σελίδας επικοινωνίας πριν από οποιαδήποτε αγορά. Είμαστε εδώ για να διευκρινίσουμε οποιεσδήποτε αβεβαιότητες μπορεί να έχετε.">
+                           If you have any doubts or questions about our products or payment process, please contact us through our contact page before making a purchase. We're here to help clarify any uncertainties you may have.
+                        </p>
+                    </div>
+                    
+                    <div class="contact-cta">
+                        <a href="contact-credits.html" class="contact-page-btn" data-en="Contact Us After Payment" data-gr="Επικοινωνήστε Μαζί μας Μετά την Πληρωμή">Contact Us After Payment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <h1 data-en="Store" data-gr="Κατάστημα">Store</h1>
-    <p data-en="Optional support: digital work (websites/scripts) delivered after purchase. Choose EN/GR to get the correct checkout link."
-       data-gr="Προαιρετική στήριξη: ψηφιακά έργα (websites/scripts) με παράδοση μετά την πληρωμή. Επίλεξε EN/GR για σωστό link checkout.">
-      Optional support: digital work (websites/scripts) delivered after purchase. Choose EN/GR to get the correct checkout link.
-    </p>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container">
-    <div class="grid">
-      <div class="card span-12">
-        <h3 data-en="How it works" data-gr="Πώς λειτουργεί">How it works</h3>
-        <p data-en="1) Pick a product → 2) Pay via Stripe → 3) You receive a receipt → 4) Delivery is sent to you (or we contact you if more info is needed)."
-           data-gr="1) Επίλεξε προϊόν → 2) Πλήρωσε μέσω Stripe → 3) Λαμβάνεις απόδειξη → 4) Σου στέλνουμε την παράδοση (ή σε ρωτάμε αν χρειαστούν λεπτομέρειες).">
-          1) Pick a product → 2) Pay via Stripe → 3) You receive a receipt → 4) Delivery is sent to you (or we contact you if more info is needed).
-        </p>
+    <footer class="main-footer">
+        <p data-lang-section="en">© 2026 DedSec Project Store. All Rights Reserved.</p>
+        <p data-lang-section="gr" class="hidden-by-default">© 2026 DedSec Project Store. Με επιφύλαξη παντός δικαιώματος.</p>
+        <p data-lang-section="en" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Trademark Disclaimer: The "DedSec" name and logo are inspired by the "Watch Dogs" series and are used for thematic purposes only. This project is not affiliated with or endorsed by Ubisoft Entertainment S.A.</p>
+        <p data-lang-section="gr" class="hidden-by-default" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Αποποίηση Ευθύνης Εμπορικού Σήματος: Το όνομα και το λογότυπο "DedSec" είναι εμπνευσμένα από τη σειρά "Watch Dogs" και χρησιμοποιούνται μόνο για θεματικούς σκοπούς. Αυτό το έργο δεν συνδέεται ούτε υποστηρίζεται από την Ubisoft Entertainment S.A.</p>
+        <p>Made by dedsec1121fk.</p>
+    </footer>
+
+    <div id="disclaimer-modal" class="modal-overlay">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h2 data-en="Disclaimer & Terms of Use" data-gr="Αποποίηση Ευθύνης & Όροι Χρήσης">Disclaimer & Terms of Use</h2>
+            <button id="disclaimer-lang-btn" class="language-selection-btn">
+                <i class="fas fa-globe"></i>
+                <span data-en="Change Language" data-gr="Αλλαγή Γλώσσας">Change Language</span>
+            </button>
+          </div>
+          <div class="modal-body" data-lang-section="en">
+            <div class="note">
+                <p><strong>PLEASE READ CAREFULLY BEFORE PROCEEDING.</strong></p>
+                <p><strong>Trademark Disclaimer:</strong> The "DedSec" name and logo used in this project are for thematic and inspirational purposes only. This is an independent, fan-made project created for educational purposes and has no official connection to the "Watch Dogs" franchise. It is not associated with, endorsed by, or affiliated with Ubisoft Entertainment S.A. All trademarks and copyrights for "Watch Dogs" and "DedSec" as depicted in the games belong to their respective owners, Ubisoft Entertainment S.A.</p>
+                <p>This project, including all associated tools, scripts, and documentation ("the Software"), is provided strictly for educational, research, and ethical security testing purposes. It is intended for use exclusively in controlled, authorized environments by users who have obtained explicit, prior written permission from the owners of any systems they intend to test.</p>
+                <p><strong>1. Assumption of Risk and Responsibility:</strong> By accessing or using the Software, you acknowledge and agree that you are doing so at your own risk. You are solely and entirely responsible for your actions and for any consequences that may arise from the use or misuse of this Software. This includes, but is not limited to, compliance with all applicable local, state, national, and international laws and regulations related to cybersecurity, data privacy, and electronic communications.</p>
+                <p><strong>2. Prohibited Activities:</strong> Any use of the Software for unauthorized or malicious activities is strictly prohibited. This includes, without limitation: accessing systems, systems, or data without authorization; performing denial-of-service attacks; data theft; fraud; spreading malware; or any other activity that violates applicable laws. Engaging in such activities may result in severe civil and criminal penalties.</p>
+                <p><strong>3. No Warranty:</strong> The Software is provided "AS IS," without any warranty of any kind, express or implied. This includes, but is not to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. The developers and contributors make no guarantee that the Software will be error-free, secure, or uninterrupted.</p>
+                <p><strong>4. Limitation of Liability:</strong> In no event shall the developers, contributors, or distributors of the Software be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connectionwith the Software or the use or other dealings in the Software. This new `div` for "Receipt Delivery" explains *how* the user gets the receipt (via email from Stripe).
+This includes any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption).</p>
+            </div>
+          <hr class="modal-divider">
+            <h3 class="text-center">Privacy Policy Summary</h3>
+            <div class="privacy-policy-embed">
+                <p>We are committed to protecting your privacy. We do not store or transmit your personal data. We use third-party services like Google AdSense, which may use cookies for advertising. Please review their policies. By using our service, you agree to our full Privacy Policy.</p>
+            </div>
+            <div class="note"><p><strong>By clicking "Accept," you confirm that you have read, understood, and agree to be bound by all the terms and conditions outlined in this disclaimer and our full Privacy Policy. If you do not agree with these terms, you must click "Decline" and cease all use of the Software immediately.</strong></p></div>
+          </div>
+          <div class="modal-body hidden-by-default" data-lang-section="gr">
+            <div class="note">
+                <p><strong>ΠΑΡΑΚΑΛΩ ΔΙΑΒΑΣΤΕ ΠΡΟΣΕΚΤΙΚΑ ΠΡΙΝ ΣΥΝΕΧΙΣΕΤΕ.</strong></p>
+                <p><strong>Αποποίηση Ευθύνης Εμπορικού Σήματος:</strong> Το όνομα και το λογότυπο "DedSec" που χρησιμοποιούνται σε αυτό το έργο είναι μόνο για θεματικούς και εμπνευστικούς σκοπούς. Πρόκειται για ένα ανεξάρτητο, fan-made έργο που δημιουργήθηκε για εκπαιδευτικούς σκοπούς και δεν έχει καμία επίσημη σύνδεση με το franchise "Watch Dogs". Δεν συνδέεται, δεν υποστηρίζεται από, ούτε σχετίζεται με την Ubisoft Entertainment S.A. Όλα τα εμπορικά σήματα και τα πνευματικά δικαιώματα για το "Watch Dogs" και το "DedSec" όπως απεικονίζονται στα παιχνίδια ανήκουν στους αντίστοιχους κατόχους τους, την Ubisoft Entertainment S.A.</p>
+                <p>Αυτό το έργο, συμπεριλαμβανομένων όλων των σχετικών εργαλείων, σεναρίων και τεκμηρίωσης («το Λογισμικό»), παρέχεται αυστηρά για εκπαιδευτικούς, ερευνητικούς και ηθικούς σκοπούς δοκιμών ασφαλείας. Προορίζεται για χρήση αποκλειστικά σε ελεγχόμενα, εξουσιοδοτημένα περιβάλλοντα από χρήστες που έχουν λάβει ρητή, προηγούμενη γραπτή άδεια από τους ιδιοκτήτες οποιωνδήποτε συστημάτων σκοπεύουν να δοκιμάσουν.</p>
+                <p><strong>1. Ανάληψη Κινδύνου και Ευθύνης:</strong> Με την πρόσβαση ή τη χρήση του Λογισμικού, αναγνωρίζετε και συμφωνείτε ότι το κάνετε με δική σας ευθύνη. Είστε αποκλειστικά και εξ ολοκλήρου υπεύθυνοι για τις ενέργειές σας και για τυχόν συνέπειες που μπορεί να προκύψουν από τη χρήση ή κακή χρήση αυτού του Λογισμικού. Αυτό περιλαμβάνει, ενδεικτικά, τη συμμόcompliance με όλους τους ισχύοντες τοπικούς, πολιτειακούς, εθνικούς και διεθνείς νόμους και κανονισμούς που σχετίζονται με την κυβερνοασφάλεια, την προστασία δεδομένων και τις ηλεκτρονικές επικοινωνίες.</p>
+                <p><strong>2. Απαγορευμένες Δραστηριότητες:</strong> Απαγορεύεται αυστηρά οποιαδήποτε χρήση του Λογισμικού για μη εξουσιοδοτημένες ή κακόβουλες δραστηριότητες. Αυτό περιλαμβάνει, χωρίς περιορισμό: πρόσβαση σε συστήματα ή δεδομένα χωρίς εξουσιοδοτημένη πρόσβαση, εκτέλεση επιθέσεων άρνησης υπηρεσίας (denial-of-service), κλοπή δεδομένων, απάτη, διάδοση κακόβουλου λογισμικού ή οποιαδήποτε άλλη δραστηριότητα που παραβιάζει την ισχύουσα νομοθεσία. Η συμμετοχή σε τέτοιες δραστηριότητες μπορεί να οδηγήσει σε σοβαρές αστικές και ποινικές κυρώσεις.</p>
+                <p><strong>3. Καμία Εγγύηση:</strong> Το Λογισμικό παρέχεται "ΩΣ ΕΧΕΙ", χωρίς καμία εγγύηση οποιουδήποτε είδους, ρητή ή σιωπηρή. Αυτό περιλαμβάνει, ενδεικτικά, τις σιωπηρές εγγυήσεις εμπορευσιμότητας, καταλληλότητας για συγκεκριμένο σκοπό και μη παραβίασης. Οι προγραμματιστές και οι συντελεστές δεν παρέχουν καμία εγγύηση ότι το Λογισμικό θα είναι απαλλαγμένο από σφάλματα, ασφαλές ή αδιάλειπτο.</p>
+                <p><strong>4. Περιορισμός Ευθύνης:</strong> Σε καμία περίπτωση οι προγραμματιστές, οι συντελεστές ή οι διανομείς του Λογισμικού δεν φέρουν ευθύνη για οποιαδήποτε αξίμη, ζημιές ή άλλη ευθύνη, είτε πρόκειται για αγωγή σύμβασης, αδικοπραξίας ή άλλως, που προκύπτει από, ή σε σχέση με το Λογισμικό ή τη χρήση ή άλλες συναλλαγές με το Λογισμικό. Αυτό περιλαμβάνει τυχόν άμεσες, έμμεσες, τυχαίες, ειδικές, παραδειγματικές ή επακόλουθες ζημιές (συμπεριλαμβανομένης, αλλά όχι μόνο, της προμήθειας υποκατάστατων αγαθών ή υπηρεσιών, απώλειας χρήσης, δεδομένων ή κερδών ή διακοπής εργασιών).</p>
+            </div>
+            <hr class="modal-divider">
+            <h3 class="text-center">Περίληψη Πολιτικής Απορήτου</h3>
+            <div class="privacy-policy-embed">
+                <p>Δεσμευόμαστε να προστατεύουμε το απόρρητό σας. Δεν αποθηκεύουμε ή μεταδίδουμε τα προσωπικά σας δεδομένα. Χρησιμοποιούμε υπηρεσίες τρίτων όπως το Google AdSense, οι οποίες ενδέχεται να χρησιμοποιούν cookies για διαφημίσεις. Παρακαλούμε ελέγξτε τις πολιτικές τους. Με τη χρήση της υπηρεσίας μας, συμφωνείτε με την πλήρη Πολιτική Απορρήτου μας.</p>
+            </div>
+            <div class="note"><p><strong>Με το κλικ στο "Αποδοχή", επιβεβαιώνετε ότι διαβάσατε, κατανοήσατε και συμφωνείτε να δεσμεύεστε από όλους τους όρους και τις προϋποθέσεις που περιγράφονται σε αυτήν την αποποίηση ευθύνης και την πλήρη Πολιτική Απορρήτου μας. Εάν δεν συμφωνείτε με αυτούς τους όρους, πρέπει να κάνετε κλικ στο "Απόρριψη" και να διακόψετε αμέσως κάθε χρήση του Λογισμικού.</strong></p></div>
+          </div>
+          <div class="modal-footer disclaimer-footer">
+            <button id="decline-disclaimer" class="decline-btn" data-en="Decline" data-gr="Απόρριψη">Decline</button>
+            <button id="accept-disclaimer" class="accept-btn" data-en="Accept" data-gr="Αποδοχή">Accept</button>
+          </div>
       </div>
-
-      <div class="card span-6">
-        <h3 data-en="Multi-Page HTML Website" data-gr="Multi-Page HTML Website">Multi-Page HTML Website</h3>
-        <p data-en="A clean, modern multi-page website (like this one), optimized for mobile & SEO. Great for portfolios and small businesses." data-gr="Ένα καθαρό, μοντέρνο multi-page website (σαν αυτό), βελτιστοποιημένο για mobile & SEO. Ιδανικό για portfolio ή μικρές επιχειρήσεις.">A clean, modern multi-page website (like this one), optimized for mobile & SEO. Great for portfolios and small businesses.</p>
-        <div class="meta">
-          <a class="btn" href="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" target="_blank" rel="noopener"
-             data-en-link="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" data-gr-link="https://buy.stripe.com/3cI3cw3Bi7ecftA0kS8Zq0f">
-            <i class="fas fa-credit-card"></i>
-            <span data-en="Buy via Stripe" data-gr="Αγορά μέσω Stripe">Buy via Stripe</span>
-          </a>
-          <span class="tag" data-en="Digital delivery" data-gr="Ψηφιακή παράδοση">Digital delivery</span>
-        </div>
-      </div>
-
-      <div class="card span-6">
-        <h3 data-en="Advanced Multi-Page HTML & JS Site" data-gr="Advanced Multi-Page HTML & JS Site">Advanced Multi-Page HTML & JS Site</h3>
-        <p data-en="A more advanced site with custom animations, interactive sections, and richer UI—built for maximum attention." data-gr="Πιο advanced site με custom animations, interactive sections και πλουσιότερο UI—για μέγιστη προσοχή.">A more advanced site with custom animations, interactive sections, and richer UI—built for maximum attention.</p>
-        <div class="meta">
-          <a class="btn" href="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" target="_blank" rel="noopener"
-             data-en-link="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" data-gr-link="https://buy.stripe.com/28E9AUb3Kbusbdk7Nk8Zq0g">
-            <i class="fas fa-credit-card"></i>
-            <span data-en="Buy via Stripe" data-gr="Αγορά μέσω Stripe">Buy via Stripe</span>
-          </a>
-          <span class="tag" data-en="Digital delivery" data-gr="Ψηφιακή παράδοση">Digital delivery</span>
-        </div>
-      </div>
-
-      <div class="card span-6">
-        <h3 data-en="Single-Task Python Script for Termux" data-gr="Single-Task Python Script for Termux">Single-Task Python Script for Termux</h3>
-        <p data-en="One focused Termux Python script for a specific automation task (e.g., organizer, downloader, backup, monitoring)." data-gr="Ένα στοχευμένο Termux Python script για συγκεκριμένη αυτοματοποίηση (π.χ. organizer, downloader, backup, monitoring).">One focused Termux Python script for a specific automation task (e.g., organizer, downloader, backup, monitoring).</p>
-        <div class="meta">
-          <a class="btn" href="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" target="_blank" rel="noopener"
-             data-en-link="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" data-gr-link="https://buy.stripe.com/bJefZiefWcywftA1oW8Zq0h">
-            <i class="fas fa-credit-card"></i>
-            <span data-en="Buy via Stripe" data-gr="Αγορά μέσω Stripe">Buy via Stripe</span>
-          </a>
-          <span class="tag" data-en="Digital delivery" data-gr="Ψηφιακή παράδοση">Digital delivery</span>
-        </div>
-      </div>
-
-      <div class="card span-6">
-        <h3 data-en="Multi-Feature Python Script for Termux" data-gr="Multi-Feature Python Script for Termux">Multi-Feature Python Script for Termux</h3>
-        <p data-en="A menu-driven Termux toolkit with multiple features, configs, and persistent settings—built to scale." data-gr="Menu-driven Termux toolkit με πολλαπλές λειτουργίες, ρυθμίσεις και αποθήκευση κατάστασης—έτοιμο να μεγαλώσει.">A menu-driven Termux toolkit with multiple features, configs, and persistent settings—built to scale.</p>
-        <div class="meta">
-          <a class="btn" href="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" target="_blank" rel="noopener"
-             data-en-link="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" data-gr-link="https://buy.stripe.com/5kQdRa0p60POdlsc3A8Zq0i">
-            <i class="fas fa-credit-card"></i>
-            <span data-en="Buy via Stripe" data-gr="Αγορά μέσω Stripe">Buy via Stripe</span>
-          </a>
-          <span class="tag" data-en="Digital delivery" data-gr="Ψηφιακή παράδοση">Digital delivery</span>
-        </div>
-      </div>
-
-      <div class="card span-6">
-        <h3 data-en="Termux Scripts Bundle (15 Scripts Max)" data-gr="Termux Scripts Bundle (15 Scripts Max)">Termux Scripts Bundle (15 Scripts Max)</h3>
-        <p data-en="Up to 15 scripts packaged together, consistent UI, shared settings, and documentation." data-gr="Έως 15 scripts σε bundle, με ενιαίο UI, κοινές ρυθμίσεις και documentation.">Up to 15 scripts packaged together, consistent UI, shared settings, and documentation.</p>
-        <div class="meta">
-          <a class="btn" href="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" target="_blank" rel="noopener"
-             data-en-link="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" data-gr-link="https://buy.stripe.com/cNi4gA2xe9mk5T06Jg8Zq0j">
-            <i class="fas fa-credit-card"></i>
-            <span data-en="Buy via Stripe" data-gr="Αγορά μέσω Stripe">Buy via Stripe</span>
-          </a>
-          <span class="tag" data-en="Digital delivery" data-gr="Ψηφιακή παράδοση">Digital delivery</span>
-        </div>
-      </div>
-
-      <div class="card span-6">
-        <h3 data-en="Termux Phishing Demonstration Script" data-gr="Termux Phishing Demonstration Script">Termux Phishing Demonstration Script</h3>
-        <p data-en="A controlled awareness/demo script intended for education and training only (no real-world misuse)." data-gr="Ελεγχόμενο awareness/demo script μόνο για εκπαίδευση και training (όχι πραγματική κατάχρηση).">A controlled awareness/demo script intended for education and training only (no real-world misuse).</p>
-        <div class="meta">
-          <a class="btn" href="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" target="_blank" rel="noopener"
-             data-en-link="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" data-gr-link="https://buy.stripe.com/3cIdRac7O7ec8180kS8Zq0l">
-            <i class="fas fa-credit-card"></i>
-            <span data-en="Buy via Stripe" data-gr="Αγορά μέσω Stripe">Buy via Stripe</span>
-          </a>
-          <span class="tag" data-en="Digital delivery" data-gr="Ψηφιακή παράδοση">Digital delivery</span>
-        </div>
-      </div>
-
     </div>
 
-    <div class="hr"></div>
-
-    <div class="accordion">
-      <details>
-        <summary>
-          <span data-en="Store policies" data-gr="Πολιτικές καταστήματος">Store policies</span>
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </summary>
-        <div class="content">
-          <p data-en="No refunds for digital products once delivered, unless a clear technical fault is proven."
-             data-gr="Δεν γίνονται επιστροφές σε ψηφιακά προϊόντα μετά την παράδοση, εκτός αν αποδειχθεί ξεκάθαρο τεχνικό πρόβλημα.">
-            No refunds for digital products once delivered, unless a clear technical fault is proven.
-          </p>
-          <p data-en="If we need extra details to deliver (e.g., domain, features, requirements), we will contact you."
-             data-gr="Αν χρειαστούν λεπτομέρειες για την παράδοση (π.χ. domain, features, απαιτήσεις), θα επικοινωνήσουμε μαζί σου.">
-            If we need extra details to deliver (e.g., domain, features, requirements), we will contact you.
-          </p>
-        </div>
-      </details>
-      <details>
-        <summary>
-          <span data-en="Disclaimer" data-gr="Αποποίηση ευθύνης">Disclaimer</span>
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </summary>
-        <div class="content">
-          <p data-en="All educational content must be used responsibly and legally. Anything intended for harm is not supported."
-             data-gr="Όλο το εκπαιδευτικό περιεχόμενο πρέπει να χρησιμοποιείται υπεύθυνα και νόμιμα. Οτιδήποτε προορίζεται για βλάβη δεν υποστηρίζεται.">
-            All educational content must be used responsibly and legally. Anything intended for harm is not supported.
-          </p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-</main>
-<footer class="footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="brand" style="margin-bottom:10px">
-        <img src="../Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg" alt="DedSec Project logo">
-        <div class="brand-text">
-          <strong>DEDSEC</strong>
-          <span data-en="PROJECT" data-gr="PROJECT">PROJECT</span>
-        </div>
+    <div id="language-selection-modal" class="modal-overlay">
+      <div class="modal-content modal-content-auto-height">
+          <div class="modal-header">
+            <h2 data-en="Choose Language" data-gr="Επιλογή Γλώσσας">Choose Language / Επιλογή Γλώσσας</h2>
+            <button class="close-modal" aria-label="Close">×</button>
+          </div>
+          <div class="modal-body modal-body-centered">
+              <button class="language-button" data-lang="en" aria-label="Change language to English">English</button>
+              <button class="language-button" data-lang="gr" aria-label="Change language to Greek">Ελληνικά</button>
+          </div>
       </div>
-      <small data-en="Educational security & tooling hub. Use responsibly. No illegal activity." data-gr="Εκπαιδευτικό hub ασφάλειας & εργαλείων. Χρήση με υπευθυνότητα. Όχι παράνομες ενέργειες.">
-        Educational security & tooling hub. Use responsibly. No illegal activity.
-      </small>
-      <div class="hr"></div>
-      <small>© 2026 DedSec Project</small>
     </div>
 
-    <div>
-      <div class="links">
-        <a href="https://ded-sec.space" data-en="Website" data-gr="Ιστότοπος">Website</a>
-        <a href="../Pages/contact-credits.html" data-en="Contact" data-gr="Επικοινωνία">Contact</a>
-        <a href="../Pages/privacy-policy.html" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου">Privacy Policy</a>
-        <a href="../Pages/faq.html" data-en="FAQ" data-gr="FAQ">FAQ</a>
-      </div>
-      <div class="hr"></div>
-      <small data-en="Tip: Replace placeholder images inside /Assets/Images with your real logo/photos." data-gr="Tip: Αντικατέστησε τις προσωρινές εικόνες στο /Assets/Images με το πραγματικό σου logo/φωτογραφίες.">
-        Tip: Replace placeholder images inside /Assets/Images with your real logo/photos.
-      </small>
-    </div>
-  </div>
-</footer>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script src="https://kit.fontawesome.com/a2e0e6ad45.js" crossorigin="anonymous"></script>
-<script src="../script.js"></script>
+    <script src="../script.js" defer></script>
 </body>
 </html>
