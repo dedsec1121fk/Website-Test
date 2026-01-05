@@ -631,7 +631,7 @@ border: 1px solid var(--nm-border);
     position: absolute;
     inset: -2px;
     background: conic-gradient(from 180deg, rgba(198,155,255,0.65), rgba(255,170,210,0.35), rgba(255,164,98,0.35), rgba(198,155,255,0.65));
-    filter:none;
+    filter: blur(18px);
     opacity: 0.35;
     z-index: 0;
     pointer-events: none;
@@ -1044,8 +1044,8 @@ border: 1px solid var(--nm-border);
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    -webkit-backdrop-filter:none;
-    backdrop-filter:none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1563,7 +1563,7 @@ border: 1px solid var(--nm-border);
     border: 1px solid var(--nm-border);
     border-radius: var(--radius-sm);
     transition: box-shadow 0.3s ease;
-    filter:none;
+    filter: none;
 }
 
 .github-stats img:hover {
@@ -2104,8 +2104,8 @@ border: 1px solid var(--nm-border);
     }
 
     .modal-overlay {
-        -webkit-backdrop-filter:none;
-        backdrop-filter:none;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
     }
 
     .modal-content {
@@ -2427,8 +2427,21 @@ button:focus-visible,
     border-radius: var(--radius-sm);
 }
 
-@supports ((-webkit-backdrop-filter:none;
-        backdrop-filter:none;
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+    .main-nav,
+    .nav-menu,
+    .content-section,
+    .feature-card,
+    .tool-card,
+    .tool-item,
+    .category-header,
+    .modal-content,
+    .code-container,
+    .contact-grid .app-icon,
+    .community-card,
+    .nav-action-btn {
+        -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+        backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
     }
 }
 
@@ -2436,8 +2449,8 @@ button:focus-visible,
 /* --- SOLID NAV (no glass blur) --- */
 .main-nav,
 .nav-menu {
-    -webkit-backdrop-filter:none;
-    backdrop-filter:none;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
 }
 
 .main-nav {
@@ -2870,5 +2883,3 @@ body.light-theme .nav-action-btn{ background: rgba(255,255,255,0.80); }
   .step-card{ text-align: center; }
 }
 body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
-
-img{background:#000000;border-radius:inherit;}
