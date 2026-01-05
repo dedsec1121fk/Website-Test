@@ -754,18 +754,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Final Setup
         window.changeLanguage(localStorage.getItem('language') || 'en');
-        initializeDisclaimer();
+
+        // Defer large disclaimer DOM injection so first paint on mobile is faster
+        const defer = (fn) => {
+            if (typeof fn !== 'function') return;
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => fn(), { timeout: 1200 });
+            } else {
+                setTimeout(() => fn(), 250);
+            }
+        };
+        defer(initializeDisclaimer);
 
         // Active Link
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.getAttribute('href').includes(page)));
 
-        // Reveal Animations (skip if user prefers reduced motion)
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animate-in'); observer.unobserve(e.target); }});
-        });
-        document.querySelectorAll('.feature-card, .tool-item, .category').forEach(el => observer.observe(el));
+        // Reveal Animations (skip on mobile + for reduced-motion users)
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobileLite = window.matchMedia('(max-width: 820px)').matches || window.matchMedia('(hover: none)').matches;
+
+        if (!prefersReducedMotion && !isMobileLite) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('animate-in');
+                        observer.unobserve(e.target);
+                    }
+                });
+            });
+            document.querySelectorAll('.feature-card, .tool-item, .category').forEach(el => observer.observe(el));
         }
     }
 

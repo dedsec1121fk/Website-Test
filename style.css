@@ -2883,3 +2883,54 @@ body.light-theme .nav-action-btn{ background: rgba(255,255,255,0.80); }
   .step-card{ text-align: center; }
 }
 body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
+
+/* =================================================================
+   MOBILE PERFORMANCE LITE MODE
+   - Disables expensive continuous animations & heavy blurs on touch devices
+   ================================================================= */
+
+@media (hover: none), (pointer: coarse), (max-width: 820px) {
+  :root {
+    --glass-blur: 10px;
+    --glass-sat: 120%;
+  }
+
+  /* Heavy blur glow in hero is expensive on mobile GPUs */
+  .hero-section::before {
+    filter: none !important;
+    opacity: 0.18;
+  }
+
+  /* Continuous sheen animations (great on desktop, costly on mobile) */
+  .feature-card::before,
+  .glance-card::after,
+  .step-card::after {
+    animation: none !important;
+  }
+
+  /* Backdrop blur is one of the most expensive effects on mobile */
+  .content-section,
+  .feature-card,
+  .tool-card,
+  .tool-item,
+  .category-header,
+  .modal-content,
+  .code-container,
+  .contact-grid .app-icon,
+  .community-card,
+  .nav-action-btn {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Avoid large hover transforms (no true hover on touch) */
+  .feature-card:hover,
+  .content-section:hover,
+  .tool-card:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-data: reduce) {
+  body::before { display: none !important; }
+}
