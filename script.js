@@ -696,15 +696,38 @@ document.addEventListener('DOMContentLoaded', () => {
             el.id = unique;
             used.add(unique);
         });
+        const openAncestors = (el) => {
+            if (!el) return;
+            // Tool / FAQ accordions
+            const toolItem = el.closest?.('.tool-item');
+            if (toolItem) toolItem.classList.add('active');
+            const category = el.closest?.('.category');
+            if (category) category.classList.add('active');
 
-        // If we loaded a page with a hash, ensure we scroll after IDs exist
-        if (window.location.hash) {
-            const targetId = window.location.hash.slice(1);
+            // Generic accordions / details
+            const details = el.closest?.('details');
+            if (details) details.open = true;
+        };
+
+        const scrollToHash = (behavior = 'smooth') => {
+            if (!window.location.hash) return;
+            const targetId = decodeURIComponent(window.location.hash.slice(1));
+            const el = document.getElementById(targetId);
+            if (!el) return;
+            openAncestors(el);
+            // Wait a frame so expanded content is measurable, then scroll
             requestAnimationFrame(() => {
-                const el = document.getElementById(targetId);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                try {
+                    el.scrollIntoView({ behavior, block: 'start' });
+                } catch {
+                    el.scrollIntoView();
+                }
             });
-        }
+        };
+
+        // If we loaded a page with a hash, open + scroll after IDs exist
+        scrollToHash('smooth');
+        window.addEventListener('hashchange', () => scrollToHash('smooth'));
     }
 
 // --- MAIN INIT ---
