@@ -2,6 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
     let currentLanguage = 'en';
 
+
+    // --- BRAND ASSETS (Theme-aware) ---
+    const LOGO_DARK = 'https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg?raw=1';
+    const LOGO_LIGHT = 'https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg?raw=1';
+
+    const getThemeLogo = () => (document.body.classList.contains('light-theme') ? LOGO_LIGHT : LOGO_DARK);
+
+    const applyThemeAssets = () => {
+        const url = getThemeLogo();
+
+        // Navbar logo (injected into title)
+        document.querySelectorAll('.nav-title h1 img[data-site-logo="1"]').forEach(img => {
+            if (img.src !== url) img.src = url;
+        });
+
+        // Favicon
+        let link = document.querySelector('link[rel="icon"]');
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'image/jpeg';
+            document.head.appendChild(link);
+        }
+        if (link.href !== url) link.href = url;
+    };
     // --- NAVIGATION FUNCTIONALITY ---
     function initializeNavigation() {
         const burgerMenu = document.getElementById('burger-menu');
@@ -57,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isLight = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
             updateThemeButton(isLight);
+            if (typeof applyThemeAssets === 'function') applyThemeAssets();
         });
 
         if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
@@ -511,7 +537,8 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.borderRadius = '10px';
             img.style.border = '1px solid var(--nm-border)';
             img.style.background = 'rgba(255,255,255,0.04)';
-            img.src = 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
+            img.setAttribute('data-site-logo','1');
+            img.src = getThemeLogo();
             h1.prepend(img);
         });
 
@@ -530,9 +557,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.type = 'image/jpeg';
                 document.head.appendChild(link);
             }
-            link.href = 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
+            link.href = getThemeLogo();
         };
         ensureIcon();
+        applyThemeAssets();
     }
 
 
