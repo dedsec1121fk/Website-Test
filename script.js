@@ -312,76 +312,169 @@ document.addEventListener('DOMContentLoaded', () => {
                 .slice(0, 64) || 'section';
         };
 
-        let cachedIndex = null;
+        
+        const SEARCH_VERSION = '2026-01-05-v4';
+        const SEARCH_STORAGE_KEY = `dedsec_search_index_${SEARCH_VERSION}`;
 
-        const buildIndex = () => {
-            if (cachedIndex) return cachedIndex;
+        const SEARCH_PAGES = [
+            "index.html",
+            "Pages/learn-about-the-tools.html",
+            "Pages/guide-for-installation.html",
+            "Pages/faq.html",
+            "Pages/store.html",
+            "Pages/collaborations.html",
+            "Pages/portfolio-github-info.html",
+            "Pages/contact-credits.html",
+            "Pages/privacy-policy.html"
+];
 
-            const items = [];
-            const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        const isInPages = () => window.location.pathname.includes('/Pages/');
+        const toFetchPath = (path) => (isInPages() ? `../${path}` : path);
 
-            // 1) Current page headings / key elements
-            const scope = document.querySelector('main') || document.body;
+        const ensureDeterministicIds = (doc) => {
+            const scope = doc.querySelector('main') || doc.body;
+            if (!scope) return;
+            const candidates = scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header');
+            const used = new Map();
 
-            const candidates = scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title');
             candidates.forEach((el) => {
-                const text = (el.getAttribute(`data-${currentLanguage}`) || el.textContent || '').trim();
-                if (!text || text.length < 3) return;
+                const raw = (el.getAttribute('data-en') || el.textContent || '').trim();
+                if (!raw) return;
 
-                // Ensure an ID exists so we can deep-link
-                if (!el.id) {
-                    const generated = slugify(text);
-                    let unique = generated;
-                    let n = 2;
-                    while (document.getElementById(unique)) {
-                        unique = `${generated}-${n++}`;
-                    }
-                    el.id = unique;
+                // If the element already has an ID, keep it.
+                if (el.id) {
+                    used.set(el.id, true);
+                    return;
                 }
 
-                const keywords = [
-                    el.textContent || '',
-                    el.getAttribute('data-en') || '',
-                    el.getAttribute('data-gr') || ''
-                ].join(' ');
-
-                items.push({
-                    title: text,
-                    meta: pageName === 'index.html' ? 'Home' : pageName.replace('.html', '').replace(/-/g, ' '),
-                    url: `${pageName}#${el.id}`,
-                    keywords: keywords.toLowerCase()
-                });
+                const base = slugify(raw);
+                let unique = base;
+                let n = 2;
+                while (used.has(unique) || doc.getElementById(unique)) {
+                    unique = `${base}-${n++}`;
+                }
+                el.id = unique;
+                used.set(unique, true);
             });
+        };
 
-            // 2) Navigation pages
-            document.querySelectorAll('.nav-menu .nav-link').forEach((a) => {
-                const href = a.getAttribute('href');
-                if (!href) return;
+        const currentPagePath = () => {
+            const file = (window.location.pathname.split('/').pop() || 'index.html');
+            return isInPages() ? `Pages/${file}` : file;
+        };
 
-                const titleEn = (a.getAttribute('data-en') || a.textContent || '').trim();
-                const titleGr = (a.getAttribute('data-gr') || '').trim();
-                const title = (a.getAttribute(`data-${currentLanguage}`) || titleEn).trim();
+        const buildPageItems = (doc, pagePath) => {
+            ensureDeterministicIds(doc);
 
-                const keywords = `${titleEn} ${titleGr} ${a.textContent || ''}`.toLowerCase();
+            const pageTitle = (doc.querySelector('title')?.textContent || '').trim();
+            const label =
+                pageTitle ||
+                pagePath
+                    .replace(/^Pages\//, '')
+                    .replace(/\.html$/i, '')
+                    .replace(/-/g, ' ')
+                    .replace(/\b\w/g, (m) => m.toUpperCase());
+
+            const scope = doc.querySelector('main') || doc.body;
+            const candidates = scope ? scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header') : [];
+            const items = [];
+
+            candidates.forEach((el) => {
+                const en = (el.getAttribute('data-en') || '').trim();
+                const gr = (el.getAttribute('data-gr') || '').trim();
+                const fallback = (el.textContent || '').trim();
+
+                const display = (currentLanguage === 'gr' ? (gr || en || fallback) : (en || gr || fallback)).trim();
+                if (!display || display.length < 3) return;
+
+                const keywords = [fallback, en, gr].filter(Boolean).join(' ').toLowerCase();
+                const hash = el.id ? `#${el.id}` : '';
+
                 items.push({
-                    title,
-                    meta: 'Page',
-                    url: href,
+                    title_en: (en || fallback).trim(),
+                    title_gr: (gr || en || fallback).trim(),
+                    title: (en || gr || fallback).trim(),
+                    meta: label,
+                    url: `${pagePath}${hash}`,
                     keywords
                 });
-            });
+});
 
-            // De-duplicate by URL
-            const map = new Map();
-            items.forEach(it => { if (!map.has(it.url)) map.set(it.url, it); });
-            cachedIndex = Array.from(map.values());
-            return cachedIndex;
+            return items;
         };
+
+        const loadStoredIndex = () => {
+            try {
+                const raw = localStorage.getItem(SEARCH_STORAGE_KEY);
+                if (!raw) return null;
+                const parsed = JSON.parse(raw);
+                if (!Array.isArray(parsed) || parsed.length < 10) return null;
+                return parsed;
+            } catch (_) {
+                return null;
+            }
+        };
+
+        const storeIndex = (items) => {
+            try {
+                localStorage.setItem(SEARCH_STORAGE_KEY, JSON.stringify(items));
+            } catch (_) {
+                // ignore
+            }
+        };
+
+        let cachedIndex = loadStoredIndex();
+        let buildingPromise = null;
+
+        const buildIndexAsync = async () => {
+            if (cachedIndex) return cachedIndex;
+            if (buildingPromise) return buildingPromise;
+
+            buildingPromise = (async () => {
+                // Always include current page first (fast)
+                ensureDeterministicIds(document);
+                const items = buildPageItems(document, currentPagePath());
+
+                const current = currentPagePath();
+                const others = SEARCH_PAGES.filter(p => p !== current);
+
+                const fetchOne = async (path) => {
+                    const res = await fetch(toFetchPath(path), { cache: 'force-cache' });
+                    if (!res.ok) throw new Error(`Fetch failed: ${path}`);
+                    const html = await res.text();
+                    const doc = new DOMParser().parseFromString(html, 'text/html');
+                    return buildPageItems(doc, path);
+                };
+
+                const settled = await Promise.allSettled(others.map(fetchOne));
+                settled.forEach((r) => {
+                    if (r.status === 'fulfilled' && Array.isArray(r.value)) items.push(...r.value);
+                });
+
+                // Deduplicate by URL
+                const seen = new Set();
+                const deduped = items.filter(it => {
+                    if (!it || !it.url) return false;
+                    if (seen.has(it.url)) return false;
+                    seen.add(it.url);
+                    return true;
+                });
+
+                cachedIndex = deduped;
+                storeIndex(deduped);
+                return deduped;
+            })();
+
+            return buildingPromise;
+        };
+;
 
         const setOverlayVisible = (visible) => {
             overlay.classList.toggle('visible', visible);
             document.body.style.overflow = visible ? 'hidden' : '';
             if (visible) {
+                // Build the full site index (across all pages) on first open
+                buildIndexAsync().catch(() => {});
                 input.focus({ preventScroll: true });
                 input.select();
                 renderResults(input.value.trim());
@@ -415,9 +508,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const pageNameForNav = () => (window.location.pathname.split('/').pop() || 'index.html');
 
-        const renderResults = (query) => {
+        const renderResults = async (query) => {
             const q = (query || '').toLowerCase();
-            const index = buildIndex();
+            resultsEl.setAttribute('aria-busy', 'true');
+            const index = await buildIndexAsync();
+            resultsEl.removeAttribute('aria-busy');
 
             if (!q) {
                 resultsEl.innerHTML = `
@@ -430,7 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const hits = index
-                .filter(it => it.keywords.includes(q) || it.title.toLowerCase().includes(q))
+                .filter(it => it.keywords.includes(q) || ((currentLanguage === 'gr' ? (it.title_gr || it.title || '') : (it.title_en || it.title || '')).toLowerCase().includes(q)))
                 .slice(0, 20);
 
             if (!hits.length) {
@@ -503,7 +598,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Sync placeholder + aria strings on language changes
         window.__updateSearchLanguage = () => {
             const isGr = currentLanguage === 'gr';
-            input.placeholder = isGr ? 'Αναζήτηση στον ιστότοπο…' : 'Search the site...';
+            input.placeholder = isGr ? 'Αναζήτηση στον ιστότοπο...' : 'Search the site...';
             input.setAttribute('aria-label', isGr ? 'Αναζήτηση στον ιστότοπο' : 'Search the site');
             closeBtn.setAttribute('aria-label', isGr ? 'Κλείσιμο αναζήτησης' : 'Close search');
             // Refresh results text if open
@@ -564,9 +659,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+
+    // --- DEEP-LINK ANCHORS (Deterministic IDs) ---
+    function initializeDeepLinks() {
+        const slugifyLocal = (str) => {
+            return (str || '')
+                .toString()
+                .normalize('NFKD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .replace(/[^a-z0-9\s-]/g, '')
+                .trim()
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '')
+                .slice(0, 64) || 'section';
+        };
+
+        const scope = document.querySelector('main') || document.body;
+        if (!scope) return;
+
+        const candidates = scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header');
+        const used = new Set();
+
+        candidates.forEach((el) => {
+            const raw = (el.getAttribute('data-en') || el.textContent || '').trim();
+            if (!raw) return;
+            if (el.id) { used.add(el.id); return; }
+
+            const base = slugifyLocal(raw);
+            let unique = base;
+            let n = 2;
+            while (used.has(unique) || document.getElementById(unique)) {
+                unique = `${base}-${n++}`;
+            }
+            el.id = unique;
+            used.add(unique);
+        });
+
+        // If we loaded a page with a hash, ensure we scroll after IDs exist
+        if (window.location.hash) {
+            const targetId = window.location.hash.slice(1);
+            requestAnimationFrame(() => {
+                const el = document.getElementById(targetId);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    }
+
 // --- MAIN INIT ---
     function init() {
         initializeNavigation();
+        initializeDeepLinks();
         initializeThemeSwitcher();
         initializeBrandingAndLinks();
         initializeSearch();

@@ -254,7 +254,7 @@ p {
 
 .nav-title h1 {
     margin: 0;
-    font-size: 2rem; 
+    font-size: clamp(1rem, 3.2vw, 1.35rem); 
     color: var(--nm-text-accent);
     font-family: var(--font-secondary);
     text-shadow: none;
@@ -302,12 +302,12 @@ body.light-theme .nav-title h1 {
     width: min(360px, 92vw);
     max-width: 360px;
     height: calc(100vh - 70px);
-    background: var(--nm-menu-solid);
+    background: var(--nm-menu-solid) !important;
     border-left: 1px solid var(--nm-border);
     flex-direction: column;
     padding: 18px calc(16px + env(safe-area-inset-right));
     box-sizing: border-box;
-    box-shadow: none;
+    box-shadow: var(--shadow-elev-3) !important;
     transform: translateX(110%);
     opacity: 1;
     visibility: visible;
@@ -492,7 +492,7 @@ body.light-theme .page-header h1 {
 }
 
 .tool-card {
-    background: var(--nm-dark);
+    background: var(--nm-menu-solid) !important;
 border: 1px solid var(--nm-border);
     border-radius: var(--radius-md);
     padding: 15px;
@@ -570,12 +570,10 @@ border: 1px solid var(--nm-border);
 }
 
 /* --- Enhanced Hero Section Styles --- */
-.hero-section {
-    text-align: center;
-    padding: 40px 0 50px 0;
-    background: var(--nm-container);
+dpx 16px 56px 16px;
+    background: linear-gradient(180deg, rgba(186,134,255,0.16), rgba(14,13,24,0.92));
     border: 1px solid var(--nm-border);
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-lg);
     margin-bottom: 40px;
     box-shadow: none;
     position: relative;
@@ -584,7 +582,14 @@ border: 1px solid var(--nm-border);
 }
 
 .hero-section::before {
-    display: none;
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(from 180deg, rgba(198,155,255,0.65), rgba(255,170,210,0.35), rgba(255,164,98,0.35), rgba(198,155,255,0.65));
+    filter: blur(18px);
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hero-badge {
@@ -2375,6 +2380,14 @@ button:focus-visible,
     }
 }
 
+
+/* --- SOLID NAV (no glass blur) --- */
+.main-nav,
+.nav-menu {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
 .main-nav {
     background-color: var(--nm-nav-solid) !important;
     border-bottom: 1px solid var(--nm-border) !important;
@@ -2609,4 +2622,88 @@ body.light-theme .search-input {
 
 @media (max-width: 420px) {
   .nav-title h1 { font-size: 1.15rem; }
+}
+
+.hero-section > * { position: relative; z-index: 1; }
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(12, 10, 18, 0.85);
+    border: 1px solid var(--nm-border);
+    color: var(--nm-text);
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+.badge i { color: var(--nm-text-accent); }
+.badge-alt { background: rgba(18, 12, 30, 0.9); }
+.badge-alt2 { background: rgba(20, 10, 16, 0.9); }
+
+.hero-subtitle {
+    font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+    margin: 14px auto 0;
+    max-width: 52ch;
+    line-height: 1.25;
+    color: var(--nm-text);
+    opacity: 0.95;
+}
+
+.hero-kicker {
+    max-width: 70ch;
+    margin: 10px auto 0;
+    font-size: 1rem;
+}
+
+.hero-actions { margin-top: 18px; }
+
+.hero-glance {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 22px auto 0;
+    max-width: 980px;
+}
+
+.glance-card {
+    text-align: left;
+    padding: 14px 14px;
+    border-radius: var(--radius-md);
+    background: rgba(12, 10, 18, 0.72);
+    border: 1px solid var(--nm-border);
+    box-shadow: var(--shadow-elev-1);
+}
+
+.glance-card i {
+    font-size: 1.1rem;
+    color: var(--nm-text-accent);
+}
+
+.glance-title {
+    margin-top: 8px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.glance-text {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    line-height: 1.25;
+}
+
+@media (max-width: 720px) {
+    .hero-glance { grid-template-columns: 1fr; }
+    .glance-card { text-align: center; }
 }
