@@ -8,7 +8,8 @@
 /* ADDED: Font import for Inter, Orbitron, and Roboto Mono */
 :root {
     /* === Premium Glass / Lavender System === */
-    --nm-abyss-blue: #07060d;              /* base backdrop */
+    /* Dark theme base backdrop: pure black to blend with the background image */
+    --nm-abyss-blue: #000000;
     --nm-darkest: rgba(10, 10, 18, 0.72);  /* nav / top surfaces */
     --nm-nav-solid: #0b0a12;          /* solid top bar */
     --nm-menu-solid: #0e0d18;         /* solid burger menu */
@@ -70,7 +71,8 @@
 
 /* === LIGHT THEME COLOR SYSTEM (STRICT #FFFFFF & #000000) === */
 body.light-theme {
-    --nm-abyss-blue: #f7f6ff;
+    /* Light theme base backdrop: pure white to blend with the background image */
+    --nm-abyss-blue: #ffffff;
     --nm-darkest: rgba(255, 255, 255, 0.82);
     --nm-nav-solid: #ffffff;          /* solid top bar */
     --nm-menu-solid: #ffffff;         /* solid burger menu */
