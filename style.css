@@ -231,8 +231,9 @@ p {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px 0;
@@ -241,8 +242,8 @@ p {
 }
 
 .nav-title {
-    flex-grow: 0; 
-    flex-shrink: 0;
+    flex: 1 1 auto;
+    min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -277,7 +278,8 @@ body.light-theme .nav-title h1 {
     padding: 5px;
     gap: 4px;
     order: 3;
-    margin-inline-start: 10px;
+    margin-inline-start: 6px;
+    flex-shrink: 0;
 }
 
 .burger-menu span {
@@ -295,22 +297,25 @@ body.light-theme .nav-title h1 {
     position: fixed;
     top: 70px;
     inset-inline-end: 0;
-    width: 80%;
-    max-width: 300px;
+    width: min(360px, 92vw);
+    max-width: 360px;
     height: calc(100vh - 70px);
     background: var(--nm-darkest);
     border-left: 1px solid var(--nm-border);
     flex-direction: column;
-    padding: 20px;
+    padding: 18px calc(16px + env(safe-area-inset-right));
+    box-sizing: border-box;
     box-shadow: none;
-    transform: translateX(100%);
+    transform: translateX(110%);
     opacity: 1;
     visibility: visible;
     transition: transform 0.3s var(--ease-out-cubic);
     overflow-y: auto;
-    display: flex; 
-    align-items: center; 
-    gap: 20px;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
     /* Ensure it works on desktop */
     z-index: 1001;
 }
@@ -350,12 +355,13 @@ body.light-theme .nav-title h1 {
 .nav-actions {
     display: flex;
     gap: 10px;
-    margin-inline-start: 0;
-    margin-top: 0; 
+    margin-inline-start: auto;
+    margin-top: 0;
     justify-content: flex-end;
     flex-direction: row;
-    width: auto; 
+    width: auto;
     order: 2;
+    flex-shrink: 0;
 }
 
 .nav-action-btn {
@@ -786,7 +792,7 @@ body.light-theme .page-header h1 {
 .feature-card {
     background: var(--nm-darkest);
     border: 1px solid var(--nm-border);
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-lg);
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -2598,3 +2604,7 @@ body.light-theme .search-input {
 /* Nav action labels fallback (icons may fail to load) */
 .nav-action-btn span{display:inline;}
 @media (max-width:420px){.nav-action-btn span{display:none;}}
+
+@media (max-width: 420px) {
+  .nav-title h1 { font-size: 1.15rem; }
+}
