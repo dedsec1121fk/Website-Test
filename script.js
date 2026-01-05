@@ -2,10 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
     let currentLanguage = 'en';
 
+    // Small helper to schedule non-critical work after first paint / when idle
+    const runIdle = (fn, timeout = 1200) => {
+        try {
+            if ('requestIdleCallback' in window) return window.requestIdleCallback(() => fn(), { timeout });
+        } catch (_) {}
+        return setTimeout(() => fn(), Math.min(250, timeout));
+    };
+
 
     // --- BRAND ASSETS (Theme-aware) ---
-    const LOGO_DARK = 'https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg?raw=1';
-    const LOGO_LIGHT = 'https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg?raw=1';
+    const LOGO_DARK = 'https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
+    const LOGO_LIGHT = 'https://raw.githubusercontent.com/dedsec1121fk/dedsec1121fk.github.io/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg';
 
     const getThemeLogo = () => (document.body.classList.contains('light-theme') ? LOGO_LIGHT : LOGO_DARK);
 
@@ -735,7 +743,8 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeNavigation();
         initializeDeepLinks();
         initializeThemeSwitcher();
-        initializeBrandingAndLinks();
+        // Defer heavy branding assets (remote logo + favicon) until after first paint
+        // initializeBrandingAndLinks();
         initializeSearch();
         initializeCarousels();
         initializeToolCategories('.categories-container');
@@ -754,7 +763,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Final Setup
         window.changeLanguage(localStorage.getItem('language') || 'en');
-        initializeDisclaimer();
+        // Defer the large disclaimer DOM injection so the first render stays snappy on mobile
+        setTimeout(() => initializeDisclaimer(), 60);
+
+        // Defer background logo + navbar logo injection until idle (prevents early network + paints)
+        runIdle(() => {
+            document.body.classList.add('bg-ready');
+            initializeBrandingAndLinks();
+        }, 900);
 
         // Active Link
         const page = window.location.pathname.split('/').pop() || 'index.html';
