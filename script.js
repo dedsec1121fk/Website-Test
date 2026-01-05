@@ -94,6 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const newLink = link.getAttribute(`data-${lang}-link`);
             if (newLink) link.href = newLink;
         });
+
+        // Sync search UI language
+        if (typeof window.__updateSearchLanguage === 'function') {
+            window.__updateSearchLanguage();
+        }
     };
 
     // --- UNIVERSAL DISCLAIMER INJECTION ---
@@ -225,10 +230,318 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- MAIN INIT ---
+    
+    // --- SITE SEARCH (IN-PAGE + CROSS-PAGE LINKS) ---
+    function initializeSearch() {
+        // Inject button (nav) + modal once
+        const navActions = document.querySelector('.nav-actions');
+        if (navActions && !document.getElementById('nav-search')) {
+            const btn = document.createElement('button');
+            btn.id = 'nav-search';
+            btn.className = 'nav-action-btn';
+            btn.setAttribute('type', 'button');
+            btn.innerHTML = `
+                <i class="fas fa-magnifying-glass"></i>
+                <span data-en="Search" data-gr="Αναζήτηση">Search</span>
+            `;
+            navActions.prepend(btn);
+        }
+
+        if (!document.getElementById('search-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.id = 'search-overlay';
+            overlay.className = 'search-overlay';
+            overlay.innerHTML = `
+                <div class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title">
+                    <div class="search-top">
+                        <input id="search-input" class="search-input" type="search" autocomplete="off" spellcheck="false"
+                            placeholder="Search the site..."
+                            aria-label="Search the site" />
+                        <button id="search-close" class="search-close" type="button" aria-label="Close search">
+                            <i class="fas fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="search-results" id="search-results" role="listbox" aria-label="Search results"></div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+        }
+
+        const overlay = document.getElementById('search-overlay');
+        const input = document.getElementById('search-input');
+        const resultsEl = document.getElementById('search-results');
+        const closeBtn = document.getElementById('search-close');
+        const openBtn = document.getElementById('nav-search');
+
+        if (!overlay || !input || !resultsEl || !closeBtn || !openBtn) return;
+
+        const slugify = (str) => {
+            return (str || '')
+                .toLowerCase()
+                .trim()
+                .replace(/['"`]/g, '')
+                .replace(/[^a-z0-9\u0370-\u03ff]+/g, '-') // keep Greek
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '')
+                .slice(0, 64) || 'section';
+        };
+
+        let cachedIndex = null;
+
+        const buildIndex = () => {
+            if (cachedIndex) return cachedIndex;
+
+            const items = [];
+            const pageName = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+            // 1) Current page headings / key elements
+            const scope = document.querySelector('main') || document.body;
+
+            const candidates = scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title');
+            candidates.forEach((el) => {
+                const text = (el.getAttribute(`data-${currentLanguage}`) || el.textContent || '').trim();
+                if (!text || text.length < 3) return;
+
+                // Ensure an ID exists so we can deep-link
+                if (!el.id) {
+                    const generated = slugify(text);
+                    let unique = generated;
+                    let n = 2;
+                    while (document.getElementById(unique)) {
+                        unique = `${generated}-${n++}`;
+                    }
+                    el.id = unique;
+                }
+
+                const keywords = [
+                    el.textContent || '',
+                    el.getAttribute('data-en') || '',
+                    el.getAttribute('data-gr') || ''
+                ].join(' ');
+
+                items.push({
+                    title: text,
+                    meta: pageName === 'index.html' ? 'Home' : pageName.replace('.html', '').replace(/-/g, ' '),
+                    url: `${pageName}#${el.id}`,
+                    keywords: keywords.toLowerCase()
+                });
+            });
+
+            // 2) Navigation pages
+            document.querySelectorAll('.nav-menu .nav-link').forEach((a) => {
+                const href = a.getAttribute('href');
+                if (!href) return;
+
+                const titleEn = (a.getAttribute('data-en') || a.textContent || '').trim();
+                const titleGr = (a.getAttribute('data-gr') || '').trim();
+                const title = (a.getAttribute(`data-${currentLanguage}`) || titleEn).trim();
+
+                const keywords = `${titleEn} ${titleGr} ${a.textContent || ''}`.toLowerCase();
+                items.push({
+                    title,
+                    meta: 'Page',
+                    url: href,
+                    keywords
+                });
+            });
+
+            // De-duplicate by URL
+            const map = new Map();
+            items.forEach(it => { if (!map.has(it.url)) map.set(it.url, it); });
+            cachedIndex = Array.from(map.values());
+            return cachedIndex;
+        };
+
+        const setOverlayVisible = (visible) => {
+            overlay.classList.toggle('visible', visible);
+            document.body.style.overflow = visible ? 'hidden' : '';
+            if (visible) {
+                input.focus({ preventScroll: true });
+                input.select();
+                renderResults(input.value.trim());
+            }
+        };
+
+        const resolveUrl = (url) => {
+            // Normalize relative paths so clicking works from /Pages/*
+            const isPages = window.location.pathname.includes('/Pages/');
+            if (!isPages) return url;
+            if (url.startsWith('../') || url.startsWith('http') || url.startsWith('#')) return url;
+            // From Pages -> root
+            if (url.startsWith('Pages/')) return `../${url}`;
+            if (url === 'index.html') return '../index.html';
+            return url; // already relative within Pages
+        };
+
+        const navigate = (url) => {
+            const finalUrl = resolveUrl(url);
+            const [path, hash] = finalUrl.split('#');
+            const samePage = (!path || path === '' || path === pageNameForNav());
+
+            if (samePage && hash) {
+                const target = document.getElementById(hash);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.location.hash = hash;
+            } else {
+                window.location.href = finalUrl;
+            }
+        };
+
+        const pageNameForNav = () => (window.location.pathname.split('/').pop() || 'index.html');
+
+        const renderResults = (query) => {
+            const q = (query || '').toLowerCase();
+            const index = buildIndex();
+
+            if (!q) {
+                resultsEl.innerHTML = `
+                    <a class="search-item" href="${resolveUrl('index.html')}" role="option">
+                        <div class="search-item-title"><i class="fas fa-house"></i><span>Home</span></div>
+                        <div class="search-item-meta">Tip: press <span style="opacity:.9">/</span> or <span style="opacity:.9">Ctrl+K</span> to search</div>
+                    </a>
+                `;
+                return;
+            }
+
+            const hits = index
+                .filter(it => it.keywords.includes(q) || it.title.toLowerCase().includes(q))
+                .slice(0, 20);
+
+            if (!hits.length) {
+                resultsEl.innerHTML = `
+                    <div class="search-item" role="option" tabindex="0">
+                        <div class="search-item-title"><i class="fas fa-circle-info"></i><span>${currentLanguage === 'gr' ? 'Δεν βρέθηκαν αποτελέσματα' : 'No results found'}</span></div>
+                        <div class="search-item-meta">${currentLanguage === 'gr' ? 'Δοκιμάστε άλλη λέξη ή λιγότερους όρους.' : 'Try a different word or fewer terms.'}</div>
+                    </div>
+                `;
+                return;
+            }
+
+            resultsEl.innerHTML = hits.map(it => `
+                <a class="search-item" href="${resolveUrl(it.url)}" role="option">
+                    <div class="search-item-title"><i class="fas fa-arrow-right"></i><span>${escapeHtml(it.title)}</span></div>
+                    <div class="search-item-meta">${escapeHtml(it.meta)}</div>
+                </a>
+            `).join('');
+
+            // Intercept clicks for smooth scroll on same page
+            resultsEl.querySelectorAll('a.search-item').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const href = a.getAttribute('href');
+                    if (!href) return;
+                    setOverlayVisible(false);
+                    setTimeout(() => navigate(href.replace(window.location.origin, '')), 0);
+                });
+            });
+        };
+
+        const escapeHtml = (s) => (s || '').replace(/[&<>"']/g, (c) => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[c]));
+
+        // Open / close events
+        openBtn.addEventListener('click', () => setOverlayVisible(true));
+        closeBtn.addEventListener('click', () => setOverlayVisible(false));
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) setOverlayVisible(false); });
+
+        input.addEventListener('input', () => renderResults(input.value.trim()));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setOverlayVisible(false);
+        });
+
+        // Keyboard shortcuts: Ctrl+K / Cmd+K, or "/" when not typing
+        document.addEventListener('keydown', (e) => {
+            const isMac = navigator.platform.toUpperCase().includes('MAC');
+            const combo = (isMac ? e.metaKey : e.ctrlKey) && e.key.toLowerCase() === 'k';
+            const slash = e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey;
+
+            if (combo) {
+                e.preventDefault();
+                setOverlayVisible(true);
+                return;
+            }
+            if (slash) {
+                const tag = (document.activeElement && document.activeElement.tagName || '').toLowerCase();
+                if (tag !== 'input' && tag !== 'textarea') {
+                    e.preventDefault();
+                    setOverlayVisible(true);
+                }
+            }
+            if (e.key === 'Escape' && overlay.classList.contains('visible')) {
+                e.preventDefault();
+                setOverlayVisible(false);
+            }
+        });
+
+        // Sync placeholder + aria strings on language changes
+        window.__updateSearchLanguage = () => {
+            const isGr = currentLanguage === 'gr';
+            input.placeholder = isGr ? 'Αναζήτηση στον ιστότοπο…' : 'Search the site...';
+            input.setAttribute('aria-label', isGr ? 'Αναζήτηση στον ιστότοπο' : 'Search the site');
+            closeBtn.setAttribute('aria-label', isGr ? 'Κλείσιμο αναζήτησης' : 'Close search');
+            // Refresh results text if open
+            if (overlay.classList.contains('visible')) renderResults(input.value.trim());
+        };
+        window.__updateSearchLanguage();
+
+        // If page is opened with #search=term, open the search
+        try {
+            const h = decodeURIComponent((window.location.hash || '').replace(/^#/, ''));
+            if (h.startsWith('search=')) {
+                const term = h.slice(7);
+                setOverlayVisible(true);
+                input.value = term;
+                renderResults(term);
+            }
+        } catch (_) {}
+    }
+
+    // Small UX + SEO fixes
+    function initializeBrandingAndLinks() {
+        // Add logo in navbar title (without changing HTML files)
+        document.querySelectorAll('.nav-title h1').forEach(h1 => {
+            if (h1.querySelector('img')) return;
+            const img = document.createElement('img');
+            img.alt = 'DedSec Project';
+            img.width = 34;
+            img.height = 34;
+            img.loading = 'eager';
+            img.decoding = 'async';
+            img.style.borderRadius = '10px';
+            img.style.border = '1px solid var(--nm-border)';
+            img.style.background = 'rgba(255,255,255,0.04)';
+            img.src = 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
+            h1.prepend(img);
+        });
+
+        // Ensure target=_blank links are safe
+        document.querySelectorAll('a[target="_blank"]').forEach(a => {
+            const rel = (a.getAttribute('rel') || '').toLowerCase();
+            if (!rel.includes('noopener')) a.setAttribute('rel', (rel ? rel + ' ' : '') + 'noopener noreferrer');
+        });
+
+        // Fix broken local favicon paths by forcing a working icon
+        const ensureIcon = () => {
+            let link = document.querySelector('link[rel="icon"]');
+            if (!link) {
+                link = document.createElement('link');
+                link.rel = 'icon';
+                link.type = 'image/jpeg';
+                document.head.appendChild(link);
+            }
+            link.href = 'https://raw.githubusercontent.com/dedsec1121fk/DedSec/main/Extra%20Content/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
+        };
+        ensureIcon();
+    }
+
+
+// --- MAIN INIT ---
     function init() {
         initializeNavigation();
         initializeThemeSwitcher();
+        initializeBrandingAndLinks();
+        initializeSearch();
         initializeCarousels();
         initializeToolCategories('.categories-container');
         initializeToolCategories('#faq-container');
@@ -252,11 +565,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const page = window.location.pathname.split('/').pop() || 'index.html';
         document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.getAttribute('href').includes(page)));
 
-        // Reveal Animations
+        // Reveal Animations (skip if user prefers reduced motion)
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('animate-in'); observer.unobserve(e.target); }});
         });
         document.querySelectorAll('.feature-card, .tool-item, .category').forEach(el => observer.observe(el));
+        }
     }
 
     init();
