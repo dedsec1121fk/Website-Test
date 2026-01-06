@@ -16,6 +16,12 @@
     --nm-dark: rgba(14, 14, 24, 0.58);     /* cards */
     --nm-container: rgba(18, 18, 30, 0.52);
 
+    /* Solid surface for disclaimer banner/modal so it stays readable */
+    --nm-disclaimer-bg: rgba(10, 10, 18, 0.92);
+
+    /* Neutral button background for actions like "Decline" */
+    --nm-neutral-btn-bg: rgba(255, 255, 255, 0.10);
+
     --nm-border: rgba(205, 147, 255, 0.50);
     --nm-accent: #cd93ff;
     --nm-accent-hover: #e2c1ff;
@@ -78,6 +84,12 @@ body.light-theme {
     --nm-menu-solid: #ffffff;         /* solid burger menu */
     --nm-dark: rgba(255, 255, 255, 0.70);
     --nm-container: rgba(255, 255, 255, 0.62);
+
+    /* Solid surface for disclaimer banner/modal so it stays readable */
+    --nm-disclaimer-bg: rgba(255, 255, 255, 0.94);
+
+    /* Neutral button background for actions like "Decline" */
+    --nm-neutral-btn-bg: rgba(0, 0, 0, 0.06);
 
     --nm-border: rgba(123, 31, 162, 0.35);
     --nm-accent: #7b1fa2;
@@ -1202,8 +1214,12 @@ body.light-theme .modal-overlay {
     border-left: 1px solid var(--nm-border);
     border-right: 1px solid var(--nm-border);
     border-top: 1px solid var(--nm-border);
-    background: var(--nm-container);
-    box-shadow: none;
+    /* Use a more solid background for the disclaimer banner so text is readable
+       even over busy wallpapers (this is what users share / see first). */
+    background: var(--nm-disclaimer-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
+    box-shadow: var(--shadow-elev-2);
     opacity: 1;
     transform: translateY(100%);
     transition: transform 0.5s var(--ease-out-cubic);
@@ -1332,7 +1348,7 @@ border: 1px solid var(--nm-border);
 }
 
 .decline-btn { 
-    background-color: transparent !important; 
+    background-color: var(--nm-neutral-btn-bg) !important; 
     color: var(--nm-text) !important;
     border-color: var(--nm-border) !important;
 }
