@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- BRAND ASSETS (Theme-aware) ---
-    const LOGO_DARK = 'https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg?raw=1';
-    const LOGO_LIGHT = 'https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg?raw=1';
+    const LOGO_DARK = '/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
+    const LOGO_LIGHT = '/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg';
 
     const getThemeLogo = () => (document.body.classList.contains('light-theme') ? LOGO_LIGHT : LOGO_DARK);
 
@@ -17,16 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (img.src !== url) img.src = url;
         });
 
-        // Favicon
-        let link = document.querySelector('link[rel="icon"]');
-        if (!link) {
-            link = document.createElement('link');
-            link.rel = 'icon';
-            link.type = 'image/jpeg';
-            document.head.appendChild(link);
-        }
-        if (link.href !== url) link.href = url;
-    };
+                // Favicon: keep static icons for SEO/social previews
+};
     // --- NAVIGATION FUNCTIONALITY ---
     function initializeNavigation() {
         const burgerMenu = document.getElementById('burger-menu');

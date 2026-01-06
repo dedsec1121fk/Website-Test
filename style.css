@@ -187,7 +187,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg?raw=1');
+    background-image: url('/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -199,7 +199,7 @@ body::before {
 
 
 body.light-theme::before {
-    background-image: url('https://github.com/dedsec1121fk/dedsec1121fk.github.io/blob/5fa0e957dad2567995a6524a0d932f53b5907ae6/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg?raw=1');
+    background-image: url('/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg');
     opacity: 0.10;
 }
 
