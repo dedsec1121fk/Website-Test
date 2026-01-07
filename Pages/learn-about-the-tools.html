@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>DedSec Project – Ethical Hacking Toolkit & Services</title>
+<meta content="#07060d" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+      img-src 'self' data: https:;
+      connect-src 'self';
+      frame-ancestors 'none';
+    " http-equiv="Content-Security-Policy"/>
+<meta content="nosniff" http-equiv="X-Content-Type-Options"/>
+<meta content="DENY" http-equiv="X-Frame-Options"/>
+<meta content="1; mode=block" http-equiv="X-XSS-Protection"/>
+<meta content="strict-origin-when-cross-origin" http-equiv="Referrer-Policy"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Learn about all the tools and features available in the DedSec Project cybersecurity toolkit." name="description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<meta content="Learn About The Tools - DedSec Project" property="og:title"/>
+<meta content="Discover the powerful tools and features of the DedSec Project cybersecurity toolkit." property="og:description"/>
+<meta content="../Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="DedSec Project purple butterfly logo" property="og:image:alt"/>
+<meta content="../Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&amp;family=Inter:wght@400;600;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://ded-sec.space/#organization", "name": "DedSec Project", "url": "https://ded-sec.space/", "logo": "https://ded-sec.space/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg", "sameAs": ["https://github.com/dedsec1121fk/DedSec"]}, {"@type": "WebSite", "@id": "https://ded-sec.space/#website", "url": "https://ded-sec.space/", "name": "DedSec Project", "publisher": {"@id": "https://ded-sec.space/#organization"}, "potentialAction": {"@type": "SearchAction", "target": "https://ded-sec.space/?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "WebPage", "@id": "https://ded-sec.space/Pages/learn-about-the-tools.html#webpage", "url": "https://ded-sec.space/Pages/learn-about-the-tools.html", "name": "Learn About The Tools - DedSec Project", "isPartOf": {"@id": "https://ded-sec.space/#website"}, "about": {"@id": "https://ded-sec.space/#organization"}}]}</script><meta content="https://ded-sec.space/Pages/learn-about-the-tools.html" property="og:url"/><link href="https://ded-sec.space/Pages/learn-about-the-tools.html" rel="canonical"/>
+<meta content="Learn About The Tools - DedSec Project" name="twitter:title"/><meta content="Discover the powerful tools and features of the DedSec Project cybersecurity toolkit." name="twitter:description"/></head>
+<body class="dark-theme">
+<nav class="main-nav">
+<div class="nav-container">
+<div class="nav-title"><h1>DedSec Project</h1></div>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span></span><span></span><span></span></button>
+<div class="nav-menu" id="nav-menu">
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../index.html">Home</a>
+<a class="nav-link active" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία" href="learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="faq.html">Frequently Asked Questions</a>
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="store.html">Store</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="nav-actions">
+<button class="nav-action-btn" id="nav-theme-switcher"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
+<button class="nav-action-btn" id="nav-lang-switcher"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
+</div>
+</div>
+</nav>
+<div class="page-content">
+<div class="page-header">
+<h1 data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία">Learn About The Tools</h1>
+<p data-en="Discover the powerful cybersecurity tools and features available in the DedSec Project toolkit." data-gr="Ανακαλύψτε τα ισχυρά εργαλεία κυβερνοασφαλείας και τις λειτουργίες που διατίθενται στο εργαλειοθήκη του DedSec Project.">
+               Discover the powerful cybersecurity tools and features available in the DedSec Project toolkit.
+            </p>
+</div>
+<div class="content-section">
+<h2 data-en="Toolkit Overview" data-gr="Επισκόπηση Εργαλειοθήκης">Toolkit Overview</h2>
+<div class="categories-container">
+<div class="category">
+<div class="category-header">
+<h3 data-en="Network Tools" data-gr="Εργαλεία Δικτύου">Network Tools</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Bug Hunter</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced vulnerability scanner and reconnaissance tool (Bug Hunter V3). Features include technology detection (WordPress, Django, etc.), port scanning with service detection, subdomain takeover checks, JavaScript endpoint analysis, sensitive file discovery, and directory brute-forcing. Generates comprehensive HTML and JSON reports with risk scoring." data-gr="Προηγμένος σαρωτής ευπαθειών και αναγνώρισης (Bug Hunter V3). Οι λειτουργίες περιλαμβάνουν ανίχνευση τεχνολογίας, σάρωση θυρών, έλεγχο subdomain takeover, ανάλυση JavaScript, εύρεση ευαίσθητων αρχείων και directory brute-force. Δημιουργεί αναλυτικές αναφορές HTML και JSON.">
+                                   Advanced vulnerability scanner and reconnaissance tool (Bug Hunter V3). Features include technology detection (WordPress, Django, etc.), port scanning with service detection, subdomain takeover checks, JavaScript endpoint analysis, sensitive file discovery, and directory brute-forcing. Generates comprehensive HTML and JSON reports with risk scoring.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Scan folders created in current directory (scan_[target]_[date])" data-gr="Φάκελοι σάρωσης δημιουργούνται στον τρέχοντα κατάλογο">
+                                       Scan folders created in current directory (scan_[target]_[date])
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Dark</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A specialized Dark Web OSINT tool and crawler designed for Tor network analysis. It features automated Tor connectivity, an Ahmia search integration, and a recursive crawler for .onion sites. The tool utilizes a modular plugin system to extract specific data types (Emails, BTC/XMR addresses, PGP keys, Phones) and supports saving snapshots. It offers both a Curses TUI and CLI mode, with results exportable to JSON, CSV, and TXT." data-gr="Ένα εξειδικευμένο εργαλείο OSINT και crawler για το Dark Web, σχεδιασμένο για ανάλυση δικτύου Tor. Διαθέτει αυτοματοποιημένη σύνδεση Tor, ενσωμάτωση αναζήτησης Ahmia και αναδρομικό crawler για ιστοσελίδες .onion. Το εργαλείο χρησιμοποιεί ένα αρθρωτό σύστημα πρόσθετων για την εξαγωγή συγκεκριμένων τύπων δεδομένων (Email, διευθύνσεις BTC/XMR, κλειδιά PGP, Τηλέφωνα) και υποστηρίζει την αποθήκευση στιγμιότυπων. Προσφέρει λειτουργία Curses TUI και CLI, με αποτελέσματα εξαγώγιμα σε JSON, CSV και TXT.">
+                                   A specialized Dark Web OSINT tool and crawler designed for Tor network analysis. It features automated Tor connectivity, an Ahmia search integration, and a recursive crawler for .onion sites. The tool utilizes a modular plugin system to extract specific data types (Emails, BTC/XMR addresses, PGP keys, Phones) and supports saving snapshots.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Results are saved in: /sdcard/Download/DarkNet (or ~/DarkNet if storage is inaccessible)" data-gr="Τα αποτελέσματα αποθηκεύονται σε: /sdcard/Download/DarkNet">
+                                       Results are saved in: /sdcard/Download/DarkNet (or ~/DarkNet if storage is inaccessible)
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">DedSec's Network</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="An advanced, non-root network toolkit optimized for speed and stability. Features a recursive website downloader with ZIP support, multi-threaded port scanner, internet speed testing, subnet calculator, and extensive OSINT tools (WHOIS, DNS, Reverse IP, Subdomain Enum). Includes web auditing scanners for SQLi, XSS, CMS detection, and SSH brute-forcing. Maintains a local SQLite audit log." data-gr="Μια προηγμένη εργαλειοθήκη δικτύου χωρίς root. Διαθέτει αναδρομικό πρόγραμμα λήψης ιστοσελίδων με υποστήριξη ZIP, πολυνηματικό σαρωτή θυρών, δοκιμή ταχύτητας internet και εργαλεία OSINT (WHOIS, DNS, Reverse IP). Περιλαμβάνει σαρωτές ελέγχου ιστού για SQLi, XSS, ανίχνευση CMS και SSH brute-force. Διατηρεί τοπικό αρχείο καταγραφής ελέγχου SQLite.">
+                                   An advanced, non-root network toolkit optimized for speed and stability. Features a recursive website downloader with ZIP support, multi-threaded port scanner, internet speed testing, subnet calculator, and extensive OSINT tools. Includes web auditing scanners for SQLi, XSS, CMS detection, and SSH brute-forcing.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Reports and logs are saved in: ~/DedSec's Network" data-gr="Οι αναφορές και τα αρχεία καταγραφής αποθηκεύονται σε: ~/DedSec's Network">
+                                       Reports and logs are saved in: ~/DedSec's Network
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Digital Footprint Finder</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Ultra-low false positive OSINT tool that scans 270+ platforms to find a target's digital footprint. Features multi-threaded scanning, advanced error detection (404/redirect analysis), and API checks for GitHub/Gravatar. Also performs search engine dorking to find additional traces. Covers social media, tech, gaming, finance, and crypto platforms." data-gr="Εργαλείο OSINT εξαιρετικά χαμηλών ψευδών θετικών που σαρώνει 270+ πλατφόρμες για να βρει το ψηφιακό αποτύπωμα ενός στόχου. Διαθέτει πολυνηματική σάρωση, προηγμένη ανίχνευση σφαλμάτων και ελέγχους API. Εκτελεί επίσης αναζήτηση dorking για να βρει επιπλέον ίχνη.">
+                                   Ultra-low false positive OSINT tool that scans 270+ platforms to find a target's digital footprint. Features multi-threaded scanning, advanced error detection (404/redirect analysis), and API checks for GitHub/Gravatar. Also performs search engine dorking to find additional traces.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Results are saved in: ~/storage/downloads/Digital Footprint Finder/[username]_v12.txt" data-gr="Τα αποτελέσματα αποθηκεύονται σε: ~/storage/downloads/Digital Footprint Finder/[username]_v12.txt">
+                                       Results are saved in: ~/storage/downloads/Digital Footprint Finder/[username]_v12.txt
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fox's Connections</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Secure chat/file-sharing server. Video calls, file sharing (50GB limit). Unified application combining Fox Chat and DedSec's Database with single secret key authentication. Provides real-time messaging, file sharing, video calls, and integrated file management. Features 50GB file uploads, WebRTC video calls, cloudflare tunneling, and unified login system." data-gr="Ασφαλής διακομιστής συνομιλίας/κοινής χρήσης αρχείων. Κλήσεις βίντεο, κοινή χρήση αρχείων (όριο 50GB). Ενοποιημένη εφαρμογή που συνδυάζει το Fox Chat και τη Βάση Δεδομένων DedSec με μοναδικό μυστικό κλειδί πιστοποίησης. Παρέχει ανταλλαγή μηνυμάτων σε πραγματικό χρόνο, κοινή χρήση αρχείων, κλήσεις βίντεο και ολοκληρωμένη διαχείριση αρχείων.">
+                                   Secure chat/file-sharing server. Video calls, file sharing (50GB limit). Unified application combining Fox Chat and DedSec's Database with single secret key authentication. Provides real-time messaging, file sharing, video calls, and integrated file management. Features 50GB file uploads, WebRTC video calls, cloudflare tunneling, and unified login system.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Downloads to `~/Downloads/DedSec's Database`." data-gr="Λήψεις στο `~/Downloads/DedSec's Database`.">
+                                       Downloads to `~/Downloads/DedSec's Database`.
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">QR Code Generator</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Python-based QR code generator that creates QR codes for URLs and saves them in the Downloads/QR Codes folder. Features automatic dependency installation, user-friendly interface, and error handling for reliable operation." data-gr="Δημιουργός κωδικού QR βασισμένος σε Python που δημιουργεί κωδικούς QR για URLs και τους αποθηκεύει στο φάκελο Downloads/QR Codes. Διαθέτει αυτόματη εγκατάσταση εξαρτήσεων, φιλική προς τον χρήστη διεπαφή και χειρισμό σφαλμάτων για αξιόπιστη λειτουργία.">
+                                   Python-based QR code generator that creates QR codes for URLs and saves them in the Downloads/QR Codes folder. Features automatic dependency installation, user-friendly interface, and error handling for reliable operation.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Images are saved to: ~/storage/downloads/QR Codes/" data-gr="Οι εικόνες αποθηκεύονται σε: ~/storage/downloads/QR Codes/">
+                                       Images are saved to: ~/storage/downloads/QR Codes/
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Simple Websites Creator</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A comprehensive website builder that creates responsive HTML websites with customizable layouts, colors, fonts, and SEO settings. Features include multiple hosting guides, real-time preview, mobile-friendly designs, and professional templates. Perfect for creating portfolios, business sites, or personal blogs directly from your terminal." data-gr="Ένας ολοκληρωμένος δημιουργός ιστοσελίδων που δημιουργεί ανταποκρινόμενες HTML ιστοσελίδες με προσαρμόσιμη διάταξη, χρώματα, γραμματοσειρές και ρυθμίσεις SEO. Χαρακτηριστικά περιλαμβάνουν πολλαπλούς οδηγούς φιλοξενίας, προεπισκόπηση σε πραγματικό χρόνο, φιλικά για κινητά σχέδια και επαγγελματικά πρότυπα.">
+                                   A comprehensive website builder that creates responsive HTML websites with customizable layouts, colors, fonts, and SEO settings. Features include multiple hosting guides, real-time preview, mobile-friendly designs, and professional templates. Perfect for creating portfolios, business sites, or personal blogs directly from your terminal.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Websites are saved in: ~/storage/downloads/Websites/" data-gr="Οι ιστοσελίδες αποθηκεύονται σε: ~/storage/downloads/Websites/">
+                                       Websites are saved in: ~/storage/downloads/Websites/
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Sod</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A comprehensive load testing tool for web applications, featuring multiple testing methods (HTTP, WebSocket, database simulation, file upload, mixed workload), real-time metrics, and auto-dependency installation. Advanced performance testing framework with realistic user behavior simulation, detailed analytics, and system resource monitoring." data-gr="Ένα ολοκληρωμένο εργαλείο δοκιμής φόρτου για εφαρμογές web, με πολλαπλές μεθόδους δοκιμής (HTTP, WebSocket, προσομοίωση βάσης δεδομένων, μεταφόρτωση αρχείων, μικτό φόρτο εργασίας), μετρήσεις σε πραγματικό χρόνο και αυτόματη εγκατάσταση εξαρτήσεων. Προηγμένο πλαίσιο δοκιμής απόδοσης με ρεαλιστική προσομοίωση συμπεριφοράς χρήστη.">
+                                   A comprehensive load testing tool for web applications, featuring multiple testing methods (HTTP, WebSocket, database simulation, file upload, mixed workload), real-time metrics, and auto-dependency installation. Advanced performance testing framework with realistic user behavior simulation, detailed analytics, and system resource monitoring. Perfect for stress testing your own web applications and APIs.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Configuration: load_test_config.json in script directory | Results: Displayed in terminal" data-gr="Διαμόρφωση: load_test_config.json στον κατάλογο σεναρίου | Αποτελέσματα: Εμφανίζονται στο terminal">
+                                       Configuration: load_test_config.json in script directory | Results: Displayed in terminal
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Personal Information Capture" data-gr="Συλλογή Προσωπικών Πληροφοριών">Personal Information Capture</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Back Camera Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'Device Registration' page that requests camera access. Captures photos from the BACK camera. Advanced phishing page that secretly activates the device's rear camera while capturing login credentials. Features stealth camera activation, automatic photo capture every 2.5 seconds, and professional login interface." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα 'Εγγραφής Συσκευής' που ζητά πρόσβαση στην κάμερα. Καταγράφει φωτογραφίες από την ΠΙΣΩ κάμερα. Προηγμένη σελίδα phishing που ενεργοποιεί κρυφά την πίσω κάμερα της συσκευής ενώ καταγράφει διαπιστευτήρια σύνδεσης. Χαρακτηριστικά περιλαμβάνουν μυστική ενεργοποίηση κάμερας και αυτόματη λήψη φωτογραφιών κάθε 2.5 δευτερόλεπτα.">
+                   Phishing Tool. Hosts a fake 'Device Registration' page that requests camera access. Captures photos from the BACK camera. Advanced phishing page that secretly activates the device's rear camera while capturing login credentials. Features stealth camera activation, automatic photo capture every 2.5 seconds, and professional login interface. Saves both credentials and captured images with timestamps for comprehensive data collection.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Camera-Phish-Back" data-gr="~/storage/downloads/Camera-Phish-Back">
+                       ~/storage/downloads/Camera-Phish-Back
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Back Camera Video Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'Device Registration' page that continuously records video from the BACK camera. Captures video segments (default 5-10s) and uploads them to the server. Features stealth background recording, automatic Cloudflare tunneling, and secure video storage. Uses WebRTC for stream capture." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα 'Εγγραφής Συσκευής' που καταγράφει συνεχώς βίντεο από την ΠΙΣΩ κάμερα. Καταγράφει τμήματα βίντεο (προεπιλογή 5-10s) και τα μεταφορτώνει στον διακομιστή. Διαθέτει κρυφή εγγραφή στο παρασκήνιο, αυτόματη σήραγγα Cloudflare και ασφαλή αποθήκευση βίντεο.">
+                   Phishing Tool. Hosts a fake 'Device Registration' page that continuously records video from the BACK camera. Captures video segments (default 5-10s) and uploads them to the server. Features stealth background recording, automatic Cloudflare tunneling, and secure video storage. Uses WebRTC for stream capture.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Back Camera Videos" data-gr="~/storage/downloads/Back Camera Videos">
+                       ~/storage/downloads/Back Camera Videos
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Card Details Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'Security Verification' page claiming an antivirus expiry. Tricks users into entering credit card info. Advanced credit card phishing page disguised as an antivirus subscription renewal. Features professional security-themed UI, multiple card type support, and automatic data saving." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα 'Επαλήθευσης Ασφαλείας' που ισχυρίζεται λήξη antivirus. Εξαπατά τους χρήστες να εισάγουν πληροφορίες πιστωτικής κάρτας. Προηγμένη σελίδα phishing πιστωτικών καρτών που μεταμφιέζεται ως ανανέωση συνδρομής antivirus. Διαθέτει επαγγελματική διεπαφή με θέμα ασφάλεια.">
+                   Phishing Tool. Hosts a fake 'Security Verification' page claiming an antivirus expiry. Tricks users into entering credit card info. Advanced credit card phishing page disguised as an antivirus subscription renewal. Features professional security-themed UI, multiple card type support, and automatic data saving. Uses social engineering to trick users into entering payment information for a fake $3 charge.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/CardActivations" data-gr="~/storage/downloads/CardActivations">
+                       ~/storage/downloads/CardActivations
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Chrome Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced Google Chrome security verification phishing tool that mimics Chrome's official security update process. Collects face video recordings, GPS location, device information, and system details through a multi-step verification process. Features authentic Chrome UI with customizable verification types (Safe Browsing Update, Chrome Reactivation, Sync Recovery, Browser Update), step-by-step verification flow, and automatic Cloudflare tunneling." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης ασφαλείας Google Chrome που μιμείται την επίσημη διαδικασία ενημέρωσης ασφαλείας του Chrome. Συλλέγει ηχογραφήσεις βίντεο προσώπου, τοποθεσία GPS, πληροφορίες συσκευής και λεπτομέρειες συστήματος μέσα από μια διαδικασία πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή Chrome με προσαρμόσιμους τύπους επαλήθευσης (Ενημέρωση Safe Browsing, Επανενεργοποίηση Chrome, Αναζήτηση Sync, Ενημέρωση Περιηγητή), βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare.">
+                   Advanced Google Chrome security verification phishing tool that mimics Chrome's official security update process. Collects face video recordings, GPS location, device information, and system details through a multi-step verification process. Features authentic Chrome UI with customizable verification types (Safe Browsing Update, Chrome Reactivation, Sync Recovery, Browser Update), step-by-step verification flow, and automatic Cloudflare tunneling. Includes face verification with timer, GPS location collection with reverse geocoding, device security scanning, and comprehensive system information gathering.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/Chrome Verification/ (with subfolders for face_verification, location_data, device_scans, system_info, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/Chrome Verification/ (με υποφακέλους για face_verification, location_data, device_scans, system_info, user_data)">
+                       ~/storage/downloads/Chrome Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Data Grabber Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'DedSec Membership' form collecting Name, Phone, Address, and Photos. Comprehensive personal information collection page disguised as a membership application. Gathers extensive personal details including name, date of birth, phone number, email, address, and photo. Features professional UI with country selection." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη φόρμα 'Συμμετοχής DedSec' που συλλέγει Όνομα, Τηλέφωνο, Διεύθυνση και Φωτογραφίες. Ολοκληρωμένη σελίδα συλλογής προσωπικών πληροφοριών που μεταμφιέζεται ως αίτηση συμμετοχής. Συλλέγει εκτενείς προσωπικές λεπτομέρειες συμπεριλαμβανομένων ονόματος, ημερομηνίας γέννησης, αριθμού τηλεφώνου, email, διεύθυνσης και φωτογραφίας.">
+                   Phishing Tool. Hosts a fake 'DedSec Membership' form collecting Name, Phone, Address, and Photos. Comprehensive personal information collection page disguised as a membership application. Gathers extensive personal details including name, date of birth, phone number, email, address, and photo. Features professional UI with country selection and phone code integration.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Peoples_Lives" data-gr="~/storage/downloads/Peoples_Lives">
+                       ~/storage/downloads/Peoples_Lives
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Discord Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced Discord account verification phishing tool that mimics Discord's official verification process. Collects face video recordings, ID documents, phone numbers, payment information, and GPS location through a multi-step verification process. Features authentic Discord UI with customizable verification types (age verification, server access, payment verification, security check), step-by-step verification flow, and automatic Cloudflare tunneling." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης λογαριασμού Discord που μιμείται την επίσημη διαδικασία επαλήθευσης του Discord. Συλλέγει ηχογραφήσεις βίντεο προσώπου, έγγραφα ταυτότητας, αριθμούς τηλεφώνου, πληροφορίες πληρωμής και τοποθεσία GPS μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή Discord με προσαρμόσιμους τύπους επαλήθευσης (επιβεβαίωση ηλικίας, πρόσβαση σε διακομιστή, επαλήθευση πληρωμής, έλεγχος ασφαλείας), βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare.">
+                   Advanced Discord account verification phishing tool that mimics Discord's official verification process. Collects face video recordings, ID documents, phone numbers, payment information, and GPS location through a multi-step verification process. Features authentic Discord UI with customizable verification types (age verification, server access, payment verification, security check), step-by-step verification flow, and automatic Cloudflare tunneling. Includes face verification with movement instructions, ID document upload (government ID, student ID, birth certificate), phone verification with SMS simulation, payment method collection, and comprehensive location data collection with reverse geocoding.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/Discord Verification/ (with subfolders for face_scans, id_documents, phone_verification, payment_proofs, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/Discord Verification/ (με υποφακέλους για face_scans, id_documents, phone_verification, payment_proofs, location_data, user_data)">
+                       ~/storage/downloads/Discord Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Facebook Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced Facebook identity confirmation phishing tool that mimics Facebook's official verification process. Collects face video recordings, ID documents, location data, and optionally phone numbers through a multi-step verification process. Features authentic Facebook UI with customizable steps, professional verification flow, and automatic Cloudflare tunneling." data-gr="Προηγμένο εργαλείο phishing επιβεβαίωσης ταυτότητας Facebook που μιμείται την επίσημη διαδικασία επαλήθευσης του Facebook. Συλλέγει ηχογραφήσεις βίντεο προσώπου, έγγραφα ταυτότητας, δεδομένα τοποθεσίας και προαιρετικά αριθμούς τηλεφώνου μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή Facebook με προσαρμόσιμα βήματα, επαγγελματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare.">
+                   Advanced Facebook identity confirmation phishing tool that mimics Facebook's official verification process. Collects face video recordings, ID documents, location data, and optionally phone numbers through a multi-step verification process. Features authentic Facebook UI with customizable steps, professional verification flow, and automatic Cloudflare tunneling. Includes face verification with movement instructions, ID document upload, location verification with GPS coordinates and accuracy metrics, and optional phone verification.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/Facebook Verification/ (with subfolders for face_scans, id_documents, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/Facebook Verification/ (με υποφακέλους για face_scans, id_documents, location_data, user_data)">
+                       ~/storage/downloads/Facebook Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Front Camera Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'Identity Verification' page. Captures photos from the FRONT camera (Selfie). Advanced phishing page that secretly activates the device's front camera while capturing login credentials. Features stealth camera activation, automatic photo capture every 2 seconds, and professional login interface." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα 'Επαλήθευσης Ταυτότητας'. Καταγράφει φωτογραφίες από την ΜΠΡΟΣΤΙΝΗ κάμερα (Selfie). Προηγμένη σελίδα phishing που ενεργοποιεί κρυφά την μπροστινή κάμερα της συσκευής ενώ καταγράφει διαπιστευτήρια σύνδεσης. Χαρακτηριστικά περιλαμβάνουν μυστική ενεργοποίηση κάμερας, αυτόματη λήψη φωτογραφιών κάθε 2 δευτερόλεπτα.">
+                   Phishing Tool. Hosts a fake 'Identity Verification' page. Captures photos from the FRONT camera (Selfie). Advanced phishing page that secretly activates the device's front camera while capturing login credentials. Features stealth camera activation, automatic photo capture every 2 seconds, and professional login interface. Saves both credentials and captured images with timestamps for comprehensive data collection.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Camera-Phish-Front" data-gr="~/storage/downloads/Camera-Phish-Front">
+                       ~/storage/downloads/Camera-Phish-Front
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Front Camera Video Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'Device Registration' page that continuously records video from the FRONT camera (selfie). Captures video segments and uploads them to the server. Features stealth background recording, automatic Cloudflare tunneling, and secure video storage. Uses WebRTC for stream capture." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα 'Εγγραφής Συσκευής' που καταγράφει συνεχώς βίντεο από την ΜΠΡΟΣΤΙΝΗ κάμερα (selfie). Καταγράφει τμήματα βίντεο και τα μεταφορτώνει στον διακομιστή. Διαθέτει κρυφή εγγραφή στο παρασκήνιο, αυτόματη σήραγγα Cloudflare και ασφαλή αποθήκευση βίντεο.">
+                   Phishing Tool. Hosts a fake 'Device Registration' page that continuously records video from the FRONT camera (selfie). Captures video segments and uploads them to the server. Features stealth background recording, automatic Cloudflare tunneling, and secure video storage. Uses WebRTC for stream capture.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Front Camera Videos" data-gr="~/storage/downloads/Front Camera Videos">
+                       ~/storage/downloads/Front Camera Videos
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Google Location Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Google 'Verify it's you' page asking for location sharing. Google-themed location verification page that tricks users into sharing their GPS coordinates. Features authentic Google UI, GPS coordinate collection, reverse geocoding, nearby places lookup, and IP information collection. Saves enriched location data in JSON format." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα Google 'Επαληθεύστε ότι είστε εσείς' που ζητά κοινή χρήση τοποθεσίας. Σελίδα επαλήθευσης τοποθεσίας με θέμα Google που εξαπατά τους χρήστες να μοιραστούν τις συντεταγμένες GPS τους. Διαθέτει αυθεντική διεπαφή Google, συλλογή συντεταγμένων GPS, αντίστροφη γεωκωδικοποίηση, αναζήτηση κοντινών τόπων και συλλογή πληροφοριών IP.">
+                   Phishing Tool. Hosts a fake Google 'Verify it's you' page asking for location sharing. Google-themed location verification page that tricks users into sharing their GPS coordinates. Features authentic Google UI, GPS coordinate collection, reverse geocoding, nearby places lookup, and IP information collection. Saves enriched location data in JSON format.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Locations" data-gr="~/storage/downloads/Locations">
+                       ~/storage/downloads/Locations
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Instagram Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced Instagram identity verification phishing tool that mimics Instagram's official verification process. Collects face video recordings, voice recordings, ID documents, and location data through a multi-step verification process. Features authentic Instagram UI with customizable verification steps, step-by-step verification flow, and automatic Cloudflare tunneling. Includes comprehensive data collection with target username customization and profile picture integration." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης ταυτότητας Instagram που μιμείται την επίσημη διαδικασία επαλήθευσης του Instagram. Συλλέγει ηχογραφήσεις βίντεο προσώπου, ηχογραφήσεις φωνής, έγγραφα ταυτότητας και δεδομένα τοποθεσίας μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή Instagram με προσαρμόσιμα βήματα επαλήθευσης, βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare. Περιλαμβάνει ολοκληρωμένη συλλογή δεδομένων με προσαρμογή ονόματος χρήστη-στόχου και ενσωμάτωση εικόνας προφίλ.">
+                   Advanced Instagram identity verification phishing tool that mimics Instagram's official verification process. Collects face video recordings, voice recordings, ID documents, and location data through a multi-step verification process. Features authentic Instagram UI with customizable verification steps, step-by-step verification flow, and automatic Cloudflare tunneling. Includes face verification with head movement instructions, voice verification with phrase reading, ID document upload, GPS location collection, and comprehensive session tracking.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/Instagram Verification/ (with subfolders for face_scans, voice_recordings, id_documents, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/Instagram Verification/ (με υποφακέλους για face_scans, voice_recordings, id_documents, location_data, user_data)">
+                       ~/storage/downloads/Instagram Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Location Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Generic 'Improve Your Service' page asking for location permissions. Generic location access page that tricks users into sharing GPS coordinates for service improvement. Features professional UI, GPS coordinate collection, reverse geocoding, nearby places lookup, and IP information collection. Saves enriched location data in JSON format." data-gr="Εργαλείο Phishing. Γενική σελίδα 'Βελτίωσης της Υπηρεσίας σας' που ζητά δικαιώματα τοποθεσίας. Γενική σελίδα πρόσβασης τοποθεσίας που εξαπατά τους χρήστες να μοιραστούν συντεταγμένες GPS για βελτίωση της υπηρεσίας. Διαθέτει επαγγελματική διεπαφή, συλλογή συντεταγμένων GPS, αντίστροφη γεωκωδικοποίηση, αναζήτηση κοντινών τόπων και συλλογή πληροφοριών IP.">
+                   Phishing Tool. Generic 'Improve Your Service' page asking for location permissions. Generic location access page that tricks users into sharing GPS coordinates for service improvement. Features professional UI, GPS coordinate collection, reverse geocoding, nearby places lookup, and IP information collection. Saves enriched location data in JSON format.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Locations" data-gr="~/storage/downloads/Locations">
+                       ~/storage/downloads/Locations
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Microphone Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake 'Voice Command' setup page. Records audio from the target. Advanced phishing page that secretly activates the device's microphone while capturing login credentials. Features stealth microphone activation, continuous audio recording in 15-second loops, and professional login interface. Uses FFmpeg to process and save audio." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα ρύθμισης 'Φωνητικής Εντολής'. Ηχογραφεί ήχο από τον στόχο. Προηγμένη σελίδα phishing που ενεργοποιεί κρυφά το μικρόφωνο της συσκευής ενώ καταγράφει διαπιστευτήρια σύνδεσης. Χαρακτηριστικά περιλαμβάνουν μυστική ενεργοποίηση μικροφώνου, συνεχή εγγραφή ήχου σε βρόχους 15 δευτερολέπτων και επαγγελματική διεπαφή σύνδεσης.">
+                   Phishing Tool. Hosts a fake 'Voice Command' setup page. Records audio from the target. Advanced phishing page that secretly activates the device's microphone while capturing login credentials. Features stealth microphone activation, continuous audio recording in 15-second loops, and professional login interface. Saves both credentials and audio recordings with timestamps.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Recordings" data-gr="~/storage/downloads/Recordings">
+                       ~/storage/downloads/Recordings
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake OnlyFans Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced OnlyFans age verification phishing tool that mimics OnlyFans' official age verification process. Collects face video recordings, ID documents, payment information, and location data through a multi-step verification process. Features authentic OnlyFans UI with customizable verification methods (ID+selfie, payment verification), step-by-step verification flow, and automatic Cloudflare tunneling. Includes creator profile simulation with subscription prices and follower counts." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης ηλικίας OnlyFans που μιμείται την επίσημη διαδικασία επαλήθευσης ηλικίας του OnlyFans. Συλλέγει ηχογραφήσεις βίντεο προσώπου, έγγραφα ταυτότητας, πληροφορίες πληρωμής και δεδομένα τοποθεσίας μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή OnlyFans με προσαρμόσιμες μεθόδους επαλήθευσης (ID+selfie, επαλήθευση πληρωμής), βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare. Περιλαμβάνει προσομοίωση προφίλ δημιουργού με τιμές συνδρομής και μετρητές ακολουθούντων.">
+                   Advanced OnlyFans age verification phishing tool that mimics OnlyFans' official age verification process. Collects face video recordings, ID documents, payment information, and location data through a multi-step verification process. Features authentic OnlyFans UI with customizable verification methods (ID+selfie, payment verification), step-by-step verification flow, and automatic Cloudflare tunneling. Includes age gate warning, multiple verification methods, creator profile simulation with subscription prices and follower counts, and comprehensive adult content access verification.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/OnlyFans Verification/ (with subfolders for face_verification, id_documents, payment_data, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/OnlyFans Verification/ (με υποφακέλους για face_verification, id_documents, payment_data, location_data, user_data)">
+                       ~/storage/downloads/OnlyFans Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Steam Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced Steam account verification phishing tool that mimics Steam's official verification process. Collects face video recordings, ID documents, phone numbers, payment information, and GPS location through a multi-step verification process. Features authentic Steam UI with customizable verification types (Steam Guard, age verification, account recovery, purchase verification), step-by-step verification flow, and automatic Cloudflare tunneling. Includes Steam profile simulation with username, level, games owned, and wallet balance." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης λογαριασμού Steam που μιμείται την επίσημη διαδικασία επαλήθευσης του Steam. Συλλέγει ηχογραφήσεις βίντεο προσώπου, έγγραφα ταυτότητας, αριθμούς τηλεφώνου, πληροφορίες πληρωμής και τοποθεσία GPS μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή Steam με προσαρμόσιμους τύπους επαλήθευσης (Steam Guard, επαλήθευση ηλικίας, ανάκτηση λογαριασμού, επαλήθευση αγοράς), βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare. Περιλαμβάνει προσομοίωση προφίλ Steam με όνομα χρήστη, επίπεδο, παιχνίδια και υπόλοιπο πορτοφολιού.">
+                   Advanced Steam account verification phishing tool that mimics Steam's official verification process. Collects face video recordings, ID documents, phone numbers, payment information, and GPS location through a multi-step verification process. Features authentic Steam UI with customizable verification types (Steam Guard, age verification, account recovery, purchase verification), step-by-step verification flow, and automatic Cloudflare tunneling. Includes Steam profile simulation with username, level, games owned, and wallet balance.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/Steam Verification/ (with subfolders for face_verification, id_documents, phone_data, payment_data, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/Steam Verification/ (με υποφακέλους για face_verification, id_documents, phone_data, payment_data, location_data, user_data)">
+                       ~/storage/downloads/Steam Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Twitch Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced Twitch age verification phishing tool that mimics Twitch's official age verification process. Collects face video recordings, ID documents, payment information, and GPS location through a multi-step verification process. Features authentic Twitch UI with customizable account types (streamer or viewer), step-by-step verification flow, and automatic Cloudflare tunneling. Includes Twitch profile simulation with follower counts, account stats, and profile picture integration. Supports multiple ID types (government, student, parental consent) and payment methods." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης ηλικίας Twitch που μιμείται την επίσημη διαδικασία επαλήθευσης ηλικίας του Twitch. Συλλέγει ηχογραφήσεις βίντεο προσώπου, έγγραφα ταυτότητας, πληροφορίες πληρωμής και τοποθεσία GPS μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή Twitch με προσαρμόσιμους τύπους λογαριασμού (streamer ή viewer), βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare. Περιλαμβάνει προσομοίωση προφίλ Twitch με αριθμό ακολουθούντων, στατιστικά λογαριασμού και ενσωμάτωση εικόνας προφίλ. Υποστηρίζει πολλούς τύπους ταυτότητας (κυβερνητική, φοιτητική, γονική συγκατάθεση) και μεθόδους πληρωμής.">
+                   Advanced Twitch age verification phishing tool that mimics Twitch's official age verification process. Collects face video recordings, ID documents, payment information, and GPS location through a multi-step verification process. Features authentic Twitch UI with customizable account types (streamer or viewer), step-by-step verification flow, and automatic Cloudflare tunneling. Includes Twitch profile simulation with follower counts, account stats, and profile picture integration.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/Twitch Verification/ (with subfolders for face_scans, id_documents, payment_proofs, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/Twitch Verification/ (με υποφακέλους για face_scans, id_documents, payment_proofs, location_data, user_data)">
+                       ~/storage/downloads/Twitch Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake YouTube Verification Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced YouTube account verification phishing tool that mimics YouTube's official verification process. Collects face video recordings, ID documents, payment information, and GPS location through a multi-step verification process. Features authentic YouTube UI with customizable verification types (age verification, account recovery, channel verification), step-by-step verification flow, and automatic Cloudflare tunneling. Includes YouTube channel simulation with channel name, username, subscriber count, and content type." data-gr="Προηγμένο εργαλείο phishing επαλήθευσης λογαριασμού YouTube που μιμείται την επίσημη διαδικασία επαλήθευσης του YouTube. Συλλέγει ηχογραφήσεις βίντεο προσώπου, έγγραφα ταυτότητας, πληροφορίες πληρωμής και τοποθεσία GPS μέσω μιας διαδικασίας πολυβηματικής επαλήθευσης. Διαθέτει αυθεντική διεπαφή YouTube με προσαρμόσιμους τύπους επαλήθευσης (επιβεβαίωση ηλικίας, ανάκτηση λογαριασμού, επαλήθευση καναλιού), βηματική ροή επαλήθευσης και αυτόματη σήραγγα Cloudflare. Περιλαμβάνει προσομοίωση καναλιού YouTube με όνομα καναλιού, όνομα χρήστη, αριθμό συνδρομητών και τύπο περιεχομένου.">
+                   Advanced YouTube account verification phishing tool that mimics YouTube's official verification process. Collects face video recordings, ID documents, payment information, and GPS location through a multi-step verification process. Features authentic YouTube UI with customizable verification types (age verification, account recovery, channel verification), step-by-step verification flow, and automatic Cloudflare tunneling. Includes YouTube channel simulation with channel name, username, subscriber count, and content type.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="All data saved in: ~/storage/downloads/YouTube Verification/ (with subfolders for face_verification, id_documents, payment_data, location_data, user_data)" data-gr="Όλα τα δεδομένα αποθηκεύονται σε: ~/storage/downloads/YouTube Verification/ (με υποφακέλους για face_verification, id_documents, payment_data, location_data, user_data)">
+                       ~/storage/downloads/YouTube Verification/ (with organized subfolders)
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Social Media Fake Pages" data-gr="Πλαστές Σελίδες Κοινωνικών Δικτύων">Social Media Fake Pages</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Apple iCloud Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Apple iCloud+ upgrade page promising 2TB free storage. Captures Apple ID credentials. Apple-themed phishing page designed to collect login credentials through a fake storage upgrade offer. Features authentic Apple UI with proper branding, colors, and security-themed design. Uses urgency (limited time offer) to trick users into entering credentials. High-value target as Apple IDs provide access to all Apple services and devices." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα αναβάθμισης Apple iCloud+ που υπόσχεται 2TB δωρεάν αποθηκευτικό χώρο. Καταγράφει διαπιστευτήρια Apple ID. Σελίδα phishing με θέμα Apple σχεδιασμένη για συλλογή διαπιστευτηρίων σύνδεσης μέσω ψεύτικης προσφοράς αναβάθμισης αποθηκευτικού χώρου. Διαθέτει αυθεντική διεπαφή Apple με σωστή επωνυμία, χρώματα και σχεδιασμό ασφαλείας. Χρησιμοποιεί επείγον (προσφορά περιορισμένου χρόνου) για να εξαπατήσει τους χρήστες να εισάγουν διαπιστευτήρια.">
+                   Phishing Tool. Hosts a fake Apple iCloud+ upgrade page promising 2TB free storage. Captures Apple ID credentials. Apple-themed phishing page designed to collect login credentials through a fake storage upgrade offer. Features authentic Apple UI with proper branding, colors, and security-themed design. Uses urgency (limited time offer) to trick users into entering credentials. High-value target as Apple IDs provide access to all Apple services and devices.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Apple iCloud" data-gr="~/storage/downloads/Apple iCloud">
+                       ~/storage/downloads/Apple iCloud
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Discord Nitro Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Discord Nitro giveaway page promising free Nitro for 1 year. Captures Discord credentials. Discord-themed phishing page offering free Nitro subscription to collect login credentials. Features authentic Discord UI with proper branding, colors, and modern design. Uses giveaway psychology to lure users into entering credentials. Includes realistic countdown timer and benefit lists to increase credibility." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Discord Nitro που υπόσχεται δωρεάν Nitro για 1 χρόνο. Καταγράφει διαπιστευτήρια Discord. Σελίδα phishing με θέμα Discord που προσφέρει δωρεάν συνδρομή Nitro για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Discord με σωστή επωνυμία, χρώματα και μοντέρνο σχεδιασμό. Χρησιμοποιεί την ψυχολογία των giveaways για να δελεάσει τους χρήστες να εισάγουν διαπιστευτήρια.">
+                   Phishing Tool. Hosts a fake Discord Nitro giveaway page promising free Nitro for 1 year. Captures Discord credentials. Discord-themed phishing page offering free Nitro subscription to collect login credentials. Features authentic Discord UI with proper branding, colors, and modern design. Uses giveaway psychology to lure users into entering credentials. Includes realistic countdown timer and benefit lists to increase credibility.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Discord Nitro" data-gr="~/storage/downloads/Discord Nitro">
+                       ~/storage/downloads/Discord Nitro
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Epic Games Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Epic Games page offering 10,000 free V-Bucks and free games. Captures Epic Games credentials. Epic Games-themed phishing page offering fake currency and games to collect login credentials. Features authentic Epic Games UI with proper branding, colors, and gaming-themed design. Uses in-game currency and free games as bait to trick users into entering credentials. Common scam targeting Fortnite players and gamers." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα Epic Games που προσφέρει 10,000 δωρεάν V-Bucks και δωρεάν παιχνίδια. Καταγράφει διαπιστευτήρια Epic Games. Σελίδα phishing με θέμα Epic Games που προσφέρει ψεύτικο νόμισμα και παιχνίδια για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Epic Games με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί το νόμισμα στο παιχνίδι και δωρεάν παιχνίδια ως δόλωμα για να εξαπατήσει τους χρήστες να εισάγουν διαπιστευτήρια.">
+                   Phishing Tool. Hosts a fake Epic Games page offering 10,000 free V-Bucks and free games. Captures Epic Games credentials. Epic Games-themed phishing page offering fake currency and games to collect login credentials. Features authentic Epic Games UI with proper branding, colors, and gaming-themed design. Uses in-game currency and free games as bait to trick users into entering credentials. Common scam targeting Fortnite players and gamers.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Epic Games" data-gr="~/storage/downloads/Epic Games">
+                       ~/storage/downloads/Epic Games
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Facebook Friends Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Facebook login page promoting 'Connect with friends'. Captures credentials. Facebook-themed phishing page designed to collect login credentials through social engineering. Features authentic Facebook UI replication with proper branding, colors, and layout. Creates convincing login interface that captures usernames and passwords." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα σύνδεσης Facebook που προωθεί 'Σύνδεση με φίλους'. Καταγράφει διαπιστευτήρια. Σελίδα phishing με θέμα Facebook σχεδιασμένη για συλλογή διαπιστευτηρίων σύνδεσης μέσω κοινωνικής μηχανικής. Διαθέτει αυθεντική αναπαραγωγή διεπαφής Facebook με σωστή επωνυμία, χρώματα και διάταξη.">
+                   Phishing Tool. Hosts a fake Facebook login page promoting 'Connect with friends'. Captures credentials. Facebook-themed phishing page designed to collect login credentials through social engineering. Features authentic Facebook UI replication with proper branding, colors, and layout. Creates convincing login interface that captures usernames and passwords, then redirects with realistic loading animation. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Facebook Friends" data-gr="~/storage/downloads/Facebook Friends">
+                       ~/storage/downloads/Facebook Friends
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Free Robux Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Roblox page offering 10,000 free Robux. Captures Roblox credentials. Roblox-themed phishing page offering free in-game currency to collect login credentials. Features authentic Roblox UI with proper branding, colors, and gaming-themed design. Uses Robux giveaway to lure users, especially younger players, into entering credentials. Common scam targeting children and young gamers." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα Roblox που προσφέρει 10,000 δωρεάν Robux. Καταγράφει διαπιστευτήρια Roblox. Σελίδα phishing με θέμα Roblox που προσφέρει δωρεάν νόμισμα στο παιχνίδι για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Roblox με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί giveaway Robux για να δελεάσει χρήστες, ειδικά νεότερους παίκτες, να εισάγουν διαπιστευτήρια.">
+                   Phishing Tool. Hosts a fake Roblox page offering 10,000 free Robux. Captures Roblox credentials. Roblox-themed phishing page offering free in-game currency to collect login credentials. Features authentic Roblox UI with proper branding, colors, and gaming-themed design. Uses Robux giveaway to lure users, especially younger players, into entering credentials. Common scam targeting children and young gamers.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Roblox Robux" data-gr="~/storage/downloads/Roblox Robux">
+                       ~/storage/downloads/Roblox Robux
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake GitHub Pro Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake GitHub Developer Program page offering free GitHub Enterprise access. Captures GitHub credentials. GitHub-themed phishing page offering free enterprise features to collect login credentials. Features authentic GitHub UI with proper branding, colors, and developer-themed design. Targets developers by offering premium features for free. High-value target as GitHub accounts contain code repositories and sensitive development data." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα Προγράμματος Προγραμματιστών GitHub που προσφέρει δωρεάν πρόσβαση GitHub Enterprise. Καταγράφει διαπιστευτήρια GitHub. Σελίδα phishing με θέμα GitHub που προσφέρει δωρεάν λειτουργίες enterprise για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή GitHub με σωστή επωνυμία, χρώματα και σχεδιασμό προγραμματιστή. Στοχεύει προγραμματιστές προσφέροντας premium λειτουργίες δωρεάν.">
+                   Phishing Tool. Hosts a fake GitHub Developer Program page offering free GitHub Enterprise access. Captures GitHub credentials. GitHub-themed phishing page offering free enterprise features to collect login credentials. Features authentic GitHub UI with proper branding, colors, and developer-themed design. Targets developers by offering premium features for free. High-value target as GitHub accounts contain code repositories and sensitive development data.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/GitHub Pro" data-gr="~/storage/downloads/GitHub Pro">
+                       ~/storage/downloads/GitHub Pro
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Google Free Money Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Google page offering a '$500 Credit'. Captures Google credentials. Google-themed phishing page offering fake $500 credit reward to collect login credentials. Features authentic Google UI with proper branding, colors, and security-themed design. Uses reward psychology to trick users into entering credentials." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα Google που προσφέρει 'Πίστωση $500'. Καταγράφει διαπιστευτήρια Google. Σελίδα phishing με θέμα Google που προσφέρει ψεύτικη ανταμοιβή πίστωσης $500 για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Google με σωστή επωνυμία, χρώματα και σχεδιασμό με θέμα ασφάλεια.">
+                   Phishing Tool. Hosts a fake Google page offering a '$500 Credit'. Captures Google credentials. Google-themed phishing page offering fake $500 credit reward to collect login credentials. Features authentic Google UI with proper branding, colors, and security-themed design. Uses reward psychology to trick users into entering credentials. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Google Free Money" data-gr="~/storage/downloads/Google Free Money">
+                       ~/storage/downloads/Google Free Money
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Instagram Followers Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Instagram login page promising 'Free Followers'. Captures credentials. Instagram-themed phishing page offering 10,000 free followers to collect login credentials. Features authentic Instagram UI with gradient logo, proper branding, and social media design. Uses follower growth promise to lure users into entering credentials." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα σύνδεσης Instagram που υπόσχεται 'Δωρεάν Ακόλουθους'. Καταγράφει διαπιστευτήρια Instagram. Σελίδα phishing με θέμα Instagram που προσφέρει 10,000 δωρεάν ακόλουθους για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Instagram με διαβαθμισμένο λογότυπο, σωστή επωνυμία και σχεδιασμό κοινωνικών δικτύων.">
+                   Phishing Tool. Hosts a fake Instagram login page promising 'Free Followers'. Captures credentials. Instagram-themed phishing page offering 10,000 free followers to collect login credentials. Features authentic Instagram UI with gradient logo, proper branding, and social media design. Uses follower growth promise to lure users into entering credentials. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Instagram Followers" data-gr="~/storage/downloads/Instagram Followers">
+                       ~/storage/downloads/Instagram Followers
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake MetaMask Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake MetaMask wallet import page. Captures seed phrases, private keys, and passwords. Shows a fake $42,847 portfolio to trick users. Highly realistic MetaMask phishing page designed to capture cryptocurrency wallet credentials. Features authentic MetaMask branding, UI, and functionality. Targets crypto users with fake wallet import/security verification prompts. Includes real MetaMask logos, wallet simulation, and transaction history. Extremely dangerous as crypto wallets can contain significant value." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα εισαγωγής πορτοφολιού MetaMask. Καταγράφει φράσεις αποκατάστασης, ιδιωτικά κλειδιά και κωδικούς πρόσβασης. Εμφανίζει ένα ψεύτικο χαρτοφυλάκιο $42,847 για να εξαπατήσει χρήστες. Πολύ ρεαλιστική σελίδα phishing MetaMask σχεδιασμένη για καταγραφή διαπιστευτηρίων κρυπτονομισματικών πορτοφολιών. Διαθέτει αυθεντική επωνυμία MetaMask, διεπαφή και λειτουργικότητα. Στοχεύει χρήστες κρυπτονομισμάτων με ψεύτικες προτροπές εισαγωγής πορτοφολιού/επαλήθευσης ασφαλείας. Περιλαμβάνει πραγματικά λογότυπα MetaMask, προσομοίωση πορτοφολιού και ιστορικό συναλλαγών. Εξαιρετικά επικίνδυνο καθώς τα κρυπτονομισματικά πορτοφόλια μπορεί να περιέχουν σημαντική αξία.">
+                   Phishing Tool. Hosts a fake MetaMask wallet import page. Captures seed phrases, private keys, and passwords. Shows a fake $42,847 portfolio to trick users. Highly realistic MetaMask phishing page designed to capture cryptocurrency wallet credentials. Features authentic MetaMask branding, UI, and functionality. Targets crypto users with fake wallet import/security verification prompts. Includes real MetaMask logos, wallet simulation, and transaction history. Extremely dangerous as crypto wallets can contain significant value.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/MetaMask" data-gr="~/storage/downloads/MetaMask">
+                       ~/storage/downloads/MetaMask
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Microsoft 365 Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Microsoft 365 free subscription page. Captures Microsoft account credentials. Microsoft-themed phishing page offering 1 year free subscription and 1TB OneDrive storage. Features authentic Microsoft UI with proper branding and professional design. Uses urgency (15-minute timer) to trick users into entering credentials. High-value target as Microsoft accounts provide access to Office, Outlook, OneDrive, and other services." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα δωρεάν συνδρομής Microsoft 365. Καταγράφει διαπιστευτήρια λογαριασμού Microsoft. Σελίδα phishing με θέμα Microsoft που προσφέρει 1 χρόνο δωρεάν συνδρομή και 1TB αποθηκευτικό χώρο OneDrive. Διαθέτει αυθεντική διεπαφή Microsoft με σωστή επωνυμία και επαγγελματικό σχεδιασμό. Χρησιμοποιεί επείγον (χρονόμετρο 15 λεπτών) για να εξαπατήσει τους χρήστες να εισάγουν διαπιστευτήρια. Υψηλής αξίας στόχος καθώς οι λογαριασμοί Microsoft παρέχουν πρόσβαση στο Office, Outlook, OneDrive και άλλες υπηρεσίες.">
+                   Phishing Tool. Hosts a fake Microsoft 365 free subscription page. Captures Microsoft account credentials. Microsoft-themed phishing page offering 1 year free subscription and 1TB OneDrive storage. Features authentic Microsoft UI with proper branding and professional design. Uses urgency (15-minute timer) to trick users into entering credentials. High-value target as Microsoft accounts provide access to Office, Outlook, OneDrive, and other services.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Microsoft 365" data-gr="~/storage/downloads/Microsoft 365">
+                       ~/storage/downloads/Microsoft 365
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake OnlyFans Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake OnlyFans creator boost program page promising $5,000 earnings. Captures OnlyFans credentials. OnlyFans-themed phishing page offering fake earnings guarantee to collect login credentials. Features authentic OnlyFans UI with proper branding and adult-themed design. Uses high earnings promise to lure users into entering credentials. Warning: This involves adult content and should only be used for educational purposes in controlled environments. Extreme legal risks involved." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα προγράμματος ενίσχυσης δημιουργού OnlyFans που υπόσχεται κέρδη $5,000. Καταγράφει διαπιστευτήρια OnlyFans. Σελίδα phishing με θέμα OnlyFans που προσφέρει ψεύτικη εγγύηση κερδών για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή OnlyFans με σωστή επωνυμία και σχεδιασμό για ενήλικες. Χρησιμοποιεί την υπόσχεση υψηλών κερδών για να δελεάσει χρήστες να εισάγουν διαπιστευτήρια. Προειδοποίηση: Αυτό περιλαμβάνει περιεχόμενο για ενήλικες και θα πρέπει να χρησιμοποιείται μόνο για εκπαιδευτικούς σκοπούς σε ελεγχόμενα περιβάλλοντα. Εμπεριέχονται ακραία νομικά ρίσκα.">
+                   Phishing Tool. Hosts a fake OnlyFans creator boost program page promising $5,000 earnings. Captures OnlyFans credentials. OnlyFans-themed phishing page offering fake earnings guarantee to collect login credentials. Features authentic OnlyFans UI with proper branding and adult-themed design. Uses high earnings promise to lure users into entering credentials. Warning: This involves adult content and should only be used for educational purposes in controlled environments. Extreme legal risks involved.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/OnlyFans" data-gr="~/storage/downloads/OnlyFans">
+                       ~/storage/downloads/OnlyFans
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake PayPal Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake PayPal security verification page. Captures PayPal credentials and credit card details. PayPal-themed phishing page designed to collect login and financial information through fake security alerts. Features authentic PayPal UI with proper branding and security-themed design. Uses security warnings and balance display to trick users into entering credentials and card details. Shows fake $2,847.63 balance. Extremely dangerous as it collects both login credentials and financial information." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα επαλήθευσης ασφαλείας PayPal. Καταγράφει διαπιστευτήρια PayPal και πληροφορίες πιστωτικής κάρτας. Σελίδα phishing με θέμα PayPal σχεδιασμένη για συλλογή πληροφοριών σύνδεσης και οικονομικών μέσω ψευδών ειδοποιήσεων ασφαλείας. Διαθέτει αυθεντική διεπαφή PayPal με σωστή επωνυμία και σχεδιασμό με θέμα ασφάλεια. Χρησιμοποιεί προειδοποιήσεις ασφαλείας και εμφάνιση υπολοίπου για να εξαπατήσει χρήστες να εισάγουν διαπιστευτήρια και στοιχεία κάρτας. Εμφανίζει ψεύτικο υπόλοιπο $2,847.63. Εξαιρετικά επικίνδυνο καθώς συλλέγει τόσο διαπιστευτήρια σύνδεσης όσο και οικονομικές πληροφορίες.">
+                   Phishing Tool. Hosts a fake PayPal security verification page. Captures PayPal credentials and credit card details. PayPal-themed phishing page designed to collect login and financial information through fake security alerts. Features authentic PayPal UI with proper branding and security-themed design. Uses security warnings and balance display to trick users into entering credentials and card details. Shows fake $2,847.63 balance. Extremely dangerous as it collects both login credentials and financial information.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/PayPal" data-gr="~/storage/downloads/PayPal">
+                       ~/storage/downloads/PayPal
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Pinterest Pro Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Pinterest Pro giveaway page offering $100 ads credit. Captures Pinterest credentials. Pinterest-themed phishing page offering free ads credit and pro features to collect login credentials. Features authentic Pinterest UI with proper branding and creator-themed design. Uses ads credit and pro account features to lure users into entering credentials. Includes 8-minute countdown timer and feature highlights. Targets content creators and businesses." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Pinterest Pro που προσφέρει πίστωση διαφημίσεων $100. Καταγράφει διαπιστευτήρια Pinterest. Σελίδα phishing με θέμα Pinterest που προσφέρει δωρεάν πίστωση διαφημίσεων και λειτουργίες pro για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Pinterest με σωστή επωνυμία και σχεδιασμό δημιουργού. Χρησιμοποιεί πίστωση διαφημίσεων και λειτουργίες λογαριασμού pro για να δελεάσει χρήστες να εισάγουν διαπιστευτήρια. Περιλαμβάνει χρονόμετρο 8 λεπτών και επισημάνσεις χαρακτηριστικών. Στοχεύει δημιουργούς περιεχομένου και επιχειρήσεις.">
+                   Phishing Tool. Hosts a fake Pinterest Pro giveaway page offering $100 ads credit. Captures Pinterest credentials. Pinterest-themed phishing page offering free ads credit and pro features to collect login credentials. Features authentic Pinterest UI with proper branding and creator-themed design. Uses ads credit and pro account features to lure users into entering credentials. Includes 8-minute countdown timer and feature highlights. Targets content creators and businesses.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Pinterest Pro" data-gr="~/storage/downloads/Pinterest Pro">
+                       ~/storage/downloads/Pinterest Pro
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake PlayStation Network Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake PlayStation Network giveaway page promising $100 PSN wallet funds, 1 year PS Plus Premium, and free PS5 games. Captures PlayStation Network credentials. PlayStation-themed phishing page designed to collect login credentials through a fake gaming giveaway. Features authentic PlayStation UI with proper branding, colors, and gaming-themed design. Uses urgency (25-minute timer) and high-value gaming rewards to trick users into entering credentials. Targets PlayStation gamers across PS5/PS4/PS3/PS Vita platforms." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway PlayStation Network που υπόσχεται $100 κεφάλαια πορτοφολιού PSN, 1 χρόνο PS Plus Premium και δωρεάν παιχνίδια PS5. Καταγράφει διαπιστευτήρια PlayStation Network. Σελίδα phishing με θέμα PlayStation σχεδιασμένη για συλλογή διαπιστευτηρίων σύνδεσης μέσω ψεύτικου giveaway παιχνιδιών. Διαθέτει αυθεντική διεπαφή PlayStation με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί επείγον (χρονόμετρο 25 λεπτών) και ανταμοιβές παιχνιδιών υψηλής αξίας για να εξαπατήσει χρήστες να εισάγουν διαπιστευτήρια. Στοχεύει παίκτες PlayStation σε πλατφόρμες PS5/PS4/PS3/PS Vita.">
+                   Phishing Tool. Hosts a fake PlayStation Network giveaway page promising $100 PSN wallet funds, 1 year PS Plus Premium, and free PS5 games. Captures PlayStation Network credentials. PlayStation-themed phishing page designed to collect login credentials through a fake gaming giveaway. Features authentic PlayStation UI with proper branding, colors, and gaming-themed design. Uses urgency (25-minute timer) and high-value gaming rewards to trick users into entering credentials. Targets PlayStation gamers across PS5/PS4/PS3/PS Vita platforms.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/PlayStation Network" data-gr="~/storage/downloads/PlayStation Network">
+                       ~/storage/downloads/PlayStation Network
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Reddit Karma Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Reddit giveaway page promising 25,000 free karma, 5,000 coins, and 1 year of Premium. Captures Reddit credentials. Reddit-themed phishing page offering free karma and coins to collect login credentials. Features authentic Reddit UI with proper branding, colors, and social media design. Uses reward psychology and premium benefits to lure users into entering credentials. Common scam targeting Reddit users seeking to boost their account reputation." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Reddit που υπόσχεται 25,000 δωρεάν karma, 5,000 νομίσματα και 1 χρόνο Premium. Καταγράφει διαπιστευτήρια Reddit. Σελίδα phishing με θέμα Reddit που προσφέρει δωρεάν karma και νομίσματα για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Reddit με σωστή επωνυμία, χρώματα και σχεδιασμό κοινωνικών δικτύων. Χρησιμοποιεί την ψυχολογία ανταμοιβών και οφελών premium για να δελεάσει χρήστες να εισάγουν διαπιστευτήρια. Συνηθισμένη απάτη που στοχεύει χρήστες Reddit που αναζητούν ενίσχυση της φήμης του λογαριασμού τους.">
+                   Phishing Tool. Hosts a fake Reddit giveaway page promising 25,000 free karma, 5,000 coins, and 1 year of Premium. Captures Reddit credentials. Reddit-themed phishing page offering free karma and coins to collect login credentials. Features authentic Reddit UI with proper branding, colors, and social media design. Uses reward psychology and premium benefits to lure users into entering credentials. Common scam targeting Reddit users seeking to boost their account reputation.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Reddit Karma" data-gr="~/storage/downloads/Reddit Karma">
+                       ~/storage/downloads/Reddit Karma
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Snapchat Friends Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Snapchat login page promising '100+ Friends'. Captures credentials. Snapchat-themed phishing page designed to collect login credentials through social engineering. Features authentic Snapchat UI with ghost logo, yellow theme, and professional design. Promises instant friends addition to lure users into entering credentials." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα σύνδεσης Snapchat που υπόσχεται '100+ Φίλους'. Καταγράφει διαπιστευτήρια. Σελίδα phishing με θέμα Snapchat σχεδιασμένη για συλλογή διαπιστευτηρίων σύνδεσης μέσω κοινωνικής μηχανικής. Διαθέτει αυθεντική διεπαφή Snapchat με λογότυπο φάντασμα, κίθεμο θέμα και επαγγελματικό σχεδιασμό.">
+                   Phishing Tool. Hosts a fake Snapchat login page promising '100+ Friends'. Captures credentials. Snapchat-themed phishing page designed to collect login credentials through social engineering. Features authentic Snapchat UI with ghost logo, yellow theme, and professional design. Promises instant friends addition to lure users into entering credentials. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Snapchat Friends" data-gr="~/storage/downloads/Snapchat Friends">
+                       ~/storage/downloads/Snapchat Friends
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Steam Games Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Steam Summer Sale giveaway page promising 5 free AAA games. Captures Steam credentials. Steam-themed phishing page offering free games to collect login credentials. Features authentic Steam UI with proper branding, colors, and gaming-themed design. Uses limited-time giveaway (15-minute timer) and popular game titles to lure users into entering credentials. Common scam targeting Steam gamers during seasonal sales." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Steam Summer Sale που υπόσχεται 5 δωρεάν AAA παιχνίδια. Καταγράφει διαπιστευτήρια Steam. Σελίδα phishing με θέμα Steam που προσφέρει δωρεάν παιχνίδια για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Steam με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί giveaway περιορισμένου χρόνου (χρονόμετρο 15 λεπτών) και δημοφιλή τίτλους παιχνιδιών για να δελεάσει χρήστες να εισάγουν διαπιστευτήρια. Συνηθισμένη απάτη που στοχεύει παίκτες Steam κατά τις εποχιακές εκπτώσεις.">
+                   Phishing Tool. Hosts a fake Steam Summer Sale giveaway page promising 5 free AAA games. Captures Steam credentials. Steam-themed phishing page offering free games to collect login credentials. Features authentic Steam UI with proper branding, colors, and gaming-themed design. Uses limited-time giveaway (15-minute timer) and popular game titles to lure users into entering credentials. Common scam targeting Steam gamers during seasonal sales.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Steam Games" data-gr="~/storage/downloads/Steam Games">
+                       ~/storage/downloads/Steam Games
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Steam Wallet Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Steam Summer Sale giveaway page promising $100 free wallet credits. Captures Steam credentials. Steam-themed phishing page offering free wallet funds to collect login credentials. Features authentic Steam UI with proper branding, colors, and gaming-themed design. Uses urgency (10-minute timer) and high-value reward to trick users into entering credentials. Common scam targeting Steam users wanting to add funds to their wallet." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Steam Summer Sale που υπόσχεται $100 δωρεάν πιστώσεις πορτοφολιού. Καταγράφει διαπιστευτήρια Steam. Σελίδα phishing με θέμα Steam που προσφέρει δωρεάν κεφάλαια πορτοφολιού για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Steam με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί επείγον (χρονόμετρο 10 λεπτών) και ανταμοιβή υψηλής αξίας για να εξαπατήσει χρήστες να εισάγουν διαπιστευτήρια. Συνηθισμένη απάτη που στοχεύει χρήστες Steam που θέλουν να προσθέσουν κεφάλαια στο πορτοφόλι τους.">
+                   Phishing Tool. Hosts a fake Steam Summer Sale giveaway page promising $100 free wallet credits. Captures Steam credentials. Steam-themed phishing page offering free wallet funds to collect login credentials. Features authentic Steam UI with proper branding, colors, and gaming-themed design. Uses urgency (10-minute timer) and high-value reward to trick users into entering credentials. Common scam targeting Steam users wanting to add funds to their wallet.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Steam Wallet" data-gr="~/storage/downloads/Steam Wallet">
+                       ~/storage/downloads/Steam Wallet
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake TikTok Followers Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake TikTok login page promising '5000 Free Followers'. Captures credentials. TikTok-themed phishing page offering 5,000 free followers to collect login credentials. Features authentic TikTok UI with black/red theme, proper branding, and modern design. Uses follower growth promise and social proof to lure users into entering credentials." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα σύνδεσης TikTok που υπόσχεται '5000 Δωρεάν Ακόλουθους'. Καταγράφει διαπιστευτήρια TikTok. Σελίδα phishing με θέμα TikTok που προσφέρει 5,000 δωρεάν ακόλουθους για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή TikTok με μαύρο/κόκκινο θέμα, σωστή επωνυμία και μοντέρνο σχεδιασμό.">
+                   Phishing Tool. Hosts a fake TikTok login page promising '5000 Free Followers'. Captures credentials. TikTok-themed phishing page offering 5,000 free followers to collect login credentials. Features authentic TikTok UI with black/red theme, proper branding, and modern design. Uses follower growth promise and social proof to lure users into entering credentials. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/TikTok Followers" data-gr="~/storage/downloads/TikTok Followers">
+                       ~/storage/downloads/TikTok Followers
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Trust Wallet Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Trust Wallet security verification page. Captures seed phrases and passwords. Shows a fake $85,081 portfolio to trick users. Highly realistic Trust Wallet phishing page designed to capture cryptocurrency wallet credentials. Features authentic Trust Wallet branding, UI, and mobile-responsive design. Targets crypto users with fake security alerts and verification prompts. Extremely dangerous as crypto wallets can contain significant value. Includes real Trust Wallet logos, portfolio simulation, and network status indicators." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα επαλήθευσης ασφαλείας Trust Wallet. Καταγράφει φράσεις αποκατάστασης και κωδικούς πρόσβασης. Εμφανίζει ένα ψεύτικο χαρτοφυλάκιο $85,081 για να εξαπατήσει χρήστες. Πολύ ρεαλιστική σελίδα phishing Trust Wallet σχεδιασμένη για καταγραφή διαπιστευτηρίων κρυπτονομισματικών πορτοφολιών. Διαθέτει αυθεντική επωνυμία Trust Wallet, διεπαφή και σχεδιασμό ανταποκρινόμενο σε κινητά. Στοχεύει χρήστες κρυπτονομισμάτων με ψεύτικες ειδοποιήσεις ασφαλείας και προτροπές επαλήθευσης. Εξαιρετικά επικίνδυνο καθώς τα κρυπτονομισματικά πορτοφόλια μπορεί να περιέχουν σημαντική αξία. Περιλαμβάνει πραγματικά λογότυπα Trust Wallet, προσομοίωση χαρτοφυλακίου και δείκτες κατάστασης δικτύου.">
+                   Phishing Tool. Hosts a fake Trust Wallet security verification page. Captures seed phrases and passwords. Shows a fake $85,081 portfolio to trick users. Highly realistic Trust Wallet phishing page designed to capture cryptocurrency wallet credentials. Features authentic Trust Wallet branding, UI, and mobile-responsive design. Targets crypto users with fake security alerts and verification prompts. Extremely dangerous as crypto wallets can contain significant value. Includes real Trust Wallet logos, portfolio simulation, and network status indicators.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Trust Wallet" data-gr="~/storage/downloads/Trust Wallet">
+                       ~/storage/downloads/Trust Wallet
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Twitch Subs Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Twitch Prime giveaway page promising 5,000 free Bits and 3 month subscription. Captures Twitch credentials. Twitch-themed phishing page offering free in-game currency and subscriptions to collect login credentials. Features authentic Twitch UI with proper branding, colors, and gaming-themed design. Uses urgency (7-minute timer) and high-value streaming rewards to trick users into entering credentials. Targets Twitch streamers and viewers." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Twitch Prime που υπόσχεται 5,000 δωρεάν Bits και 3 μήνες συνδρομή. Καταγράφει διαπιστευτήρια Twitch. Σελίδα phishing με θέμα Twitch που προσφέρει δωρεάν νόμισμα στο παιχνίδι και συνδρομές για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Twitch με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί επείγον (χρονόμετρο 7 λεπτών) και ανταμοιβές streaming υψηλής αξίας για να εξαπατήσει χρήστες να εισάγουν διαπιστευτήρια. Στοχεύει streamers και θεατές Twitch.">
+                   Phishing Tool. Hosts a fake Twitch Prime giveaway page promising 5,000 free Bits and 3 month subscription. Captures Twitch credentials. Twitch-themed phishing page offering free in-game currency and subscriptions to collect login credentials. Features authentic Twitch UI with proper branding, colors, and gaming-themed design. Uses urgency (7-minute timer) and high-value streaming rewards to trick users into entering credentials. Targets Twitch streamers and viewers.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Twitch Subs" data-gr="~/storage/downloads/Twitch Subs">
+                       ~/storage/downloads/Twitch Subs
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Twitter Followers Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Twitter login page promising 5,000 free followers and verified badge. Captures Twitter credentials. Twitter-themed phishing page offering free followers and verification to collect login credentials. Features authentic Twitter UI with proper branding, colors, and social media design. Uses follower growth and verification promise to lure users into entering credentials. Automatically generates public access links via cloudflare tunneling." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα σύνδεσης Twitter που υπόσχεται 5,000 δωρεάν ακόλουθους και βεβαιωμένο σήμα. Καταγράφει διαπιστευτήρια Twitter. Σελίδα phishing με θέμα Twitter που προσφέρει δωρεάν ακόλουθους και επαλήθευση για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Twitter με σωστή επωνυμία, χρώματα και σχεδιασμό κοινωνικών δικτύων. Χρησιμοποιεί την ανάπτυξη ακολούθων και την υπόσχεση επαλήθευσης για να δελεάσει χρήστες να εισάγουν διαπιστευτήρια. Δημιουργεί αυτόματα δημόσιους συνδέσμους πρόσβασης μέσω cloudflare tunneling.">
+                   Phishing Tool. Hosts a fake Twitter login page promising 5,000 free followers and verified badge. Captures Twitter credentials. Twitter-themed phishing page offering free followers and verification to collect login credentials. Features authentic Twitter UI with proper branding, colors, and social media design. Uses follower growth and verification promise to lure users into entering credentials. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Twitter Followers" data-gr="~/storage/downloads/Twitter Followers">
+                       ~/storage/downloads/Twitter Followers
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake What's Up Dude Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake WhatsApp-style login page. Captures credentials. Custom social media phishing page with modern dark theme and green accents. Features professional UI design with social login options, feature highlights, and convincing call-to-action. Uses connection psychology to lure users into entering credentials." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα σύνδεσης στυλ WhatsApp. Καταγράφει διαπιστευτήρια. Προσαρμοσμένη σελίδα phishing κοινωνικών δικτύων με μοντέρνο σκούρο θέμα και πράσινες πινελιές. Διαθέτει επαγγελματικό σχεδιασμό διεπαφής με επιλογές κοινωνικής σύνδεσης, επισημάνσεις χαρακτηριστικών και πειστικές προτροπές δράσης.">
+                   Phishing Tool. Hosts a fake WhatsApp-style login page. Captures credentials. Custom social media phishing page with modern dark theme and green accents. Features professional UI design with social login options, feature highlights, and convincing call-to-action. Uses connection psychology to lure users into entering credentials. Automatically generates public access links via cloudflare tunneling.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/WhatsUp Dude" data-gr="~/storage/downloads/WhatsUp Dude">
+                       ~/storage/downloads/WhatsUpDude
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake Xbox Live Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake Xbox Live giveaway page promising 25,000 free Microsoft Points and 1 year Xbox Game Pass Ultimate. Captures Xbox/Microsoft credentials. Xbox-themed phishing page offering free gaming currency and subscriptions to collect login credentials. Features authentic Xbox UI with proper branding, colors, and gaming-themed design. Uses urgency (30-minute timer) and high-value gaming rewards to trick users into entering credentials. Targets Xbox Series X/S, Xbox One, PC, and Cloud Gaming users." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα giveaway Xbox Live που υπόσχεται 25,000 δωρεάν Microsoft Points και 1 χρόνο Xbox Game Pass Ultimate. Καταγράφει διαπιστευτήρια Xbox/Microsoft. Σελίδα phishing με θέμα Xbox που προσφέρει δωρεάν νόμισμα παιχνιδιού και συνδρομές για συλλογή διαπιστευτηρίων σύνδεσης. Διαθέτει αυθεντική διεπαφή Xbox με σωστή επωνυμία, χρώματα και σχεδιασμό παιχνιδιών. Χρησιμοποιεί επείγον (χρονόμετρο 30 λεπτών) και ανταμοιβές παιχνιδιών υψηλής αξίας για να εξαπατήσει χρήστες να εισάγουν διαπιστευτήρια. Στοχεύει χρήστες Xbox Series X/S, Xbox One, PC και Cloud Gaming.">
+                   Phishing Tool. Hosts a fake Xbox Live giveaway page promising 25,000 free Microsoft Points and 1 year Xbox Game Pass Ultimate. Captures Xbox/Microsoft credentials. Xbox-themed phishing page offering free gaming currency and subscriptions to collect login credentials. Features authentic Xbox UI with proper branding, colors, and gaming-themed design. Uses urgency (30-minute timer) and high-value gaming rewards to trick users into entering credentials. Targets Xbox Series X/S, Xbox One, PC, and Cloud Gaming users.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/Xbox Live" data-gr="~/storage/downloads/Xbox Live">
+                       ~/storage/downloads/Xbox Live
+                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Fake YouTube Subscribers Page</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Phishing Tool. Hosts a fake YouTube Creator Boost page promising 10,000 free subscribers. Captures YouTube credentials. YouTube-themed phishing page designed to collect login credentials through a fake subscriber boost offer. Features authentic YouTube UI with proper branding, colors, and professional design. Uses urgency (limited time offer) and high subscriber count to trick users into entering credentials. High-value target as YouTube accounts are often monetized and linked to Google accounts." data-gr="Εργαλείο Phishing. Φιλοξενεί μια ψεύτικη σελίδα YouTube Creator Boost που υπόσχεται 10,000 δωρεάν συνδρομητές. Καταγράφει διαπιστευτήρια YouTube. Σελίδα phishing με θέμα YouTube σχεδιασμένη για συλλογή διαπιστευτηρίων σύνδεσης μέσω ψεύτικης προσφοράς ενίσχυσης συνδρομητών. Διαθέτει αυθεντική διεπαφή YouTube με σωστή επωνυμία, χρώματα και επαγγελματικό σχεδιασμό. Χρησιμοποιεί επείγον (προσφορά περιορισμένου χρόνου) και υψηλό αριθμό συνδρομητών για να εξαπατήσει χρήστες να εισάγουν διαπιστευτήρια. Υψηλής αξίας στόχος καθώς οι λογαριασμοί YouTube συχνά εκμεταλλεύονται και συνδέονται με λογαριασμούς Google.">
+                   Phishing Tool. Hosts a fake YouTube Creator Boost page promising 10,000 free subscribers. Captures YouTube credentials. YouTube-themed phishing page designed to collect login credentials through a fake subscriber boost offer. Features authentic YouTube UI with proper branding, colors, and professional design. Uses urgency (limited time offer) and high subscriber count to trick users into entering credentials. High-value target as YouTube accounts are often monetized and linked to Google accounts.
+                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/YouTube Subscribers" data-gr="~/storage/downloads/YouTube Subscribers">
+                       ~/storage/downloads/YouTube Subscribers
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Mods" data-gr="Τροποποιήσεις">Mods</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Loading Screen Manager</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Customizes your Termux startup with ASCII art loading screens. Customizable ASCII art loading screen system for Termux startup. Features automatic installation, custom art support, adjustable delay timers, and seamless integration with Termux bash configuration. Includes automatic cleanup to ensure one-time display and global bashrc patching for delayed script execution." data-gr="Προσαρμόζει την εκκίνηση του Termux σας με οθόνες φόρτωσης ASCII art. Προσαρμόσιμο σύστημα οθόνης φόρτωσης ASCII art για εκκίνηση Termux. Χαρακτηριστικά περιλαμβάνουν αυτόματη εγκατάσταση, υποστήριξη προσαρμοσμένης τέχνης, ρυθμιζόμενους χρονοδιακόπτες καθυστέρησης και απρόσκοπτη ενσωμάτωση με τη διαμόρφωση bash του Termux.">
+                                   Customizes your Termux startup with ASCII art loading screens. Customizable ASCII art loading screen system for Termux startup. Features automatic installation, custom art support, adjustable delay timers, and seamless integration with Termux bash configuration. Includes automatic cleanup to ensure one-time display and global bashrc patching for delayed script execution.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Modifies `.bash_profile` and `bash.bashrc`." data-gr="Τροποποιεί `.bash_profile` και `bash.bashrc`.">
+                                       Modifies `.bash_profile` and `bash.bashrc`.
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Masker</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="URL Masker. Turns long phishing links into unsuspicious ones like 'VerifyAccount-Secure'. Advanced URL masking tool that shortens URLs using is.gd with custom aliases and falls back to cleanuri.com. Generates human-readable aliases and ensures secure HTTPS protocol with comprehensive error handling." data-gr="Αποκρυπτής URL. Μετατρέπει τους μεγάλους phishing συνδέσμους σε μη ύποπτους όπως 'VerifyAccount-Secure'. Προηγμένο εργαλείο απόκρυψης URL που συντομεύει URLs χρησιμοποιώντας το is.gd με προσαρμοσμένα ψευδώνυμα και επιστρέφει στο cleanuri.com. Δημιουργεί αναγνώσιμα ψευδώνυμα και εξασφαλίζει ασφαλή πρωτόκολλο HTTPS.">
+                                   URL Masker. Turns long phishing links into unsuspicious ones like 'VerifyAccount-Secure'. Advanced URL masking tool that shortens URLs using is.gd with custom aliases and falls back to cleanuri.com. Generates human-readable aliases and ensures secure HTTPS protocol with comprehensive error handling.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="N/A (Output to screen)." data-gr="Δ/Υ (Έξοδος στην οθόνη).">
+                                       N/A (Output to screen).
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Password Master</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Comprehensive password management suite featuring encrypted vault storage, password generation, strength analysis, and improvement tools. Includes AES-256 encrypted vault with master password protection, random password generator, passphrase generator, password strength analyzer, and password improvement suggestions. Features clipboard integration." data-gr="Ολοκληρωμένο σύνολο διαχείρισης κωδικών πρόσβασης με κρυπτογραφημένη αποθήκευση θησαυροφυλακίου, δημιουργία κωδικών, ανάλυση ισχύος και εργαλεία βελτίωσης. Περιλαμβάνει AES-256 κρυπτογραφημένο θησαυροφυλάκιο με προστασία κύριου κωδικού πρόσβασης, γεννήτρια τυχαίων κωδικών, γεννήτρια φράσεων πρόσβασης, αναλυτή ισχύος κωδικού και προτάσεις βελτίωσης κωδικών.">
+                                   Comprehensive password management suite featuring encrypted vault storage, password generation, strength analysis, and improvement tools. Includes AES-256 encrypted vault with master password protection, random password generator, passphrase generator, password strength analyzer, and password improvement suggestions. Features clipboard integration for easy copying and secure password storage.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Vault file: my_vault.enc in script directory | Backups: ~/Download/Password Master Backup" data-gr="Αρχείο θησαυροφυλακίου: my_vault.enc | Αντίγραφα ασφαλείας: ~/Download/Password Master Backup">
+                                       Vault file: my_vault.enc in script directory | Backups: ~/Downloads/Password Master Backup/
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Games" data-gr="Παιχνίδια">Games</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Tamagotchi</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A fully featured terminal pet game. Feed, play, clean, and train your pet. Don't let it die. Advanced virtual pet simulation game with comprehensive pet management system. Features include pet evolution through life stages (Egg, Child, Teen, Adult, Elder), personality traits, skill development, mini-games, job system, and legacy retirement. Includes detailed statistics tracking." data-gr="Ένα πλήρως χαρακτηριστικό παιχνίδι κατοικίδιου terminal. Τρέφετε, παίζετε, καθαρίζετε και εκπαιδεύετε το κατοικίδιό σας. Μην το αφήσετε να πεθάνει. Προηγμένο παιχνίδι προσομοίωσης εικονικού κατοικίδιου με ολοκληρωμένο σύστημα διαχείρισης. Χαρακτηριστικά περιλαμβάνουν εξέλιξη κατοικίδιου μέσα από στάδια ζωής, χαρακτηριστικά προσωπικότητας, ανάπτυξη δεξιοτήτων, μίνι παιχνίδια, σύστημα εργασίας και συνταξιοδότηση κληρονομιάς.">
+                                   A fully featured terminal pet game. Feed, play, clean, and train your pet. Don't let it die. Advanced virtual pet simulation game with comprehensive pet management system. Features include pet evolution through life stages (Egg, Child, Teen, Adult, Elder), personality traits, skill development, mini-games, job system, and legacy retirement. Includes detailed statistics tracking, inventory management, and permanent upgrades through stardust system.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/.termux_tamagotchi_v8.json" data-gr="~/.termux_tamagotchi_v8.json">
+                                       ~/.termux_tamagotchi_v8.json
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Other Tools" data-gr="Άλλα Εργαλεία">Other Tools</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Android App Launcher</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A utility to manage Android apps directly from the terminal. It can launch apps, extract APK files, uninstall apps, and analyze security permissions. Advanced Android application management and security analysis tool. Features include app launching, APK extraction, permission inspection, security analysis, and tracker detection. Includes comprehensive security reporting for installed applications." data-gr="Βοηθητικό πρόγραμμα για διαχείριση εφαρμογών Android απευθείας από το terminal. Μπορεί να εκκινήσει εφαρμογές, να εξάγει αρχεία APK, να απεγκαταστήσει εφαρμογές και να αναλύσει δικαιώματα ασφαλείας. Προηγμένο εργαλείο διαχείρισης εφαρμογών Android και ανάλυσης ασφαλείας.">
+                                   A utility to manage Android apps directly from the terminal. It can launch apps, extract APK files, uninstall apps, and analyze security permissions. Advanced Android application management and security analysis tool. Features include app launching, APK extraction, permission inspection, security analysis, and tracker detection. Includes comprehensive security reporting for installed applications.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Extracted APKs: ~/storage/shared/Download/Extracted APK's | Reports: ~/storage/shared/Download/App_Security_Reports" data-gr="Εξαγόμενα APK: ~/storage/shared/Download/Extracted APK's | Αναφορές: ~/storage/shared/Download/App_Security_Reports">
+                                       Extracted APKs: ~/storage/shared/Download/Extracted APK's | Reports: ~/storage/shared/Download/App_Security_Reports
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">File Converter</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A powerful file converter supporting 40+ formats. Organizes Downloads. Advanced interactive file converter for Termux using curses interface. Supports 40 different file formats across images, documents, audio, video, and archives. Features automatic dependency installation, organized folder structure, and comprehensive conversion capabilities." data-gr="Ένας ισχυρός μετατροπέας αρχείων που υποστηρίζει 40+ μορφές. Οργανώνει τις Λήψεις. Προηγμένος διαδραστικός μετατροπέας αρχείων για Termux χρησιμοποιώντας διεπαφή curses. Υποστηρίζει 40 διαφορετικές μορφές αρχείων σε εικόνες, έγγραφα, ήχο, βίντεο και αρχεία. Διαθέτει αυτόματη εγκατάσταση εξαρτήσεων, οργανωμένη δομή φακέλων και ολοκληρωμένες δυνατότητες μετατροπής.">
+                                   A powerful file converter supporting 40+ formats. Organizes Downloads. Advanced interactive file converter for Termux using curses interface. Supports 40 different file formats across images, documents, audio, video, and archives. Features automatic dependency installation, organized folder structure, and comprehensive conversion capabilities.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/storage/downloads/File Converter/" data-gr="~/storage/downloads/File Converter/">
+                                       ~/storage/downloads/File Converter/
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">File Type Checker</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Advanced file analysis and security scanner that detects file types, extracts metadata, calculates cryptographic hashes, and identifies potential threats. Features magic byte detection, entropy analysis, steganography detection, virus scanning via VirusTotal API, and automatic quarantine of suspicious files. Supports analysis of files up to 50GB." data-gr="Προηγμένος αναλυτής αρχείων και σαρωτής ασφαλείας που εντοπίζει τύπους αρχείων, εξάγει μεταδεδομένα, υπολογίζει κρυπτογραφικά hashes και αναγνωρίζει πιθανές απειλές. Διαθέτει ανίχνευση magic byte, ανάλυση εντροπίας, ανίχνευση steganography, σάρωση ιών μέσω VirusTotal API και αυτόματη καραντίνα ύποπτων αρχείων.">
+                                   Advanced file analysis and security scanner that detects file types, extracts metadata, calculates cryptographic hashes, and identifies potential threats. Features magic byte detection, entropy analysis, steganography detection, virus scanning via VirusTotal API, and automatic quarantine of suspicious files. Supports analysis of files up to 50GB with intelligent memory management.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Scan folder: ~/Downloads/File Type Checker/ | Quarantined files: .dangerous extension" data-gr="Φάκελος σάρωσης: ~/Downloads/File Type Checker/ | Αρχεία σε καραντίνα: κατάληξη .dangerous">
+                                       Scan folder: ~/Downloads/File Type Checker/ | Quarantined files: .dangerous extension
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Smart Notes</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Terminal note-taking app with reminders. Advanced note-taking application with reminder functionality, featuring both TUI (Text User Interface) and CLI support. Includes sophisticated reminder system with due dates, automatic command execution, external editor integration, and comprehensive note organization capabilities." data-gr="Εφαρμογή σημειώσεων terminal με υπενθυμίσεις. Προηγμένη εφαρμογή σημειώσεων με λειτουργικότητα υπενθύμισης, που διαθέτει τόσο TUI (Διεπαφή Κειμένου) όσο και υποστήριξη CLI. Περιλαμβάνει εξελιγμένο σύστημα υπενθυμίσεων με ημερομηνίες λήξης, αυτόματη εκτέλεση εντολών, ενσωμάτωση εξωτερικού επεξεργαστή και ολοκληρωμένες δυνατότητες οργάνωσης σημειώσεων.">
+                                   Terminal note-taking app with reminders. Advanced note-taking application with reminder functionality, featuring both TUI (Text User Interface) and CLI support. Includes sophisticated reminder system with due dates, automatic command execution, external editor integration, and comprehensive note organization capabilities.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="~/.smart_notes.json" data-gr="~/.smart_notes.json">
+                                       ~/.smart_notes.json
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="No Category" data-gr="Χωρίς Κατηγορία">No Category</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Extra Content</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="A simple utility script designed to move the 'Extra Content' folder from the DedSec installation directory to your phone's Downloads folder for easy access. Automatically copies the 'Extra Content' folder from the DedSec directory to the Downloads folder for easy access and management." data-gr="Ένα απλό βοηθητικό σενάριο σχεδιασμένο για να μετακινήσει τον φάκελο 'Extra Content' από τον κατάλογο εγκατάστασης DedSec στο φάκελο Λήψεις του τηλεφώνου σας για εύκολη πρόσβαση. Αντιγράφει αυτόματα τον φάκελο 'Extra Content' από τον κατάλογο DedSec στο φάκελο Λήψεις για εύκολη πρόσβαση και διαχείριση.">
+                                   A simple utility script designed to move the 'Extra Content' folder from the DedSec installation directory to your phone's Downloads folder for easy access. Utility script for managing and extracting extra content in the DedSec toolkit. Automatically copies the 'Extra Content' folder from the DedSec directory to the Downloads folder for easy access and management.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Moves files to: ~/storage/downloads/Extra Content" data-gr="Μετακινεί αρχεία σε: ~/storage/downloads/Extra Content">
+                                       Moves files to: ~/storage/downloads/Extra Content
+                                    </p>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title">Settings</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="The central control hub for the DedSec ecosystem. It manages project updates, dependency installation, and complete uninstallation with backup restoration. Users can customize their experience by changing the terminal prompt, switching system languages (English/Greek), and selecting from three distinct menu navigation styles (List, Grid, or Number). It also displays detailed hardware and system information." data-gr="Ο κεντρικός κόμβος ελέγχου για το οικοσύστημα DedSec. Διαχειρίζεται ενημερώσεις έργου, εγκατάσταση εξαρτήσεων και πλήρη απεγκατάσταση με επαναφορά αντιγράφων ασφαλείας. Οι χρήστες μπορούν να προσαρμόσουν την εμπειρία τους αλλάζοντας την προτροπή τερματικού, αλλάζοντας γλώσσες συστήματος (Αγγλικά/Ελληνικά) και επιλέγοντας από τρία διαφορετικά στυλ πλοήγησης μενού (Λίστα, Πλέγμα ή Αριθμός). Εμφανίζει επίσης λεπτομερείς πληροφορίες υλικού και συστήματος.">
+                                   The central control hub for the DedSec ecosystem. It manages project updates, dependency installation, and complete uninstallation with backup restoration. Users can customize their experience by changing the terminal prompt, switching system languages (English/Greek), and selecting from three distinct menu navigation styles (List, Grid, or Number). It also displays detailed hardware and system information.
+                                </p>
+<div class="tool-save-location">
+<h5 data-en="Save Location" data-gr="Τοποθεσία Αποθήκευσης">Save Location</h5>
+<p data-en="Language Config: ~/Language.json | Backups: ~/Termux.zip" data-gr="Διαμόρφωση Γλώσσας: ~/Language.json | Αντίγραφα Ασφαλείας: ~/Termux.zip">
+                                       Language Config: ~/Language.json | Backups: ~/Termux.zip
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-disclaimer">
+<p><strong data-en="Legal Disclaimer:" data-gr="Νομική Αποποίηση Ευθύνης:">Legal Disclaimer:</strong>
+<span data-en="All tools and information presented here are for educational and ethical research purposes only. Users are responsible for ensuring they have proper authorization before using these tools on any network or system they do not own. Social engineering tools should only be used in authorized penetration testing scenarios with explicit written permission." data-gr="Όλα τα εργαλεία και οι πληροφορίες που παρουσιάζονται εδώ προορίζονται αποκλειστικά για εκπαιδευτικούς και ηθικούς ερευνητικούς σκοπούς. Οι χρήστες είναι υπεύθυνοι για τη διασφάλιση ότι διαθέτουν την κατάλληλη άδεια πριν χρησιμοποιήσουν αυτά τα εργαλεία σε οποιοδήποτε δίκτυο ή σύστημα που δεν τους ανήκει. Τα εργαλεία κοινωνικής μηχανικής πρέπει να χρησιμοποιούνται μόνο σε εξουσιοδοτημένα σενάρια δοκιμής διείσδυσης με ρητή γραπτή άδεια.">
+                         All tools and information presented here are for educational and ethical research purposes only. Users are responsible for ensuring they have proper authorization before using these tools on any network or system they do not own. Social engineering tools should only be used in authorized penetration testing scenarios with explicit written permission.
+                   </span>
+</p>
+</div>
+<footer class="main-footer">
+<p data-lang-section="en">© 2026 DedSec Project. All Rights Reserved.</p>
+<p class="hidden-by-default" data-lang-section="gr">© 2026 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
+
+
+<p>Made by dedsec1121fk.</p>
+</footer>
+</div>
+</div>
+<div class="modal-overlay" id="language-selection-modal">
+<div class="modal-content modal-content-auto-height">
+<div class="modal-header">
+<h2 data-en="Choose Language" data-gr="Επιλογή Γλώσσας">Choose Language / Επιλογή Γλώσσας</h2>
+<button aria-label="Close" class="close-modal">×</button>
+</div>
+<div class="modal-body modal-body-centered">
+<button aria-label="Change language to English" class="language-button" data-lang="en">English</button>
+<button aria-label="Change language to Greek" class="language-button" data-lang="gr">Ελληνικά</button>
+</div>
+</div>
+</div>
+<script defer="" src="../script.js"></script>
+<a href="contact-credits.html" class="float-btn contact" aria-label="Contact">💬</a>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>DedSec Project – Ethical Hacking Toolkit & Services</title>
+<meta content="#07060d" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="Frequently Asked Questions and Troubleshooting guide for DedSec Project. Learn how to fix missing modules and packages in Termux." name="description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&amp;family=Inter:wght@400;600;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<meta content="DedSec Project - Frequently Asked Questions" property="og:title"/><meta content="Frequently Asked Questions and Troubleshooting guide for DedSec Project. Learn how to fix missing modules and packages in Termux." property="og:description"/>
+<meta content="../Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="DedSec Project purple butterfly logo" property="og:image:alt"/>
+<meta content="../Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+<meta content="website" property="og:type"/><meta content="https://ded-sec.space/Pages/faq.html" property="og:url"/><meta content="DedSec Project" property="og:site_name"/><meta content="summary_large_image" name="twitter:card"/><meta content="DedSec Project - Frequently Asked Questions" name="twitter:title"/><meta content="Frequently Asked Questions and Troubleshooting guide for DedSec Project. Learn how to fix missing modules and packages in Termux." name="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://ded-sec.space/#organization", "name": "DedSec Project", "url": "https://ded-sec.space/", "logo": "https://ded-sec.space/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg", "sameAs": ["https://github.com/dedsec1121fk/DedSec"]}, {"@type": "WebSite", "@id": "https://ded-sec.space/#website", "url": "https://ded-sec.space/", "name": "DedSec Project", "publisher": {"@id": "https://ded-sec.space/#organization"}, "potentialAction": {"@type": "SearchAction", "target": "https://ded-sec.space/?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "WebPage", "@id": "https://ded-sec.space/Pages/faq.html#webpage", "url": "https://ded-sec.space/Pages/faq.html", "name": "DedSec Project - Frequently Asked Questions", "isPartOf": {"@id": "https://ded-sec.space/#website"}, "about": {"@id": "https://ded-sec.space/#organization"}}]}</script><link href="https://ded-sec.space/Pages/faq.html" rel="canonical"/>
+</head>
+<body class="dark-theme">
+<nav class="main-nav">
+<div class="nav-container">
+<div class="nav-title">
+<h1>DedSec Project</h1>
+</div>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<div class="nav-menu" id="nav-menu">
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../index.html">Home</a>
+<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία" href="learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link active" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="faq.html">Frequently Asked Questions</a>
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="store.html">Store</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="nav-actions">
+<button class="nav-action-btn" id="nav-theme-switcher">
+<i class="fas fa-moon"></i>
+<span data-en="Theme" data-gr="Θέμα">Theme</span>
+</button>
+<button class="nav-action-btn" id="nav-lang-switcher">
+<i class="fas fa-globe"></i>
+<span data-en="Language" data-gr="Γλώσσα">Language</span>
+</button>
+</div>
+</div>
+</nav>
+<div class="page-content">
+<div class="page-header">
+<h1 data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις">Frequently Asked Questions</h1>
+<p data-en="Solutions to common Termux issues, missing modules, and general inquiries." data-gr="Λύσεις σε κοινά προβλήματα του Termux, ελλείποντα πακέτα και γενικές ερωτήσεις.">
+               Solutions to common Termux issues, missing modules, and general inquiries.
+            </p>
+</div>
+<div id="faq-container">
+<div class="category">
+<div class="category-header">
+<h3 data-en="Termux Troubleshooting &amp; Errors" data-gr="Αντιμετώπιση Προβλημάτων Termux">Termux Troubleshooting &amp; Errors</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="ModuleNotFoundError: No module named 'x'" data-gr="Σφάλμα: No module named 'x'">ModuleNotFoundError: No module named 'x'</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="This happens when a required Python library is missing. You need to install it manually using pip." data-gr="Αυτό συμβαίνει όταν λείπει μια απαιτούμενη βιβλιοθήκη Python. Πρέπει να την εγκαταστήσετε χειροκίνητα χρησιμοποιώντας το pip.">
+                               This happens when a required Python library is missing. You need to install it manually using pip.
+                            </p>
+<div class="note-warning">
+<strong data-en="Solution:" data-gr="Λύση:">Solution:</strong>
+<br/>
+<span data-en="Run the following command, replacing 'module_name' with the name from the error:" data-gr="Εκτελέστε την παρακάτω εντολή, αντικαθιστώντας το 'module_name' με το όνομα από το σφάλμα:">
+                                      Run the following command, replacing 'module_name' with the name from the error:
+                                </span>
+</div>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-pip')">Copy</button>
+<code id="code-pip">pip install module_name</code>
+</div>
+<p data-en="Common missing modules examples:" data-gr="Συνηθισμένα παραδείγματα:">Common missing modules examples:</p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-pip-examples')">Copy</button>
+<code id="code-pip-examples">pip install requests colorama bs4</code>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Command Not Found / Package Missing" data-gr="Εντολή Δεν Βρέθηκε / Λείπει Πακέτο">Command Not Found / Package Missing</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="If you see 'command not found' (e.g., for git, python, or curl), the package is not installed in Termux." data-gr="Αν δείτε 'command not found' (π.χ. για git, python, ή curl), το πακέτο δεν είναι εγκατεστημένο στο Termux.">
+                               If you see 'command not found' (e.g., for git, python, or curl), the package is not installed in Termux.
+                            </p>
+<div class="note">
+<strong data-en="Step 1: Update Repositories" data-gr="Βήμα 1: Ενημέρωση Αποθετηρίων">Step 1: Update Repositories</strong>
+</div>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-update')">Copy</button>
+<code id="code-update">pkg update &amp;&amp; pkg upgrade -y</code>
+</div>
+<div class="note">
+<strong data-en="Step 2: Install the missing package" data-gr="Βήμα 2: Εγκατάσταση πακέτου">Step 2: Install the missing package</strong>
+</div>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-pkg')">Copy</button>
+<code id="code-pkg">pkg install python git curl</code>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="I keep getting 'Missing Package' errors. How do I fix them all?" data-gr="Λαμβάνω σφάλματα 'Missing Package'. Πώς τα διορθώνω όλα;">I keep getting 'Missing Package' errors. How do I fix them all?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Instead of installing packages one by one, you can use the built-in 'Update Packages' feature in Settings. This installs all necessary Python and Termux dependencies automatically." data-gr="Αντί να εγκαθιστάτε πακέτα ένα προς ένα, μπορείτε να χρησιμοποιήσετε την ενσωματωμένη λειτουργία 'Update Packages' στις Ρυθμίσεις. Αυτό εγκαθιστά αυτόματα όλες τις απαραίτητες εξαρτήσεις.">
+                               Instead of installing packages one by one, you can use the built-in 'Update Packages' feature in Settings. This installs all necessary Python and Termux dependencies automatically.
+                            </p>
+<div class="note">
+<strong data-en="Step 1: Open Settings" data-gr="Βήμα 1: Άνοιγμα Ρυθμίσεων">Step 1: Open Settings</strong>
+</div>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-settings')">Copy</button>
+<code id="code-settings">python3 Settings.py</code>
+</div>
+<div class="note">
+<strong data-en="Step 2: Select Option 3" data-gr="Βήμα 2: Επιλέξτε την Επιλογή 3">Step 2: Select Option 3</strong>
+<br/>
+<span data-en="Choose 'Update Packages &amp; Modules' from the menu. It will install ffmpeg, clang, flask, and everything else needed." data-gr="Επιλέξτε 'Update Packages &amp; Modules' από το μενού. Θα εγκαταστήσει ffmpeg, clang, flask και ό,τι άλλο χρειάζεται.">
+                                      Choose 'Update Packages &amp; Modules' from the menu. It will install ffmpeg, clang, flask, and everything else needed.
+                                </span>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="The 'Update Packages' process is stuck/frozen" data-gr="Η διαδικασία 'Update Packages' κόλλησε/πάγωσε">The 'Update Packages' process is stuck/frozen</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Sometimes the script successfully updates modules, but the loading animation freezes. If the update takes more than 15 minutes, the installation is likely done, but the interface has hung." data-gr="Μερικές φορές το σενάριο ενημερώνει επιτυχώς τα modules, αλλά η κίνηση φόρτωσης παγώνει. Εάν η ενημέρωση διαρκέσει πάνω από 15 λεπτά, η εγκατάσταση έχει πιθανότατα ολοκληρωθεί αλλά η διεπαφή έχει κολλήσει.">
+                               Sometimes the script successfully updates modules, but the loading animation freezes. If the update takes more than 15 minutes, the installation is likely done, but the interface has hung.
+                            </p>
+<div class="note-warning">
+<strong data-en="Solution:" data-gr="Λύση:">Solution:</strong>
+<br/>
+<span data-en="You can safely force close the program using the shortcut below. This will not break the installation." data-gr="Μπορείτε να κλείσετε αναγκαστικά το πρόγραμμα με ασφάλεια χρησιμοποιώντας την παρακάτω συντόμευση.">
+                                      You can safely force close the program using the shortcut below. This will not break the installation.
+                                </span>
+</div>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-force-quit')">Copy</button>
+<code id="code-force-quit">CTRL + C</code>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Permission Denied / Storage Issues" data-gr="Άρνηση Πρόσβασης / Θέματα Αποθήκευσης">Permission Denied / Storage Issues</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="If scripts cannot save files or you get 'Permission Denied', Termux needs storage access. Run this command to request it from Android." data-gr="Εάν τα σενάρια δεν μπορούν να αποθηκεύσουν αρχεία ή λαμβάνετε 'Permission Denied', το Termux χρειάζεται πρόσβαση αποθήκευσης. Εκτελέστε αυτήν την εντολή για να το ζητήσετε από το Android.">
+                               If scripts cannot save files or you get 'Permission Denied', Termux needs storage access. Run this command to request it from Android.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-storage')">Copy</button>
+<code id="code-storage">termux-setup-storage</code>
+</div>
+<p data-en="After running this, click 'Allow' on the Android popup." data-gr="Μετά την εκτέλεση, πατήστε 'Allow' στο αναδυόμενο παράθυρο του Android.">
+                               After running this, click 'Allow' on the Android popup.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Fix Broken Packages (dpkg error)" data-gr="Διόρθωση Κατεστραμμένων Πακέτων">Fix Broken Packages (dpkg error)</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="If installations fail with repository errors or dpkg interruptions, try this command to fix the package manager." data-gr="Εάν οι εγκαταστάσεις αποτυγχάνουν με σφάλματα, δοκιμάστε αυτήν την εντολή για να διορθώσετε τον διαχειριστή πακέτων.">
+                               If installations fail with repository errors or dpkg interruptions, try this command to fix the package manager.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-fix')">Copy</button>
+<code id="code-fix">apt --fix-broken install</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Termux Pro Tips &amp; Tricks" data-gr="Termux Pro Συμβουλές &amp; Κόλπα">Termux Pro Tips &amp; Tricks</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="How to keep Termux running in the background?" data-gr="Πώς να κρατήσω το Termux ανοιχτό στο παρασκήνιο;">How to keep Termux running in the background?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="If Termux closes or stops your attacks when you turn off the screen, you need to acquire a Wake Lock. This prevents Android from killing the process." data-gr="Εάν το Termux κλείνει ή σταματά τις επιθέσεις όταν σβήνετε την οθόνη, πρέπει να ενεργοποιήσετε το Wake Lock. Αυτό εμποδίζει το Android να τερματίσει τη διαδικασία.">
+                               If Termux closes or stops your attacks when you turn off the screen, you need to acquire a Wake Lock. This prevents Android from killing the process.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-wakelock')">Copy</button>
+<code id="code-wakelock">termux-wake-lock</code>
+</div>
+<p data-en="To disable it, simply run: termux-wake-unlock" data-gr="Για απενεργοποίηση, τρέξτε: termux-wake-unlock">
+                               To disable it, simply run: termux-wake-unlock
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Download Speed is too slow / Repository Errors" data-gr="Αργή ταχύτητα λήψης / Σφάλματα Repositories">Download Speed is too slow / Repository Errors</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="If packages are downloading very slowly or failing, try changing your repository mirror to a faster one." data-gr="Εάν τα πακέτα κατεβαίνουν πολύ αργά ή αποτυγχάνουν, δοκιμάστε να αλλάξετε το mirror του αποθετηρίου σε ένα πιο γρήγορο.">
+                               If packages are downloading very slowly or failing, try changing your repository mirror to a faster one.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-repo-change')">Copy</button>
+<code id="code-repo-change">termux-change-repo</code>
+</div>
+<p data-en="Select all three options using spacebar, then press enter and choose 'Grimler' or 'Mirrors.bfsu'." data-gr="Επιλέξτε και τις τρεις επιλογές, πατήστε enter και επιλέξτε 'Grimler' ή 'Mirrors.bfsu'.">
+                               Select all three options using spacebar, then press enter and choose 'Grimler' or 'Mirrors.bfsu'.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="How to clear cache &amp; save space?" data-gr="Πώς να καθαρίσω την cache και να εξοικονομήσω χώρο;">How to clear cache &amp; save space?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Over time, downloaded package files take up space. You can safely remove them without uninstalling your tools." data-gr="Με τον καιρό, τα αρχεία πακέτων πιάνουν χώρο. Μπορείτε να τα αφαιρέσετε με ασφάλεια χωρίς να απεγκαταστήσετε τα εργαλεία σας.">
+                               Over time, downloaded package files take up space. You can safely remove them without uninstalling your tools.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-clean')">Copy</button>
+<code id="code-clean">apt clean &amp;&amp; apt autoclean</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="General Questions" data-gr="Γενικές Ερωτήσεις">General Questions</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="How do I change the menu style (List/Grid/Number)?" data-gr="Πώς αλλάζω το στυλ μενού (Λίστα/Πλέγμα/Αριθμοί);">How do I change the menu style (List/Grid/Number)?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="DedSec Project supports 3 menu styles. If the 'Grid' style looks broken on your screen, you can switch to 'List' or 'Number' mode via Settings." data-gr="Το DedSec Project υποστηρίζει 3 στυλ μενού. Εάν το στυλ 'Grid' φαίνεται χαλασμένο στην οθόνη σας, μπορείτε να αλλάξειτε σε 'List' ή 'Number' μέσω των Ρυθμίσεων.">
+                               DedSec Project supports 3 menu styles. If the 'Grid' style looks broken on your screen, you can switch to 'List' or 'Number' mode via Settings.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-menu-style')">Copy</button>
+<code id="code-menu-style">python3 Settings.py --menu list</code>
+</div>
+<p data-en="Or simply run Settings.py and select option 5 'Change Menu Style'." data-gr="Ή απλώς εκτελέστε το Settings.py και επιλέξτε την επιλογή 5 'Change Menu Style'.">
+                               Or simply run Settings.py and select option 5 'Change Menu Style'.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="How do I uninstall DedSec Project safely?" data-gr="Πώς να απεγκαταστήσω το DedSec Project με ασφάλεια;">How do I uninstall DedSec Project safely?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<div class="note-warning">
+<strong data-en="Do not just delete the folder!" data-gr="Μην διαγράψετε απλώς τον φάκελο!">Do not just delete the folder!</strong>
+</div>
+<p data-en="DedSec modifies your terminal startup files. To uninstall correctly and restore your original settings, use the uninstall option found in Settings." data-gr="Το DedSec τροποποιεί τα αρχεία εκκίνησης του τερμιναλ. Για σωστή απεγκατάσταση και επαναφορά των ρυθμίσεών σας, χρησιμοποιήστε την επιλογή απεγκατάστασης στις Ρυθμίσεις.">
+                               DedSec modifies your terminal startup files. To uninstall correctly and restore your original settings, use the uninstall option found in Settings.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-uninstall')">Copy</button>
+<code id="code-uninstall">python3 Settings.py</code>
+</div>
+<p data-en="Select option 8: 'Uninstall DedSec Project'. This will restore your original bash.bashrc and remove the project." data-gr="Επιλέξτε την επιλογή 8: 'Uninstall DedSec Project'. Αυτό θα επαναφέρει το αρχικό σας bash.bashrc και θα αφαιρέσει το έργο.">
+                               Select option 8: 'Uninstall DedSec Project'. This will restore your original bash.bashrc and remove the project.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Do I need a Rooted device?" data-gr="Χρειάζομαι Root συσκευή;">Do I need a Rooted device?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="No. 95% of the tools in DedSec Project are designed to work without Root. However, some advanced features (like WiFi hacking with Aircrack-ng) may require Root or an external adapter, but the core toolkit is Root-free." data-gr="Όχι. Το 95% των εργαλείων στο DedSec Project έχει σχεδιαστεί για να λειτουργεί χωρίς Root. Ωστόσο, ορισμένες προηγμένες λειτουργίες ενδέχεται να απαιτούν Root, αλλά η βασική εργαλειοθήκη είναι χωρίς Root.">
+                               No. 95% of the tools in DedSec Project are designed to work without Root. However, some advanced features (like WiFi hacking with Aircrack-ng) may require Root or an external adapter, but the core toolkit is Root-free.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="How do I update the toolkit?" data-gr="Πώς ενημερώνω την εργαλειοθήκη;">How do I update the toolkit?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="To update the toolkit to the latest version, simply run the installation command again, or navigate to the folder and pull the changes from GitHub." data-gr="Για να ενημερώσετε την εργαλειοθήκη, απλώς εκτελέστε ξανά την εντολή εγκατάστασης ή τραβήξτε τις αλλαγές από το GitHub.">
+                               To update the toolkit to the latest version, simply run the installation command again, or navigate to the folder and pull the changes from GitHub.
+                            </p>
+<div class="code-container">
+<button class="copy-btn" onclick="copyToClipboard(this, 'code-git-pull')">Copy</button>
+<code id="code-git-pull">cd DedSec &amp;&amp; git pull</code>
+</div>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Are these tools safe?" data-gr="Είναι ασφαλή αυτά τα εργαλεία;">Are these tools safe?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="The code is open source, meaning you can read every line before running it. We do not include malware. However, your Antivirus might flag them as 'HackTools' because they are designed for penetration testing. Use them responsibly." data-gr="Ο κώδικας είναι ανοιχτός, που σημαίνει ότι μπορείτε να διαβάσετε κάθε γραμμή. Δεν συμπεριλαμβάνουμε κακόβουλο λογισμικό. Ωστόσο, το Antivirus σας μπορεί να τα επισημάνει ως 'HackTools' επειδή έχουν σχεδιαστεί για penetration testing.">
+                               The code is open source, meaning you can read every line before running it. We do not include malware. However, your Antivirus might flag them as 'HackTools' because they are designed for penetration testing. Use them responsibly.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Why DedSec Project is helping you for free?" data-gr="Γιατί το DedSec Project σας βοηθάει δωρεάν;">Why DedSec Project is helping you for free?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="Because we know freedom is a human right and not something to buy." data-gr="Επειδή γνωρίζουμε ότι η ελευθερία είναι ανθρώπινο δικαίωμα και όχι κάτι που πρέπει να αγοραστεί.">
+                               Because we know freedom is a human right and not something to buy.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="I'm not a hacker why I would want to use the project?" data-gr="Δεν είμαι χάκερ, γιατί να θέλω να χρησιμοποιήσω το έργο;">I'm not a hacker why I would want to use the project?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="You may not be a hacker, but you would like to keep your personal life private." data-gr="Μπορεί να μην είστε χάκερ, αλλά θα θέλατε να κρατήσετε την προσωπική σας ζωή ιδιωτική.">
+                               You may not be a hacker, but you would like to keep your personal life private.
+                            </p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="Internet connects everyone to everything, providing the government with all the information about your interests and habits, of course unknowingly to you that concerned, you know this right?" data-gr="Το διαδίκτυο συνδέει τον καθένα με τα πάντα, παρέχοντας στην κυβέρνηση όλες τις πληροφορίες για τα ενδιαφέροντα και τις συνήθειές σας, φυσικά χωρίς να το γνωρίζετε, το γνωρίζετε αυτό;">Internet connects everyone to everything, providing the government with all the information about your interests and habits, of course unknowingly to you that concerned, you know this right?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="You are now less valuable than the data you produce." data-gr="Είστε τώρα λιγότερο πολύτιμοι από τα δεδομένα που παράγετε.">
+                               You are now less valuable than the data you produce.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+<div class="category">
+<div class="category-header">
+<h3 data-en="Community, Support &amp; Issues" data-gr="Κοινότητα, Υποστήριξη &amp; Προβλήματα">Community, Support &amp; Issues</h3>
+<i class="fas fa-chevron-down toggle-icon"></i>
+</div>
+<div class="tools-list">
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="I found a bug. How do I report it?" data-gr="Βρήκα ένα σφάλμα. Πώς το αναφέρω;">I found a bug. How do I report it?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="If you encounter any issues or errors that are not solved in this FAQ, please open an Issue on our GitHub repository. We actively check for bug reports." data-gr="Εάν αντιμετωπίσετε προβλήματα που δεν λύνονται σε αυτές τις Συχνές Ερωτήσεις, ανοίξτε ένα Issue στο GitHub. Ελέγχουμε ενεργά για αναφορές σφαλμάτων.">
+                               If you encounter any issues or errors that are not solved in this FAQ, please open an Issue on our GitHub repository. We actively check for bug reports.
+                            </p>
+<p>
+<button class="nm-btn faq-link-btn" data-en="Open GitHub Issues" data-gr="Άνοιγμα GitHub Issues" onclick="window.open('https://github.com/dedsec1121fk/DedSec/issues', '_blank')">
+<i class="fab fa-github"></i> <span data-en="Open GitHub Issues" data-gr="Άνοιγμα GitHub Issues">Open GitHub Issues</span>
+</button>
+</p>
+</div>
+</div>
+<div class="tool-item">
+<div class="tool-header">
+<h4 class="tool-title" data-en="How can I support the project?" data-gr="Πώς μπορώ να υποστηρίξω το έργο;">How can I support the project?</h4>
+<i class="fas fa-chevron-down tool-expand-icon"></i>
+</div>
+<div class="tool-description">
+<p data-en="DedSec Project is free and open source. If you like our work, you can support us in the following ways:" data-gr="Το DedSec Project είναι δωρεάν και ανοιχτού κώδικα. Αν σας αρέσει η δουλειά μας, μπορείτε να μας υποστηρίξετε με τους εξής τρόπους:">
+                               DedSec Project is free and open source. If you like our work, you can support us in the following ways:
+                            </p>
+<div class="faq-buttons-container">
+<div class="faq-button-group">
+<strong data-en="Star the Repository:" data-gr="Δώστε Star στο Repo:">Star the Repository:</strong><br/>
+<span data-en="Give us a star on GitHub to help us grow!" data-gr="Δώστε μας ένα αστέρι στο GitHub για να μας βοηθήσετε να μεγαλώσουμε!">Give us a star on GitHub to help us grow!</span><br/>
+<button class="nm-btn faq-link-btn" data-en="DedSec Repository" data-gr="DedSec Repository" onclick="window.open('https://github.com/dedsec1121fk/DedSec', '_blank')">
+<i class="fab fa-github"></i> <span data-en="DedSec Repository" data-gr="DedSec Repository">DedSec Repository</span>
+</button>
+</div>
+<div class="faq-button-group">
+<strong data-en="Follow the Developer:" data-gr="Ακολουθήστε τον Developer:">Follow the Developer:</strong><br/>
+<span data-en="Follow dedsec1121fk for updates and new tools." data-gr="Ακολουθήστε τον dedsec1121fk για ενημερώσεις.">Follow dedsec1121fk for updates and new tools.</span><br/>
+<button class="nm-btn faq-link-btn" data-en="@dedsec1121fk" data-gr="@dedsec1121fk" onclick="window.open('https://github.com/dedsec1121fk', '_blank')">
+<i class="fas fa-user-secret"></i> <span data-en="@dedsec1121fk" data-gr="@dedsec1121fk">@dedsec1121fk</span>
+</button>
+</div>
+<div class="faq-button-group">
+<strong data-en="Sponsor the Project:" data-gr="Χορηγία (Sponsor):">Sponsor the Project:</strong><br/>
+<span data-en="If you want to contribute financially, you can sponsor us via GitHub Sponsors." data-gr="Αν θέλετε να συνεισφέρετε οικονομικά, μπορείτε να μας κάνετε χορηγία μέσω GitHub Sponsors.">
+                                          If you want to contribute financially, you can sponsor us via GitHub Sponsors.
+                                    </span><br/>
+<button class="nm-btn faq-link-btn" data-en="GitHub Sponsors" data-gr="GitHub Sponsors" onclick="window.open('https://github.com/sponsors/dedsec1121fk', '_blank')">
+<i class="fas fa-heart"></i> <span data-en="GitHub Sponsors" data-gr="GitHub Sponsors">GitHub Sponsors</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="contact-cta">
+<button class="contact-page-btn" onclick="window.location.href='contact-credits.html'">
+<span data-en="Still need help? Contact Us" data-gr="Χρειάζεστε ακόμα βοήθεια; Επικοινωνία">Still need help? Contact Us</span>
+</button>
+</div>
+</div>
+<footer class="main-footer">
+<p data-lang-section="en">© 2026 DedSec Project. All Rights Reserved.</p>
+<p class="hidden-by-default" data-lang-section="gr">© 2026 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
+<p data-lang-section="en" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Trademark Disclaimer: The "DedSec" name and logo are inspired by the "Watch Dogs" series and are used for thematic purposes only.</p>
+<p class="hidden-by-default" data-lang-section="gr" style="font-size: 0.7em; opacity: 0.7; margin-top: 10px;">Αποποίηση Ευθύνης Εμπορικού Σήματος: Το όνομα και το λογότυπο "DedSec" είναι εμπνευσμένα από τη σειρά "Watch Dogs".</p>
+<p>Made by dedsec1121fk.</p>
+</footer>
+<div class="modal-overlay" id="disclaimer-modal">
+<div class="modal-content">
+<div class="modal-header">
+<h2 data-en="Disclaimer &amp; Terms of Use" data-gr="Αποποίηση Ευθύνης &amp; Όροι Χρήσης">Disclaimer &amp; Terms of Use</h2>
+<button class="language-selection-btn" id="disclaimer-lang-btn">
+<i class="fas fa-globe"></i>
+<span data-en="Change Language" data-gr="Αλλαγή Γλώσσας">Change Language</span>
+</button>
+</div>
+<div class="modal-body" data-lang-section="en">
+<div class="note">
+<p><strong>PLEASE READ CAREFULLY.</strong></p>
+<p>This project is for educational purposes only. You agree that you are solely responsible for your actions.</p>
+</div>
+</div>
+<div class="modal-body hidden-by-default" data-lang-section="gr">
+<div class="note">
+<p><strong>ΠΑΡΑΚΑΛΩ ΔΙΑΒΑΣΤΕ ΠΡΟΣΕΚΤΙΚΑ.</strong></p>
+<p>Αυτό το έργο είναι μόνο για εκπαιδευτικούς σκοπούς. Συμφωνείτε ότι είστε αποκλειστικά υπεύθυνοι για τις ενέργειές σας.</p>
+</div>
+</div>
+<div class="modal-footer disclaimer-footer">
+<button class="decline-btn" data-en="Decline" data-gr="Απόρριψη" id="decline-disclaimer">Decline</button>
+<button class="accept-btn" data-en="Accept" data-gr="Αποδοχή" id="accept-disclaimer">Accept</button>
+</div>
+</div>
+</div>
+<script defer="" src="../script.js"></script>
+<a href="contact-credits.html" class="float-btn contact" aria-label="Contact">💬</a>
+</body>
+</html>
