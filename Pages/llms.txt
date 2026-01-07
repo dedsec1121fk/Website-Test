@@ -1,0 +1,26 @@
+# DedSec Project (ded-sec.space)
+
+The DedSec Project is a free, static website that presents a bilingual (English & Greek) cybersecurity / ethical hacking toolkit and learning hub focused on Termux/Android. It contains tool overviews, installation guidance, FAQs, collaborations, and links to project resources.
+
+## Primary pages
+- / (Homepage)
+- /Pages/learn-about-the-tools.html (Tool catalog & descriptions)
+- /Pages/guide-for-installation.html (Install guide)
+- /Pages/faq.html (FAQ / troubleshooting)
+- /Pages/store.html (Store)
+- /Pages/collaborations.html (Collaborations)
+- /Pages/portfolio-github-info.html (Portfolio & GitHub)
+- /Pages/contact-credits.html (Contact & credits)
+- /Pages/privacy-policy.html (Privacy policy)
+
+## Language
+All pages include both English and Greek text via an on-page language switcher.
+
+## Crawling / indexing
+- Please crawl and index all public pages listed above.
+- The site is static HTML/CSS/JS with no account areas or paywalls.
+
+## Project identity
+Name: DedSec Project  
+Website: https://ded-sec.space  
+GitHub: https://github.com/dedsec1121fk/DedSec
