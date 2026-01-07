@@ -17,7 +17,7 @@
     --nm-container: rgba(18, 18, 30, 0.52);
 
     /* Solid surface for disclaimer banner/modal so it stays readable */
-    --nm-disclaimer-bg: rgba(10, 10, 18, 0.92);
+    --nm-disclaimer-bg: #0a0a12;
 
     /* Neutral button background for actions like "Decline" */
     --nm-neutral-btn-bg: rgba(255, 255, 255, 0.10);
@@ -86,7 +86,7 @@ body.light-theme {
     --nm-container: rgba(255, 255, 255, 0.62);
 
     /* Solid surface for disclaimer banner/modal so it stays readable */
-    --nm-disclaimer-bg: rgba(255, 255, 255, 0.94);
+    --nm-disclaimer-bg: #ffffff;
 
     /* Neutral button background for actions like "Decline" */
     --nm-neutral-btn-bg: rgba(0, 0, 0, 0.06);
@@ -199,7 +199,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg');
+    background-image: url('Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -211,7 +211,7 @@ body::before {
 
 
 body.light-theme::before {
-    background-image: url('/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg');
+    background-image: url('Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg');
     opacity: 0.10;
 }
 
@@ -1055,7 +1055,8 @@ border: 1px solid var(--nm-border);
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    /* Solid background (no transparency) for disclaimer/modal overlay */
+    background: #000000;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     display: flex;
@@ -1068,7 +1069,7 @@ border: 1px solid var(--nm-border);
 }
 
 body.light-theme .modal-overlay {
-    background: rgba(255, 255, 255, 0.9);
+    background: #ffffff;
 }
 
 .modal-overlay.visible {
@@ -1094,6 +1095,25 @@ body.light-theme .modal-overlay {
     transform: translateY(20px) scale(0.95);
     transition: transform 0.4s var(--ease-out-back), opacity 0.4s var(--ease-in-out-quad);
     will-change: transform, opacity;
+}
+
+/* Disclaimer modal: force solid surfaces (no transparency) */
+#disclaimer-modal .modal-content {
+    background: var(--nm-disclaimer-bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+#disclaimer-modal .note,
+#disclaimer-modal .privacy-policy-embed {
+    background: var(--nm-menu-solid);
+}
+
+#disclaimer-modal .privacy-policy-embed {
+    border: 1px solid var(--nm-border);
+    border-radius: var(--radius-lg);
+    padding: 0.8rem;
+    margin: 15px 0;
 }
 
 .modal-content-auto-height {
@@ -2640,7 +2660,7 @@ body.light-theme .search-input {
 .hero-title {
     margin: 0 0 10px 0;
     font-family: var(--font-secondary);
-    font-size: clamp(1.9rem, 4vw, 3.2rem);
+    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
     letter-spacing: 0.5px;
 }
 
@@ -2661,6 +2681,13 @@ body.light-theme .search-input {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 14px;
+}
+
+.cta-note{
+    margin: 10px 0 0 0;
+    font-size: 0.92rem;
+    color: var(--nm-text-muted);
+    text-align: center;
 }
 
 .btn {
@@ -2686,8 +2713,9 @@ body.light-theme .search-input {
 
 .btn-primary {
     background: var(--nm-accent);
-    border-color: var(--nm-accent);
+    border-color: rgba(var(--glow-rgb), 0.95);
     color: var(--nm-text-on-accent);
+    box-shadow: 0 14px 34px rgba(var(--glow-rgb), 0.22);
 }
 .btn-primary:hover { background: var(--nm-accent-hover); }
 
@@ -2949,4 +2977,91 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
 
 @media (prefers-reduced-data: reduce) {
   body::before { display: none !important; }
+}
+
+/* DESKTOP NAV: show links inline (keep hamburger for mobile only) */
+@media (min-width: 992px) {
+  .burger-menu{ display:none; }
+  .nav-container{ justify-content: space-between; }
+  .nav-title{ flex: 0 0 auto; }
+  .nav-menu{
+    position: static;
+    top: auto;
+    height: auto;
+    width: auto;
+    max-width: none;
+    transform: none !important;
+    background: transparent !important;
+    border-left: none;
+    box-shadow: none !important;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    overflow: visible;
+    overscroll-behavior: auto;
+    z-index: auto;
+  }
+  .nav-menu::before{ display:none; }
+  .nav-link{
+    width: auto;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-md);
+  }
+  .nav-link:hover,
+  .nav-link.active{
+    transform: translateY(-1px);
+  }
+}
+
+/* Sticky bottom CTA (mobile): improves installs/store conversions */
+.sticky-cta{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: var(--nm-nav-solid);
+  border-top: 1px solid var(--nm-border);
+  z-index: var(--z-header);
+  display: none;
+}
+.sticky-cta .sticky-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+.sticky-cta .btn{
+  width: 100%;
+  min-width: 0;
+  padding: 12px 10px;
+}
+@media (max-width: 860px){
+  .sticky-cta{ display:block; }
+  body.sticky-cta-enabled{ padding-bottom: 92px; }
+}
+
+/* Store: How it works + contact CTA */
+.how-it-works{ margin: 14px 0 0 0; }
+.how-it-works-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.how-it-works .step-card{ text-align:left; }
+.store-cta-row{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.store-cta-row .btn{ min-width: 220px; }
+.post-purchase-note{
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--nm-text-muted);
 }

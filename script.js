@@ -4,8 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- BRAND ASSETS (Theme-aware) ---
-    const LOGO_DARK = '/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg';
-    const LOGO_LIGHT = '/Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg';
+    // IMPORTANT (GitHub Pages + subpages):
+    // Any relative URL like "Assets/..." breaks on pages like /Pages/faq.html
+    // because it resolves to /Pages/Assets/... (404). We resolve assets from the
+    // actual location of script.js so it works everywhere (root domain, /repo/, etc.).
+    const SITE_BASE = (() => {
+        const scriptEl = document.querySelector('script[src$="script.js"], script[src*="/script.js"], script[src*="script.js?"]');
+        try {
+            if (scriptEl?.src) return new URL('./', scriptEl.src).href;
+        } catch (_) {}
+        // Fallback: best-effort
+        return new URL('./', window.location.href).href;
+    })();
+
+    const assetUrl = (path) => {
+        const clean = (path || '').replace(/^\/+/, '');
+        return new URL(clean, SITE_BASE).href;
+    };
+
+    const LOGO_DARK = assetUrl('Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg');
+    const LOGO_LIGHT = assetUrl('Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg');
 
     const getThemeLogo = () => (document.body.classList.contains('light-theme') ? LOGO_LIGHT : LOGO_DARK);
 
@@ -17,8 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (img.src !== url) img.src = url;
         });
 
-                // Favicon: keep static icons for SEO/social previews
-};
+        // Favicon fallback (helps when some subpages have broken relative paths)
+        const icon = document.querySelector('link[rel="icon" i]') || document.querySelector('link[rel="shortcut icon" i]');
+        if (icon) icon.href = url;
+    };
     // --- NAVIGATION FUNCTIONALITY ---
     function initializeNavigation() {
         const burgerMenu = document.getElementById('burger-menu');
@@ -49,14 +69,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- THEME SWITCHER ---
+    
+    // --- STICKY CTA BAR (Mobile) ---
+    function injectStickyCtaBar(){
+        if (document.querySelector('.sticky-cta')) return;
+
+        const base = SITE_BASE;
+        const installHref = new URL('Pages/guide-for-installation.html', base).href;
+        const storeHref = new URL('Pages/store.html', base).href;
+
+        const bar = document.createElement('div');
+        bar.className = 'sticky-cta';
+        bar.innerHTML = `
+          <div class="sticky-inner">
+            <a class="btn btn-primary" href="${installHref}">
+              <i class="fas fa-bolt"></i>
+              <span data-en="Install (Free)" data-gr="Εγκατάσταση (Δωρεάν)">Install (Free)</span>
+            </a>
+            <a class="btn" href="${storeHref}">
+              <i class="fas fa-shop"></i>
+              <span data-en="Store" data-gr="Κατάστημα">Store</span>
+            </a>
+          </div>
+        `;
+        document.body.appendChild(bar);
+        document.body.classList.add('sticky-cta-enabled');
+
+        // Sync language text
+        try { window.changeLanguage(currentLanguage); } catch(_) {}
+    }
+
+// --- THEME SWITCHER ---
     function initializeThemeSwitcher() {
         const themeBtn = document.getElementById('nav-theme-switcher');
-        const themeIcon = themeBtn?.querySelector('i');
-        const themeSpan = themeBtn?.querySelector('span');
+
+        // NOTE:
+        // On some mobile browsers, simply changing an existing <i> element's class
+        // can fail to repaint the Font Awesome glyph immediately. To make it bulletproof
+        // we always (re)resolve the icon element and replace it after updating classes.
+        const ensureThemeIcon = () => {
+            if (!themeBtn) return null;
+            let icon = themeBtn.querySelector('i');
+            if (!icon) {
+                icon = document.createElement('i');
+                themeBtn.prepend(icon);
+            }
+            return icon;
+        };
+
+        const getThemeSpan = () => themeBtn?.querySelector('span') || null;
 
         const updateThemeButton = (isLightTheme) => {
-            if (!themeBtn || !themeIcon || !themeSpan) return;
+            if (!themeBtn) return;
+
+            const themeSpan = getThemeSpan();
+            const themeIcon = ensureThemeIcon();
+            if (!themeIcon || !themeSpan) return;
+
             if (isLightTheme) {
                 themeIcon.className = 'fas fa-sun';
                 themeSpan.setAttribute('data-en', 'Light Theme');
@@ -67,6 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 themeSpan.setAttribute('data-gr', 'Σκοτεινό Θέμα');
             }
             themeSpan.textContent = themeSpan.getAttribute(`data-${currentLanguage}`);
+
+            // Force repaint/re-evaluation of pseudo-elements by replacing the node.
+            // (Fixes the "sun icon only appears after refresh" issue.)
+            try {
+                const fresh = themeIcon.cloneNode(true);
+                themeIcon.replaceWith(fresh);
+            } catch (_) {}
         };
 
         themeBtn?.addEventListener('click', () => {
@@ -725,6 +801,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- MAIN INIT ---
     function init() {
         initializeNavigation();
+    injectStickyCtaBar();
         initializeDeepLinks();
         initializeThemeSwitcher();
         initializeBrandingAndLinks();
