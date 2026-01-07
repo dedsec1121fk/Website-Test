@@ -3065,3 +3065,68 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
   font-size: 0.9rem;
   color: var(--nm-text-muted);
 }
+
+@media (max-width:768px){
+.sticky-buy{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#6b2cff;
+color:#fff;
+padding:14px;
+text-align:center;
+font-weight:600;
+z-index:999;
+}
+}
+
+.status-badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:#0f2;
+color:#000;
+padding:6px 12px;
+border-radius:20px;
+font-size:14px;
+font-weight:600;
+margin-bottom:14px;
+}
+.status-badge .dot{
+width:8px;height:8px;border-radius:50%;
+background:#0a0;
+box-shadow:0 0 6px #0f0;
+}
+.testimonials blockquote{
+background:#0a0a12;
+border-left:3px solid #6b2cff;
+padding:14px;
+margin:12px 0;
+}
+.float-btn{
+position:fixed;
+right:14px;
+width:46px;
+height:46px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:20px;
+z-index:9999;
+}
+.float-btn.telegram{bottom:80px;background:#229ED9;}
+.float-btn.whatsapp{bottom:20px;background:#25D366;}
+
+.privacy-badge{
+margin-top:10px;
+padding:10px 14px;
+background:#0a0a12;
+border:1px solid #6b2cff;
+border-radius:8px;
+color:#eaeaff;
+font-size:14px;
+max-width:420px;
+}
