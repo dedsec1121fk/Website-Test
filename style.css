@@ -2697,14 +2697,20 @@ body.light-theme .search-input {
     gap: 10px;
     padding: 12px 14px;
     border-radius: var(--radius-md);
-    border: 1px solid var(--nm-border);
+    border: 1px solid var(--nm-accent);
     text-decoration: none;
     font-family: var(--font-mono);
-    color: var(--nm-text);
-    background: rgba(255,255,255,0.06);
+    color: var(--nm-text-on-accent);
+    background: var(--nm-accent);
     transition: all 0.2s var(--ease-out-cubic);
     min-width: 140px;
 }
+.btn:hover {
+    background: var(--nm-accent-hover);
+    border-color: var(--nm-accent-hover);
+    transform: translateY(-1px);
+}
+
 
 .btn:hover {
     transform: translateY(-2px);
@@ -2720,8 +2726,15 @@ body.light-theme .search-input {
 .btn-primary:hover { background: var(--nm-accent-hover); }
 
 .btn-ghost {
-    background: transparent;
+    background: var(--nm-accent);
+    border-color: var(--nm-accent);
+    color: var(--nm-text-on-accent);
 }
+.btn-ghost:hover {
+    background: var(--nm-accent-hover);
+    border-color: var(--nm-accent-hover);
+}
+
 
 .btn i { color: inherit !important; }
 
@@ -3117,9 +3130,6 @@ color:#fff;
 font-size:20px;
 z-index:9999;
 }
-.float-btn.telegram{bottom:80px;background:#229ED9;}
-.float-btn.whatsapp{bottom:20px;background:#25D366;}
-
 .privacy-badge{
 margin-top:10px;
 padding:10px 14px;
@@ -3130,3 +3140,6 @@ color:#eaeaff;
 font-size:14px;
 max-width:420px;
 }
+
+.float-btn.contact{bottom:20px;background: var(--nm-accent);}
+.float-btn.contact:hover{background: var(--nm-accent-hover);}
