@@ -45,9 +45,39 @@ document.addEventListener('DOMContentLoaded', () => {
         const navMenu = document.getElementById('nav-menu');
         
         if (burgerMenu && navMenu) {
+
+        // --- Tap-outside overlay to close menu ---
+        let navOverlay = document.getElementById('nav-overlay');
+        if (!navOverlay) {
+            navOverlay = document.createElement('div');
+            navOverlay.id = 'nav-overlay';
+            navOverlay.className = 'nav-overlay';
+            document.body.appendChild(navOverlay);
+        }
+
+        const closeMenu = () => {
+            burgerMenu.classList.remove('active');
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.classList.remove('nav-open');
+        };
+
+        const openMenu = () => {
+            burgerMenu.classList.add('active');
+            navMenu.classList.add('active');
+            navOverlay.classList.add('active');
+            document.body.classList.add('nav-open');
+        };
+
+        navOverlay.addEventListener('click', closeMenu);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+
             burgerMenu.addEventListener('click', () => {
-                burgerMenu.classList.toggle('active');
-                navMenu.classList.toggle('active');
+                const isOpen = navMenu.classList.contains('active');
+                if (isOpen) closeMenu();
+                else openMenu();
             });
         }
 
@@ -69,37 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    
-    // --- STICKY CTA BAR (Mobile) ---
-    function injectStickyCtaBar(){
-        if (document.querySelector('.sticky-cta')) return;
-
-        const base = SITE_BASE;
-        const installHref = new URL('Pages/guide-for-installation.html', base).href;
-        const storeHref = new URL('Pages/store.html', base).href;
-
-        const bar = document.createElement('div');
-        bar.className = 'sticky-cta';
-        bar.innerHTML = `
-          <div class="sticky-inner">
-            <a class="btn btn-primary" href="${installHref}">
-              <i class="fas fa-bolt"></i>
-              <span data-en="Install (Free)" data-gr="Εγκατάσταση (Δωρεάν)">Install (Free)</span>
-            </a>
-            <a class="btn" href="${storeHref}">
-              <i class="fas fa-shop"></i>
-              <span data-en="Store" data-gr="Κατάστημα">Store</span>
-            </a>
-          </div>
-        `;
-        document.body.appendChild(bar);
-        document.body.classList.add('sticky-cta-enabled');
-
-        // Sync language text
-        try { window.changeLanguage(currentLanguage); } catch(_) {}
-    }
-
-// --- THEME SWITCHER ---
+    // --- THEME SWITCHER ---
     function initializeThemeSwitcher() {
         const themeBtn = document.getElementById('nav-theme-switcher');
 
@@ -799,9 +799,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 // --- MAIN INIT ---
-    function init() {
+    
+    // --- Highlight current page in nav ---
+    function highlightActiveNavLink() {
+        try {
+            const currentPath = (window.location.pathname || '').toLowerCase();
+            const currentFile = currentPath.split('/').pop() || 'index.html';
+
+            document.querySelectorAll('.nav-menu a.nav-link').forEach(a => {
+                a.classList.remove('active');
+                a.removeAttribute('aria-current');
+
+                const href = (a.getAttribute('href') || '').split('#')[0];
+                if (!href) return;
+
+                // Resolve relative href to absolute path
+                const resolved = new URL(href, window.location.href).pathname.toLowerCase();
+                const resolvedFile = resolved.split('/').pop();
+
+                // Match by filename, plus special case for home
+                const isHome = (currentFile === '' || currentFile === 'index.html') &&
+                               (resolvedFile === '' || resolvedFile === 'index.html');
+                const isMatch = isHome || (resolvedFile && resolvedFile === currentFile);
+
+                if (isMatch) {
+                    a.classList.add('active');
+                    a.setAttribute('aria-current', 'page');
+                }
+            });
+        } catch (_) {}
+    }
+
+function init() {
         initializeNavigation();
-    injectStickyCtaBar();
+        highlightActiveNavLink();
         initializeDeepLinks();
         initializeThemeSwitcher();
         initializeBrandingAndLinks();
