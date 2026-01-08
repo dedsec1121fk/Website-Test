@@ -2024,6 +2024,27 @@ border: 1px solid var(--nm-border);
 .store-page .how-it-works{padding-top: 10px;}
 .store-page .how-it-works .hero-steps{margin-top: 10px;}
 .store-page .how-it-works .step-card{min-height: 150px;}
+
+/* Store: highlight badges (Best Value / Most Popular) */
+.store-page .featured-badge.badge{
+  background: var(--nm-accent);
+  border-color: rgba(205, 147, 255, 0.95);
+  color: #ffffff;
+}
+.store-page .featured-badge.badge i{ color: #ffffff; } 
+
+/* Store: center "How it works" cards content */
+.store-page .how-it-works .step-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+.store-page .how-it-works .step-text{
+  max-width: 34ch;
+}
 .store-page .feature-card {
     height: auto;
     min-height: 500px;
@@ -3141,9 +3162,9 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
   right: 12px;
   padding: 6px 10px;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(205, 147, 255, 0.55);
-  background: rgba(205,147,255,0.14);
-  color: var(--nm-text);
+  border: 1px solid rgba(205, 147, 255, 0.95);
+  background: var(--nm-accent);
+  color: #ffffff;
   font-weight: 900;
   font-size: 0.85rem;
   letter-spacing: 0.2px;
