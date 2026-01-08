@@ -15,6 +15,10 @@
     --nm-menu-solid: #0e0d18;         /* solid burger menu */
     --nm-dark: rgba(14, 14, 24, 0.58);     /* cards */
     --nm-container: rgba(18, 18, 30, 0.52);
+
+    /* Solid surface for disclaimer banner/modal so it stays readable */
+    --nm-disclaimer-bg: #0a0a12;
+
     /* Neutral button background for actions like "Decline" */
     --nm-neutral-btn-bg: rgba(255, 255, 255, 0.10);
 
@@ -80,6 +84,10 @@ body.light-theme {
     --nm-menu-solid: #ffffff;         /* solid burger menu */
     --nm-dark: rgba(255, 255, 255, 0.70);
     --nm-container: rgba(255, 255, 255, 0.62);
+
+    /* Solid surface for disclaimer banner/modal so it stays readable */
+    --nm-disclaimer-bg: #ffffff;
+
     /* Neutral button background for actions like "Decline" */
     --nm-neutral-btn-bg: rgba(0, 0, 0, 0.06);
 
@@ -200,6 +208,7 @@ body::before {
     pointer-events: none;
     transition: background-image 0.3s ease;
 }
+
 
 body.light-theme::before {
     background-image: url('Assets/Images/Logos/White%20Purple%20Butterfly%20Logo.jpeg');
@@ -860,6 +869,7 @@ border: 1px solid var(--nm-border);
     overflow: hidden;
 }
 
+
 .feature-card::before {
     content: "";
     position: absolute;
@@ -946,6 +956,43 @@ border: 1px solid var(--nm-border);
     margin-top: 10px;
     transition: all 0.3s ease;
 }
+
+/* Featured Store (Home) */
+.featured-store-section .section-subtitle {
+    margin-top: -6px;
+    margin-bottom: 14px;
+    color: var(--nm-text-muted);
+    line-height: 1.35;
+    max-width: 70ch;
+}
+
+.featured-store-section .featured-products-grid {
+    margin: 18px 0 24px;
+}
+
+.featured-store-section .featured-badge {
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.featured-store-section .product-price {
+    text-align: left;
+    margin: 12px 0 6px;
+    font-size: 1.25rem;
+}
+
+.featured-store-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+@media (max-width: 520px) {
+    .featured-store-cta { flex-direction: column; }
+    .featured-store-cta .btn { width: 100%; }
+}
+
 
 .feature-card:hover .feature-cta {
     color: var(--nm-accent);
@@ -1045,6 +1092,7 @@ border: 1px solid var(--nm-border);
     left: 0;
     width: 100%;
     height: 100%;
+    /* Solid background (no transparency) for disclaimer/modal overlay */
     background: #000000;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -1085,6 +1133,26 @@ body.light-theme .modal-overlay {
     transition: transform 0.4s var(--ease-out-back), opacity 0.4s var(--ease-in-out-quad);
     will-change: transform, opacity;
 }
+
+/* Disclaimer modal: force solid surfaces (no transparency) */
+#disclaimer-modal .modal-content {
+    background: var(--nm-disclaimer-bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+#disclaimer-modal .note,
+#disclaimer-modal .privacy-policy-embed {
+    background: var(--nm-menu-solid);
+}
+
+#disclaimer-modal .privacy-policy-embed {
+    border: 1px solid var(--nm-border);
+    border-radius: var(--radius-lg);
+    padding: 0.8rem;
+    margin: 15px 0;
+}
+
 .modal-content-auto-height {
     height: auto;
     max-height: 90vh;
@@ -1172,6 +1240,9 @@ body.light-theme .modal-overlay {
 .close-modal:hover {
     color: var(--nm-accent);
 }
+
+/* DISCLAIMER BANNER STYLES */
+
 .modal-overlay.banner-style {
     position: fixed;
     top: auto;
@@ -1200,6 +1271,8 @@ body.light-theme .modal-overlay {
     border-left: 1px solid var(--nm-border);
     border-right: 1px solid var(--nm-border);
     border-top: 1px solid var(--nm-border);
+    /* Use a more solid background for the disclaimer banner so text is readable
+       even over busy wallpapers (this is what users share / see first). */
     background: var(--nm-disclaimer-bg);
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
     backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
@@ -1221,7 +1294,12 @@ body.light-theme .modal-overlay {
     font-size: 0.935rem; 
 }
 
-.modal-overlay.banner-style .modal-overlay.banner-style .modal-body {
+.modal-overlay.banner-style .language-selection-btn {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+}
+
+.modal-overlay.banner-style .modal-body {
     padding: 10px 20px;
     font-size: 0.8rem;
     line-height: 1.4;
@@ -1254,6 +1332,32 @@ body.light-theme .modal-overlay {
 }
 
 /* --- Language & Theme Switcher Buttons --- */
+.language-selection-btn,
+.theme-selection-btn {
+    background: var(--nm-container);
+border: 1px solid var(--nm-border);
+    color: var(--nm-text);
+    padding: 8px 15px;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.25s var(--ease-out-cubic);
+    will-change: transform;
+}
+
+.language-selection-btn:hover,
+.theme-selection-btn:hover {
+    background: var(--nm-accent);
+    color: var(--nm-text-on-accent);
+    transform: translateY(-3px);
+    box-shadow: none;
+}
+
+/* --- Disclaimer/Language Buttons --- */
 .disclaimer-footer button,
 .language-button {
     background: var(--nm-container);
@@ -1289,6 +1393,42 @@ border: 1px solid var(--nm-border);
 .hidden-by-default { display: none; }
 
 /* Accept/Decline Buttons */
+.decline-btn, .accept-btn {
+    color: var(--nm-text-on-status) !important;
+    transition: all 0.25s var(--ease-out-cubic);
+    border: 1px solid var(--nm-border);
+}
+
+.accept-btn { 
+    background-color: var(--nm-accent) !important; 
+    border-color: var(--nm-accent) !important;
+}
+
+.decline-btn { 
+    background-color: var(--nm-neutral-btn-bg) !important; 
+    color: var(--nm-text) !important;
+    border-color: var(--nm-border) !important;
+}
+
+.accept-btn:hover { 
+    opacity: 0.8; 
+    transform: translateY(-3px);
+    box-shadow: none !important;
+}
+
+.decline-btn:hover { 
+    background-color: var(--nm-accent) !important;
+    color: var(--nm-text-on-accent) !important;
+    border-color: var(--nm-accent) !important;
+    transform: translateY(-3px);
+    box-shadow: none !important;
+}
+
+.accept-btn:active, .decline-btn:active {
+    transform: translateY(0px) scale(0.97);
+    transition-duration: 0.1s;
+}
+
 /* ================================================================= COMPONENT STYLES (CODE, NOTES, ETC) ================================================================= */
 
 /* --- UPDATED: Compact Code/Coupon Box with Overflow Fix --- */
@@ -1861,17 +2001,29 @@ border: 1px solid var(--nm-border);
 }
 
 .payment-btn:hover {
-    background: var(--nm-container);
-    color: var(--nm-text);
-    border-color: var(--nm-accent);
+    background: var(--nm-accent-hover);
+    color: var(--nm-text-on-accent);
+    border-color: var(--nm-accent-hover);
     transform: translateY(-3px);
     box-shadow: none;
+}
+
+.payment-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
 }
 
 .payment-btn:active {
     transform: translateY(0px) scale(0.97);
 }
 
+
+
+/* --- STORE CONVERSION BOOST --- */
+.store-page .store-trust{max-width: 860px; margin-top: 6px; margin-bottom: 18px;}
+.store-page .how-it-works{padding-top: 10px;}
+.store-page .how-it-works .hero-steps{margin-top: 10px;}
+.store-page .how-it-works .step-card{min-height: 150px;}
 .store-page .feature-card {
     height: auto;
     min-height: 500px;
@@ -2016,6 +2168,24 @@ border: 1px solid var(--nm-border);
     .nav-title h1 {
         font-size: 1.5rem;
         gap: 8px;
+    }
+
+    #disclaimer-modal .modal-footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    #disclaimer-modal.banner-style .modal-footer {
+        flex-direction: row;
+    }
+
+    #disclaimer-modal .decline-btn, #disclaimer-modal .accept-btn {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        min-height: 35px;
+        min-width: 80px;
+        margin: 0;
     }
 
     .modal-overlay {
@@ -2360,6 +2530,7 @@ button:focus-visible,
     }
 }
 
+
 /* --- SOLID NAV (no glass blur) --- */
 .main-nav,
 .nav-menu {
@@ -2700,6 +2871,8 @@ body.light-theme .search-input {
   .nav-actions { gap: 5px; }
 }
 
+
+
 /* Home-only centering */
 .home-screen .features-grid{justify-items:center;}
 .home-screen .feature-card{align-items:center;text-align:center;}
@@ -2848,197 +3021,4 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
 }
 
 
-/* =========================
-   CONVERSION / TRUST UI
-   ========================= */
-
-.btn-outline{
-  background: transparent;
-  border-color: rgba(205, 147, 255, 0.70);
-}
-.btn-outline:hover{
-  background: rgba(205, 147, 255, 0.12);
-  border-color: var(--nm-accent);
-}
-
-.section-head{
-  text-align:center;
-  margin-bottom: 18px;
-}
-.section-sub{
-  color: var(--nm-text-muted);
-  max-width: 760px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-.store-highlights{
-  margin-top: 26px;
-}
-
-.highlight-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-top: 16px;
-}
-
-.highlight-card{
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--nm-border);
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-lg);
-  padding: 16px 16px 14px;
-  transition: transform 0.25s var(--ease-out-cubic), border-color 0.25s ease, background 0.25s ease;
-}
-.highlight-card:hover{
-  transform: translateY(-3px);
-  border-color: var(--nm-accent);
-  background: rgba(255,255,255,0.07);
-}
-.highlight-top{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-.highlight-card h3{
-  margin: 6px 0 8px;
-  color: var(--nm-text);
-  font-family: var(--font-secondary);
-  letter-spacing: 0.3px;
-}
-.highlight-card p{
-  margin: 0 0 10px;
-  color: var(--nm-text-muted);
-  line-height: 1.45;
-}
-.card-cta{
-  font-family: var(--font-mono);
-  color: var(--nm-text-accent);
-  font-size: 0.95rem;
-}
-
-.tag{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(205,147,255,0.55);
-  background: rgba(205,147,255,0.10);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--nm-text);
-}
-.tag-popular{
-  border-color: rgba(205,147,255,0.80);
-  background: rgba(205,147,255,0.18);
-}
-.price{
-  font-family: var(--font-mono);
-  color: var(--nm-text);
-  opacity: 0.9;
-  white-space: nowrap;
-}
-
-.trust-row{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 14px;
-}
-.trust-pill{
-  display:inline-flex;
-  align-items:center;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(205,147,255,0.35);
-  background: rgba(255,255,255,0.04);
-  color: var(--nm-text);
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-}
-.trust-pill i{ color: var(--nm-accent); }
-
-.section-actions{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content:center;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.testimonials{
-  margin-top: 26px;
-}
-.testimonial-grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 14px;
-  margin-top: 16px;
-}
-.testimonial-card{
-  border: 1px solid var(--nm-border);
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radius-lg);
-  padding: 16px;
-}
-.testimonial-card p{
-  margin: 0 0 12px;
-  color: var(--nm-text);
-  line-height: 1.5;
-}
-.testimonial-meta{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.testimonial-name{
-  font-family: var(--font-mono);
-  color: var(--nm-text-muted);
-  font-size: 0.92rem;
-}
-.testimonial-badge{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(205,147,255,0.35);
-  background: rgba(205,147,255,0.10);
-  font-family: var(--font-mono);
-  font-size: 0.86rem;
-}
-.testimonial-badge i{ color: var(--nm-accent); }
-
-.store-trust-strip{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin: 10px auto 0 auto;
-}
-
-.stripe-note{
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--nm-text-muted);
-  text-align: center;
-  margin-top: -12px;
-  margin-bottom: 12px;
-}
-
-/* Payment button hover: keep it premium and consistent */
-.payment-btn:hover{
-  background: var(--nm-accent-hover);
-  color: var(--nm-text-on-accent);
-  border-color: transparent;
-}
-
+.btn:focus-visible{outline:none; box-shadow: var(--focus-ring);}
