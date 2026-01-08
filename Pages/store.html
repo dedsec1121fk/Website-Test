@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head><link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
 <meta charset="utf-8"/>
@@ -6,7 +7,7 @@
 <title>DedSec Project Store</title>
 <meta content="#07060d" name="theme-color"/>
 <meta content="dark light" name="color-scheme"/>
-<meta content="DedSec Project Store: Premium web development services and Python scripts for Termux. Professional websites and automation tools." name="description"/>
+<meta content="DedSec Project Store — secure Stripe checkout for premium websites and Termux scripts. Receipt-based delivery and support after purchase." name="description"/>
 <link href="/favicon.ico" rel="icon" sizes="any"/>
 <link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
@@ -53,7 +54,11 @@
 <nav class="main-nav">
 <div class="nav-container">
 <div class="nav-title">
-<h1>DedSec Project</h1>
+<h1>DedSec Project</h1><div aria-label="Store trust" class="store-trust-strip">
+<div class="trust-pill"><i class="fas fa-lock"></i><span data-en="Secure checkout" data-gr="Ασφαλής πληρωμή">Secure checkout</span></div>
+<div class="trust-pill"><i class="fas fa-receipt"></i><span data-en="Receipt required for delivery" data-gr="Απαιτείται απόδειξη για παράδοση">Receipt required for delivery</span></div>
+<div class="trust-pill"><i class="fas fa-headset"></i><span data-en="Support after purchase" data-gr="Υποστήριξη μετά την αγορά">Support after purchase</span></div>
+</div>
 </div>
 <button aria-label="Toggle navigation" class="burger-menu" id="burger-menu">
 <span></span>
@@ -90,14 +95,6 @@
                Premium web development services and Python scripts for Termux. Professional websites and automation tools.
             </p>
 </div>
-
-<div class="trust-bar" aria-label="Purchase confidence">
-  <div class="trust-chip"><i class="fas fa-lock"></i> <span data-en="Secure payment" data-gr="Ασφαλής πληρωμή">Secure payment</span></div>
-  <div class="trust-chip"><i class="fas fa-receipt"></i> <span data-en="Receipt issued by Stripe" data-gr="Απόδειξη από Stripe">Receipt issued by Stripe</span></div>
-  <div class="trust-chip"><i class="fas fa-box-open"></i> <span data-en="Digital delivery after verification" data-gr="Ψηφιακή παράδοση μετά από επιβεβαίωση">Digital delivery after verification</span></div>
-  <a class="trust-chip trust-chip-link" href="contact-credits.html"><i class="fas fa-headset"></i> <span data-en="Support / Contact" data-gr="Υποστήριξη / Επικοινωνία">Support / Contact</span></a>
-</div>
-
 <div class="warning">
 <p><strong data-en="Important Notice:" data-gr="Σημαντική Ειδοποίηση:">Important Notice:</strong>
 <span data-en="If you are unsure about any payment or have questions about our products, please contact us first through our contact page before proceeding." data-gr="Εάν δεν είστε βέβαιος για οποιαδήποτε πληρωμή ή έχετε ερωτήσεις σχετικά με τα προϊόντα μας, παρακαλούμε επικοινωνήστε μαζί μας πρώτα μέσω της σελίδας επικοινωνίας πριν προχωρήσετε.">
@@ -106,7 +103,7 @@
 </div>
 <div class="content-section product-list-section">
 <div class="features-grid">
-<div class="feature-card">
+<div class="feature-card" id="product-multipage">
 <div class="feature-icon-wrapper">
 <i class="fas fa-code feature-icon"></i>
 </div>
@@ -115,7 +112,7 @@
                        Launch your online presence quickly with a professional, mobile-ready website. Perfect for small businesses or personal portfolios needing multiple pages without complexity.
                     </p>
 <div class="product-price">180€ / Year</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cI3cw3Bi7ecftA0kS8Zq0f" href="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" target="_blank">Purchase Now</a>
+<a class="btn btn-primary payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cI3cw3Bi7ecftA0kS8Zq0f" href="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" rel="noopener noreferrer" target="_blank">Purchase Now</a><div class="stripe-note" data-en="Secure checkout by Stripe" data-gr="Ασφαλής πληρωμή μέσω Stripe">Secure checkout by Stripe</div>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -127,7 +124,7 @@
 </ul>
 </div>
 </div>
-<div class="feature-card">
+<div class="feature-card" id="product-advanced-multipage">
 <div class="feature-icon-wrapper">
 <i class="fas fa-laptop-code feature-icon"></i>
 </div>
@@ -136,7 +133,7 @@
                        Stand out with custom animations and interactive features. Solves the need for a unique, engaging website that captures attention and improves user experience.
                     </p>
 <div class="product-price">280€ / Year</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/28E9AUb3Kbusbdk7Nk8Zq0g" href="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" target="_blank">Purchase Now</a>
+<a class="btn btn-primary payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/28E9AUb3Kbusbdk7Nk8Zq0g" href="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" rel="noopener noreferrer" target="_blank">Purchase Now</a><div class="stripe-note" data-en="Secure checkout by Stripe" data-gr="Ασφαλής πληρωμή μέσω Stripe">Secure checkout by Stripe</div>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -148,7 +145,7 @@
 </ul>
 </div>
 </div>
-<div class="feature-card">
+<div class="feature-card" id="product-single-task">
 <div class="feature-icon-wrapper">
 <i class="fab fa-python feature-icon"></i>
 </div>
@@ -157,7 +154,7 @@
                        Automate repetitive Android tasks to save time. Solves manual work like file management or data collection with a simple, focused Python script.
                     </p>
 <div class="product-price">40€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/bJefZiefWcywftA1oW8Zq0h" href="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" target="_blank">Purchase Now</a>
+<a class="btn btn-primary payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/bJefZiefWcywftA1oW8Zq0h" href="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" rel="noopener noreferrer" target="_blank">Purchase Now</a><div class="stripe-note" data-en="Secure checkout by Stripe" data-gr="Ασφαλής πληρωμή μέσω Stripe">Secure checkout by Stripe</div>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -173,7 +170,7 @@
 </ul>
 </div>
 </div>
-<div class="feature-card">
+<div class="feature-card" id="product-multifeature">
 <div class="feature-icon-wrapper">
 <i class="fas fa-cogs feature-icon"></i>
 </div>
@@ -182,7 +179,7 @@
                        Handle complex Android automation with one powerful tool. Solves multiple related tasks through a menu-driven interface, perfect for advanced users.
                     </p>
 <div class="product-price">80€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/5kQdRa0p60POdlsc3A8Zq0i" href="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" target="_blank">Purchase Now</a>
+<a class="btn btn-primary payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/5kQdRa0p60POdlsc3A8Zq0i" href="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" rel="noopener noreferrer" target="_blank">Purchase Now</a><div class="stripe-note" data-en="Secure checkout by Stripe" data-gr="Ασφαλής πληρωμή μέσω Stripe">Secure checkout by Stripe</div>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -199,7 +196,7 @@
 </ul>
 </div>
 </div>
-<div class="feature-card">
+<div class="feature-card" id="product-bundle">
 <div class="feature-icon-wrapper">
 <i class="fas fa-boxes feature-icon"></i>
 </div>
@@ -208,7 +205,7 @@
                        Get a complete toolkit for specific automation needs. Solves the problem of scattered tools by providing coordinated scripts that work together efficiently.
                     </p>
 <div class="product-price">160€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/cNi4gA2xe9mk5T06Jg8Zq0j" href="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" target="_blank">Purchase Now</a>
+<a class="btn btn-primary payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/cNi4gA2xe9mk5T06Jg8Zq0j" href="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" rel="noopener noreferrer" target="_blank">Purchase Now</a><div class="stripe-note" data-en="Secure checkout by Stripe" data-gr="Ασφαλής πληρωμή μέσω Stripe">Secure checkout by Stripe</div>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -223,7 +220,7 @@
 </ul>
 </div>
 </div>
-<div class="feature-card">
+<div class="feature-card" id="product-phishing-demo">
 <div class="feature-icon-wrapper">
 <i class="fas fa-user-secret feature-icon"></i>
 </div>
@@ -232,7 +229,7 @@
                        Learn security vulnerabilities hands-on in a safe environment. Essential for cybersecurity education, demonstrating real phishing techniques for awareness training.
                     </p>
 <div class="product-price">320€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cIdRac7O7ec8180kS8Zq0l" href="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" target="_blank">Purchase Now</a>
+<a class="btn btn-primary payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cIdRac7O7ec8180kS8Zq0l" href="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" rel="noopener noreferrer" target="_blank">Purchase Now</a><div class="stripe-note" data-en="Secure checkout by Stripe" data-gr="Ασφαλής πληρωμή μέσω Stripe">Secure checkout by Stripe</div>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -244,7 +241,7 @@
 </div>
 </div>
 </div> </div>
-<div class="content-section">
+<div class="content-section categories-container">
 <div class="category">
 <div class="category-header">
 <h2 data-en="Store Policies" data-gr="Πολιτικές Καταστήματος">Store Policies</h2>
@@ -286,9 +283,22 @@
 <p data-lang-section="en">© 2026 DedSec Project Store. All Rights Reserved.</p>
 <p class="hidden-by-default" data-lang-section="gr">© 2026 DedSec Project Store. Με επιφύλαξη παντός δικαιώματος.</p>
 
+
 <p>Made by dedsec1121fk.</p>
 </footer>
 
+<div class="modal-overlay" id="language-selection-modal">
+<div class="modal-content modal-content-auto-height">
+<div class="modal-header">
+<h2 data-en="Choose Language" data-gr="Επιλογή Γλώσσας">Choose Language / Επιλογή Γλώσσας</h2>
+<button aria-label="Close" class="close-modal">×</button>
+</div>
+<div class="modal-body modal-body-centered">
+<button aria-label="Change language to English" class="language-button" data-lang="en">English</button>
+<button aria-label="Change language to Greek" class="language-button" data-lang="gr">Ελληνικά</button>
+</div>
+</div>
+</div>
 <script defer="" src="../script.js"></script>
 </body>
 </html>
