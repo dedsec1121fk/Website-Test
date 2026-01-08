@@ -3022,3 +3022,129 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
 
 
 .btn:focus-visible{outline:none; box-shadow: var(--focus-ring);}
+
+
+/* =================================================================
+   QUICK 5-SECOND CLARITY (HOMEPAGE)
+   ================================================================= */
+.hero-nontech{
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(205, 147, 255, 0.55);
+  background: rgba(14, 14, 24, 0.52);
+  backdrop-filter: blur(10px);
+}
+.hero-nontech .nontech-title{
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.2px;
+  color: var(--nm-accent-hover);
+}
+.hero-nontech .nontech-sub{
+  margin-top: 6px;
+  color: var(--nm-text-muted);
+  font-size: 0.95rem;
+}
+.hero-nontech .nontech-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+@media (min-width: 720px){
+  .hero-nontech .nontech-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.hero-nontech .nontech-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(205, 147, 255, 0.35);
+  background: rgba(0,0,0,0.22);
+}
+.hero-nontech .nontech-item i{
+  color: var(--nm-accent);
+  font-size: 1.05rem;
+}
+.hero-nontech .nontech-item span{
+  color: var(--nm-text);
+  font-weight: 600;
+}
+
+/* =================================================================
+   STORE PAGE BEAUTY PASS
+   ================================================================= */
+.store-page .page-header{
+  background: rgba(14, 14, 24, 0.55);
+  border: 1px solid rgba(205, 147, 255, 0.40);
+  border-radius: var(--radius-xl);
+  padding: 18px 16px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+}
+.store-page .page-header h1{
+  margin-bottom: 6px;
+}
+.store-page .store-featured-section{
+  margin-top: 18px;
+}
+.store-page .featured-product-card{
+  position: relative;
+  border: 1px solid rgba(205, 147, 255, 0.45);
+  background: linear-gradient(180deg, rgba(205,147,255,0.10), rgba(14,14,24,0.55));
+}
+.store-page .featured-product-card .inline-cta{
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: var(--nm-accent-hover);
+  text-decoration: none;
+}
+.store-page .featured-product-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.45);
+}
+.store-page .product-list-section .feature-card{
+  background: linear-gradient(180deg, rgba(205,147,255,0.08), rgba(14,14,24,0.55));
+  border: 1px solid rgba(205, 147, 255, 0.45);
+}
+.store-page .product-list-section .feature-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.50);
+}
+.store-page .product-price{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(205, 147, 255, 0.45);
+  background: rgba(205,147,255,0.10);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+.store-page .payment-btn{
+  border: 1px solid rgba(205,147,255,0.55);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.30);
+}
+.store-page .payment-btn:hover{
+  transform: translateY(-2px);
+}
+.store-page .product-badge{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(205, 147, 255, 0.55);
+  background: rgba(205,147,255,0.14);
+  color: var(--nm-text);
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.2px;
+}
