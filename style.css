@@ -7,7 +7,6 @@
 
 /* ADDED: Font import for Inter, Orbitron, and Roboto Mono */
 :root {
-    --header-h: 70px;
     /* === Premium Glass / Lavender System === */
     /* Dark theme base backdrop: pure black to blend with the background image */
     --nm-abyss-blue: #000000;
@@ -331,15 +330,15 @@ body.light-theme .nav-title h1 {
 
 .nav-menu {
     position: fixed;
-    top: 0;
+    top: 70px;
     inset-inline-end: 0;
     width: min(360px, 92vw);
     max-width: 360px;
-    height: 100vh;
+    height: calc(100vh - 70px);
     background: var(--nm-menu-solid) !important;
     border-left: 1px solid var(--nm-border);
     flex-direction: column;
-    padding: calc(var(--header-h) + 12px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 18px;
+    padding: 18px calc(16px + env(safe-area-inset-right));
     box-sizing: border-box;
     box-shadow: var(--shadow-elev-3) !important;
     transform: translateX(110%);
@@ -2684,13 +2683,6 @@ body.light-theme .search-input {
     margin-top: 14px;
 }
 
-.cta-note{
-    margin: 10px 0 0 0;
-    font-size: 0.92rem;
-    color: var(--nm-text-muted);
-    text-align: center;
-}
-
 .btn {
     display: inline-flex;
     align-items: center;
@@ -2698,20 +2690,14 @@ body.light-theme .search-input {
     gap: 10px;
     padding: 12px 14px;
     border-radius: var(--radius-md);
-    border: 1px solid var(--nm-accent);
+    border: 1px solid var(--nm-border);
     text-decoration: none;
     font-family: var(--font-mono);
-    color: var(--nm-text-on-accent);
-    background: var(--nm-accent);
+    color: var(--nm-text);
+    background: rgba(255,255,255,0.06);
     transition: all 0.2s var(--ease-out-cubic);
     min-width: 140px;
 }
-.btn:hover {
-    background: var(--nm-accent-hover);
-    border-color: var(--nm-accent-hover);
-    transform: translateY(-1px);
-}
-
 
 .btn:hover {
     transform: translateY(-2px);
@@ -2720,22 +2706,14 @@ body.light-theme .search-input {
 
 .btn-primary {
     background: var(--nm-accent);
-    border-color: rgba(var(--glow-rgb), 0.95);
+    border-color: var(--nm-accent);
     color: var(--nm-text-on-accent);
-    box-shadow: 0 14px 34px rgba(var(--glow-rgb), 0.22);
 }
 .btn-primary:hover { background: var(--nm-accent-hover); }
 
 .btn-ghost {
-    background: var(--nm-accent);
-    border-color: var(--nm-accent);
-    color: var(--nm-text-on-accent);
+    background: transparent;
 }
-.btn-ghost:hover {
-    background: var(--nm-accent-hover);
-    border-color: var(--nm-accent-hover);
-}
-
 
 .btn i { color: inherit !important; }
 
@@ -2949,7 +2927,6 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
 
 @media (hover: none), (pointer: coarse), (max-width: 820px) {
   :root {
-    --header-h: 70px;
     --glass-blur: 10px;
     --glass-sat: 120%;
   }
@@ -2994,152 +2971,91 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
   body::before { display: none !important; }
 }
 
-/* DESKTOP NAV: show links inline (keep hamburger for mobile only) */
-@media (min-width: 992px) {
-  .burger-menu{ display:none; }
-  .nav-container{ justify-content: space-between; }
-  .nav-title{ flex: 0 0 auto; }
-  .nav-menu{
-    position: static;
-    top: auto;
-    height: auto;
-    width: auto;
-    max-width: none;
-    transform: none !important;
-    background: transparent !important;
-    border-left: none;
-    box-shadow: none !important;
-    padding: 0;
-    flex-direction: row;
+
+/* === Secondary button (outline) === */
+.btn-secondary {
+    background: transparent;
+    border-color: rgba(205, 147, 255, 0.65);
+    color: var(--nm-text);
+}
+.btn-secondary:hover {
+    background: rgba(205, 147, 255, 0.12);
+    border-color: var(--nm-accent-hover);
+}
+
+
+/* === Conversion CTA Panel (Home) === */
+.cta-panel{
+    margin: 18px 0 10px 0;
+    border: 1px solid rgba(205, 147, 255, 0.35);
+    background: linear-gradient(180deg, rgba(205, 147, 255, 0.12), rgba(18, 18, 30, 0.38));
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+.cta-panel-inner{
+    padding: 16px 14px;
+    display: grid;
+    gap: 12px;
+}
+.cta-panel-text h3{
+    margin: 0 0 6px 0;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+}
+.cta-panel-text p{
+    margin: 0;
+    color: var(--nm-text-muted);
+    line-height: 1.45;
+}
+.cta-panel-actions{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.cta-panel-actions .btn{
+    flex: 1 1 180px;
+    justify-content: center;
+}
+.cta-panel-footnote{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--nm-text-muted);
+    font-size: 0.9rem;
+}
+.mini-proof{
+    display: inline-flex;
     align-items: center;
-    gap: 6px;
-    overflow: visible;
-    overscroll-behavior: auto;
-    z-index: auto;
-  }
-  .nav-menu::before{ display:none; }
-  .nav-link{
-    width: auto;
-    text-align: left;
+    gap: 8px;
     padding: 8px 10px;
-    font-size: 0.85rem;
-    border-radius: var(--radius-md);
-  }
-  .nav-link:hover,
-  .nav-link.active{
-    transform: translateY(-1px);
-  }
-}
-
-/* Sticky bottom CTA (mobile): improves installs/store conversions */
-.sticky-cta{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  background: var(--nm-nav-solid);
-  border-top: 1px solid var(--nm-border);
-  z-index: var(--z-header);
-  display: none;
-}
-.sticky-cta .sticky-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 10px;
-}
-.sticky-cta .btn{
-  width: 100%;
-  min-width: 0;
-  padding: 12px 10px;
-}
-@media (max-width: 860px){
-  .sticky-cta{ display:block; }
-  body.sticky-cta-enabled{ padding-bottom: 92px; }
-}
-
-/* Store: How it works + contact CTA */
-.how-it-works{ margin: 14px 0 0 0; }
-.how-it-works-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-top: 12px;
-}
-.how-it-works .step-card{ text-align:left; }
-.store-cta-row{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-.store-cta-row .btn{ min-width: 220px; }
-.post-purchase-note{
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: var(--nm-text-muted);
-}
-
-.status-badge{
-display:inline-flex;
-align-items:center;
-gap:8px;
-background:#0f2;
-color:#000;
-padding:6px 12px;
-border-radius:20px;
-font-size:14px;
-font-weight:600;
-margin-bottom:14px;
-}
-.status-badge .dot{
-width:8px;height:8px;border-radius:50%;
-background:#0a0;
-box-shadow:0 0 6px #0f0;
-}
-.testimonials blockquote{
-background:#0a0a12;
-border-left:3px solid #6b2cff;
-padding:14px;
-margin:12px 0;
-}
-.privacy-badge{
-margin-top:10px;
-padding:10px 14px;
-background:#0a0a12;
-border:1px solid #6b2cff;
-border-radius:8px;
-color:#eaeaff;
-font-size:14px;
-max-width:420px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.06);
 }
 
 
-.nav-title h1 img[data-site-logo='1']{margin-right:10px;flex:0 0 auto;}
-
-
-/* --- Nav overlay (tap outside to close) --- */
-.nav-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(2px);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  z-index: 1000; /* below .nav-menu (1001) */
+/* === Store trust bar === */
+.trust-bar{
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-.nav-overlay.active{
-  opacity: 1;
-  visibility: visible;
+.trust-chip{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    color: var(--nm-text);
+    font-size: 0.95rem;
+    text-decoration: none;
 }
-
-/* --- Active page highlight in burger menu --- */
-.nav-menu .nav-link.active,
-.nav-menu .nav-link[aria-current="page"]{
-  background: rgba(205,147,255,0.14);
-  border: 1px solid rgba(205,147,255,0.35);
-  color: var(--nm-text-accent);
+.trust-chip i{ color: var(--nm-accent); }
+.trust-chip-link:hover{
+    border-color: rgba(205,147,255,0.55);
+    background: rgba(205,147,255,0.10);
 }
-
