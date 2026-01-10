@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Pages/portfolio-github-info.html",
             "Pages/contact-credits.html",
             "Pages/privacy-policy.html",
-            "Pages/Blog/index.html",
+            "Pages/Blog.html",
             "Blogs/termux-new-user-guide/index.html",
             "Blogs/termux-errors-fixes/index.html",
             "Blogs/termux-run-distros/index.html",
