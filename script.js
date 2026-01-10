@@ -262,8 +262,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         
-        const SEARCH_VERSION = '2026-01-10-v5';
-        const SEARCH_STORAGE_KEY = `dedsec_search_index_${SEARCH_VERSION}`;
+        const SEARCH_VERSION = '2026-01-10-v6';
+        // IMPORTANT (GitHub Pages testing repos):
+        // localStorage is shared per-origin (e.g., https://username.github.io), so a cached index built on the
+        // main site can break links on /repo/ test sites. We namespace the cache by SITE_BASE path.
+        const SITE_BASE_PATH = (() => { try { return (new URL(SITE_BASE).pathname || '/'); } catch (_) { return '/'; } })();
+        const SITE_BASE_SIG = (SITE_BASE_PATH === '/' ? 'root' : SITE_BASE_PATH.replace(/^\/|\/$/g, '').replace(/[^a-z0-9]+/gi, '_').toLowerCase());
+        const SEARCH_STORAGE_KEY = `dedsec_search_index_${SEARCH_VERSION}_${SITE_BASE_SIG}`;
+        const SEARCH_STORAGE_KEY_LEGACY = `dedsec_search_index_${SEARCH_VERSION}`;
 
         const SEARCH_PAGES = [
             "index.html",
@@ -364,15 +370,41 @@ const ensureDeterministicIds = (doc) => {
         };
 
         const loadStoredIndex = () => {
-            try {
-                const raw = localStorage.getItem(SEARCH_STORAGE_KEY);
-                if (!raw) return null;
-                const parsed = JSON.parse(raw);
-                if (!Array.isArray(parsed) || parsed.length < 10) return null;
-                return parsed;
-            } catch (_) {
-                return null;
+            const isValidIndex = (arr) => {
+                if (!Array.isArray(arr) || arr.length < 10) return false;
+                // Reject legacy caches that stored absolute URLs (breaks /repo/ test sites)
+                for (const it of arr) {
+                    if (!it || typeof it.url !== 'string') return false;
+                    if (/^https?:\/\//i.test(it.url)) return false;
+                }
+                return true;
+            };
+
+            const loadKey = (key) => {
+                try {
+                    const raw = localStorage.getItem(key);
+                    if (!raw) return null;
+                    const parsed = JSON.parse(raw);
+                    return isValidIndex(parsed) ? parsed : null;
+                } catch (_) {
+                    return null;
+                }
+            };
+
+            const primary = loadKey(SEARCH_STORAGE_KEY);
+            if (primary) return primary;
+
+            const legacy = loadKey(SEARCH_STORAGE_KEY_LEGACY);
+            if (legacy) {
+                // Migrate legacy -> namespaced key
+                try {
+                    localStorage.setItem(SEARCH_STORAGE_KEY, JSON.stringify(legacy));
+                    localStorage.removeItem(SEARCH_STORAGE_KEY_LEGACY);
+                } catch (_) {}
+                return legacy;
             }
+
+            return null;
         };
 
         const storeIndex = (items) => {
