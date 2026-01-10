@@ -18,10 +18,10 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="../../style.css" rel="stylesheet"/>
-<link href="https://ded-sec.space/Blogs/termux-run-distros/" rel="canonical"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="https://ded-sec.space/Blog/termux-run-distros.html" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="https://ded-sec.space/Blogs/termux-run-distros/" property="og:url"/>
+<meta content="https://ded-sec.space/Blog/termux-run-distros.html" property="og:url"/>
 <meta content="DedSec Blog — Run Distros &amp; OSes in Termux Using Only Your Phone" property="og:title"/>
 <meta content="Use proot-distro to run Debian/Ubuntu/Alpine safely without root." property="og:description"/>
 <meta content="/Assets/Images/og/og-dark.jpg" property="og:image"/>
@@ -29,23 +29,22 @@
 <meta content="DedSec Blog — Run Distros &amp; OSes in Termux Using Only Your Phone" name="twitter:title"/>
 <meta content="Use proot-distro to run Debian/Ubuntu/Alpine safely without root." name="twitter:description"/>
 <meta content="/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
-</head>
+<meta content="2026-01-10" property="article:published_time"/></head>
 <body class="dark-theme">
 <nav class="main-nav">
 <div class="nav-container">
 <div class="nav-title"><h1>DedSec Project</h1></div>
 <button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span></span><span></span><span></span></button>
 <div class="nav-menu" id="nav-menu">
-<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../../index.html">Home</a>
-<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθε για τα Εργαλεία" href="../../Pages/learn-about-the-tools.html">Learn About The Tools</a>
-<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../../Pages/guide-for-installation.html">Guide For Installation</a>
-<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../../Pages/faq.html">Frequently Asked Questions</a>
-
-<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../../Pages/store.html">Store</a><a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../../Pages/blog.html">Blog</a>
-<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../../Pages/collaborations.html">Collaborations</a>
-<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="../../Pages/portfolio-github-info.html">Portfolio &amp; GitHub</a>
-<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="../../Pages/contact-credits.html">Contact &amp; Credits</a>
-<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../../Pages/privacy-policy.html">Privacy Policy</a>
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../index.html">Home</a>
+<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθε για τα Εργαλεία" href="../Pages/learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../Pages/guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../Pages/faq.html">Frequently Asked Questions</a>
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../Pages/store.html">Store</a><a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../Pages/blog.html">Blog</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../Pages/collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="../Pages/portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="../Pages/contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../Pages/privacy-policy.html">Privacy Policy</a>
 </div>
 <div class="nav-actions">
 <button class="nav-action-btn" id="nav-theme-switcher"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
@@ -58,8 +57,8 @@
 <h1 data-en="Run Distros &amp; OSes in Termux Using Only Your Phone" data-gr="Τρέξε Linux distros/OS σε Termux μόνο με το κινητό">Run Distros &amp; OSes in Termux Using Only Your Phone</h1>
 <p data-en="Use proot-distro to run Debian/Ubuntu/Alpine safely without root." data-gr="Χρησιμοποίησε proot-distro για Debian/Ubuntu/Alpine χωρίς root, με ασφάλεια.">Use proot-distro to run Debian/Ubuntu/Alpine safely without root.</p>
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-<a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../../Pages/blog.html">← Back to Blog</a>
-<a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../../Pages/guide-for-installation.html">Install DedSec Project</a>
+<a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
+<a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
 </div>
 </div>
 <div class="content-section">
@@ -106,7 +105,30 @@ proot-distro login debian</code></pre>
 <pre><code>proot-distro install alpine
 proot-distro login alpine</code></pre>
 </div>
+<div class="content-section">
+<h2 data-en="What you can (and can’t) do inside proot" data-gr="Τι μπορείς (και τι δεν μπορείς) μέσα στο proot">What you can (and can’t) do inside proot</h2>
+<ul>
+<li data-en="✅ Install packages with apt/apk, run servers, compile code, use Python/Node/Go" data-gr="✅ Εγκαθιστάς πακέτα με apt/apk, τρέχεις servers, κάνεις compile, χρησιμοποιείς Python/Node/Go">✅ Install packages with apt/apk, run servers, compile code, use Python/Node/Go</li>
+<li data-en="✅ Run CLI apps and most developer tools without root" data-gr="✅ Τρέχεις CLI apps και τα περισσότερα dev tools χωρίς root">✅ Run CLI apps and most developer tools without root</li>
+<li data-en="❌ No real kernel modules, no real systemd, limited low-level networking" data-gr="❌ Όχι πραγματικά kernel modules, όχι πλήρες systemd, περιορισμοί σε low‑level networking">❌ No real kernel modules, no real systemd, limited low-level networking</li>
+</ul>
+<p data-en="Think of proot like a safe “Linux user-space sandbox” on your phone." data-gr="Σκέψου το proot σαν ένα ασφαλές «sandbox user‑space Linux» στο κινητό σου.">Think of proot like a safe “Linux user-space sandbox” on your phone.</p>
 </div>
-<script defer="" src="../../script.js"></script>
+<div class="content-section">
+<h2 data-en="Make it feel like a real workstation" data-gr="Κάν’ το να μοιάζει με πραγματικό workstation">Make it feel like a real workstation</h2>
+<p data-en="Inside the distro, install a few comfort tools:" data-gr="Μέσα στο distro, βάλε μερικά βασικά εργαλεία άνεσης:">Inside the distro, install a few comfort tools:</p>
+<pre><code>apt update &amp;&amp; apt install -y git curl wget nano vim build-essential</code></pre>
+<p data-en="Want a nicer prompt? Add this (Debian/Ubuntu):" data-gr="Θες πιο ωραίο prompt; Βάλε αυτό (Debian/Ubuntu):">Want a nicer prompt? Add this (Debian/Ubuntu):</p>
+<pre><code>echo 'PS1="\u@\h:\w$ "' &gt;&gt; ~/.bashrc
+source ~/.bashrc</code></pre>
+</div>
+<div class="content-section">
+<h2 data-en="Bonus: run a web server from your phone" data-gr="Bonus: τρέξε web server από το κινητό">Bonus: run a web server from your phone</h2>
+<p data-en="This is a fun way to learn. Start a simple server and open it from your browser." data-gr="Ωραίος τρόπος για μάθηση. Ξεκίνα έναν απλό server και άνοιξέ τον από browser.">This is a fun way to learn. Start a simple server and open it from your browser.</p>
+<pre><code>cd ~
+python3 -m http.server 8000</code></pre>
+<p data-en="Then visit: http://127.0.0.1:8000" data-gr="Μετά άνοιξε: http://127.0.0.1:8000">Then visit: http://127.0.0.1:8000</p>
+</div></div>
+<script defer="" src="../script.js"></script>
 </body>
 </html>
