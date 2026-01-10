@@ -1,3 +1,9 @@
+/* ============================================================================
+   MAINTENANCE (DedSec Blog)
+   - This file renders the Blog listing.
+   - Primary mode: fetch posts from GitHub (auto-detects repo on *.github.io).
+   - Offline fallback: EMBEDDED_POSTS below (update when you add/remove posts).
+   ============================================================================ */
 (() => {
   'use strict';
 
@@ -98,20 +104,49 @@
       return DEFAULT_CFG;
     }
   }
+function detectGitHubRepoFromLocation() {
+  // If the site is hosted on *.github.io, derive owner/repo from the URL so copied repos work automatically.
+  const host = String(location.hostname || '').toLowerCase();
+  if (!host.endsWith('github.io')) return null;
+
+  const owner = host.split('.')[0];
+  const parts = String(location.pathname || '').split('/').filter(Boolean);
+
+  // User/organization site: https://owner.github.io/  => repo is owner.github.io
+  // Project site:          https://owner.github.io/repo/ => repo is the first path segment
+  const repo = parts.length ? parts[0] : `${owner}.github.io`;
+
+  return { owner, repo };
+}
+
 
   async function fetchRepoDirectory({ owner, repo, branch, blogDir }) {
-    const api = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodeURIComponent(blogDir)}?ref=${encodeURIComponent(branch || 'main')}`;
-    const res = await fetch(api, {
+  const base = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodeURIComponent(blogDir)}`;
+  const withRef = branch ? `${base}?ref=${encodeURIComponent(branch)}` : base;
+
+  let res = await fetch(withRef, {
+    headers: { Accept: 'application/vnd.github+json' },
+    cache: 'no-store'
+  });
+
+  // If the branch name is wrong (common when copying the site to a new repo),
+  // retry without specifying a ref so GitHub uses the repo’s default branch.
+  if (!res.ok && branch) {
+    res = await fetch(base, {
       headers: { Accept: 'application/vnd.github+json' },
       cache: 'no-store'
     });
-    if (!res.ok) {
-      throw new Error(`GitHub API returned ${res.status}`);
-    }
-    const data = await res.json();
-    if (!Array.isArray(data)) return [];
-    return data.filter((x) => x && x.type === 'file' && /\.html?$/i.test(x.name));
   }
+
+  if (!res.ok) {
+    throw new Error(`GitHub API returned ${res.status}`);
+  }
+
+  const data = await res.json();
+  if (!Array.isArray(data)) return [];
+  return data.filter((x) => x && x.type === 'file' && /\.html?$/i.test(x.name));
+}
+
 
   async function fetchPostMeta(entry) {
     let titleEn = fileNameToTitle(entry.name);
@@ -197,6 +232,12 @@
     if (!grid) return;
 
     const cfg = await loadConfig();
+
+    // If this is a GitHub Pages URL (owner.github.io[/repo]/...), auto-detect the repo so the blog works in any copied/testing repository.
+    const detected = detectGitHubRepoFromLocation();
+    if (detected) {
+      cfg.github = { ...cfg.github, ...detected, branch: '' };
+    }
     
 let posts = [];
 try {

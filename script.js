@@ -1,3 +1,9 @@
+/* ============================================================================
+   MAINTENANCE (DedSec Project)
+   - Theme + language persistence is handled here (localStorage).
+   - If assets break on sub-pages, check SITE_BASE resolver at the top.
+   - NAV highlights & mobile menu behaviors are also here.
+   ============================================================================ */
 document.addEventListener('DOMContentLoaded', () => {
     // --- GLOBAL STATE ---
     let currentLanguage = 'en';

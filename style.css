@@ -1,3 +1,10 @@
+/* ============================================================================
+   MAINTENANCE (DedSec Project)
+   KEY RULES:
+   - Keep overflow-x hidden to prevent sideways scroll on mobile.
+   - Buttons must use max-width:100% and flex-wrap where needed.
+   - Prefer editing CSS variables (colors/sizes) first, then components.
+   ============================================================================ */
 /*
     =================================================================
     DEDSEC PROJECT MULTI-PAGE STYLES
