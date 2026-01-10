@@ -11,6 +11,63 @@
     }
   };
 
+  const EMBEDDED_POSTS = [
+  {
+    "file": "watch-dogs-vs-real-life-2026.html",
+    "href": "../Blog/watch-dogs-vs-real-life-2026.html",
+    "titleEn": "Watch Dogs vs Real Life (2026): What’s Accurate, What’s Not",
+    "titleGr": "Watch Dogs vs Real Life (2026): What’s Accurate, What’s Not",
+    "descEn": "A grounded comparison between the games’ ctOS fantasy and the real-world tech landscape of 2026.",
+    "descGr": "A grounded comparison between the games’ ctOS fantasy and the real-world tech landscape of 2026.",
+    "date": "2026-01-10"
+  },
+  {
+    "file": "termux-new-user-guide.html",
+    "href": "../Blog/termux-new-user-guide.html",
+    "titleEn": "Termux: All a New User Needs to Know",
+    "titleGr": "Termux: All a New User Needs to Know",
+    "descEn": "A practical starter guide: setup, packages, storage, and good habits.",
+    "descGr": "A practical starter guide: setup, packages, storage, and good habits.",
+    "date": "2026-01-10"
+  },
+  {
+    "file": "termux-errors-fixes.html",
+    "href": "../Blog/termux-errors-fixes.html",
+    "titleEn": "Termux Errors and How to Solve Them",
+    "titleGr": "Termux Errors and How to Solve Them",
+    "descEn": "Common errors explained with quick fixes and commands.",
+    "descGr": "Common errors explained with quick fixes and commands.",
+    "date": "2026-01-10"
+  },
+  {
+    "file": "termux-run-distros.html",
+    "href": "../Blog/termux-run-distros.html",
+    "titleEn": "Run Distros & OSes in Termux Using Only Your Phone",
+    "titleGr": "Run Distros & OSes in Termux Using Only Your Phone",
+    "descEn": "Use proot-distro to run Debian/Ubuntu/Alpine safely without root.",
+    "descGr": "Use proot-distro to run Debian/Ubuntu/Alpine safely without root.",
+    "date": "2026-01-10"
+  },
+  {
+    "file": "mass-surveillance-digital-id.html",
+    "href": "../Blog/mass-surveillance-digital-id.html",
+    "titleEn": "Mass Surveillance Through Technology & Digital ID",
+    "titleGr": "Mass Surveillance Through Technology & Digital ID",
+    "descEn": "How modern tracking works, where digital ID fits in, and practical privacy steps.",
+    "descGr": "How modern tracking works, where digital ID fits in, and practical privacy steps.",
+    "date": "2026-01-10"
+  },
+  {
+    "file": "learn-python-in-termux.html",
+    "href": "../Blog/learn-python-in-termux.html",
+    "titleEn": "Learn Python Using Termux: Getting Started",
+    "titleGr": "Learn Python Using Termux: Getting Started",
+    "descEn": "Install Python, create projects, and build a daily learning routine on Android.",
+    "descGr": "Install Python, create projects, and build a daily learning routine on Android.",
+    "date": "2026-01-10"
+  }
+];
+
   function escapeHtml(str) {
     return String(str || '')
       .replace(/&/g, '&amp;')
@@ -140,34 +197,44 @@
     if (!grid) return;
 
     const cfg = await loadConfig();
-    try {
-      const entries = await fetchRepoDirectory(cfg.github);
-      const metas = await Promise.all(entries.map(fetchPostMeta));
+    
+let posts = [];
+try {
+  const entries = await fetchRepoDirectory(cfg.github);
+  const metas = await Promise.all(entries.map(fetchPostMeta));
 
-      metas.sort((a, b) => {
-        const d = (b.date || '').localeCompare(a.date || '');
-        if (d) return d;
-        return (a.titleEn || '').localeCompare(b.titleEn || '');
-      });
+  metas.sort((a, b) => {
+    const d = (b.date || '').localeCompare(a.date || '');
+    if (d) return d;
+    return (a.titleEn || '').localeCompare(b.titleEn || '');
+  });
 
-      renderPosts(grid, metas);
+  posts = metas;
+} catch (_) {
+  // ignore and fall back to embedded list
+}
 
-      // Apply the saved language after rendering
-      if (typeof window.changeLanguage === 'function') {
-        window.changeLanguage(getCurrentLang());
-      }
-    } catch (err) {
-      grid.innerHTML = `
-        <div class="feature-card" style="grid-column: 1 / -1;">
-          <h3 class="feature-title" data-en="Couldn’t load posts" data-gr="Αδυναμία φόρτωσης άρθρων">Couldn’t load posts</h3>
-          <p data-en="If you are viewing the site offline, this is normal. When hosted on GitHub Pages, the blog list loads automatically." data-gr="Αν βλέπεις το site offline, είναι φυσιολογικό. Όταν ανέβει σε GitHub Pages, η λίστα blog φορτώνει αυτόματα.">
-            If you are viewing the site offline, this is normal. When hosted on GitHub Pages, the blog list loads automatically.
-          </p>
-        </div>`;
-      if (typeof window.changeLanguage === 'function') {
-        window.changeLanguage(getCurrentLang());
-      }
-    }
+// If GitHub API failed (offline / rate limit), use embedded posts from the ZIP build.
+if (!posts.length && Array.isArray(EMBEDDED_POSTS) && EMBEDDED_POSTS.length) {
+  posts = EMBEDDED_POSTS.slice();
+}
+
+if (!posts.length) {
+  grid.innerHTML = `
+    <div class="feature-card" style="grid-column: 1 / -1;">
+      <h3 class="feature-title" data-en="Couldn’t load posts" data-gr="Αδυναμία φόρτωσης άρθρων">Couldn’t load posts</h3>
+      <p data-en="Posts exist, but the list couldn’t be generated. If you’re viewing locally, open the site with a local server (not file://). On GitHub Pages, try refreshing." data-gr="Τα άρθρα υπάρχουν, αλλά η λίστα δεν μπόρεσε να δημιουργηθεί. Αν το βλέπεις τοπικά, άνοιξε το site με local server (όχι file://). Στο GitHub Pages δοκίμασε ανανέωση.">
+        Posts exist, but the list couldn’t be generated. If you’re viewing locally, open the site with a local server (not file://). On GitHub Pages, try refreshing.
+      </p>
+    </div>`;
+} else {
+  renderPosts(grid, posts);
+
+  // Apply the saved language after rendering
+  if (typeof window.changeLanguage === 'function') {
+    window.changeLanguage(getCurrentLang());
+  }
+}
   }
 
   document.addEventListener('DOMContentLoaded', main);
