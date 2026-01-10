@@ -284,17 +284,10 @@ document.addEventListener('DOMContentLoaded', () => {
             "Blog/watch-dogs-vs-real-life-2026.html"
 ];
 
-        const getDepthPrefix = () => {
-            const parts = window.location.pathname.split('/').filter(Boolean);
-            const last = parts[parts.length - 1] || '';
-            const isFile = last.includes('.');
-            const depth = Math.max(0, (isFile ? parts.length - 1 : parts.length));
-            return '../'.repeat(depth);
+        const toFetchUrl = (path) => {
+            try { return new URL((path || '').replace(/^\/+/, ''), SITE_BASE).href; } catch (_) { return path; }
         };
-
-        const toFetchPath = (path) => `${getDepthPrefix()}${path}`;
-
-        const ensureDeterministicIds = (doc) => {
+const ensureDeterministicIds = (doc) => {
             const scope = doc.querySelector('main') || doc.body;
             if (!scope) return;
             const candidates = scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header');
@@ -322,8 +315,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const currentPagePath = () => {
-            const file = (window.location.pathname.split('/').pop() || 'index.html');
-            return isInPages() ? `Pages/${file}` : file;
+            const parts = window.location.pathname.split('/').filter(Boolean);
+            const file = (parts.pop() || 'index.html');
+            // Works on root domains AND project pages like /repo/Pages/... because we don't assume depth.
+            if (parts.includes('Pages')) return `Pages/${file}`;
+            if (parts.includes('Blog')) return `Blog/${file}`;
+            return file;
         };
 
         const buildPageItems = (doc, pagePath) => {
@@ -402,7 +399,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const others = SEARCH_PAGES.filter(p => p !== current);
 
                 const fetchOne = async (path) => {
-                    const res = await fetch(toFetchPath(path), { cache: 'force-cache' });
+                    const res = await fetch(toFetchUrl(path), { cache: 'force-cache' });
                     if (!res.ok) throw new Error(`Fetch failed: ${path}`);
                     const html = await res.text();
                     const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -445,27 +442,38 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const resolveUrl = (url) => {
-            // Normalize relative paths so clicking works from /Pages/*
-            const isPages = window.location.pathname.includes('/Pages/');
-            if (!isPages) return url;
-            if (url.startsWith('../') || url.startsWith('http') || url.startsWith('#')) return url;
-            // From Pages -> root
-            if (url.startsWith('Pages/')) return `../${url}`;
-            if (url === 'index.html') return '../index.html';
-            return url; // already relative within Pages
+            if (!url) return '';
+            if (url.startsWith('http') || url.startsWith('mailto:') || url.startsWith('tel:')) return url;
+            if (url.startsWith('#')) return url;
+            try {
+                return new URL(url.replace(/^\/+/, ''), SITE_BASE).href;
+            } catch (_) {
+                return url;
+            }
         };
 
         const navigate = (url) => {
-            const finalUrl = resolveUrl(url);
-            const [path, hash] = finalUrl.split('#');
-            const samePage = (!path || path === '' || path === pageNameForNav());
+            let target;
+            try {
+                if (url && url.startsWith('#')) {
+                    const base = window.location.href.split('#')[0];
+                    target = new URL(base + url);
+                } else {
+                    target = new URL((url || '').replace(/^\/+/, ''), SITE_BASE);
+                }
+            } catch (_) {
+                window.location.href = url;
+                return;
+            }
 
-            if (samePage && hash) {
-                const target = document.getElementById(hash);
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                window.location.hash = hash;
+            const current = new URL(window.location.href);
+            if (target.pathname === current.pathname && target.hash) {
+                const id = target.hash.replace('#', '');
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.location.hash = target.hash;
             } else {
-                window.location.href = finalUrl;
+                window.location.href = target.href;
             }
         };
 
