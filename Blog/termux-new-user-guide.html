@@ -78,10 +78,15 @@
 </div>
 </div>
 </nav>
-<div class="page-content">
+<div class="page-content post-article">
 <div class="page-header">
 <h1 data-en="Termux: Everything a New User Needs to Know" data-gr="Termux: Ό,τι χρειάζεται να ξέρει ένας νέος χρήστης">Termux: Everything a New User Needs to Know</h1>
-<p data-en="A practical, beginner-friendly setup guide: storage, packages, files, and daily workflow on Android." data-gr="Ένας πρακτικός οδηγός για αρχάριους: storage, packages, αρχεία και καθημερινή ροή εργασίας στο Android.">A practical, beginner-friendly setup guide: storage, packages, files, and daily workflow on Android.</p>
+<p data-en="A practical, beginner-friendly setup guide: storage, packages, files, and daily workflow on Android." data-gr="Ένας πρακτικός οδηγός για αρχάριους: storage, packages, αρχεία και καθημερινή ροή εργασίας στο Android.">A practical, beginner-friendly setup guide: storage, packages, files, and daily workflow on Android.</p><div class="trust-box">
+<strong data-en="Why you can trust this guide" data-gr="Γιατί να εμπιστευτείς αυτόν τον οδηγό">Why you can trust this guide</strong>
+<p data-en="Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included." data-gr="Όσα θα δεις εδώ είναι βασισμένα σε πραγματική χρήση του Termux: εντολές που όντως τρέχεις, λάθη που όντως θα δεις, και γρήγορες ασφαλείς λύσεις. Αντιγραφή–επικόλληση και επιβεβαίωση με τα checks που περιλαμβάνονται.">
+     Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included.
+  </p>
+</div>
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
 <a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
 <a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
@@ -137,7 +142,16 @@ cd ~/Projects</code></pre>
 <h2 data-en="7) Next step: what to learn first" data-gr="7) Επόμενο βήμα: τι να μάθεις πρώτο">7) Next step: what to learn first</h2>
 <p data-en="If you learn Linux basics (cd/ls/cp/mv), git basics (clone/pull), and Python basics (variables, loops, functions), you can build almost any Termux tool." data-gr="Αν μάθεις Linux basics (cd/ls/cp/mv), git basics (clone/pull) και Python basics (variables, loops, functions), μπορείς να χτίσεις σχεδόν οποιοδήποτε εργαλείο στο Termux.">If you learn Linux basics (cd/ls/cp/mv), git basics (clone/pull), and Python basics (variables, loops, functions), you can build almost any Termux tool.</p>
 </div>
-</div>
-<script defer="" src="script.js?v=2026-01-10-v6"></script>
+<h2 data-en="Quick start checklist (do this once)" data-gr="Γρήγορο checklist (μία φορά)"></h2><p data-en="If you only do 5 things: update packages, grant storage, install git+python, create a work folder, and learn where files live. These steps remove 80% of beginner pain." data-gr="Αν κάνεις μόνο 5 πράγματα: update πακέτα, άδεια αποθήκευσης, εγκατάσταση git+python, δημιουργία φακέλου εργασίας, και κατανόηση του πού βρίσκονται τα αρχεία. Αυτά κόβουν το 80% της ταλαιπωρίας αρχάριου."></p><pre><code>pkg update -y &amp;&amp; pkg upgrade -y
+termux-setup-storage
+pkg install -y git python
+mkdir -p ~/Projects &amp;&amp; cd ~/Projects
+python --version</code></pre><p data-en="Tip: keep your projects in ~/Projects and only move finished exports to /storage/emulated/0/ (your phone storage). It keeps your work clean and prevents permission issues." data-gr="Tip: κράτα τα projects σου στο ~/Projects και πέρασε μόνο έτοιμα exports στο /storage/emulated/0/ (αποθήκη κινητού). Κρατάει το work σου καθαρό και αποφεύγει θέματα permissions."></p><h2 data-en="A realistic daily workflow (so you don’t feel lost)" data-gr="Ρεαλιστικό daily workflow (για να μη χαθείς)"></h2><p data-en="Most people fail because they open Termux and don’t know what to do next. Use this tiny routine: (1) go to your project folder, (2) pull updates, (3) run, (4) save output, (5) write 1 note about what changed." data-gr="Οι περισσότεροι κολλάνε γιατί ανοίγουν Termux και δεν ξέρουν τι να κάνουν μετά. Κράτα αυτή τη μικρή ρουτίνα: (1) μπες στον φάκελο project, (2) κάνε pull updates, (3) τρέξε, (4) σώσε output, (5) γράψε 1 σημείωση για το τι άλλαξε."></p><pre><code>cd ~/Projects/DedSec
+git pull
+python tool.py
+cp output.txt /storage/emulated/0/Download/
+nano NOTES.md</code></pre><h2 data-en="Common beginner mistakes (and the fix)" data-gr="Συχνά λάθη αρχάριων (και η λύση)"></h2><p data-en="If a command says “Permission denied”, you’re usually writing to phone storage without granting access. Run termux-setup-storage once and try again." data-gr="Αν δεις “Permission denied”, συνήθως γράφεις στην αποθήκη κινητού χωρίς άδεια. Τρέξε termux-setup-storage μία φορά και ξανά προσπάθησε."></p><p data-en="If you see “command not found”, you didn’t install the package. Search it, install it, then re-run." data-gr="Αν δεις “command not found”, δεν έχεις εγκαταστήσει το πακέτο. Κάνε αναζήτηση, εγκατάσταση, και ξανά τρέξε."></p><pre><code>pkg search ffmpeg
+pkg install ffmpeg</code></pre><h2 data-en="Next steps: what to learn first" data-gr="Επόμενα βήματα: τι να μάθεις πρώτο"></h2><p data-en="Learn three skills and you’ll be “dangerous” in a good way: basic Linux navigation (cd/ls/cat), installing packages (pkg), and editing files (nano). Then add Python." data-gr="Μάθε 3 δεξιότητες και θα είσαι “έτοιμος” με την καλή έννοια: βασική πλοήγηση Linux (cd/ls/cat), εγκατάσταση πακέτων (pkg), και edit αρχείων (nano). Μετά πρόσθεσε Python."></p></div>
+<script defer="" src="../script.js"></script>
 </body>
 </html>

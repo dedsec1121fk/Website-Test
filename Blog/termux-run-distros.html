@@ -78,10 +78,15 @@
 </div>
 </div>
 </nav>
-<div class="page-content">
+<div class="page-content post-article">
 <div class="page-header">
 <h1 data-en="Run Linux Distros in Termux Using Only Your Phone" data-gr="Τρέξε Linux διανομές στο Termux μόνο με το κινητό">Run Linux Distros in Termux Using Only Your Phone</h1>
-<p data-en="Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips." data-gr="Χρησιμοποίησε proot containers για Ubuntu/Debian/Alpine χωρίς root, με πρακτικές συμβουλές απόδοσης.">Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips.</p>
+<p data-en="Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips." data-gr="Χρησιμοποίησε proot containers για Ubuntu/Debian/Alpine χωρίς root, με πρακτικές συμβουλές απόδοσης.">Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips.</p><div class="trust-box">
+<strong data-en="Why you can trust this guide" data-gr="Γιατί να εμπιστευτείς αυτόν τον οδηγό">Why you can trust this guide</strong>
+<p data-en="Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included." data-gr="Όσα θα δεις εδώ είναι βασισμένα σε πραγματική χρήση του Termux: εντολές που όντως τρέχεις, λάθη που όντως θα δεις, και γρήγορες ασφαλείς λύσεις. Αντιγραφή–επικόλληση και επιβεβαίωση με τα checks που περιλαμβάνονται.">
+     Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included.
+  </p>
+</div>
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
 <a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
 <a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
@@ -120,7 +125,16 @@ proot-distro login debian</code></pre>
 <h2 data-en="6) Security mindset (important)" data-gr="6) Νοοτροπία ασφάλειας (σημαντικό)">6) Security mindset (important)</h2>
 <p data-en="Treat distro containers like normal Linux: use strong passwords for services, don’t expose SSH to the internet from your phone, and avoid running random scripts as root inside the container." data-gr="Αντιμετώπισε τα containers σαν κανονικό Linux: βάλε δυνατούς κωδικούς σε υπηρεσίες, μην εκθέτεις SSH στο internet από το κινητό και απόφυγε “τυχαία” scripts ως root μέσα στο container.">Treat distro containers like normal Linux: use strong passwords for services, don’t expose SSH to the internet from your phone, and avoid running random scripts as root inside the container.</p>
 </div>
-</div>
-<script defer="" src="script.js?v=2026-01-10-v6"></script>
+<h2 data-en="Choose the right method (so it actually runs on your phone)" data-gr="Διάλεξε σωστή μέθοδο (για να τρέξει όντως στο κινητό)"></h2><p data-en="On low-end devices, lighter distros win. Debian/Ubuntu minimal are fine; full desktops are heavy. Start headless (CLI) first, then add a desktop later if you really need it." data-gr="Σε πιο αδύναμες συσκευές, κερδίζουν οι ελαφριές λύσεις. Debian/Ubuntu minimal είναι ΟΚ· πλήρη desktop είναι βαριά. Ξεκίνα headless (CLI) και μετά πρόσθεσε desktop μόνο αν χρειάζεται."></p><h2 data-en="Example: install a minimal distro (safe baseline)" data-gr="Παράδειγμα: εγκατάσταση minimal distro (ασφαλής βάση)"></h2><p data-en="This is a common flow using proot-based tools. After install, always update inside the distro too." data-gr="Αυτό είναι ένα συνηθισμένο flow με proot εργαλεία. Μετά την εγκατάσταση, κάνε update και μέσα στο distro."></p><pre><code>pkg update -y
+pkg install -y proot-distro
+proot-distro install debian
+proot-distro login debian</code></pre><pre><code>apt update &amp;&amp; apt upgrade -y
+whoami
+uname -a</code></pre><h2 data-en="Performance tips (big difference)" data-gr="Tips απόδοσης (τεράστια διαφορά)"></h2><ul>
+<li data-en="Avoid desktop environments unless necessary. Use tmux + CLI tools." data-gr="Απέφυγε desktop αν δεν χρειάζεται. Χρησιμοποίησε tmux + CLI εργαλεία."></li>
+<li data-en="Use zram / swap only if you understand the trade-offs; it can heat your phone." data-gr="Swap/zram μόνο αν ξέρεις τα trade-offs· μπορεί να ζεστάνει το κινητό."></li>
+<li data-en="Keep storage free. Low storage = slow everything." data-gr="Κράτα χώρο ελεύθερο. Χαμηλός χώρος = αργά όλα."></li>
+</ul><h2 data-en="What you can (and can’t) do in proot" data-gr="Τι μπορείς (και τι δεν μπορείς) σε proot"></h2><p data-en="Proot distros are amazing for userland tools (Python, servers, compilers), but they are not the same as full root Linux. Kernel-level features and some system services won’t work." data-gr="Τα proot distros είναι τέλεια για userland εργαλεία (Python, servers, compilers), αλλά δεν είναι ίδιο με full root Linux. Kernel-level features και μερικές υπηρεσίες συστήματος δεν θα δουλέψουν."></p></div>
+<script defer="" src="../script.js"></script>
 </body>
 </html>

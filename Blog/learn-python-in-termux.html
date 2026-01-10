@@ -78,10 +78,15 @@
 </div>
 </div>
 </nav>
-<div class="page-content">
+<div class="page-content post-article">
 <div class="page-header">
 <h1 data-en="How to Start Learning Python Using Termux" data-gr="Πώς να ξεκινήσεις Python στο Termux">How to Start Learning Python Using Termux</h1>
-<p data-en="A simple setup + practice plan so you actually make progress (even with little time)." data-gr="Απλή εγκατάσταση + πλάνο εξάσκησης για να προχωράς (ακόμα και με λίγο χρόνο).">A simple setup + practice plan so you actually make progress (even with little time).</p>
+<p data-en="A simple setup + practice plan so you actually make progress (even with little time)." data-gr="Απλή εγκατάσταση + πλάνο εξάσκησης για να προχωράς (ακόμα και με λίγο χρόνο).">A simple setup + practice plan so you actually make progress (even with little time).</p><div class="trust-box">
+<strong data-en="Why you can trust this guide" data-gr="Γιατί να εμπιστευτείς αυτόν τον οδηγό">Why you can trust this guide</strong>
+<p data-en="Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included." data-gr="Όσα θα δεις εδώ είναι βασισμένα σε πραγματική χρήση του Termux: εντολές που όντως τρέχεις, λάθη που όντως θα δεις, και γρήγορες ασφαλείς λύσεις. Αντιγραφή–επικόλληση και επιβεβαίωση με τα checks που περιλαμβάνονται.">
+     Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included.
+  </p>
+</div>
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
 <a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
 <a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
@@ -123,7 +128,27 @@ python -X faulthandler your_script.py</code></pre>
 <h2 data-en="5) A realistic weekly plan" data-gr="5) Ρεαλιστικό εβδομαδιαίο πλάνο">5) A realistic weekly plan</h2>
 <p data-en="Week 1: basics + files. Week 2: functions + modules. Week 3: requests + JSON. Week 4: one mini-project you can publish (even a small tool)." data-gr="Εβδομάδα 1: basics + αρχεία. Εβδομάδα 2: functions + modules. Εβδομάδα 3: requests + JSON. Εβδομάδα 4: ένα mini-project που μπορείς να δημοσιεύσεις (έστω μικρό εργαλείο).">Week 1: basics + files. Week 2: functions + modules. Week 3: requests + JSON. Week 4: one mini-project you can publish (even a small tool).</p>
 </div>
-</div>
-<script defer="" src="script.js?v=2026-01-10-v6"></script>
+<h2 data-en="The 20-minute Python setup (then you can build real tools)" data-gr="Python setup σε 20 λεπτά (και μετά φτιάχνεις εργαλεία)"></h2><p data-en="You don’t need a laptop to learn Python. You need: Python, a good editor (nano is enough), and a loop: write → run → fix → repeat." data-gr="Δεν χρειάζεσαι laptop για να μάθεις Python. Χρειάζεσαι: Python, έναν editor (το nano αρκεί), και ένα loop: γράφω → τρέχω → διορθώνω → επαναλαμβάνω."></p><pre><code>pkg update -y
+pkg install -y python
+python --version</code></pre><h2 data-en="Your first useful script (not “hello world”)" data-gr="Το πρώτο σου χρήσιμο script (όχι “hello world”)"></h2><p data-en="This script asks for a website and checks if it’s reachable. It teaches input, requests, and error handling—skills you’ll reuse in every real project." data-gr="Αυτό το script ζητάει ένα site και ελέγχει αν “απαντάει”. Μαθαίνεις input, requests, και error handling—δεξιότητες που θα χρησιμοποιείς παντού."></p><pre><code>python -m pip install requests
+
+cat &gt; check_site.py &lt;&lt;'PY'
+import requests
+
+url = input("URL (https://...): ").strip()
+try:
+    r = requests.get(url, timeout=10)
+    print("Status:", r.status_code)
+    print("Server:", r.headers.get("server", "?"))
+except Exception as e:
+    print("Error:", e)
+PY
+
+python check_site.py</code></pre><h2 data-en="How to practice (so you actually improve)" data-gr="Πώς να εξασκηθείς (για να βελτιωθείς όντως)"></h2><ul>
+<li data-en="Rewrite the same script with better output (colors, tables, logs)." data-gr="Ξαναγράψε το ίδιο script με καλύτερο output (χρώματα, πίνακες, logs)."></li>
+<li data-en="Add one feature per day (save to file, history, retries)." data-gr="Βάλε 1 feature/μέρα (save σε αρχείο, history, retries)."></li>
+<li data-en="Read error messages like a detective—don’t guess." data-gr="Διάβαζε τα errors σαν ντετέκτιβ—μη μαντεύεις."></li>
+</ul><h2 data-en="Next step: build a tiny CLI app" data-gr="Επόμενο: φτιάξε ένα μικρό CLI app"></h2><p data-en="Once you can parse input + print output reliably, you can build real Termux tools: scrapers, note apps, installers, and automations." data-gr="Μόλις μπορείς να παίρνεις input + να δίνεις σωστό output, μπορείς να φτιάξεις πραγματικά Termux εργαλεία: scrapers, note apps, installers, automations."></p></div>
+<script defer="" src="../script.js"></script>
 </body>
 </html>

@@ -78,10 +78,15 @@
 </div>
 </div>
 </nav>
-<div class="page-content">
+<div class="page-content post-article">
 <div class="page-header">
 <h1 data-en="Termux Errors and How to Fix Them" data-gr="Σφάλματα στο Termux και πώς να τα λύσεις">Termux Errors and How to Fix Them</h1>
-<p data-en="A troubleshooting checklist for the most common Termux problems (and why they happen)." data-gr="Checklist επίλυσης για τα πιο συνηθισμένα προβλήματα στο Termux (και γιατί συμβαίνουν).">A troubleshooting checklist for the most common Termux problems (and why they happen).</p>
+<p data-en="A troubleshooting checklist for the most common Termux problems (and why they happen)." data-gr="Checklist επίλυσης για τα πιο συνηθισμένα προβλήματα στο Termux (και γιατί συμβαίνουν).">A troubleshooting checklist for the most common Termux problems (and why they happen).</p><div class="trust-box">
+<strong data-en="Why you can trust this guide" data-gr="Γιατί να εμπιστευτείς αυτόν τον οδηγό">Why you can trust this guide</strong>
+<p data-en="Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included." data-gr="Όσα θα δεις εδώ είναι βασισμένα σε πραγματική χρήση του Termux: εντολές που όντως τρέχεις, λάθη που όντως θα δεις, και γρήγορες ασφαλείς λύσεις. Αντιγραφή–επικόλληση και επιβεβαίωση με τα checks που περιλαμβάνονται.">
+     Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included.
+  </p>
+</div>
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
 <a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
 <a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
@@ -119,7 +124,13 @@ pkg install -y rust</code></pre>
 <h2 data-en="6) A fast “diagnose and fix” habit" data-gr="6) Γρήγορη συνήθεια “διάγνωση και λύση”">6) A fast “diagnose and fix” habit</h2>
 <p data-en="When something breaks, copy the exact error line, identify whether it’s storage, repo, dependency, or network, then fix that category. Don’t random-install 20 packages—be targeted." data-gr="Όταν κάτι σπάει, αντιγράφεις την ακριβή γραμμή σφάλματος, καταλαβαίνεις αν είναι storage/repo/dependency/network και διορθώνεις αυτό. Μην εγκαθιστάς τυχαία 20 packages—κάνε στοχευμένα βήματα.">When something breaks, copy the exact error line, identify whether it’s storage, repo, dependency, or network, then fix that category. Don’t random-install 20 packages—be targeted.</p>
 </div>
-</div>
-<script defer="" src="script.js?v=2026-01-10-v6"></script>
+<h2 data-en="Fast diagnostics: find the real cause in 30 seconds" data-gr="Γρήγορη διάγνωση: βρες την αιτία σε 30 δευτερόλεπτα"></h2><p data-en="Before you google for hours, collect these three signals: the exact error line, your Android version, and the package name. Most fixes become obvious when you have those." data-gr="Πριν χαθείς στο Google, μάζεψε 3 στοιχεία: την ακριβή γραμμή σφάλματος, την έκδοση Android, και το όνομα πακέτου. Οι περισσότερες λύσεις γίνονται προφανείς έτσι."></p><pre><code>uname -a
+termux-info
+python --version
+pkg list-installed | head</code></pre><h2 data-en="Error: “E: Unable to locate package …”" data-gr="Σφάλμα: “E: Unable to locate package …”"></h2><p data-en="This usually means your package lists are old or the repo changed. Update first, then try again. If it still fails, check your repositories." data-gr="Συνήθως σημαίνει παλιά lists ή αλλαγή repos. Κάνε update πρώτα και ξανά δοκίμασε. Αν συνεχίζει, έλεγξε τα repositories."></p><pre><code>pkg update -y
+termux-change-repo
+pkg install &lt;package&gt;</code></pre><h2 data-en="Python: “ModuleNotFoundError” (the clean fix)" data-gr="Python: “ModuleNotFoundError” (καθαρή λύση)"></h2><p data-en="Install modules with pip for Termux’s Python. If you installed Python via pkg, use python -m pip so it targets the right interpreter." data-gr="Εγκατάστησε modules με pip για την Python του Termux. Αν έβαλες Python μέσω pkg, χρησιμοποίησε python -m pip για να “δείχνει” στη σωστή Python."></p><pre><code>python -m pip install --upgrade pip
+python -m pip install requests rich</code></pre><h2 data-en="When you must reset (without losing everything)" data-gr="Πότε χρειάζεται reset (χωρίς να χάσεις τα πάντα)"></h2><p data-en="If your environment is broken, backing up ~/Projects and reinstalling Termux is sometimes faster than patching 20 issues. Copy projects to Downloads, reinstall, and restore." data-gr="Αν το περιβάλλον σου έχει “σπάσει”, συχνά είναι πιο γρήγορο να κάνεις backup το ~/Projects και επανεγκατάσταση Termux, αντί να κυνηγάς 20 προβλήματα. Αντέγραψε projects στα Downloads, reinstall, και επανάφερε."></p><pre><code>cp -r ~/Projects /storage/emulated/0/Download/Termux-Backup-Projects</code></pre></div>
+<script defer="" src="../script.js"></script>
 </body>
 </html>
