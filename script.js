@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         
-        const SEARCH_VERSION = '2026-01-05-v4';
+        const SEARCH_VERSION = '2026-01-10-v5';
         const SEARCH_STORAGE_KEY = `dedsec_search_index_${SEARCH_VERSION}`;
 
         const SEARCH_PAGES = [
@@ -270,12 +270,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "Pages/contact-credits.html",
             "Pages/privacy-policy.html",
             "Pages/blog.html",
-            "Blogs/termux-new-user-guide/index.html",
-            "Blogs/termux-errors-fixes/index.html",
-            "Blogs/termux-run-distros/index.html",
-            "Blogs/learn-python-in-termux/index.html",
-            "Blogs/mass-surveillance-digital-id/index.html",
-            "Blogs/watch-dogs-vs-real-life-2026/index.html"
+            "Blog/termux-new-user-guide.html",
+            "Blog/termux-errors-fixes.html",
+            "Blog/termux-run-distros.html",
+            "Blog/learn-python-in-termux.html",
+            "Blog/mass-surveillance-digital-id.html",
+            "Blog/watch-dogs-vs-real-life-2026.html"
 ];
 
         const getDepthPrefix = () => {

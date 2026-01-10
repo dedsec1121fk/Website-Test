@@ -75,6 +75,16 @@
     --focus-ring: 0 0 0 3px rgba(205, 147, 255, 0.35);
 }
 
+
+/* Responsive overflow fixes */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video, svg, canvas { max-width: 100%; height: auto; }
+pre { max-width: 100%; width: 100%; min-width: 0; overflow-x: auto; }
+code { word-break: normal; }
+.btn, .nav-action-btn { max-width: 100%; }
+.nav-actions { flex-wrap: wrap; }
+
 /* === LIGHT THEME COLOR SYSTEM (STRICT #FFFFFF & #000000) === */
 body.light-theme {
     /* Light theme base backdrop: pure white to blend with the background image */
