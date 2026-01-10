@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>DedSec Blog — Mass Surveillance Through Technology &amp; Digital ID</title>
+<meta content="#07060d" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="How modern tracking works, where digital ID fits in, and practical privacy steps." name="description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://ded-sec.space/Blogs/mass-surveillance-digital-id/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ded-sec.space/Blogs/mass-surveillance-digital-id/" property="og:url"/>
+<meta content="DedSec Blog — Mass Surveillance Through Technology &amp; Digital ID" property="og:title"/>
+<meta content="How modern tracking works, where digital ID fits in, and practical privacy steps." property="og:description"/>
+<meta content="/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="DedSec Blog — Termux Errors and How to Solve Them" name="twitter:title"/>
+<meta content="Common errors explained with quick fixes and commands." name="twitter:description"/>
+<meta content="/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+</head>
+<body class="dark-theme">
+<nav class="main-nav">
+<div class="nav-container">
+<div class="nav-title"><h1>DedSec Project</h1></div>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span></span><span></span><span></span></button>
+<div class="nav-menu" id="nav-menu">
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../../index.html">Home</a>
+<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθε για τα Εργαλεία" href="../../Pages/learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../../Pages/guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../../Pages/faq.html">Frequently Asked Questions</a>
+
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../../Pages/store.html">Store</a><a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../../Pages/blog.html">Blog</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../../Pages/collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="../../Pages/portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="../../Pages/contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../../Pages/privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="nav-actions">
+<button class="nav-action-btn" id="nav-theme-switcher"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
+<button class="nav-action-btn" id="nav-lang-switcher"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
+</div>
+</div>
+</nav>
+<div class="page-content">
+<div class="page-header">
+<h1 data-en="Mass Surveillance Through Technology &amp; Digital ID" data-gr="Μαζική Επιτήρηση μέσω Τεχνολογίας &amp; Ψηφιακής Ταυτότητας">Mass Surveillance Through Technology &amp; Digital ID</h1>
+<p data-en="How modern tracking works, where digital ID fits in, and practical privacy steps." data-gr="Πώς λειτουργεί η σύγχρονη παρακολούθηση, πού «δένει» η ψηφιακή ταυτότητα και πρακτικά βήματα ιδιωτικότητας.">How modern tracking works, where digital ID fits in, and practical privacy steps.</p>
+<div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+<a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../../Pages/blog.html">← Back to Blog</a>
+<a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../../Pages/guide-for-installation.html">Install DedSec Project</a>
+</div>
+</div>
+<h2 data-en="What “mass surveillance” means in 2026" data-gr="Τι σημαίνει «μαζική επιτήρηση» το 2026">What “mass surveillance” means in 2026</h2>
+<p data-en="Mass surveillance is the collection and analysis of large amounts of data about many people — not just suspects — often by combining multiple sources." data-gr="Η μαζική επιτήρηση είναι η συλλογή και ανάλυση τεράστιων ποσοτήτων δεδομένων για πολλούς ανθρώπους — όχι μόνο για υπόπτους — συχνά με συνδυασμό πολλών πηγών.">Mass surveillance is the collection and analysis of large amounts of data about many people — not just suspects — often by combining multiple sources.</p>
+<p data-en="That data can come from phones, apps, cameras, sensors, online services, payments, and even data brokers — and it becomes much more powerful when it’s linked together." data-gr="Τα δεδομένα μπορεί να προέρχονται από κινητά, εφαρμογές, κάμερες, αισθητήρες, online υπηρεσίες, πληρωμές, ακόμη και data brokers — και γίνονται πολύ πιο ισχυρά όταν «ενώνονται» μεταξύ τους.">That data can come from phones, apps, cameras, sensors, online services, payments, and even data brokers — and it becomes much more powerful when it’s linked together.</p>
+</div>
+<div class="content-section">
+<h2 data-en="Digital ID: the “link” that can connect everything" data-gr="Ψηφιακή Ταυτότητα: ο «σύνδεσμος» που μπορεί να ενώσει τα πάντα">Digital ID: the “link” that can connect everything</h2>
+<p data-en="A digital ID (or digital identity wallet) can make life easier: faster sign-ins, easier government services, age verification, and safer authentication." data-gr="Η ψηφιακή ταυτότητα (ή «πορτοφόλι ταυτότητας») μπορεί να κάνει τη ζωή πιο εύκολη: πιο γρήγορα logins, καλύτερες δημόσιες υπηρεσίες, επιβεβαίωση ηλικίας και πιο ασφαλή ταυτοποίηση.">A digital ID (or digital identity wallet) can make life easier: faster sign-ins, easier government services, age verification, and safer authentication.</p>
+<p data-en="But if a digital ID becomes a universal key for many services, it can also become a universal tracking point — depending on the design, laws, and who can access logs." data-gr="Αν όμως γίνει ένα καθολικό «κλειδί» για πολλές υπηρεσίες, μπορεί να γίνει και καθολικό σημείο παρακολούθησης — ανάλογα με το design, τους νόμους και το ποιος βλέπει τα logs.">But if a digital ID becomes a universal key for many services, it can also become a universal tracking point — depending on the design, laws, and who can access logs.</p>
+<p data-en="The critical question is not “digital ID good or bad?” — it’s: Who controls it, what data is stored, what is logged, how long, and how independently it’s audited." data-gr="Το κρίσιμο ερώτημα δεν είναι «καλή ή κακή η ψηφιακή ταυτότητα;» — αλλά: ποιος την ελέγχει, τι αποθηκεύεται, τι καταγράφεται, για πόσο και πόσο ανεξάρτητα γίνεται έλεγχος (audit).">The critical question is not “digital ID good or bad?” — it’s: Who controls it, what data is stored, what is logged, how long, and how independently it’s audited.</p>
+</div>
+<div class="content-section">
+<h2 data-en="Common surveillance building blocks" data-gr="Κοινά «τουβλάκια» επιτήρησης">Common surveillance building blocks</h2>
+<p data-en="Even without a single “ctOS”, modern tracking often comes from simple building blocks:" data-gr="Ακόμη και χωρίς ένα ενιαίο «ctOS», η σύγχρονη παρακολούθηση συχνά προκύπτει από απλά «τουβλάκια»:">Even without a single “ctOS”, modern tracking often comes from simple building blocks:</p>
+<ul>
+<li data-en="Cameras + analytics (face/behavior/object detection) in public and private spaces." data-gr="Κάμερες + ανάλυση (πρόσωπο/συμπεριφορά/αντικείμενα) σε δημόσιους και ιδιωτικούς χώρους.">Cameras + analytics (face/behavior/object detection) in public and private spaces.</li>
+<li data-en="Location trails from phones, apps, Wi‑Fi/Bluetooth beacons, and ad identifiers." data-gr="Ίχνη τοποθεσίας από κινητά, apps, Wi‑Fi/Bluetooth beacons και ad identifiers.">Location trails from phones, apps, Wi‑Fi/Bluetooth beacons, and ad identifiers.</li>
+<li data-en="Account linkage (email/phone number) across services and single sign-on." data-gr="Σύνδεση λογαριασμών (email/τηλέφωνο) σε πολλές υπηρεσίες και single sign‑on.">Account linkage (email/phone number) across services and single sign-on.</li>
+<li data-en="Payments and loyalty programs that create extremely accurate profiles." data-gr="Πληρωμές και προγράμματα loyalty που χτίζουν πολύ ακριβή προφίλ.">Payments and loyalty programs that create extremely accurate profiles.</li>
+<li data-en="Data brokers and ad-tech profiles that get shared and resold." data-gr="Data brokers και ad‑tech προφίλ που μοιράζονται και μεταπωλούνται.">Data brokers and ad-tech profiles that get shared and resold.</li>
+</ul>
+<p data-en="When these blocks get connected, they can reveal routines, relationships, beliefs, and vulnerabilities — even if you never did anything “wrong.”" data-gr="Όταν αυτά τα «τουβλάκια» συνδέονται, μπορούν να αποκαλύψουν ρουτίνες, σχέσεις, πεποιθήσεις και αδυναμίες — ακόμα κι αν δεν έκανες ποτέ κάτι «λάθος».">When these blocks get connected, they can reveal routines, relationships, beliefs, and vulnerabilities — even if you never did anything “wrong.”</p>
+</div>
+<div class="content-section">
+<h2 data-en="How to think about it: risk, not fear" data-gr="Πώς να το σκέφτεσαι: ρίσκο, όχι φόβος">How to think about it: risk, not fear</h2>
+<p data-en="Privacy isn’t “hide everything.” It’s about limiting unnecessary exposure and reducing the impact of misuse." data-gr="Η ιδιωτικότητα δεν είναι «κρύβω τα πάντα». Είναι να περιορίζεις την άσκοπη έκθεση και να μειώνεις τις συνέπειες κατάχρησης.">Privacy isn’t “hide everything.” It’s about limiting unnecessary exposure and reducing the impact of misuse.</p>
+<p data-en="A good mental model is to ask: What data is collected? Who can access it? Can it be used against me later? Can I opt out? Can I verify and delete it?" data-gr="Ένα καλό μοντέλο σκέψης είναι: Τι δεδομένα συλλέγονται; Ποιος έχει πρόσβαση; Μπορεί να χρησιμοποιηθούν εναντίον μου αργότερα; Υπάρχει opt‑out; Μπορώ να τα ελέγξω/διαγράψω;">A good mental model is to ask: What data is collected? Who can access it? Can it be used against me later? Can I opt out? Can I verify and delete it?</p>
+<p data-en="If a system can’t be explained clearly to the public, it’s often a sign that accountability is missing." data-gr="Αν ένα σύστημα δεν μπορεί να εξηγηθεί καθαρά στον κόσμο, συχνά είναι σημάδι ότι λείπει η λογοδοσία.">If a system can’t be explained clearly to the public, it’s often a sign that accountability is missing.</p>
+</div>
+<div class="content-section">
+<h2 data-en="Practical steps you can take today" data-gr="Πρακτικά βήματα που μπορείς να κάνεις σήμερα">Practical steps you can take today</h2>
+<p data-en="You don’t need to be paranoid. Start with simple, high-impact habits:" data-gr="Δεν χρειάζεται πανικός. Ξεκίνα με απλές, αποτελεσματικές συνήθειες:">You don’t need to be paranoid. Start with simple, high-impact habits:</p>
+<ul>
+<li data-en="Audit app permissions (location, microphone, contacts) and remove what isn’t necessary." data-gr="Έλεγξε άδειες εφαρμογών (τοποθεσία, μικρόφωνο, επαφές) και αφαίρεσε ό,τι δεν χρειάζεται.">Audit app permissions (location, microphone, contacts) and remove what isn’t necessary.</li>
+<li data-en="Use strong authentication (passkeys/2FA) and a password manager." data-gr="Χρησιμοποίησε ισχυρή ταυτοποίηση (passkeys/2FA) και password manager.">Use strong authentication (passkeys/2FA) and a password manager.</li>
+<li data-en="Prefer end-to-end encrypted messaging for sensitive conversations." data-gr="Προτίμησε end‑to‑end κρυπτογραφημένα μηνύματα για ευαίσθητες συζητήσεις.">Prefer end-to-end encrypted messaging for sensitive conversations.</li>
+<li data-en="Reduce ad tracking: limit ad ID usage and consider privacy-respecting browsers." data-gr="Μείωσε το ad tracking: περιόρισε το ad ID και σκέψου privacy‑friendly browsers.">Reduce ad tracking: limit ad ID usage and consider privacy-respecting browsers.</li>
+<li data-en="Keep devices updated; many “surveillance” incidents start as simple exploits." data-gr="Κράτα συσκευές ενημερωμένες· πολλά περιστατικά ξεκινούν από απλά κενά ασφαλείας.">Keep devices updated; many “surveillance” incidents start as simple exploits.</li>
+</ul>
+<p data-en="The goal is control: knowing what you share, and making sure it’s shared by choice — not by default." data-gr="Ο στόχος είναι ο έλεγχος: να ξέρεις τι μοιράζεσαι και να γίνεται από επιλογή — όχι από προεπιλογή.">The goal is control: knowing what you share, and making sure it’s shared by choice — not by default.</p>
+</div>
+
+<script defer="" src="../../script.js"></script>
+</body>
+</html>

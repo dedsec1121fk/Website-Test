@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>DedSec Blog — Termux: All a New User Needs to Know</title>
+<meta content="#07060d" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="A practical starter guide: setup, packages, storage, and good habits." name="description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://ded-sec.space/Blogs/termux-new-user-guide/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ded-sec.space/Blogs/termux-new-user-guide/" property="og:url"/>
+<meta content="DedSec Blog — Termux: All a New User Needs to Know" property="og:title"/>
+<meta content="A practical starter guide: setup, packages, storage, and good habits." property="og:description"/>
+<meta content="/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="DedSec Blog — Termux: All a New User Needs to Know" name="twitter:title"/>
+<meta content="A practical starter guide: setup, packages, storage, and good habits." name="twitter:description"/>
+<meta content="/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+</head>
+<body class="dark-theme">
+<nav class="main-nav">
+<div class="nav-container">
+<div class="nav-title"><h1>DedSec Project</h1></div>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span></span><span></span><span></span></button>
+<div class="nav-menu" id="nav-menu">
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../../index.html">Home</a>
+<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθε για τα Εργαλεία" href="../../Pages/learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../../Pages/guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../../Pages/faq.html">Frequently Asked Questions</a>
+
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../../Pages/store.html">Store</a><a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../../Pages/blog.html">Blog</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../../Pages/collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="../../Pages/portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="../../Pages/contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../../Pages/privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="nav-actions">
+<button class="nav-action-btn" id="nav-theme-switcher"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
+<button class="nav-action-btn" id="nav-lang-switcher"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
+</div>
+</div>
+</nav>
+<div class="page-content">
+<div class="page-header">
+<h1 data-en="Termux: All a New User Needs to Know" data-gr="Termux: Όλα όσα πρέπει να ξέρει ένας νέος χρήστης">Termux: All a New User Needs to Know</h1>
+<p data-en="A practical starter guide: setup, packages, storage, and good habits." data-gr="Πρακτικός οδηγός εκκίνησης: ρύθμιση, πακέτα, αποθήκευση και καλές συνήθειες.">A practical starter guide: setup, packages, storage, and good habits.</p>
+<div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+<a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../../Pages/blog.html">← Back to Blog</a>
+<a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../../Pages/guide-for-installation.html">Install DedSec Project</a>
+</div>
+</div>
+<div class="content-section">
+<h2 data-en="Install Termux the right way" data-gr="Σωστή εγκατάσταση Termux">Install Termux the right way</h2>
+<p data-en="Use the F-Droid build (recommended) so updates work smoothly. After installing, run the basic update:" data-gr="Χρησιμοποίησε την έκδοση από F-Droid (προτείνεται) για σωστά updates. Μετά την εγκατάσταση, κάνε το βασικό update:">
+        Use the F-Droid build (recommended) so updates work smoothly. After installing, run the basic update:
+     </p>
+<pre><code>pkg update -y &amp;&amp; pkg upgrade -y</code></pre>
+<p data-en="Then give storage access (so Termux can read/write to Downloads):" data-gr="Μετά δώσε πρόσβαση σε αποθήκευση (για να βλέπει/γράφει στα Downloads):">
+        Then give storage access (so Termux can read/write to Downloads):
+     </p>
+<pre><code>termux-setup-storage</code></pre>
+<p data-en="Your shared storage will appear at:" data-gr="Η κοινόχρηστη αποθήκευση θα εμφανιστεί στο:">
+        Your shared storage will appear at:
+     </p>
+<pre><code>~/storage/shared</code></pre>
+</div><div class="content-section">
+<h2 data-en="Essential packages for daily use" data-gr="Βασικά πακέτα για καθημερινή χρήση">Essential packages for daily use</h2>
+<p data-en="These are safe, useful, and cover 90% of beginner needs:" data-gr="Αυτά είναι ασφαλή, χρήσιμα και καλύπτουν το 90% των αναγκών ενός αρχάριου:">
+        These are safe, useful, and cover 90% of beginner needs:
+     </p>
+<pre><code>pkg install -y git curl wget nano vim unzip zip openssh python</code></pre>
+<ul>
+<li data-en="git: download and manage projects" data-gr="git: κατέβασμα και διαχείριση projects">git: download and manage projects</li>
+<li data-en="curl/wget: download files" data-gr="curl/wget: κατέβασμα αρχείων">curl/wget: download files</li>
+<li data-en="openssh: ssh/sftp to servers &amp; PCs" data-gr="openssh: ssh/sftp σε servers &amp; PC">openssh: ssh/sftp to servers &amp; PCs</li>
+<li data-en="python: scripting &amp; automation" data-gr="python: scripting &amp; αυτοματισμοί">python: scripting &amp; automation</li>
+</ul>
+</div><div class="content-section">
+<h2 data-en="Folder basics (so you don't get lost)" data-gr="Βασικά για φακέλους (για να μη χαθείς)">Folder basics (so you don't get lost)</h2>
+<p data-en="Termux starts in your home folder (~). Learn these 6 commands:" data-gr="Το Termux ξεκινάει στον home φάκελο (~). Μάθε αυτές τις 6 εντολές:">
+        Termux starts in your home folder (~). Learn these 6 commands:
+     </p>
+<pre><code>pwd
+ls
+cd Downloads
+mkdir Projects
+cd ~/Projects
+rm -r folder_name</code></pre>
+<p data-en="Pro tip: keep your coding projects inside ~/Projects (faster, cleaner)." data-gr="Tip: κράτα τα projects σου στο ~/Projects (πιο γρήγορο, πιο καθαρό).">
+        Pro tip: keep your coding projects inside ~/Projects (faster, cleaner).
+     </p>
+</div><div class="content-section">
+<h2 data-en="Good habits (performance + safety)" data-gr="Καλές συνήθειες (ταχύτητα + ασφάλεια)">Good habits (performance + safety)</h2>
+<ul>
+<li data-en="Update weekly: pkg update &amp;&amp; pkg upgrade" data-gr="Update εβδομαδιαία: pkg update &amp;&amp; pkg upgrade">Update weekly: pkg update &amp;&amp; pkg upgrade</li>
+<li data-en="Avoid random copy-paste commands you don’t understand." data-gr="Απόφυγε τυχαίο copy-paste εντολών που δεν καταλαβαίνεις.">Avoid random copy-paste commands you don’t understand.</li>
+<li data-en="Prefer official repos &amp; well-known projects." data-gr="Προτίμησε επίσημα repos &amp; γνωστά projects.">Prefer official repos &amp; well-known projects.</li>
+<li data-en="Back up important folders (Projects, scripts)." data-gr="Κράτα backup σε σημαντικούς φακέλους (Projects, scripts).">Back up important folders (Projects, scripts).</li>
+</ul>
+</div>
+</div>
+<script defer="" src="../../script.js"></script>
+</body>
+</html>

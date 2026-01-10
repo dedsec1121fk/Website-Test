@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>DedSec Blog — Termux Errors and How to Solve Them</title>
+<meta content="#07060d" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="Common errors explained with quick fixes and commands." name="description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../../style.css" rel="stylesheet"/>
+<link href="https://ded-sec.space/Blogs/termux-errors-fixes/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ded-sec.space/Blogs/termux-errors-fixes/" property="og:url"/>
+<meta content="DedSec Blog — Termux Errors and How to Solve Them" property="og:title"/>
+<meta content="Common errors explained with quick fixes and commands." property="og:description"/>
+<meta content="/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="DedSec Blog — Termux Errors and How to Solve Them" name="twitter:title"/>
+<meta content="Common errors explained with quick fixes and commands." name="twitter:description"/>
+<meta content="/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+</head>
+<body class="dark-theme">
+<nav class="main-nav">
+<div class="nav-container">
+<div class="nav-title"><h1>DedSec Project</h1></div>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span></span><span></span><span></span></button>
+<div class="nav-menu" id="nav-menu">
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="../../index.html">Home</a>
+<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθε για τα Εργαλεία" href="../../Pages/learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../../Pages/guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../../Pages/faq.html">Frequently Asked Questions</a>
+
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../../Pages/store.html">Store</a><a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../../Pages/blog.html">Blog</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../../Pages/collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="../../Pages/portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="../../Pages/contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../../Pages/privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="nav-actions">
+<button class="nav-action-btn" id="nav-theme-switcher"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
+<button class="nav-action-btn" id="nav-lang-switcher"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
+</div>
+</div>
+</nav>
+<div class="page-content">
+<div class="page-header">
+<h1 data-en="Termux Errors and How to Solve Them" data-gr="Σφάλματα Termux και πώς να τα λύσεις">Termux Errors and How to Solve Them</h1>
+<p data-en="Common errors explained with quick fixes and commands." data-gr="Συνηθισμένα σφάλματα με γρήγορες λύσεις και εντολές.">Common errors explained with quick fixes and commands.</p>
+<div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+<a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../../Pages/blog.html">← Back to Blog</a>
+<a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../../Pages/guide-for-installation.html">Install DedSec Project</a>
+</div>
+</div>
+<div class="content-section">
+<h2 data-en="First steps when something fails" data-gr="Πρώτα βήματα όταν κάτι χαλάει">First steps when something fails</h2>
+<p data-en="Most issues are fixed by updating packages and cleaning broken installs:" data-gr="Τα περισσότερα θέματα λύνονται με update και καθάρισμα από σπασμένες εγκαταστάσεις:">
+        Most issues are fixed by updating packages and cleaning broken installs:
+     </p>
+<pre><code>pkg update -y &amp;&amp; pkg upgrade -y
+pkg --check-mirror update
+</code></pre>
+<p data-en="If you installed a lot of things and it’s messy, you can reinstall a package:" data-gr="Αν εγκατέστησες πολλά και έγινε χάος, μπορείς να κάνεις reinstall ένα πακέτο:">
+        If you installed a lot of things and it’s messy, you can reinstall a package:
+     </p>
+<pre><code>pkg reinstall python</code></pre>
+</div><div class="content-section">
+<h2 data-en="ModuleNotFoundError (Python)" data-gr="ModuleNotFoundError (Python)">ModuleNotFoundError (Python)</h2>
+<p data-en="It means a Python library is missing. Install it with pip:" data-gr="Σημαίνει ότι λείπει μια βιβλιοθήκη Python. Εγκατάσταση με pip:">
+        It means a Python library is missing. Install it with pip:
+     </p>
+<pre><code>python -m pip install --upgrade pip
+python -m pip install requests</code></pre>
+<p data-en="If a package needs compilation, install build tools:" data-gr="Αν ένα πακέτο χρειάζεται compilation, εγκατέστησε build εργαλεία:">
+        If a package needs compilation, install build tools:
+     </p>
+<pre><code>pkg install -y clang make pkg-config</code></pre>
+</div><div class="content-section">
+<h2 data-en="Permission denied / can't access storage" data-gr="Permission denied / δεν βλέπει αποθήκευση">Permission denied / can't access storage</h2>
+<p data-en="Give Termux storage permission and mount shared storage:" data-gr="Δώσε άδεια αποθήκευσης στο Termux και κάνε mount την κοινόχρηστη αποθήκευση:">
+        Give Termux storage permission and mount shared storage:
+     </p>
+<pre><code>termux-setup-storage</code></pre>
+<p data-en="Then use: ~/storage/shared/Download" data-gr="Μετά χρησιμοποίησε: ~/storage/shared/Download">
+        Then use: ~/storage/shared/Download
+     </p>
+</div><div class="content-section">
+<h2 data-en="'E: Unable to locate package' or repo errors" data-gr="Δεν βρίσκει πακέτο / repo errors">'E: Unable to locate package' or repo errors</h2>
+<p data-en="Switch mirrors and update:" data-gr="Άλλαξε mirrors και κάνε update:">
+        Switch mirrors and update:
+     </p>
+<pre><code>termux-change-repo
+pkg update -y</code></pre>
+<p data-en="If you’re using an old Termux build, install the F-Droid version." data-gr="Αν έχεις παλιά έκδοση Termux, βάλε την F-Droid έκδοση.">
+        If you’re using an old Termux build, install the F-Droid version.
+     </p>
+</div><div class="content-section">
+<h2 data-en="No space left on device" data-gr="Δεν έχει χώρο (No space left on device)">No space left on device</h2>
+<p data-en="Check disk usage and remove caches:" data-gr="Δες χώρο και καθάρισε caches:">
+        Check disk usage and remove caches:
+     </p>
+<pre><code>df -h
+pkg clean</code></pre>
+<p data-en="Also delete old downloads in ~/storage/shared/Download." data-gr="Επίσης σβήσε παλιά downloads από ~/storage/shared/Download.">
+        Also delete old downloads in ~/storage/shared/Download.
+     </p>
+</div>
+</div>
+<script defer="" src="../../script.js"></script>
+</body>
+</html>
