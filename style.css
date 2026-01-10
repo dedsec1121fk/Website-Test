@@ -3193,3 +3193,72 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
   font-size: 0.85rem;
   letter-spacing: 0.2px;
 }
+
+
+
+/* ============================================================================
+   BLOG / ARTICLE READING IMPROVEMENTS (2026-01-10)
+   - Makes posts feel more "guide-like": bigger text, wider measure, nicer code blocks.
+   - Applies ONLY to pages that add class="post-article" on .page-content.
+   ============================================================================ */
+.page-content.post-article{
+    max-width: 980px;
+    margin-inline: auto;
+}
+.page-content.post-article h1{
+    font-size: 2.5rem;
+    letter-spacing: .2px;
+}
+.page-content.post-article h2{
+    font-size: 1.55rem;
+    margin-top: 26px;
+}
+.page-content.post-article p{
+    font-size: 1.08rem;
+    line-height: 1.75;
+    max-width: 74ch;
+    margin-inline: auto;
+}
+.page-content.post-article ul,
+.page-content.post-article ol{
+    max-width: 74ch;
+    margin-inline: auto;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+.page-content.post-article pre{
+    max-width: 74ch;
+    margin: 14px auto;
+    padding: 14px 16px;
+    border-radius: 14px;
+    overflow: auto;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.10);
+}
+body.light-theme .page-content.post-article pre{
+    background: rgba(0,0,0,.04);
+    border-color: rgba(0,0,0,.10);
+}
+.page-content.post-article pre code{
+    font-family: var(--font-mono);
+    font-size: .95rem;
+}
+
+/* Small "trust" callout box for guides */
+.page-content.post-article .trust-box{
+    max-width: 74ch;
+    margin: 18px auto;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(181, 126, 255, .35);
+    background: rgba(181, 126, 255, .10);
+}
+body.light-theme .page-content.post-article .trust-box{
+    background: rgba(122, 77, 255, .08);
+    border-color: rgba(122, 77, 255, .28);
+}
+.page-content.post-article .trust-box strong{
+    display:block;
+    margin-bottom: 6px;
+    color: var(--nm-text-accent);
+}
