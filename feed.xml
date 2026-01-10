@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>DedSec Blog</title>
+    <link>https://ded-sec.space/Pages/blog.html</link>
+    <description>Termux guides, troubleshooting, privacy, and Python learning — by DedSec Project.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 10 Jan 2026 14:54:17 +0000</lastBuildDate>
+    <item>
+      <title>DedSec Blog — Learn Python Using Termux: Getting Started</title>
+      <link>https://ded-sec.space/Blog/learn-python-in-termux.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/learn-python-in-termux.html</guid>
+      <description>Install Python, create projects, and build a daily learning routine on Android.</description>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+    </item><item>
+      <title>DedSec Blog — Mass Surveillance Through Technology &amp; Digital ID</title>
+      <link>https://ded-sec.space/Blog/mass-surveillance-digital-id.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/mass-surveillance-digital-id.html</guid>
+      <description>How modern tracking works, where digital ID fits in, and practical privacy steps.</description>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+    </item><item>
+      <title>DedSec Blog — Termux Errors and How to Solve Them</title>
+      <link>https://ded-sec.space/Blog/termux-errors-fixes.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-errors-fixes.html</guid>
+      <description>Common errors explained with quick fixes and commands.</description>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+    </item><item>
+      <title>DedSec Blog — Termux: All a New User Needs to Know</title>
+      <link>https://ded-sec.space/Blog/termux-new-user-guide.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-new-user-guide.html</guid>
+      <description>A practical starter guide: setup, packages, storage, and good habits.</description>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+    </item><item>
+      <title>DedSec Blog — Run Distros &amp; OSes in Termux Using Only Your Phone</title>
+      <link>https://ded-sec.space/Blog/termux-run-distros.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-run-distros.html</guid>
+      <description>Use proot-distro to run Debian/Ubuntu/Alpine safely without root.</description>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+    </item><item>
+      <title>DedSec Blog — Watch Dogs vs Real Life (2026): What’s Accurate, What’s Not</title>
+      <link>https://ded-sec.space/Blog/watch-dogs-vs-real-life-2026.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/watch-dogs-vs-real-life-2026.html</guid>
+      <description>A grounded comparison between the games’ ctOS fantasy and the real-world tech landscape of 2026.</description>
+      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

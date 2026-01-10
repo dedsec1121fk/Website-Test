@@ -426,5 +426,19 @@
 </div>
 </div>
 <script defer="" src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const search = document.getElementById("blogSearch");
+  if (!search) return;
+  search.addEventListener("input", function () {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll(".blog-card").forEach(card => {
+      card.style.display = card.innerText.toLowerCase().includes(q) ? "block" : "none";
+    });
+  });
+});
+</script>
+
 </body>
 </html>
