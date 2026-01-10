@@ -8,12 +8,12 @@
 <meta content="#07060d" name="theme-color"/>
 <meta content="dark light" name="color-scheme"/>
 <meta content="Common errors explained with quick fixes and commands." name="description"/>
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
-<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/site.webmanifest" rel="manifest"/>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="../favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../site.webmanifest" rel="manifest"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -24,11 +24,11 @@
 <meta content="https://ded-sec.space/Blog/termux-errors-fixes.html" property="og:url"/>
 <meta content="DedSec Blog — Termux Errors and How to Solve Them" property="og:title"/>
 <meta content="Common errors explained with quick fixes and commands." property="og:description"/>
-<meta content="/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="DedSec Blog — Termux Errors and How to Solve Them" name="twitter:title"/>
 <meta content="Common errors explained with quick fixes and commands." name="twitter:description"/>
-<meta content="/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
 <meta content="2026-01-10" property="article:published_time"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="DedSec Project" name="author"/><meta content="strict-origin-when-cross-origin" name="referrer"/><meta content="DedSec Project" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="el_GR" property="og:locale:alternate"/><meta content="DedSec Project — cybersecurity and Termux learning resources" property="og:image:alt"/><meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/><meta content="Termux errors, troubleshooting, pkg, pip, storage permission, Android terminal fixes, DedSec Project" name="keywords"/><meta content="Troubleshooting" property="article:section"/><meta content="DedSec Project" property="article:author"/><script id="ld-blogposting" type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -81,7 +81,7 @@
 <div class="page-content post-article">
 <div class="page-header">
 <h1 data-en="Termux Errors and How to Fix Them" data-gr="Σφάλματα στο Termux και πώς να τα λύσεις">Termux Errors and How to Fix Them</h1>
-<p data-en="A troubleshooting checklist for the most common Termux problems (and why they happen)." data-gr="Checklist επίλυσης για τα πιο συνηθισμένα προβλήματα στο Termux (και γιατί συμβαίνουν).">A troubleshooting checklist for the most common Termux problems (and why they happen).</p><div class="trust-box">
+<p data-en="A troubleshooting checklist for the most common Termux problems (and why they happen)." data-gr="Checklist επίλυσης για τα πιο συνηθισμένα προβλήματα στο Termux (και γιατί συμβαίνουν).">A troubleshooting checklist for the most common Termux problems (and why they happen).</p><div class="post-meta"><p data-en="Updated: 2026-01-10 • Practical, step-by-step guide" data-gr="Ενημέρωση: 2026-01-10 • Πρακτικός οδηγός βήμα-βήμα">Updated: 2026-01-10 • Practical, step-by-step guide</p></div><div class="trust-box">
 <strong data-en="Why you can trust this guide" data-gr="Γιατί να εμπιστευτείς αυτόν τον οδηγό">Why you can trust this guide</strong>
 <p data-en="Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included." data-gr="Όσα θα δεις εδώ είναι βασισμένα σε πραγματική χρήση του Termux: εντολές που όντως τρέχεις, λάθη που όντως θα δεις, και γρήγορες ασφαλείς λύσεις. Αντιγραφή–επικόλληση και επιβεβαίωση με τα checks που περιλαμβάνονται.">
      Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included.
@@ -90,15 +90,15 @@
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
 <a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
 <a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
-</div>
+</div><div class="toc"><h3 data-en="On this page" data-gr="Σε αυτή τη σελίδα">On this page</h3><ul><li><a href="#start-with-the-basics">Start with the basics</a></li><li><a href="#permission-denied-storage-or-execute">“Permission denied” (storage or execute)</a></li><li><a href="#e-unable-to-locate-package">“E: Unable to locate package …”</a></li><li><a href="#python-install-fails-build-tools-missing">Python install fails (build tools missing)</a></li><li><a href="#network-tls-errors">Network / TLS errors</a></li><li><a href="#a-fast-diagnose-and-fix-habit">A fast “diagnose and fix” habit</a></li><li><a href="#fast-diagnostics-find-the-real-cause-in-30-seconds">Fast diagnostics: find the real cause in 30 seconds</a></li><li><a href="#error-e-unable-to-locate-package">Error: “E: Unable to locate package …”</a></li><li><a href="#python-modulenotfounderror-the-clean-fix">Python: “ModuleNotFoundError” (the clean fix)</a></li><li><a href="#when-you-must-reset-without-losing-everything">When you must reset (without losing everything)</a></li><li><a href="#quick-checklist">Quick checklist</a></li><li><a href="#next-steps-no-cliffhanger">Next steps (no cliffhanger)</a></li></ul></div>
 </div>
 <div class="content-section">
-<h2 data-en="1) Start with the basics" data-gr="1) Ξεκίνα από τα βασικά">1) Start with the basics</h2>
+<h2 data-en="1) Start with the basics" data-gr="1) Ξεκίνα από τα βασικά" id="start-with-the-basics">1) Start with the basics</h2>
 <p data-en="Most issues come from an outdated package list. First update/upgrade, then retry your command. This fixes many dependency errors immediately." data-gr="Τα περισσότερα προβλήματα έρχονται από παλιά package lists. Κάνε πρώτα update/upgrade και ξαναδοκίμασε. Συχνά λύνει dependencies αμέσως.">Most issues come from an outdated package list. First update/upgrade, then retry your command. This fixes many dependency errors immediately.</p>
 <pre><code>pkg update -y &amp;&amp; pkg upgrade -y</code></pre>
 </div>
 <div class="content-section">
-<h2 data-en="2) “Permission denied” (storage or execute)" data-gr="2) “Permission denied” (storage ή εκτέλεση)">2) “Permission denied” (storage or execute)</h2>
+<h2 data-en="2) “Permission denied” (storage or execute)" data-gr="2) “Permission denied” (storage ή εκτέλεση)" id="permission-denied-storage-or-execute">2) “Permission denied” (storage or execute)</h2>
 <p data-en="If you can’t access Downloads, run termux-setup-storage. If a script won’t run, ensure it’s executable or run it with the correct interpreter (bash/python)." data-gr="Αν δεν βλέπεις Downloads, τρέξε termux-setup-storage. Αν ένα script δεν τρέχει, δώσε execute ή τρέξ’ το με τον σωστό interpreter (bash/python).">If you can’t access Downloads, run termux-setup-storage. If a script won’t run, ensure it’s executable or run it with the correct interpreter (bash/python).</p>
 <pre><code>termux-setup-storage
 chmod +x script.sh
@@ -106,31 +106,31 @@ bash script.sh
 python script.py</code></pre>
 </div>
 <div class="content-section">
-<h2 data-en="3) “E: Unable to locate package …”" data-gr="3) “E: Unable to locate package …”">3) “E: Unable to locate package …”</h2>
+<h2 data-en="3) “E: Unable to locate package …”" data-gr="3) “E: Unable to locate package …”" id="e-unable-to-locate-package">3) “E: Unable to locate package …”</h2>
 <p data-en="This usually means your repositories aren’t enabled or your package list is stale. Run pkg update, then check that you’re using the correct repo for your Termux version." data-gr="Συνήθως σημαίνει ότι δεν είναι ενεργά τα repos ή η λίστα είναι παλιά. Κάνε pkg update και έλεγξε ότι χρησιμοποιείς το σωστό repo για την έκδοση Termux σου.">This usually means your repositories aren’t enabled or your package list is stale. Run pkg update, then check that you’re using the correct repo for your Termux version.</p>
 </div>
 <div class="content-section">
-<h2 data-en="4) Python install fails (build tools missing)" data-gr="4) Αποτυχία εγκατάστασης Python library (λείπουν build tools)">4) Python install fails (build tools missing)</h2>
+<h2 data-en="4) Python install fails (build tools missing)" data-gr="4) Αποτυχία εγκατάστασης Python library (λείπουν build tools)" id="python-install-fails-build-tools-missing">4) Python install fails (build tools missing)</h2>
 <p data-en="If pip tries to build wheels and fails, install compiler dependencies. Many libraries need clang, make, and sometimes rust. Install system deps first, then retry pip." data-gr="Αν το pip προσπαθεί να χτίσει wheels και αποτυγχάνει, λείπουν εργαλεία. Πολλά libraries θέλουν clang, make, και μερικές φορές rust. Βάλε πρώτα system deps, μετά ξαναδοκίμασε pip.">If pip tries to build wheels and fails, install compiler dependencies. Many libraries need clang, make, and sometimes rust. Install system deps first, then retry pip.</p>
 <pre><code>pkg install -y clang make pkg-config
 # sometimes needed:
 pkg install -y rust</code></pre>
 </div>
 <div class="content-section">
-<h2 data-en="5) Network / TLS errors" data-gr="5) Network / TLS errors">5) Network / TLS errors</h2>
+<h2 data-en="5) Network / TLS errors" data-gr="5) Network / TLS errors" id="network-tls-errors">5) Network / TLS errors</h2>
 <p data-en="If downloads fail with TLS/SSL messages, your certificates or time may be wrong. Update packages, ensure Android time is correct, and retry on a stable connection." data-gr="Αν οι λήψεις αποτυγχάνουν με TLS/SSL, μπορεί να φταίνε certificates ή λάθος ώρα. Κάνε update, έλεγξε την ώρα στο Android και ξαναδοκίμασε με σταθερό internet.">If downloads fail with TLS/SSL messages, your certificates or time may be wrong. Update packages, ensure Android time is correct, and retry on a stable connection.</p>
 </div>
 <div class="content-section">
-<h2 data-en="6) A fast “diagnose and fix” habit" data-gr="6) Γρήγορη συνήθεια “διάγνωση και λύση”">6) A fast “diagnose and fix” habit</h2>
+<h2 data-en="6) A fast “diagnose and fix” habit" data-gr="6) Γρήγορη συνήθεια “διάγνωση και λύση”" id="a-fast-diagnose-and-fix-habit">6) A fast “diagnose and fix” habit</h2>
 <p data-en="When something breaks, copy the exact error line, identify whether it’s storage, repo, dependency, or network, then fix that category. Don’t random-install 20 packages—be targeted." data-gr="Όταν κάτι σπάει, αντιγράφεις την ακριβή γραμμή σφάλματος, καταλαβαίνεις αν είναι storage/repo/dependency/network και διορθώνεις αυτό. Μην εγκαθιστάς τυχαία 20 packages—κάνε στοχευμένα βήματα.">When something breaks, copy the exact error line, identify whether it’s storage, repo, dependency, or network, then fix that category. Don’t random-install 20 packages—be targeted.</p>
 </div>
-<h2 data-en="Fast diagnostics: find the real cause in 30 seconds" data-gr="Γρήγορη διάγνωση: βρες την αιτία σε 30 δευτερόλεπτα"></h2><p data-en="Before you google for hours, collect these three signals: the exact error line, your Android version, and the package name. Most fixes become obvious when you have those." data-gr="Πριν χαθείς στο Google, μάζεψε 3 στοιχεία: την ακριβή γραμμή σφάλματος, την έκδοση Android, και το όνομα πακέτου. Οι περισσότερες λύσεις γίνονται προφανείς έτσι."></p><pre><code>uname -a
+<h2 data-en="Fast diagnostics: find the real cause in 30 seconds" data-gr="Γρήγορη διάγνωση: βρες την αιτία σε 30 δευτερόλεπτα" id="fast-diagnostics-find-the-real-cause-in-30-seconds"></h2><p data-en="Before you google for hours, collect these three signals: the exact error line, your Android version, and the package name. Most fixes become obvious when you have those." data-gr="Πριν χαθείς στο Google, μάζεψε 3 στοιχεία: την ακριβή γραμμή σφάλματος, την έκδοση Android, και το όνομα πακέτου. Οι περισσότερες λύσεις γίνονται προφανείς έτσι."></p><pre><code>uname -a
 termux-info
 python --version
-pkg list-installed | head</code></pre><h2 data-en="Error: “E: Unable to locate package …”" data-gr="Σφάλμα: “E: Unable to locate package …”"></h2><p data-en="This usually means your package lists are old or the repo changed. Update first, then try again. If it still fails, check your repositories." data-gr="Συνήθως σημαίνει παλιά lists ή αλλαγή repos. Κάνε update πρώτα και ξανά δοκίμασε. Αν συνεχίζει, έλεγξε τα repositories."></p><pre><code>pkg update -y
+pkg list-installed | head</code></pre><h2 data-en="Error: “E: Unable to locate package …”" data-gr="Σφάλμα: “E: Unable to locate package …”" id="error-e-unable-to-locate-package"></h2><p data-en="This usually means your package lists are old or the repo changed. Update first, then try again. If it still fails, check your repositories." data-gr="Συνήθως σημαίνει παλιά lists ή αλλαγή repos. Κάνε update πρώτα και ξανά δοκίμασε. Αν συνεχίζει, έλεγξε τα repositories."></p><pre><code>pkg update -y
 termux-change-repo
-pkg install &lt;package&gt;</code></pre><h2 data-en="Python: “ModuleNotFoundError” (the clean fix)" data-gr="Python: “ModuleNotFoundError” (καθαρή λύση)"></h2><p data-en="Install modules with pip for Termux’s Python. If you installed Python via pkg, use python -m pip so it targets the right interpreter." data-gr="Εγκατάστησε modules με pip για την Python του Termux. Αν έβαλες Python μέσω pkg, χρησιμοποίησε python -m pip για να “δείχνει” στη σωστή Python."></p><pre><code>python -m pip install --upgrade pip
-python -m pip install requests rich</code></pre><h2 data-en="When you must reset (without losing everything)" data-gr="Πότε χρειάζεται reset (χωρίς να χάσεις τα πάντα)"></h2><p data-en="If your environment is broken, backing up ~/Projects and reinstalling Termux is sometimes faster than patching 20 issues. Copy projects to Downloads, reinstall, and restore." data-gr="Αν το περιβάλλον σου έχει “σπάσει”, συχνά είναι πιο γρήγορο να κάνεις backup το ~/Projects και επανεγκατάσταση Termux, αντί να κυνηγάς 20 προβλήματα. Αντέγραψε projects στα Downloads, reinstall, και επανάφερε."></p><pre><code>cp -r ~/Projects /storage/emulated/0/Download/Termux-Backup-Projects</code></pre></div>
+pkg install &lt;package&gt;</code></pre><h2 data-en="Python: “ModuleNotFoundError” (the clean fix)" data-gr="Python: “ModuleNotFoundError” (καθαρή λύση)" id="python-modulenotfounderror-the-clean-fix"></h2><p data-en="Install modules with pip for Termux’s Python. If you installed Python via pkg, use python -m pip so it targets the right interpreter." data-gr="Εγκατάστησε modules με pip για την Python του Termux. Αν έβαλες Python μέσω pkg, χρησιμοποίησε python -m pip για να “δείχνει” στη σωστή Python."></p><pre><code>python -m pip install --upgrade pip
+python -m pip install requests rich</code></pre><h2 data-en="When you must reset (without losing everything)" data-gr="Πότε χρειάζεται reset (χωρίς να χάσεις τα πάντα)" id="when-you-must-reset-without-losing-everything"></h2><p data-en="If your environment is broken, backing up ~/Projects and reinstalling Termux is sometimes faster than patching 20 issues. Copy projects to Downloads, reinstall, and restore." data-gr="Αν το περιβάλλον σου έχει “σπάσει”, συχνά είναι πιο γρήγορο να κάνεις backup το ~/Projects και επανεγκατάσταση Termux, αντί να κυνηγάς 20 προβλήματα. Αντέγραψε projects στα Downloads, reinstall, και επανάφερε."></p><pre><code>cp -r ~/Projects /storage/emulated/0/Download/Termux-Backup-Projects</code></pre><div class="content-section"><h2 data-en="Quick checklist" data-gr="Γρήγορο checklist" id="quick-checklist">Quick checklist</h2><ul class="checklist"><li data-en="When in doubt: update first (`pkg update &amp;&amp; pkg upgrade`)" data-gr="Όταν κολλήσεις: πρώτα update (`pkg update &amp;&amp; pkg upgrade`)">When in doubt: update first (`pkg update &amp;&amp; pkg upgrade`)</li><li data-en="Read the exact error line (not only the last line)" data-gr="Διάβασε την ακριβή γραμμή σφάλματος (όχι μόνο την τελευταία)">Read the exact error line (not only the last line)</li><li data-en="Check your storage permissions and file paths" data-gr="Έλεγξε permissions storage και file paths">Check your storage permissions and file paths</li><li data-en="Use `pip install -U pip` before installing Python packages" data-gr="Κάνε `pip install -U pip` πριν από Python packages">Use `pip install -U pip` before installing Python packages</li><li data-en="If a repo is down, try a mirror or change DNS/VPN" data-gr="Αν ένα repo δεν δουλεύει, δοκίμασε mirror ή άλλαξε DNS/VPN">If a repo is down, try a mirror or change DNS/VPN</li></ul></div><div class="callout tip"><strong data-en="Make it stick" data-gr="Για να “γράψει”">Make it stick</strong><p data-en="Pick ONE habit from the checklist and do it for 7 days. Consistency beats perfection." data-gr="Διάλεξε ΜΙΑ συνήθεια από το checklist και κάν’ την για 7 μέρες. Η συνέπεια νικάει την τελειότητα.">Pick ONE habit from the checklist and do it for 7 days. Consistency beats perfection.</p></div><div class="content-section"><h2 data-en="Next steps (no cliffhanger)" data-gr="Επόμενα βήματα (χωρίς cliffhanger)" id="next-steps-no-cliffhanger">Next steps (no cliffhanger)</h2><p data-en="If you want a structured path, start with the installation guide, then come back and build one small project from the DedSec toolset." data-gr="Αν θες δομημένη πορεία, ξεκίνα με τον οδηγό εγκατάστασης και μετά γύρνα εδώ και φτιάξε ένα μικρό project από το DedSec toolset.">If you want a structured path, start with the installation guide, then come back and build one small project from the DedSec toolset.</p><ul><li><a data-en="Installation guide" data-gr="Οδηγός εγκατάστασης" href="../Pages/guide-for-installation.html">Installation guide</a></li><li><a data-en="Learn about the tools" data-gr="Μάθε για τα εργαλεία" href="../Pages/learn-about-the-tools.html">Learn about the tools</a></li><li><a data-en="Back to Blog" data-gr="Πίσω στο Blog" href="../Pages/blog.html">Back to Blog</a></li></ul></div></div>
 <script defer="" src="../script.js"></script>
 </body>
 </html>

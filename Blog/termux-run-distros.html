@@ -8,12 +8,12 @@
 <meta content="#07060d" name="theme-color"/>
 <meta content="dark light" name="color-scheme"/>
 <meta content="Use proot-distro to run Debian/Ubuntu/Alpine safely without root." name="description"/>
-<link href="/favicon.ico" rel="icon" sizes="any"/>
-<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
-<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/site.webmanifest" rel="manifest"/>
+<link href="../favicon.ico" rel="icon" sizes="any"/>
+<link href="../favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="../favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../site.webmanifest" rel="manifest"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -24,11 +24,11 @@
 <meta content="https://ded-sec.space/Blog/termux-run-distros.html" property="og:url"/>
 <meta content="DedSec Blog — Run Distros &amp; OSes in Termux Using Only Your Phone" property="og:title"/>
 <meta content="Use proot-distro to run Debian/Ubuntu/Alpine safely without root." property="og:description"/>
-<meta content="/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="DedSec Blog — Run Distros &amp; OSes in Termux Using Only Your Phone" name="twitter:title"/>
 <meta content="Use proot-distro to run Debian/Ubuntu/Alpine safely without root." name="twitter:description"/>
-<meta content="/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
 <meta content="2026-01-10" property="article:published_time"/><meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/><meta content="DedSec Project" name="author"/><meta content="strict-origin-when-cross-origin" name="referrer"/><meta content="DedSec Project" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="el_GR" property="og:locale:alternate"/><meta content="DedSec Project — cybersecurity and Termux learning resources" property="og:image:alt"/><meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/><meta content="Termux Linux distro, proot-distro, Ubuntu on Android, Debian, Arch, Linux containers, DedSec Project" name="keywords"/><meta content="Linux on Android" property="article:section"/><meta content="DedSec Project" property="article:author"/><script id="ld-blogposting" type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -81,7 +81,7 @@
 <div class="page-content post-article">
 <div class="page-header">
 <h1 data-en="Run Linux Distros in Termux Using Only Your Phone" data-gr="Τρέξε Linux διανομές στο Termux μόνο με το κινητό">Run Linux Distros in Termux Using Only Your Phone</h1>
-<p data-en="Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips." data-gr="Χρησιμοποίησε proot containers για Ubuntu/Debian/Alpine χωρίς root, με πρακτικές συμβουλές απόδοσης.">Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips.</p><div class="trust-box">
+<p data-en="Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips." data-gr="Χρησιμοποίησε proot containers για Ubuntu/Debian/Alpine χωρίς root, με πρακτικές συμβουλές απόδοσης.">Use proot containers to run Ubuntu/Debian/Alpine safely without root, plus practical performance tips.</p><div class="post-meta"><p data-en="Updated: 2026-01-10 • Practical, step-by-step guide" data-gr="Ενημέρωση: 2026-01-10 • Πρακτικός οδηγός βήμα-βήμα">Updated: 2026-01-10 • Practical, step-by-step guide</p></div><div class="trust-box">
 <strong data-en="Why you can trust this guide" data-gr="Γιατί να εμπιστευτείς αυτόν τον οδηγό">Why you can trust this guide</strong>
 <p data-en="Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included." data-gr="Όσα θα δεις εδώ είναι βασισμένα σε πραγματική χρήση του Termux: εντολές που όντως τρέχεις, λάθη που όντως θα δεις, και γρήγορες ασφαλείς λύσεις. Αντιγραφή–επικόλληση και επιβεβαίωση με τα checks που περιλαμβάνονται.">
      Everything here is tested with real Termux workflows: it focuses on the commands you actually run, the errors you actually see, and the fastest safe fixes. Copy, paste, and verify with the checks included.
@@ -90,27 +90,27 @@
 <div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
 <a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
 <a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
-</div>
+</div><div class="toc"><h3 data-en="On this page" data-gr="Σε αυτή τη σελίδα">On this page</h3><ul><li><a href="#what-you-re-really-running-and-what-you-re-not">What you’re really running (and what you’re not)</a></li><li><a href="#install-proot-distro">Install proot-distro</a></li><li><a href="#install-and-start-a-distro">Install and start a distro</a></li><li><a href="#when-you-need-a-gui">When you need a GUI</a></li><li><a href="#performance-and-stability-tips">Performance and stability tips</a></li><li><a href="#security-mindset-important">Security mindset (important)</a></li><li><a href="#choose-the-right-method-so-it-actually-runs-on-your-phone">Choose the right method (so it actually runs on your phone)</a></li><li><a href="#example-install-a-minimal-distro-safe-baseline">Example: install a minimal distro (safe baseline)</a></li><li><a href="#performance-tips-big-difference">Performance tips (big difference)</a></li><li><a href="#what-you-can-and-can-t-do-in-proot">What you can (and can’t) do in proot</a></li><li><a href="#quick-checklist">Quick checklist</a></li><li><a href="#next-steps-no-cliffhanger">Next steps (no cliffhanger)</a></li></ul></div>
 </div>
 <div class="content-section">
-<h2 data-en="1) What you’re really running (and what you’re not)" data-gr="1) Τι τρέχεις πραγματικά (και τι όχι)">1) What you’re really running (and what you’re not)</h2>
+<h2 data-en="1) What you’re really running (and what you’re not)" data-gr="1) Τι τρέχεις πραγματικά (και τι όχι)" id="what-you-re-really-running-and-what-you-re-not">1) What you’re really running (and what you’re not)</h2>
 <p data-en="On Android you typically run a userspace container (proot). It feels like a distro, but it’s not a full VM: no systemd by default, no real kernel change, and it’s safer than rooting." data-gr="Στο Android συνήθως τρέχεις userspace container (proot). Μοιάζει με distro, αλλά δεν είναι πλήρες VM: συνήθως χωρίς systemd, χωρίς αλλαγή kernel, και είναι πιο ασφαλές από rooting.">On Android you typically run a userspace container (proot). It feels like a distro, but it’s not a full VM: no systemd by default, no real kernel change, and it’s safer than rooting.</p>
 </div>
 <div class="content-section">
-<h2 data-en="2) Install proot-distro" data-gr="2) Εγκατάσταση proot-distro">2) Install proot-distro</h2>
+<h2 data-en="2) Install proot-distro" data-gr="2) Εγκατάσταση proot-distro" id="install-proot-distro">2) Install proot-distro</h2>
 <pre><code>pkg update -y &amp;&amp; pkg upgrade -y
 pkg install -y proot-distro</code></pre>
 <p data-en="proot-distro manages downloads, installs, and launches. It’s the simplest method for Ubuntu/Debian/Alpine in Termux." data-gr="Το proot-distro κατεβάζει, εγκαθιστά και εκκινεί. Είναι η πιο απλή μέθοδος για Ubuntu/Debian/Alpine στο Termux.">proot-distro manages downloads, installs, and launches. It’s the simplest method for Ubuntu/Debian/Alpine in Termux.</p>
 </div>
 <div class="content-section">
-<h2 data-en="3) Install and start a distro" data-gr="3) Εγκατάσταση και εκκίνηση διανομής">3) Install and start a distro</h2>
+<h2 data-en="3) Install and start a distro" data-gr="3) Εγκατάσταση και εκκίνηση διανομής" id="install-and-start-a-distro">3) Install and start a distro</h2>
 <pre><code>proot-distro list
 proot-distro install debian
 proot-distro login debian</code></pre>
 <p data-en="Inside the distro, use apt (or apk on Alpine). Keep installs minimal for speed—phones have limited RAM and storage." data-gr="Μέσα στη διανομή χρησιμοποιείς apt (ή apk στο Alpine). Κράτα τις εγκαταστάσεις λίγες για ταχύτητα—τα κινητά έχουν περιορισμένη RAM/αποθήκευση.">Inside the distro, use apt (or apk on Alpine). Keep installs minimal for speed—phones have limited RAM and storage.</p>
 </div>
 <div class="content-section">
-<h2 data-en="4) When you need a GUI" data-gr="4) Όταν χρειάζεσαι γραφικό περιβάλλον (GUI)">4) When you need a GUI</h2>
+<h2 data-en="4) When you need a GUI" data-gr="4) Όταν χρειάζεσαι γραφικό περιβάλλον (GUI)" id="when-you-need-a-gui">4) When you need a GUI</h2>
 <p data-en="For GUI apps you usually use Termux:X11 or VNC. Start with a lightweight desktop (XFCE/LXQt). Expect slower performance than a PC—optimize and keep sessions small." data-gr="Για GUI apps συνήθως χρησιμοποιείς Termux:X11 ή VNC. Ξεκίνα με ελαφρύ desktop (XFCE/LXQt). Θα είναι πιο αργό από PC—κράτα τα sessions μικρά και βελτιστοποίησε.">For GUI apps you usually use Termux:X11 or VNC. Start with a lightweight desktop (XFCE/LXQt). Expect slower performance than a PC—optimize and keep sessions small.</p>
 <ul>
 <li data-en="Prefer CLI tools when possible" data-gr="Προτίμησε CLI εργαλεία όταν γίνεται">Prefer CLI tools when possible</li>
@@ -118,23 +118,23 @@ proot-distro login debian</code></pre>
 </ul>
 </div>
 <div class="content-section">
-<h2 data-en="5) Performance and stability tips" data-gr="5) Συμβουλές απόδοσης και σταθερότητας">5) Performance and stability tips</h2>
+<h2 data-en="5) Performance and stability tips" data-gr="5) Συμβουλές απόδοσης και σταθερότητας" id="performance-and-stability-tips">5) Performance and stability tips</h2>
 <p data-en="Use one distro per purpose. Don’t install everything “just in case”. Keep your phone cool, avoid background apps, and do updates when on Wi‑Fi." data-gr="Χρησιμοποίησε μία διανομή ανά σκοπό. Μην εγκαθιστάς τα πάντα “για παν ενδεχόμενο”. Κράτα το κινητό δροσερό, κλείσε background apps και κάνε updates σε Wi‑Fi.">Use one distro per purpose. Don’t install everything “just in case”. Keep your phone cool, avoid background apps, and do updates when on Wi‑Fi.</p>
 </div>
 <div class="content-section">
-<h2 data-en="6) Security mindset (important)" data-gr="6) Νοοτροπία ασφάλειας (σημαντικό)">6) Security mindset (important)</h2>
+<h2 data-en="6) Security mindset (important)" data-gr="6) Νοοτροπία ασφάλειας (σημαντικό)" id="security-mindset-important">6) Security mindset (important)</h2>
 <p data-en="Treat distro containers like normal Linux: use strong passwords for services, don’t expose SSH to the internet from your phone, and avoid running random scripts as root inside the container." data-gr="Αντιμετώπισε τα containers σαν κανονικό Linux: βάλε δυνατούς κωδικούς σε υπηρεσίες, μην εκθέτεις SSH στο internet από το κινητό και απόφυγε “τυχαία” scripts ως root μέσα στο container.">Treat distro containers like normal Linux: use strong passwords for services, don’t expose SSH to the internet from your phone, and avoid running random scripts as root inside the container.</p>
 </div>
-<h2 data-en="Choose the right method (so it actually runs on your phone)" data-gr="Διάλεξε σωστή μέθοδο (για να τρέξει όντως στο κινητό)"></h2><p data-en="On low-end devices, lighter distros win. Debian/Ubuntu minimal are fine; full desktops are heavy. Start headless (CLI) first, then add a desktop later if you really need it." data-gr="Σε πιο αδύναμες συσκευές, κερδίζουν οι ελαφριές λύσεις. Debian/Ubuntu minimal είναι ΟΚ· πλήρη desktop είναι βαριά. Ξεκίνα headless (CLI) και μετά πρόσθεσε desktop μόνο αν χρειάζεται."></p><h2 data-en="Example: install a minimal distro (safe baseline)" data-gr="Παράδειγμα: εγκατάσταση minimal distro (ασφαλής βάση)"></h2><p data-en="This is a common flow using proot-based tools. After install, always update inside the distro too." data-gr="Αυτό είναι ένα συνηθισμένο flow με proot εργαλεία. Μετά την εγκατάσταση, κάνε update και μέσα στο distro."></p><pre><code>pkg update -y
+<h2 data-en="Choose the right method (so it actually runs on your phone)" data-gr="Διάλεξε σωστή μέθοδο (για να τρέξει όντως στο κινητό)" id="choose-the-right-method-so-it-actually-runs-on-your-phone"></h2><p data-en="On low-end devices, lighter distros win. Debian/Ubuntu minimal are fine; full desktops are heavy. Start headless (CLI) first, then add a desktop later if you really need it." data-gr="Σε πιο αδύναμες συσκευές, κερδίζουν οι ελαφριές λύσεις. Debian/Ubuntu minimal είναι ΟΚ· πλήρη desktop είναι βαριά. Ξεκίνα headless (CLI) και μετά πρόσθεσε desktop μόνο αν χρειάζεται."></p><h2 data-en="Example: install a minimal distro (safe baseline)" data-gr="Παράδειγμα: εγκατάσταση minimal distro (ασφαλής βάση)" id="example-install-a-minimal-distro-safe-baseline"></h2><p data-en="This is a common flow using proot-based tools. After install, always update inside the distro too." data-gr="Αυτό είναι ένα συνηθισμένο flow με proot εργαλεία. Μετά την εγκατάσταση, κάνε update και μέσα στο distro."></p><pre><code>pkg update -y
 pkg install -y proot-distro
 proot-distro install debian
 proot-distro login debian</code></pre><pre><code>apt update &amp;&amp; apt upgrade -y
 whoami
-uname -a</code></pre><h2 data-en="Performance tips (big difference)" data-gr="Tips απόδοσης (τεράστια διαφορά)"></h2><ul>
+uname -a</code></pre><h2 data-en="Performance tips (big difference)" data-gr="Tips απόδοσης (τεράστια διαφορά)" id="performance-tips-big-difference"></h2><ul>
 <li data-en="Avoid desktop environments unless necessary. Use tmux + CLI tools." data-gr="Απέφυγε desktop αν δεν χρειάζεται. Χρησιμοποίησε tmux + CLI εργαλεία."></li>
 <li data-en="Use zram / swap only if you understand the trade-offs; it can heat your phone." data-gr="Swap/zram μόνο αν ξέρεις τα trade-offs· μπορεί να ζεστάνει το κινητό."></li>
 <li data-en="Keep storage free. Low storage = slow everything." data-gr="Κράτα χώρο ελεύθερο. Χαμηλός χώρος = αργά όλα."></li>
-</ul><h2 data-en="What you can (and can’t) do in proot" data-gr="Τι μπορείς (και τι δεν μπορείς) σε proot"></h2><p data-en="Proot distros are amazing for userland tools (Python, servers, compilers), but they are not the same as full root Linux. Kernel-level features and some system services won’t work." data-gr="Τα proot distros είναι τέλεια για userland εργαλεία (Python, servers, compilers), αλλά δεν είναι ίδιο με full root Linux. Kernel-level features και μερικές υπηρεσίες συστήματος δεν θα δουλέψουν."></p></div>
+</ul><h2 data-en="What you can (and can’t) do in proot" data-gr="Τι μπορείς (και τι δεν μπορείς) σε proot" id="what-you-can-and-can-t-do-in-proot"></h2><p data-en="Proot distros are amazing for userland tools (Python, servers, compilers), but they are not the same as full root Linux. Kernel-level features and some system services won’t work." data-gr="Τα proot distros είναι τέλεια για userland εργαλεία (Python, servers, compilers), αλλά δεν είναι ίδιο με full root Linux. Kernel-level features και μερικές υπηρεσίες συστήματος δεν θα δουλέψουν."></p><div class="content-section"><h2 data-en="Quick checklist" data-gr="Γρήγορο checklist" id="quick-checklist">Quick checklist</h2><ul class="checklist"><li data-en="Prefer proot-based distros (no root needed)" data-gr="Προτίμησε distros με proot (δεν χρειάζεται root)">Prefer proot-based distros (no root needed)</li><li data-en="Keep the distro lightweight (XFCE only if you must)" data-gr="Κράτα το distro ελαφρύ (XFCE μόνο αν χρειάζεται)">Keep the distro lightweight (XFCE only if you must)</li><li data-en="Use `tmux` for stable sessions" data-gr="Χρησιμοποίησε `tmux` για σταθερές συνεδρίες">Use `tmux` for stable sessions</li><li data-en="Separate distro files from your main `$HOME` backups" data-gr="Χώρισε τα αρχεία distro από τα backups του `$HOME`">Separate distro files from your main `$HOME` backups</li><li data-en="Don’t run unknown scripts as root inside the distro" data-gr="Μην τρέχεις άγνωστα scripts ως root μέσα στο distro">Don’t run unknown scripts as root inside the distro</li></ul></div><div class="callout tip"><strong data-en="Make it stick" data-gr="Για να “γράψει”">Make it stick</strong><p data-en="Pick ONE habit from the checklist and do it for 7 days. Consistency beats perfection." data-gr="Διάλεξε ΜΙΑ συνήθεια από το checklist και κάν’ την για 7 μέρες. Η συνέπεια νικάει την τελειότητα.">Pick ONE habit from the checklist and do it for 7 days. Consistency beats perfection.</p></div><div class="content-section"><h2 data-en="Next steps (no cliffhanger)" data-gr="Επόμενα βήματα (χωρίς cliffhanger)" id="next-steps-no-cliffhanger">Next steps (no cliffhanger)</h2><p data-en="If you want a structured path, start with the installation guide, then come back and build one small project from the DedSec toolset." data-gr="Αν θες δομημένη πορεία, ξεκίνα με τον οδηγό εγκατάστασης και μετά γύρνα εδώ και φτιάξε ένα μικρό project από το DedSec toolset.">If you want a structured path, start with the installation guide, then come back and build one small project from the DedSec toolset.</p><ul><li><a data-en="Installation guide" data-gr="Οδηγός εγκατάστασης" href="../Pages/guide-for-installation.html">Installation guide</a></li><li><a data-en="Learn about the tools" data-gr="Μάθε για τα εργαλεία" href="../Pages/learn-about-the-tools.html">Learn about the tools</a></li><li><a data-en="Back to Blog" data-gr="Πίσω στο Blog" href="../Pages/blog.html">Back to Blog</a></li></ul></div></div>
 <script defer="" src="../script.js"></script>
 </body>
 </html>
