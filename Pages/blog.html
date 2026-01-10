@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blog</title>
+<link rel="stylesheet" href="../Assets/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<main>
+<section class="blog-list" id="blogList"></section>
+</main>
+
+<script>
+const BLOGS = [
+  {
+    title: "Termux: Everything a New User Needs to Know",
+    path: "Blogs/termux-new-user-guide/index.html",
+    description: "A complete beginner-friendly guide explaining what Termux is, how it works, and how to use it safely and effectively."
+  },
+  {
+    title: "Common Termux Errors & How to Fix Them",
+    path: "Blogs/termux-errors-fixes/index.html",
+    description: "Understand the most common Termux errors, why they happen, and step-by-step fixes that actually work."
+  },
+  {
+    title: "Run Linux Distros & OSes in Termux",
+    path: "Blogs/termux-run-distros/index.html",
+    description: "Learn how to run Ubuntu, Arch, Kali and more directly on your phone using Termux."
+  },
+  {
+    title: "Learn Python Using Only Termux",
+    path: "Blogs/learn-python-in-termux/index.html",
+    description: "A structured learning path for Python beginners using Termux as the main development environment."
+  },
+  {
+    title: "Mass Surveillance, Digital ID & Technology",
+    path: "Blogs/mass-surveillance-digital-id/index.html",
+    description: "An educational breakdown of how modern surveillance works and what digital identity means in real life."
+  },
+  {
+    title: "Watch Dogs vs Real Life (2026)",
+    path: "Blogs/watch-dogs-vs-real-life-2026/index.html",
+    description: "A comparison between Watch Dogs fiction and the real technological reality of 2026."
+  }
+];
+
+const container = document.getElementById("blogList");
+
+BLOGS.forEach(blog => {
+  const article = document.createElement("article");
+  article.className = "blog-entry";
+  article.innerHTML = `
+    <h2>${blog.title}</h2>
+    <p>${blog.description}</p>
+    <a href="../${blog.path}" class="read-more">Read Full Article →</a>
+  `;
+  container.appendChild(article);
+});
+</script>
+
+</body>
+</html>
