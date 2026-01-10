@@ -3176,35 +3176,3 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
   font-size: 0.85rem;
   letter-spacing: 0.2px;
 }
-
-.blog-list {
-  max-width: 1000px;
-  margin: auto;
-  padding: 2rem 1rem;
-}
-
-.blog-entry {
-  background: var(--card-bg, #111);
-  border-radius: 16px;
-  padding: 2.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
-}
-
-.blog-entry h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.blog-entry p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  opacity: 0.9;
-}
-
-.blog-entry .read-more {
-  display: inline-block;
-  margin-top: 1.5rem;
-  font-weight: bold;
-  color: #b88cff;
-}
