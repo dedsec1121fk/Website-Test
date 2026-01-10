@@ -268,11 +268,25 @@ document.addEventListener('DOMContentLoaded', () => {
             "Pages/collaborations.html",
             "Pages/portfolio-github-info.html",
             "Pages/contact-credits.html",
-            "Pages/privacy-policy.html"
+            "Pages/privacy-policy.html",
+            "Pages/Blog/index.html",
+            "Blogs/termux-new-user-guide/index.html",
+            "Blogs/termux-errors-fixes/index.html",
+            "Blogs/termux-run-distros/index.html",
+            "Blogs/learn-python-in-termux/index.html",
+            "Blogs/mass-surveillance-digital-id/index.html",
+            "Blogs/watch-dogs-vs-real-life-2026/index.html"
 ];
 
-        const isInPages = () => window.location.pathname.includes('/Pages/');
-        const toFetchPath = (path) => (isInPages() ? `../${path}` : path);
+        const getDepthPrefix = () => {
+            const parts = window.location.pathname.split('/').filter(Boolean);
+            const last = parts[parts.length - 1] || '';
+            const isFile = last.includes('.');
+            const depth = Math.max(0, (isFile ? parts.length - 1 : parts.length));
+            return '../'.repeat(depth);
+        };
+
+        const toFetchPath = (path) => `${getDepthPrefix()}${path}`;
 
         const ensureDeterministicIds = (doc) => {
             const scope = doc.querySelector('main') || doc.body;

@@ -2027,12 +2027,19 @@ border: 1px solid var(--nm-border);
 
 /* Store: highlight badges (Best Value / Most Popular) */
 .store-page .featured-badge.badge{
-  background: var(--nm-accent);
-  border-color: rgba(205, 147, 255, 0.95);
-  color: #ffffff;
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,0.18) !important;
 }
-.store-page .featured-badge.badge i{ color: #ffffff; } 
+.store-page .featured-badge.badge i{ color: #ffffff !important; }
+.store-page .featured-badge.badge span{ color: inherit !important; }
 
+body.light-theme .store-page .featured-badge.badge{
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: rgba(0,0,0,0.18) !important;
+}
+body.light-theme .store-page .featured-badge.badge i{ color: #000000 !important; }
 /* Store: center "How it works" cards content */
 .store-page .how-it-works .step-card{
   display: flex;
