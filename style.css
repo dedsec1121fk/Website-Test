@@ -3375,3 +3375,100 @@ body.light-theme .page-content.post-article .trust-box{
 .page-content.post-article .sources a{
     word-break: break-word;
 }
+
+
+/* Blog filters (Categories + Tags) */
+.blog-filters{
+  width: 100%;
+  max-width: 1200px;
+  margin: 10px 0 0;
+  padding: 18px 18px;
+  background: var(--nm-dark);
+  border: 1px solid var(--nm-border);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+.blog-filters::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 320px at 15% -10%, rgba(216,170,255,0.12), transparent 60%),
+    radial-gradient(700px 260px at 110% 10%, rgba(255,198,122,0.08), transparent 55%);
+  pointer-events:none;
+}
+.blog-filters > *{ position: relative; z-index: 1; }
+
+.blog-filters-head h2{
+  margin: 0 0 6px 0;
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+}
+.blog-filters-head p{
+  margin: 0 0 12px 0;
+  color: var(--nm-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.blog-filters-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 720px){
+  .blog-filters-grid{ grid-template-columns: 1fr; }
+}
+
+.filter-group h3{
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  color: var(--nm-text);
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.chip-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip{
+  appearance: none;
+  border: 1px solid var(--nm-border);
+  background: var(--nm-darkest);
+  color: var(--nm-text);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out-cubic), border-color 0.25s var(--ease-out-cubic), background 0.25s var(--ease-out-cubic);
+}
+
+.chip:hover{
+  border-color: var(--nm-accent);
+  transform: translateY(-1px);
+}
+
+.chip.is-active{
+  background: var(--nm-accent);
+  border-color: var(--nm-accent);
+  color: #fff;
+}
+
+body.light-theme .chip{
+  background: rgba(255,255,255,0.86);
+}
+body.light-theme .chip.is-active{
+  color: #000;
+}
+
+.blog-taxonomy{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}

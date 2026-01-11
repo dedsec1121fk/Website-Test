@@ -1,47 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DedSec Blog</title>
     <link>https://ded-sec.space/Pages/blog.html</link>
-    <description>Termux guides, troubleshooting, privacy, and Python learning — by DedSec Project.</description>
+    <atom:link href="https://ded-sec.space/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Practical guides on privacy, security, and real-world tech — by DedSec Project.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Jan 2026 14:54:17 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 21:02:57 +0000</lastBuildDate>
     <item>
-      <title>DedSec Blog — Learn Python Using Termux: Getting Started</title>
-      <link>https://ded-sec.space/Blog/learn-python-in-termux.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/learn-python-in-termux.html</guid>
-      <description>Install Python, create projects, and build a daily learning routine on Android.</description>
-      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
-    </item><item>
-      <title>DedSec Blog — Mass Surveillance Through Technology &amp; Digital ID</title>
-      <link>https://ded-sec.space/Blog/mass-surveillance-digital-id.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/mass-surveillance-digital-id.html</guid>
-      <description>How modern tracking works, where digital ID fits in, and practical privacy steps.</description>
-      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
-    </item><item>
-      <title>DedSec Blog — Termux Errors and How to Solve Them</title>
-      <link>https://ded-sec.space/Blog/termux-errors-fixes.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-errors-fixes.html</guid>
-      <description>Common errors explained with quick fixes and commands.</description>
-      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
-    </item><item>
-      <title>DedSec Blog — Termux: All a New User Needs to Know</title>
-      <link>https://ded-sec.space/Blog/termux-new-user-guide.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-new-user-guide.html</guid>
-      <description>A practical starter guide: setup, packages, storage, and good habits.</description>
-      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
-    </item><item>
-      <title>DedSec Blog — Run Distros &amp; OSes in Termux Using Only Your Phone</title>
-      <link>https://ded-sec.space/Blog/termux-run-distros.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-run-distros.html</guid>
-      <description>Use proot-distro to run Debian/Ubuntu/Alpine safely without root.</description>
-      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
-    </item><item>
-      <title>DedSec Blog — Watch Dogs vs Real Life (2026): What’s Accurate, What’s Not</title>
+      <title>AI &amp; Cybersecurity 2026: Threats, Deepfakes, and Defenses | DedSec Blog</title>
+      <link>https://ded-sec.space/Blog/ai-and-cybersecurity-2026.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/ai-and-cybersecurity-2026.html</guid>
+      <description>How AI changes cyber offense and defense: faster phishing, smarter malware tooling, improved detection, and the new operational and governance risks for teams in 2026.</description>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <category>AI &amp; Security</category>
+      <category>AI</category>
+      <category>Cybersecurity</category>
+      <category>Threat modeling</category>
+      <category>Defense</category>
+      <category>Automation</category>
+    </item>
+    <item>
+      <title>Humanoid Robots &amp; Artificial Muscles: Terminator vs Reality | DedSec Blog</title>
+      <link>https://ded-sec.space/Blog/ai-terminator-myth-vs-reality.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/ai-terminator-myth-vs-reality.html</guid>
+      <description>A realistic look at “Terminator” fears: what autonomous systems can and can’t do today, how robot bodies are improving (actuators, muscles, hands), and where safety policy matters.</description>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <category>AI &amp; Robotics</category>
+      <category>Humanoid robots</category>
+      <category>Autonomy</category>
+      <category>Artificial muscles</category>
+      <category>Safety</category>
+      <category>Regulation</category>
+    </item>
+    <item>
+      <title>Digital ID &amp; Social Credit (China + UK) | DedSec Blog</title>
+      <link>https://ded-sec.space/Blog/digital-identity-benefits-risks-safeguards.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/digital-identity-benefits-risks-safeguards.html</guid>
+      <description>Digital identity can reduce fraud and simplify services—but it can also enable tracking and exclusion. Here’s how benefits, risks, and practical safeguards fit together.</description>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <category>Privacy &amp; Governance</category>
+      <category>Digital ID</category>
+      <category>Privacy</category>
+      <category>Authentication</category>
+      <category>Civil liberties</category>
+      <category>Safeguards</category>
+    </item>
+    <item>
+      <title>Migration, Crime, and Demographic Change | DedSec Blog</title>
+      <link>https://ded-sec.space/Blog/migration-geopolitics-weaponization-and-resilience.html</link>
+      <guid isPermaLink="true">https://ded-sec.space/Blog/migration-geopolitics-weaponization-and-resilience.html</guid>
+      <description>How migration intersects with geopolitics: what “weaponization” narratives get right and wrong, and what resilient, rights-respecting policy looks like.</description>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <category>Society &amp; Security</category>
+      <category>Migration</category>
+      <category>Geopolitics</category>
+      <category>Border policy</category>
+      <category>Disinformation</category>
+      <category>Resilience</category>
+    </item>
+    <item>
+      <title>Watch Dogs vs Reality (All Games) | DedSec Blog</title>
       <link>https://ded-sec.space/Blog/watch-dogs-vs-real-life-2026.html</link>
       <guid isPermaLink="true">https://ded-sec.space/Blog/watch-dogs-vs-real-life-2026.html</guid>
-      <description>A grounded comparison between the games’ ctOS fantasy and the real-world tech landscape of 2026.</description>
-      <pubDate>Sat, 10 Jan 2026 12:00:00 +0000</pubDate>
+      <description>A grounded comparison between Watch Dogs’ fiction and today’s real surveillance, data brokers, smart-city systems, and cybercrime—what’s already here and what’s still sci‑fi.</description>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0000</pubDate>
+      <category>Tech &amp; Culture</category>
+      <category>Watch Dogs</category>
+      <category>Surveillance</category>
+      <category>Smart cities</category>
+      <category>Hacking culture</category>
+      <category>Privacy</category>
     </item>
   </channel>
 </rss>
