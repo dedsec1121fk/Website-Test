@@ -262,10 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         
-        const SEARCH_VERSION = '2026-01-10-v6';
+        const SEARCH_VERSION = '2026-01-11-v7';
         const SEARCH_STORAGE_KEY = `dedsec_search_index_${SEARCH_VERSION}`;
 
-        const SEARCH_PAGES = [
+        const SEARCH_PAGES_FALLBACK = [
             "index.html",
             "Pages/learn-about-the-tools.html",
             "Pages/guide-for-installation.html",
@@ -287,32 +287,101 @@ document.addEventListener('DOMContentLoaded', () => {
         const toFetchUrl = (path) => {
             try { return new URL((path || '').replace(/^\/+/, ''), SITE_BASE).href; } catch (_) { return path; }
         };
-const ensureDeterministicIds = (doc) => {
-            const scope = doc.querySelector('main') || doc.body;
-            if (!scope) return;
-            const candidates = scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header');
-            const used = new Map();
+// Discover pages dynamically (includes Blog posts) via sitemap.xml when available.
+// Falls back to the hardcoded list if sitemap fetch/parsing fails.
+let __discoveredSearchPages = null;
 
-            candidates.forEach((el) => {
-                const raw = (el.getAttribute('data-en') || el.textContent || '').trim();
-                if (!raw) return;
+const normalizeRelPath = (p) => {
+    if (!p) return 'index.html';
+    // remove leading slashes
+    p = String(p).replace(/^\/+/, '');
+    // map root to index.html
+    if (p === '') return 'index.html';
+    // Drop query/hash if any
+    p = p.split('#')[0].split('?')[0];
+    // If it's a directory, assume index.html
+    if (p.endsWith('/')) p = p + 'index.html';
+    return p;
+};
 
-                // If the element already has an ID, keep it.
-                if (el.id) {
-                    used.set(el.id, true);
-                    return;
-                }
+const getSearchPages = async () => {
+    if (__discoveredSearchPages) return __discoveredSearchPages;
 
-                const base = slugify(raw);
-                let unique = base;
-                let n = 2;
-                while (used.has(unique) || doc.getElementById(unique)) {
-                    unique = `${base}-${n++}`;
-                }
-                el.id = unique;
-                used.set(unique, true);
+    const uniq = new Set();
+    const add = (p) => {
+        const n = normalizeRelPath(p);
+        // Only index HTML pages (keep index.html)
+        if (!n.endsWith('.html')) return;
+        uniq.add(n);
+    };
+
+    // 1) Hardcoded fallback always
+    (SEARCH_PAGES_FALLBACK || []).forEach(add);
+
+    // 2) Try sitemap.xml (works on GitHub Pages and custom domains)
+    try {
+        const smRes = await fetch(toFetchUrl('sitemap.xml'), { cache: 'force-cache' });
+        if (smRes.ok) {
+            const smText = await smRes.text();
+            const smDoc = new DOMParser().parseFromString(smText, 'text/xml');
+            const locs = Array.from(smDoc.querySelectorAll('url > loc')).map(n => (n.textContent || '').trim()).filter(Boolean);
+
+            const baseUrl = new URL(SITE_BASE);
+            const basePath = (baseUrl.pathname || '/').replace(/\/[^\/]*$/, '/'); // ensure ends with /
+
+            locs.forEach((loc) => {
+                try {
+                    const u = new URL(loc, baseUrl.origin);
+                    // same origin (or at least same path structure) — convert to relative for this deployment
+                    let rel = u.pathname || '';
+                    // If this is a project page (/repo/...), trim that prefix.
+                    if (rel.startsWith(basePath)) rel = rel.slice(basePath.length);
+                    // Handle https://site/ (root)
+                    rel = normalizeRelPath(rel);
+                    add(rel);
+                } catch (_) {}
             });
-        };
+        }
+    } catch (_) {
+        // ignore
+    }
+
+    // Always ensure we have index.html
+    add('index.html');
+
+    __discoveredSearchPages = Array.from(uniq);
+    return __discoveredSearchPages;
+};
+
+const getScopeForIndexing = (doc) => {
+    // Prefer content containers over full body (to avoid nav/footer noise)
+    return (
+        doc.querySelector('main') ||
+        doc.querySelector('.page-content') ||
+        doc.querySelector('.content') ||
+        doc.body
+    );
+};
+
+const extractBodyKeywords = (doc, limit = 4200) => {
+    const scope = getScopeForIndexing(doc);
+    if (!scope) return '';
+    const parts = [];
+    const nodes = scope.querySelectorAll('h1,h2,h3,h4,p,li,blockquote,code,pre,figcaption');
+    nodes.forEach((el) => {
+        // Skip global nav/footer UI
+        if (el.closest('nav') || el.closest('footer') || el.closest('.nav-menu') || el.closest('.navbar')) return;
+
+        // Include both languages if present, but keep it bounded
+        const en = (el.getAttribute('data-en') || '').trim();
+        const gr = (el.getAttribute('data-gr') || '').trim();
+        const t = (el.textContent || '').trim();
+        const s = [t, en, gr].filter(Boolean).join(' ');
+        if (s) parts.push(s);
+    });
+    const joined = parts.join(' ').replace(/\s+/g, ' ').trim();
+    return joined.slice(0, limit).toLowerCase();
+};
 
         const currentPagePath = () => {
             const parts = window.location.pathname.split('/').filter(Boolean);
@@ -335,11 +404,34 @@ const ensureDeterministicIds = (doc) => {
                     .replace(/-/g, ' ')
                     .replace(/\b\w/g, (m) => m.toUpperCase());
 
-            const scope = doc.querySelector('main') || doc.body;
-            const candidates = scope ? scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header') : [];
-            const items = [];
+const scope = getScopeForIndexing(doc);
+const items = [];
+
+// Page-level entry (lets you search inside Blog post content, not only headings)
+const isBlog = /^Blog\//.test(pagePath);
+const metaDescription = (doc.querySelector('meta[name="description"]')?.getAttribute('content') || '').trim();
+const sn = pickSnippet(doc);
+const bodyKeywords = extractBodyKeywords(doc);
+const cleanTitle = (pageTitle || label).replace(/\s*\|\s*DedSec.*$/i, '').trim();
+
+items.push({
+    title_en: cleanTitle,
+    title_gr: cleanTitle,
+    title: cleanTitle,
+    meta_en: isBlog ? 'Blog post' : 'Page',
+    meta_gr: isBlog ? 'Άρθρο Blog' : 'Σελίδα',
+    meta: label,
+    url: `${pagePath}`,
+    keywords: [cleanTitle, metaDescription, bodyKeywords].filter(Boolean).join(' ').toLowerCase(),
+    snippet_en: (sn.en || metaDescription || '').trim(),
+    snippet_gr: (sn.gr || metaDescription || '').trim(),
+    kind: isBlog ? 'blog' : 'page'
+});
+
+const candidates = scope ? scope.querySelectorAll('h1, h2, h3, h4, .feature-title, .tool-title, .category-header') : [];
 
             candidates.forEach((el) => {
+                if (el.closest('nav') || el.closest('footer') || el.closest('.navbar') || el.closest('.nav-menu')) return;
                 const en = (el.getAttribute('data-en') || '').trim();
                 const gr = (el.getAttribute('data-gr') || '').trim();
                 const fallback = (el.textContent || '').trim();
@@ -396,7 +488,8 @@ const ensureDeterministicIds = (doc) => {
                 const items = buildPageItems(document, currentPagePath());
 
                 const current = currentPagePath();
-                const others = SEARCH_PAGES.filter(p => p !== current);
+                const allPages = await getSearchPages();
+                const others = allPages.filter(p => p !== current);
 
                 const fetchOne = async (path) => {
                     const res = await fetch(toFetchUrl(path), { cache: 'force-cache' });
@@ -495,11 +588,32 @@ const ensureDeterministicIds = (doc) => {
                 return;
             }
 
-            const hits = index
-                .filter(it => it.keywords.includes(q) || ((currentLanguage === 'gr' ? (it.title_gr || it.title || '') : (it.title_en || it.title || '')).toLowerCase().includes(q)))
-                .slice(0, 20);
+            
+const scored = index
+    .map((it) => {
+        const title = (currentLanguage === 'gr' ? (it.title_gr || it.title || '') : (it.title_en || it.title || '')).toLowerCase();
+        const meta = (currentLanguage === 'gr' ? (it.meta_gr || it.meta || '') : (it.meta_en || it.meta || '')).toLowerCase();
+        const snip = (currentLanguage === 'gr' ? (it.snippet_gr || '') : (it.snippet_en || '')).toLowerCase();
+        const kw = (it.keywords || '').toLowerCase();
 
-            if (!hits.length) {
+        let score = 0;
+        if (title.includes(q)) score += 12;
+        if (meta.includes(q)) score += 4;
+        if (snip.includes(q)) score += 5;
+        if (kw.includes(q)) score += 6;
+        if ((it.url || '').toLowerCase().includes(q)) score += 2;
+
+        // Prefer page-level entries slightly (so you can open the blog post itself)
+        if (it.url && !String(it.url).includes('#')) score += 1;
+
+        return score > 0 ? { it, score } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.score - a.score);
+
+const hits = scored.slice(0, 20).map(x => x.it);
+
+if (!hits.length) {
                 resultsEl.innerHTML = `
                     <div class="search-item" role="option" tabindex="0">
                         <div class="search-item-title"><i class="fas fa-circle-info"></i><span>${currentLanguage === 'gr' ? 'Δεν βρέθηκαν αποτελέσματα' : 'No results found'}</span></div>
@@ -509,12 +623,35 @@ const ensureDeterministicIds = (doc) => {
                 return;
             }
 
-            resultsEl.innerHTML = hits.map(it => `
-                <a class="search-item" href="${resolveUrl(it.url)}" role="option">
-                    <div class="search-item-title"><i class="fas fa-arrow-right"></i><span>${escapeHtml(it.title)}</span></div>
-                    <div class="search-item-meta">${escapeHtml(it.meta)}</div>
-                </a>
-            `).join('');
+            
+resultsEl.innerHTML = hits.map(it => {
+    const titleTxt = (currentLanguage === 'gr' ? (it.title_gr || it.title || '') : (it.title_en || it.title || ''));
+    const metaTxt = (currentLanguage === 'gr' ? (it.meta_gr || it.meta || '') : (it.meta_en || it.meta || '')) || '';
+    const snippetTxt = (currentLanguage === 'gr' ? (it.snippet_gr || '') : (it.snippet_en || '')) || '';
+    const kind = it.kind || ((String(it.url || '').startsWith('Blog/')) ? 'blog' : 'page');
+
+    const badgeTxt = kind === 'blog'
+        ? (currentLanguage === 'gr' ? 'Blog' : 'Blog')
+        : (currentLanguage === 'gr' ? 'Σελίδα' : 'Page');
+
+    const icon = kind === 'blog' ? 'fa-pen-nib' : 'fa-file-lines';
+
+    const titleHtml = highlightText(titleTxt, q);
+    const metaHtml = metaTxt ? highlightText(metaTxt, q) : '';
+    const snippetHtml = snippetTxt ? highlightText(snippetTxt, q) : '';
+
+    return `
+        <a class="search-item" href="${resolveUrl(it.url)}" role="option">
+            <div class="search-item-title">
+                <i class="fas ${icon}"></i>
+                <span class="search-item-title-text">${titleHtml}</span>
+                <span class="search-badge ${kind}">${escapeHtml(badgeTxt)}</span>
+            </div>
+            ${metaHtml ? `<div class="search-item-meta">${metaHtml}</div>` : ''}
+            ${snippetHtml ? `<div class="search-item-snippet">${snippetHtml}</div>` : ''}
+        </a>
+    `;
+}).join('');
 
             // Intercept clicks for smooth scroll on same page
             resultsEl.querySelectorAll('a.search-item').forEach(a => {
@@ -531,6 +668,30 @@ const ensureDeterministicIds = (doc) => {
         const escapeHtml = (s) => (s || '').replace(/[&<>"']/g, (c) => ({
             '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
         }[c]));
+
+
+const highlightText = (text, needle) => {
+    const t = String(text || '');
+    const n = String(needle || '').trim();
+    if (!t || !n || n.length < 2) return escapeHtml(t);
+
+    // Escape + highlight (case-insensitive) without breaking HTML entities
+    const re = new RegExp(n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig');
+    let out = '';
+    let last = 0;
+    let m;
+    while ((m = re.exec(t)) !== null) {
+        const start = m.index;
+        const end = start + m[0].length;
+        out += escapeHtml(t.slice(last, start));
+        out += `<mark class="search-hit">${escapeHtml(t.slice(start, end))}</mark>`;
+        last = end;
+        // Prevent infinite loops on zero-length
+        if (re.lastIndex === m.index) re.lastIndex++;
+    }
+    out += escapeHtml(t.slice(last));
+    return out;
+};
 
         // Open / close events
         openBtn.addEventListener('click', () => setOverlayVisible(true));
