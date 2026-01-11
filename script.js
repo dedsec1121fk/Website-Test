@@ -262,10 +262,12 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         
-        const SEARCH_VERSION = '2026-01-10-v6';
+        const SEARCH_VERSION = '2026-01-11-v7';
         const SEARCH_STORAGE_KEY = `dedsec_search_index_${SEARCH_VERSION}`;
+        const SEARCH_PAGES_STORAGE_KEY = `dedsec_search_pages_${SEARCH_VERSION}`;
 
-        const SEARCH_PAGES = [
+        // Pages we always want searchable (static, always exist).
+        const BASE_PAGES = [
             "index.html",
             "Pages/learn-about-the-tools.html",
             "Pages/guide-for-installation.html",
@@ -275,14 +277,144 @@ document.addEventListener('DOMContentLoaded', () => {
             "Pages/portfolio-github-info.html",
             "Pages/contact-credits.html",
             "Pages/privacy-policy.html",
-            "Pages/blog.html",
+            "Pages/blog.html"
+        ];
+
+        // Fallback blog pages (used if we can't reach GitHub API).
+        // Keep this list updated when you add/remove /Blog/*.html files.
+        const FALLBACK_BLOG_PAGES = [
+            "Blog/migration-geopolitics-weaponization-and-resilience.html",
+            "Blog/immigration-and-crime-what-the-evidence-says.html",
+            "Blog/digital-identity-benefits-risks-safeguards.html",
+            "Blog/ai-and-cybersecurity-2026.html",
+            "Blog/ai-deepfakes-detection-and-defenses.html",
+            "Blog/ai-terminator-myth-vs-reality.html",
+            "Blog/humanoid-robots-artificial-muscles-state-of-the-art.html",
+            "Blog/mass-surveillance-digital-id.html",
+            "Blog/watch-dogs-vs-real-life-2026.html",
             "Blog/termux-new-user-guide.html",
             "Blog/termux-errors-fixes.html",
             "Blog/termux-run-distros.html",
-            "Blog/learn-python-in-termux.html",
-            "Blog/mass-surveillance-digital-id.html",
-            "Blog/watch-dogs-vs-real-life-2026.html"
-];
+            "Blog/learn-python-in-termux.html"
+        ];
+
+        const loadStoredPagesList = () => {
+            try {
+                const raw = localStorage.getItem(SEARCH_PAGES_STORAGE_KEY);
+                if (!raw) return null;
+                const parsed = JSON.parse(raw);
+                if (!Array.isArray(parsed) || parsed.length < 5) return null;
+                return parsed;
+            } catch (_) {
+                return null;
+            }
+        };
+
+        const storePagesList = (pages) => {
+            try {
+                localStorage.setItem(SEARCH_PAGES_STORAGE_KEY, JSON.stringify(pages));
+            } catch (_) {
+                // ignore
+            }
+        };
+
+        const detectGitHubRepoFromLocation = () => {
+            const host = String(location.hostname || '').toLowerCase();
+            if (!host.endsWith('github.io')) return null;
+
+            const owner = host.split('.')[0];
+            const parts = String(location.pathname || '').split('/').filter(Boolean);
+
+            // User/organization site: https://owner.github.io/  => repo is owner.github.io
+            // Project site:          https://owner.github.io/repo/ => repo is the first path segment
+            const repo = parts.length ? parts[0] : `${owner}.github.io`;
+            return { owner, repo };
+        };
+
+        const loadSiteConfig = async () => {
+            // site-config.json is at the site root
+            try {
+                const url = new URL('site-config.json', SITE_BASE).href;
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) throw new Error('config fetch failed');
+                const cfg = await res.json();
+                return cfg || {};
+            } catch (_) {
+                return {};
+            }
+        };
+
+        const fetchRepoBlogFiles = async ({ owner, repo, branch, blogDir }) => {
+            const base = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodeURIComponent(blogDir)}`;
+            const withRef = branch ? `${base}?ref=${encodeURIComponent(branch)}` : base;
+
+            let res = await fetch(withRef, {
+                headers: { Accept: 'application/vnd.github+json' },
+                cache: 'no-store'
+            });
+
+            // If the branch is wrong (common when copying to a new repo), retry without ref.
+            if (!res.ok && branch) {
+                res = await fetch(base, {
+                    headers: { Accept: 'application/vnd.github+json' },
+                    cache: 'no-store'
+                });
+            }
+
+            if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
+
+            const data = await res.json();
+            if (!Array.isArray(data)) return [];
+            return data
+                .filter((x) => x && x.type === 'file' && /\.html?$/i.test(x.name))
+                .map((x) => String(x.name));
+        };
+
+        let cachedPagesList = loadStoredPagesList();
+        let pagesListPromise = null;
+
+        const getSearchPagesAsync = async () => {
+            if (cachedPagesList) return cachedPagesList;
+            if (pagesListPromise) return pagesListPromise;
+
+            pagesListPromise = (async () => {
+                const cfg = await loadSiteConfig();
+                const githubCfg = cfg.github || {};
+                const detected = detectGitHubRepoFromLocation();
+
+                const owner = githubCfg.owner || detected?.owner || 'dedsec1121fk';
+                const repo = githubCfg.repo || detected?.repo || 'dedsec1121fk.github.io';
+                const branch = githubCfg.branch || 'main';
+                const blogDir = githubCfg.blogDir || 'Blog';
+
+                let pages = [...BASE_PAGES];
+                try {
+                    const files = await fetchRepoBlogFiles({ owner, repo, branch, blogDir });
+                    const dir = String(blogDir || 'Blog').replace(/^\/+|\/+$/g, '');
+                    const blogPages = files.map((name) => `${dir}/${name}`);
+                    pages.push(...blogPages);
+                } catch (_) {
+                    pages.push(...FALLBACK_BLOG_PAGES);
+                }
+
+                // Normalize + dedupe
+                const seen = new Set();
+                pages = pages
+                    .map(p => String(p || '').replace(/^\/+/, ''))
+                    .filter(Boolean)
+                    .filter(p => {
+                        if (seen.has(p)) return false;
+                        seen.add(p);
+                        return true;
+                    });
+
+                cachedPagesList = pages;
+                storePagesList(pages);
+                return pages;
+            })();
+
+            return pagesListPromise;
+        };
 
         const toFetchUrl = (path) => {
             try { return new URL((path || '').replace(/^\/+/, ''), SITE_BASE).href; } catch (_) { return path; }
@@ -396,7 +528,8 @@ const ensureDeterministicIds = (doc) => {
                 const items = buildPageItems(document, currentPagePath());
 
                 const current = currentPagePath();
-                const others = SEARCH_PAGES.filter(p => p !== current);
+                const allPages = await getSearchPagesAsync();
+                const others = allPages.filter(p => p !== current);
 
                 const fetchOne = async (path) => {
                     const res = await fetch(toFetchUrl(path), { cache: 'force-cache' });
