@@ -104,14 +104,27 @@
   </div>
 
   <div class="blog-filters-grid">
-    <div class="filter-group">
-      <h3 data-en="Categories" data-gr="Κατηγορίες">Categories</h3>
-      <div class="chip-row" id="category-chips" aria-label="Blog categories"></div>
-    </div>
-    <div class="filter-group">
-      <h3 data-en="Tags" data-gr="Ετικέτες">Tags</h3>
-      <div class="chip-row" id="tag-chips" aria-label="Blog tags"></div>
-    </div>
+    <details class="filter-drop" id="cat-drop">
+      <summary class="filter-drop-summary">
+        <div class="filter-drop-left">
+          <span class="filter-title" data-en="Categories" data-gr="Κατηγορίες">Categories</span>
+          <span class="filter-value" id="category-current" data-en="All" data-gr="Όλα">All</span>
+        </div>
+        <i class="fas fa-chevron-down filter-drop-icon" aria-hidden="true"></i>
+      </summary>
+      <div class="chip-row filter-drop-body" id="category-chips" aria-label="Blog categories"></div>
+    </details>
+
+    <details class="filter-drop" id="tag-drop">
+      <summary class="filter-drop-summary">
+        <div class="filter-drop-left">
+          <span class="filter-title" data-en="Tags" data-gr="Ετικέτες">Tags</span>
+          <span class="filter-value" id="tag-current" data-en="All" data-gr="Όλα">All</span>
+        </div>
+        <i class="fas fa-chevron-down filter-drop-icon" aria-hidden="true"></i>
+      </summary>
+      <div class="chip-row filter-drop-body" id="tag-chips" aria-label="Blog tags"></div>
+    </details>
   </div>
 </div>
 
