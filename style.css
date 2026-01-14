@@ -260,7 +260,13 @@ p {
 }
 
 .main-nav {
-    overflow: hidden;
+    /*
+      iOS Safari (and some in-app browsers like Instagram's) can clip
+      fixed-position descendants when an ancestor has overflow:hidden.
+      The burger menu (.nav-menu) is position:fixed and must be allowed
+      to render outside the navbar.
+    */
+    overflow: visible;
     isolation: isolate;
 }
 
@@ -332,6 +338,9 @@ body.light-theme .nav-title h1 {
     order: 3;
     margin-inline-start: 6px;
     flex-shrink: 0;
+    /* Improves tap reliability on iOS/in-app browsers */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .burger-menu span {
@@ -373,7 +382,8 @@ body.light-theme .nav-title h1 {
 }
 
 .nav-menu {
-    overflow: hidden;
+    /* Keep the visual isolation, but don't override overflow-y:auto
+       (otherwise the menu can't scroll and can appear clipped on iOS). */
     isolation: isolate;
 }
 
