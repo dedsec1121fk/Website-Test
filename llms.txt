@@ -1,26 +1,89 @@
-# DedSec Project (ded-sec.space)
+# DedSec Project — Full Index (ded-sec.space)
 
-The DedSec Project is a free, static website that presents a bilingual (English & Greek) cybersecurity / ethical hacking toolkit and learning hub focused on Termux/Android. It contains tool overviews, installation guidance, FAQs, collaborations, and links to project resources.
+> Auto-generated list of public pages and blog posts. Generated on 2026-01-13.
 
-## Primary pages
-- / (Homepage)
-- /Pages/learn-about-the-tools.html (Tool catalog & descriptions)
-- /Pages/guide-for-installation.html (Install guide)
-- /Pages/faq.html (FAQ / troubleshooting)
-- /Pages/store.html (Store)
-- /Pages/collaborations.html (Collaborations)
-- /Pages/portfolio-github-info.html (Portfolio & GitHub)
-- /Pages/contact-credits.html (Contact & credits)
-- /Pages/privacy-policy.html (Privacy policy)
+Use this when you need an exhaustive list. For search-engine crawling, prefer the XML sitemap at /sitemap.xml.
 
-## Language
-All pages include both English and Greek text via an on-page language switcher.
+## Pages
+- [DedSec Project — Free Termux Cybersecurity Toolkit](https://ded-sec.space/) — last modified 2026-01-13
+- [DedSec Project — Blog](https://ded-sec.space/Pages/blog.html) — last modified 2026-01-13
+- [Collaborations - DedSec Project](https://ded-sec.space/Pages/collaborations.html) — last modified 2026-01-13
+- [Contact & Credits - DedSec Project](https://ded-sec.space/Pages/contact-credits.html) — last modified 2026-01-13
+- [DedSec Project - Frequently Asked Questions](https://ded-sec.space/Pages/faq.html) — last modified 2026-01-13
+- [Guide For Installation - DedSec Project](https://ded-sec.space/Pages/guide-for-installation.html) — last modified 2026-01-13
+- [Learn About The Tools - DedSec Project](https://ded-sec.space/Pages/learn-about-the-tools.html) — last modified 2026-01-13
+- [Portfolio & GitHub - DedSec Project](https://ded-sec.space/Pages/portfolio-github-info.html) — last modified 2026-01-13
+- [Privacy Policy - DedSec Project](https://ded-sec.space/Pages/privacy-policy.html) — last modified 2026-01-13
+- [Store](https://ded-sec.space/Pages/store.html) — last modified 2026-01-13
 
-## Crawling / indexing
-- Please crawl and index all public pages listed above.
-- The site is static HTML/CSS/JS with no account areas or paywalls.
-
-## Project identity
-Name: DedSec Project  
-Website: https://ded-sec.space  
-GitHub: https://github.com/dedsec1121fk/DedSec
+## Blog posts
+- [Why ‘Anonymous’ Memes Keep Coming Back | DedSec Blog](https://ded-sec.space/Blog/why-anonymous-memes-keep-returning.html) — last modified 2026-01-13
+- [Why OT Security Is Different (and Why It Matters) | DedSec Blog](https://ded-sec.space/Blog/why-ot-security-is-different.html) — last modified 2026-01-13
+- [Water Utilities Cybersecurity: Practical Controls That Work | DedSec Blog](https://ded-sec.space/Blog/water-utilities-cybersecurity-practical-controls.html) — last modified 2026-01-13
+- [Watch Dogs vs Reality: How ctOS Became a Metaphor for 2026 | DedSec Blog](https://ded-sec.space/Blog/watch-dogs-vs-real-life-2026.html) — last modified 2026-01-13
+- [Vendor Risk in 10 Questions | DedSec Blog](https://ded-sec.space/Blog/vendor-risk-10-questions.html) — last modified 2026-01-13
+- [Threat Modeling for LLM Features | DedSec Blog](https://ded-sec.space/Blog/threat-modeling-llm-features.html) — last modified 2026-01-13
+- [The Hacker Aesthetic vs Real Threats | DedSec Blog](https://ded-sec.space/Blog/hacker-aesthetic-vs-real-threats.html) — last modified 2026-01-13
+- [The First 60 Minutes After a Breach | DedSec Blog](https://ded-sec.space/Blog/first-60-minutes-after-a-breach.html) — last modified 2026-01-13
+- [Termux Basics: Turn Your Phone Into a Linux Machine — DedSec Blog](https://ded-sec.space/Blog/termux-basics-linux-on-phone.html) — last modified 2026-01-13
+- [Tabletop Exercises: Run a Breach Drill in 60 Minutes | DedSec Blog](https://ded-sec.space/Blog/tabletop-exercises-breach-drill-60-minutes.html) — last modified 2026-01-13
+- [Synthetic Senses: Spoofing Cameras, LiDAR, and Microphones | DedSec Blog](https://ded-sec.space/Blog/synthetic-senses-spoofing-cameras-lidar.html) — last modified 2026-01-13
+- [Social Engineering: The Human Hack — DedSec Blog](https://ded-sec.space/Blog/social-engineering-human-hack.html) — last modified 2026-01-13
+- [Smart City Surveillance: ctOS Is Already Here — DedSec Blog](https://ded-sec.space/Blog/smart-city-surveillance-ctos.html) — last modified 2026-01-13
+- [SIM‑Swap Defense: Lock Down Your Phone Number | DedSec Blog](https://ded-sec.space/Blog/sim-swap-defense-lock-down-your-number.html) — last modified 2026-01-13
+- [Self-Driving Cars: The Hidden Dangers — DedSec Blog](https://ded-sec.space/Blog/self-driving-cars-hidden-dangers.html) — last modified 2026-01-13
+- [Securing Your AI Copilot: Data Boundaries That Matter | DedSec Blog](https://ded-sec.space/Blog/secure-your-ai-copilot-data-boundaries.html) — last modified 2026-01-13
+- [Running a Secure Open‑Source Project | DedSec Blog](https://ded-sec.space/Blog/running-a-secure-open-source-project.html) — last modified 2026-01-13
+- [Robots on the Internet: Patch Management for Physical Devices | DedSec Blog](https://ded-sec.space/Blog/robots-on-the-internet-patching-physical-devices.html) — last modified 2026-01-13
+- [Robot ‘Muscles’ and Failure Modes (No Sci‑Fi Needed) | DedSec Blog](https://ded-sec.space/Blog/robot-artificial-muscles-failure-modes.html) — last modified 2026-01-13
+- [Robot Ethics: When Machines Fail — DedSec Blog](https://ded-sec.space/Blog/robot-ethics-when-machines-fail.html) — last modified 2026-01-13
+- [Retention Policies: Delete by Default | DedSec Blog](https://ded-sec.space/Blog/retention-policies-delete-by-default.html) — last modified 2026-01-13
+- [Responsible Disclosure for Small Open‑Source Projects | DedSec Blog](https://ded-sec.space/Blog/responsible-disclosure-for-small-open-source.html) — last modified 2026-01-13
+- [Ransomware in the Age of AI Negotiators | DedSec Blog](https://ded-sec.space/Blog/ransomware-ai-negotiators.html) — last modified 2026-01-13
+- [Python Scripting in Termux: Automate Everything — DedSec Blog](https://ded-sec.space/Blog/python-scripting-termux.html) — last modified 2026-01-13
+- [Prompt Injection Defense for Everyday Apps | DedSec Blog](https://ded-sec.space/Blog/prompt-injection-defense-everyday-apps.html) — last modified 2026-01-13
+- [Privacy Impact Assessments for Small Teams | DedSec Blog](https://ded-sec.space/Blog/privacy-impact-assessment-small-teams.html) — last modified 2026-01-13
+- [Policing Tech: Oversight Basics for Citizens | DedSec Blog](https://ded-sec.space/Blog/policing-tech-oversight-basics.html) — last modified 2026-01-13
+- [Phone Tracking: How Your Location Data is Exploited — DedSec Blog](https://ded-sec.space/Blog/phone-tracking-location-data.html) — last modified 2026-01-13
+- [OSINT Basics Without Doxxing | DedSec Blog](https://ded-sec.space/Blog/osint-basics-without-doxxing.html) — last modified 2026-01-13
+- [Neural Networks Explained for Beginners — DedSec Blog](https://ded-sec.space/Blog/neural-networks-explained.html) — last modified 2026-01-13
+- [Network Scanning with Termux: A Beginner's Guide — DedSec Blog](https://ded-sec.space/Blog/network-scanning-termux.html) — last modified 2026-01-13
+- [Military Drones: Autonomous Warfare Reality — DedSec Blog](https://ded-sec.space/Blog/military-drones-autonomous-warfare.html) — last modified 2026-01-13
+- [Migration, Crime, and Demographic Change: Facts, Fear, and Geopolitical Manipulation | DedSec Blog](https://ded-sec.space/Blog/migration-geopolitics-weaponization-and-resilience.html) — last modified 2026-01-13
+- [Migration Data Ethics: Protecting Vulnerable People | DedSec Blog](https://ded-sec.space/Blog/migration-data-ethics-protecting-vulnerable.html) — last modified 2026-01-13
+- [Media Forensics: Checking Images and Video (Fast) | DedSec Blog](https://ded-sec.space/Blog/media-forensics-checking-images-video.html) — last modified 2026-01-13
+- [Machine Learning vs Deep Learning — DedSec Blog](https://ded-sec.space/Blog/machine-learning-vs-deep-learning.html) — last modified 2026-01-13
+- [Learn Security Without Burning Out: A 30‑Day Plan | DedSec Blog](https://ded-sec.space/Blog/learn-security-30-day-plan-without-burnout.html) — last modified 2026-01-13
+- [Know Your Digital Rights (EU): A Starter Kit | DedSec Blog](https://ded-sec.space/Blog/know-your-digital-rights-eu-starter-kit.html) — last modified 2026-01-13
+- [Kids Online Safety: A Practical Parent Guide (No Panic) | DedSec Blog](https://ded-sec.space/Blog/kids-online-safety-practical-parent-guide.html) — last modified 2026-01-13
+- [IoT Vulnerabilities: When Smart Cities Become Attack Surfaces — DedSec Blog](https://ded-sec.space/Blog/iot-vulnerabilities-smart-cities.html) — last modified 2026-01-13
+- [Human‑Robot Teams: Safety‑by‑Design Basics | DedSec Blog](https://ded-sec.space/Blog/human-robot-teams-safety-by-design.html) — last modified 2026-01-13
+- [Humanoid Robots & Artificial Muscles: The Real ‘Terminator’ Question | DedSec Blog](https://ded-sec.space/Blog/ai-terminator-myth-vs-reality.html) — last modified 2026-01-13
+- [How AI Learns: From Data to Decisions — DedSec Blog](https://ded-sec.space/Blog/how-ai-learns-from-data-to-decisions.html) — last modified 2026-01-13
+- [Home Robots: Privacy & Safety Checklist | DedSec Blog](https://ded-sec.space/Blog/home-robots-privacy-safety-checklist.html) — last modified 2026-01-13
+- [Hardware & Privacy: Phone/Laptop Hardening on a Budget | DedSec Blog](https://ded-sec.space/Blog/hardware-privacy-phone-laptop-hardening-budget.html) — last modified 2026-01-13
+- [Gaming and Surveillance Literacy | DedSec Blog](https://ded-sec.space/Blog/gaming-and-surveillance-literacy.html) — last modified 2026-01-13
+- [From Watch Dogs to Smart Cities: What’s Real (and What’s Game) | DedSec Blog](https://ded-sec.space/Blog/from-watch-dogs-to-smart-cities-whats-real.html) — last modified 2026-01-13
+- [Facial Recognition: The Invisible Eye Watching Everyone — DedSec Blog](https://ded-sec.space/Blog/facial-recognition-invisible-eye.html) — last modified 2026-01-13
+- [EU Digital Identity: What You Control (and What You Don’t) | DedSec Blog](https://ded-sec.space/Blog/eu-digital-identity-what-you-control.html) — last modified 2026-01-13
+- [Ethical Hacking Fundamentals: The Legal Path — DedSec Blog](https://ded-sec.space/Blog/ethical-hacking-fundamentals.html) — last modified 2026-01-13
+- [Economic Impact of Immigration: What the Data Shows — DedSec Blog](https://ded-sec.space/Blog/economic-impact-immigration-data.html) — last modified 2026-01-13
+- [Disinformation Playbook: Spotting Coordinated Campaigns | DedSec Blog](https://ded-sec.space/Blog/disinformation-playbook-coordinated-campaigns.html) — last modified 2026-01-13
+- [Digital Vigilantism: The Ethics of Hacktivism — DedSec Blog](https://ded-sec.space/Blog/digital-vigilantism-hacktivism.html) — last modified 2026-01-13
+- [Digital ID, Surveillance, and Social Credit: Benefits, Control Risks, and Safeguards (China + UK) | DedSec Blog](https://ded-sec.space/Blog/digital-identity-benefits-risks-safeguards.html) — last modified 2026-01-13
+- [Deepfake Voice Scams: A 2026 Survival Guide | DedSec Blog](https://ded-sec.space/Blog/deepfake-voice-scams-2026.html) — last modified 2026-01-13
+- [Data Minimization: The Most Underrated Security Control | DedSec Blog](https://ded-sec.space/Blog/data-minimization-underrated-control.html) — last modified 2026-01-13
+- [Cyberpunk Fashion and Privacy Tools (What Actually Helps) | DedSec Blog](https://ded-sec.space/Blog/cyberpunk-fashion-and-privacy-tools.html) — last modified 2026-01-13
+- [Cyber Panic: Communicating Incidents Without Making It Worse | DedSec Blog](https://ded-sec.space/Blog/communicating-incidents-without-panic.html) — last modified 2026-01-13
+- [Crypto Scams and Wallet Hygiene | DedSec Blog](https://ded-sec.space/Blog/crypto-scams-and-wallet-hygiene.html) — last modified 2026-01-13
+- [Consent UX Without Dark Patterns | DedSec Blog](https://ded-sec.space/Blog/consent-ux-without-dark-patterns.html) — last modified 2026-01-13
+- [Community Resilience: Mutual Aid for Outages | DedSec Blog](https://ded-sec.space/Blog/community-resilience-outage-mutual-aid.html) — last modified 2026-01-13
+- [Build Your First Threat Model (in 45 Minutes) | DedSec Blog](https://ded-sec.space/Blog/build-your-first-threat-model.html) — last modified 2026-01-13
+- [Brain Drain: The Hidden Cost of Migration on Developing Nations — DedSec Blog](https://ded-sec.space/Blog/brain-drain-migration-developing-nations.html) — last modified 2026-01-13
+- [Boston Dynamics: From Labs to Reality — DedSec Blog](https://ded-sec.space/Blog/boston-dynamics-robots-reality.html) — last modified 2026-01-13
+- [Autonomous Drones: Governance, Geofencing, and Fail‑Safes | DedSec Blog](https://ded-sec.space/Blog/autonomous-drones-governance-geofencing.html) — last modified 2026-01-13
+- [Android App Permissions: The 2026 Checklist | DedSec Blog](https://ded-sec.space/Blog/android-permissions-2026-checklist.html) — last modified 2026-01-13
+- [AI‑Augmented SOC: Metrics That Actually Matter | DedSec Blog](https://ded-sec.space/Blog/ai-augmented-soc-metrics.html) — last modified 2026-01-13
+- [AI in Music: Sampling, Rights, and Watermarks | DedSec Blog](https://ded-sec.space/Blog/ai-in-music-sampling-rights-watermarks.html) — last modified 2026-01-13
+- [AI in Healthcare: The Diagnosis Revolution — DedSec Blog](https://ded-sec.space/Blog/ai-in-healthcare-diagnosis.html) — last modified 2026-01-13
+- [AI and Cybersecurity (2026): Deepfakes, Crime, and the Defensive Upside | DedSec Blog](https://ded-sec.space/Blog/ai-and-cybersecurity-2026.html) — last modified 2026-01-13
