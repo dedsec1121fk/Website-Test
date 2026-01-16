@@ -7,15 +7,7 @@
 <title>Learn About The Tools - DedSec Project</title>
 <meta content="#07060d" name="theme-color"/>
 <meta content="dark light" name="color-scheme"/>
-<meta content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-      img-src 'self' data: https:;
-      connect-src 'self';
-      frame-ancestors 'none';
-    " http-equiv="Content-Security-Policy"/>
+<meta content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none';" http-equiv="Content-Security-Policy"/>
 <meta content="nosniff" http-equiv="X-Content-Type-Options"/>
 <meta content="DENY" http-equiv="X-Frame-Options"/>
 <meta content="1; mode=block" http-equiv="X-XSS-Protection"/>
@@ -43,7 +35,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <link href="../style.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://ded-sec.space/#organization", "name": "DedSec Project", "url": "https://ded-sec.space/", "logo": "https://ded-sec.space/Assets/Images/Logos/Black%20Purple%20Butterfly%20Logo.jpeg", "sameAs": ["https://github.com/dedsec1121fk/DedSec"]}, {"@type": "WebSite", "@id": "https://ded-sec.space/#website", "url": "https://ded-sec.space/", "name": "DedSec Project", "publisher": {"@id": "https://ded-sec.space/#organization"}, "potentialAction": {"@type": "SearchAction", "target": "https://ded-sec.space/?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "WebPage", "@id": "https://ded-sec.space/Pages/learn-about-the-tools.html#webpage", "url": "https://ded-sec.space/Pages/learn-about-the-tools.html", "name": "Learn About The Tools - DedSec Project", "isPartOf": {"@id": "https://ded-sec.space/#website"}, "about": {"@id": "https://ded-sec.space/#organization"}}]}</script><meta content="https://ded-sec.space/Pages/learn-about-the-tools.html" property="og:url"/><link href="https://ded-sec.space/Pages/learn-about-the-tools.html" rel="canonical"/>
-<meta content="Learn About The Tools - DedSec Project" name="twitter:title"/><meta content="Discover the powerful tools and features of the DedSec Project cybersecurity toolkit." name="twitter:description"/><meta content="DedSec Project" name="author"/><meta content="strict-origin-when-cross-origin" name="referrer"/><meta content="DedSec Project" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="el_GR" property="og:locale:alternate"/><meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/><script id="ld-webpage" type="application/ld+json">{
+<meta content="Learn About The Tools - DedSec Project" name="twitter:title"/><meta content="Discover the powerful tools and features of the DedSec Project cybersecurity toolkit." name="twitter:description"/><meta content="DedSec Project" name="author"/><meta content="strict-origin-when-cross-origin" name="referrer"/><meta content="DedSec Project" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="el_GR" property="og:locale:alternate"/><meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/><meta content="https://ded-sec.space/Pages/learn-about-the-tools.html" name="twitter:url"/><script id="ld-webpage" type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Learn About The Tools - DedSec Project",
@@ -63,7 +55,7 @@
 <nav class="main-nav">
 <div class="nav-container">
 <div class="nav-title"><h1>DedSec Project</h1></div>
-<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span></span><span></span><span></span></button>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu"><span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span><span class="burger-label" data-en="Menu" data-gr="Μενού">Menu</span></button>
 <div class="nav-menu" id="nav-menu">
 <a class="nav-link" data-en="Home" data-gr="Αρχική" href="../index.html">Home</a>
 <a class="nav-link active" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία" href="learn-about-the-tools.html">Learn About The Tools</a>
@@ -77,8 +69,12 @@
 <a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="privacy-policy.html">Privacy Policy</a>
 </div>
 <div class="nav-actions">
-<button class="nav-action-btn" id="nav-theme-switcher"><i class="fas fa-moon"></i><span data-en="Theme" data-gr="Θέμα">Theme</span></button>
-<button class="nav-action-btn" id="nav-lang-switcher"><i class="fas fa-globe"></i><span data-en="Language" data-gr="Γλώσσα">Language</span></button>
+<button class="nav-action-btn" id="nav-theme-switcher">
+<span class="nav-action-label" data-en="Change Theme" data-gr="Αλλαγή Θέματος">Change Theme</span>
+</button>
+<button class="nav-action-btn" id="nav-lang-switcher">
+<span class="nav-action-label" data-en="Αλλαγή Γλώσσας" data-gr="Change Language">Αλλαγή Γλώσσας</span>
+</button>
 </div>
 </div>
 </nav>

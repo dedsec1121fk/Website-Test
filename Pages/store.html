@@ -15,15 +15,7 @@
 <link href="../favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="../site.webmanifest" rel="manifest"/>
 <meta content="DedSec, DedSec Project, Web Development, Python Scripts, Termux, HTML, CSS, JavaScript" name="keywords"/>
-<meta content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-      img-src 'self' data: https:;
-      connect-src 'self';
-      frame-ancestors 'none';
-    " http-equiv="Content-Security-Policy"/>
+<meta content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://api.github.com; frame-ancestors 'none';" http-equiv="Content-Security-Policy"/>
 <meta content="nosniff" http-equiv="X-Content-Type-Options"/>
 <meta content="DENY" http-equiv="X-Frame-Options"/>
 <meta content="1; mode=block" http-equiv="X-XSS-Protection"/>
@@ -39,10 +31,10 @@
 <meta content="DedSec Project — cybersecurity and Termux learning resources" property="og:image:alt"/>
 <meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
 <meta content="DedSec Project" property="og:site_name"/>
-<meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://ded-sec.space/Pages/store.html" property="twitter:url"/>
-<meta content="Store" property="twitter:title"/>
-<meta content="Store: Premium web development services and Python scripts for Termux." property="twitter:description"/>
+
+<meta content="https://ded-sec.space/Pages/store.html" name="twitter:url"/>
+
+
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&amp;family=Inter:wght@400;600;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -72,9 +64,10 @@
 <h1>DedSec Project</h1>
 </div>
 <button aria-label="Toggle navigation" class="burger-menu" id="burger-menu">
-<span></span>
-<span></span>
-<span></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-label" data-en="Menu" data-gr="Μενού">Menu</span>
 </button>
 <div class="nav-menu" id="nav-menu">
 <a class="nav-link" data-en="Home" data-gr="Αρχική" href="../index.html">Home</a>
@@ -90,12 +83,10 @@
 </div>
 <div class="nav-actions">
 <button class="nav-action-btn" id="nav-theme-switcher">
-<i class="fas fa-moon"></i>
-<span data-en="Theme" data-gr="Θέμα">Theme</span>
+<span class="nav-action-label" data-en="Change Theme" data-gr="Αλλαγή Θέματος">Change Theme</span>
 </button>
 <button class="nav-action-btn" id="nav-lang-switcher">
-<i class="fas fa-globe"></i>
-<span data-en="Language" data-gr="Γλώσσα">Language</span>
+<span class="nav-action-label" data-en="Αλλαγή Γλώσσας" data-gr="Change Language">Αλλαγή Γλώσσας</span>
 </button>
 </div>
 </div>
@@ -210,7 +201,7 @@
                        Launch your online presence quickly with a professional, mobile-ready website. Perfect for small businesses or personal portfolios needing multiple pages without complexity.
                     </p>
 <div class="product-price">180€ / Year</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cI3cw3Bi7ecftA0kS8Zq0f" href="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" target="_blank">Purchase Now</a>
+<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cI3cw3Bi7ecftA0kS8Zq0f" href="https://buy.stripe.com/dRm28sgo48ig5T02t08Zq0a" rel="noopener noreferrer" target="_blank">Purchase Now</a>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -231,7 +222,7 @@
                        Stand out with custom animations and interactive features. Solves the need for a unique, engaging website that captures attention and improves user experience.
                     </p>
 <div class="product-price">280€ / Year</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/28E9AUb3Kbusbdk7Nk8Zq0g" href="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" target="_blank">Purchase Now</a>
+<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/28E9AUb3Kbusbdk7Nk8Zq0g" href="https://buy.stripe.com/8x27sM5Jq7ec1CKd7E8Zq0b" rel="noopener noreferrer" target="_blank">Purchase Now</a>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -252,7 +243,7 @@
                        Automate repetitive Android tasks to save time. Solves manual work like file management or data collection with a simple, focused Python script.
                     </p>
 <div class="product-price">40€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/bJefZiefWcywftA1oW8Zq0h" href="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" target="_blank">Purchase Now</a>
+<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/bJefZiefWcywftA1oW8Zq0h" href="https://buy.stripe.com/4gM7sMc7OfKI6X4ebI8Zq0c" rel="noopener noreferrer" target="_blank">Purchase Now</a>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -278,7 +269,7 @@
                        Handle complex Android automation with one powerful tool. Solves multiple related tasks through a menu-driven interface, perfect for advanced users.
                     </p>
 <div class="product-price">80€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/5kQdRa0p60POdlsc3A8Zq0i" href="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" target="_blank">Purchase Now</a>
+<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/5kQdRa0p60POdlsc3A8Zq0i" href="https://buy.stripe.com/bJe6oI0p62XW2GOd7E8Zq0d" rel="noopener noreferrer" target="_blank">Purchase Now</a>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -305,7 +296,7 @@
                        Get a complete toolkit for specific automation needs. Solves the problem of scattered tools by providing coordinated scripts that work together efficiently.
                     </p>
 <div class="product-price">160€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/cNi4gA2xe9mk5T06Jg8Zq0j" href="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" target="_blank">Purchase Now</a>
+<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/cNi4gA2xe9mk5T06Jg8Zq0j" href="https://buy.stripe.com/9B67sM6NudCA3KS2t08Zq0e" rel="noopener noreferrer" target="_blank">Purchase Now</a>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
@@ -329,7 +320,7 @@
                        Learn security vulnerabilities hands-on in a safe environment. Essential for cybersecurity education, demonstrating real phishing techniques for awareness training.
                     </p>
 <div class="product-price">320€</div>
-<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cIdRac7O7ec8180kS8Zq0l" href="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" target="_blank">Purchase Now</a>
+<a class="payment-btn" data-en="Purchase Now" data-en-link="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" data-gr="Αγοράστε Τώρα" data-gr-link="https://buy.stripe.com/3cIdRac7O7ec8180kS8Zq0l" href="https://buy.stripe.com/9B6cN63Bi1TSdls5Fc8Zq0k" rel="noopener noreferrer" target="_blank">Purchase Now</a>
 <div class="tool-features">
 <h5 data-en="What You Get:" data-gr="Αυτό που Παίρνετε:">What You Get:</h5>
 <ul>
