@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+
+    <!-- SEO Optimized -->
+    <title>Learn Cybersecurity on Android - Free Beginner Guide | DedSec Project</title>
+    <meta name="description" content="Start learning cybersecurity on your Android phone today. No coding required. Free step-by-step tutorials for beginners. Install in 5 minutes."/>
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#07060d"/>
+    <meta name="color-scheme" content="dark light"/>
+
+    <!-- Icons -->
+    <link rel="icon" href="favicon.ico" sizes="any"/>
+    <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"/>
+    <link rel="apple-touch-icon" href="favicon-180.png" sizes="180x180"/>
+    <link rel="manifest" href="site.webmanifest"/>
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+    <meta http-equiv="X-Frame-Options" content="DENY"/>
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://ded-sec.space/"/>
+    <meta property="og:title" content="Learn Cybersecurity on Android - Free | DedSec Project"/>
+    <meta property="og:description" content="Start learning cybersecurity on your Android phone. No coding required. Free step-by-step tutorials for beginners."/>
+    <meta property="og:image" content="https://ded-sec.space/Assets/Images/og/og-dark.jpg"/>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <style>
+        /* === ACCESSIBLE, MOBILE-FIRST DESIGN === */
+        :root {
+            --bg-dark: #0A0A12;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --text-primary: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            --text-muted: #B0B0B0;
+            --accent: #CD93FF;
+            --accent-hover: #E2C1FF;
+            --border: rgba(205, 147, 255, 0.3);
+            --success: #51CF66;
+            --font-primary: 'Inter', system-ui, sans-serif;
+            --font-secondary: 'Orbitron', sans-serif;
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px; /* Minimum for mobile readability */
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === SKIP LINK FOR ACCESSIBILITY === */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent);
+            color: #000;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 9999;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* === NAVIGATION === */
+        .main-nav {
+            background: rgba(10, 10, 18, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: none; /* Mobile-first: hidden by default */
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            min-height: 48px; /* Touch-friendly */
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .menu-toggle {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text-primary);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(81, 207, 102, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: var(--font-secondary);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.5;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            min-height: 56px; /* Large touch target */
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus {
+            border-color: var(--accent);
+            background: rgba(205, 147, 255, 0.1);
+        }
+
+        /* Focus indicators for accessibility */
+        *:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* === TRUST INDICATORS === */
+        .trust-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .trust-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .trust-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .trust-label {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* === HOW IT WORKS === */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-family: var(--font-secondary);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .step-time {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 12px;
+            background: rgba(81, 207, 102, 0.1);
+            color: var(--success);
+            border-radius: 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* === FEATURES === */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* === FAQ === */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .faq-question:hover {
+            background: rgba(205, 147, 255, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid var(--border);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        /* === RESPONSIVE === */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .cta-group {
+                flex-direction: row;
+                max-width: none;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="DedSec Project Home">
+                <i class="fas fa-shield-halved"></i>
+                <span>DedSec Project</span>
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="nav-links" role="menubar">
+                <a href="index.html" class="nav-link" role="menuitem">Home</a>
+                <a href="Pages/guide-for-installation.html" class="nav-link" role="menuitem">Get Started</a>
+                <a href="Pages/learn-about-the-tools.html" class="nav-link" role="menuitem">Tools</a>
+                <a href="Pages/blog.html" class="nav-link" role="menuitem">Learn</a>
+                <a href="Pages/faq.html" class="nav-link" role="menuitem">Support</a>
+                <a href="Pages/portfolio-github-info.html" class="nav-link" role="menuitem">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-badge">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+                <span>100% Free & Open Source</span>
+            </div>
+
+            <h1 id="hero-title">Learn Cybersecurity on Your Android Phone</h1>
+
+            <p class="hero-description">
+                No coding required. Free step-by-step tutorials for beginners.
+                Start protecting yourself and learning security skills today.
+            </p>
+
+            <div class="cta-group">
+                <a href="Pages/guide-for-installation.html" class="btn btn-primary">
+                    <i class="fas fa-rocket" aria-hidden="true"></i>
+                    <span>Start Learning (Free)</span>
+                </a>
+                <a href="Pages/learn-about-the-tools.html" class="btn btn-secondary">
+                    <i class="fas fa-tools" aria-hidden="true"></i>
+                    <span>Explore Tools</span>
+                </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="trust-section">
+                <div class="trust-item">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    <span class="trust-number">2,500+</span>
+                    <span class="trust-label">GitHub Stars</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <span class="trust-number">50K+</span>
+                    <span class="trust-label">Active Users</span>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-mobile-screen" aria-hidden="true"></i>
+                    <span class="trust-number">No Root</span>
+                    <span class="trust-label">Required</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="section" aria-labelledby="how-it-works-title">
+            <div class="section-header">
+                <h2 id="how-it-works-title">Get Started in 3 Simple Steps</h2>
+                <p class="section-description">
+                    Installation takes just 5 minutes. No technical knowledge needed.
+                </p>
+            </div>
+
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number" aria-hidden="true">1</div>
+                    <h3 class="step-title">Install Termux</h3>
+                    <p class="step-description">
+                        Download Termux from F-Droid (it's like a terminal for Android).
+                        We'll guide you step-by-step.
+                    </p>
+                    <span class="step-time">⏱️ 2 minutes</span>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number" aria-hidden="true">2</div>
+                    <h3 class="step-title">Run One Command</h3>
+                    <p class="step-description">
+                        Copy and paste our installation command.
+                        Everything installs automatically.
+                    </p>
+                    <span class="step-time">⏱️ 3 minutes</span>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number" aria-hidden="true">3</div>
+                    <h3 class="step-title">Start Learning</h3>
+                    <p class="step-description">
+                        Choose from beginner tutorials.
+                        Learn security skills at your own pace.
+                    </p>
+                    <span class="step-time">⏱️ Forever free</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- What You'll Learn Section -->
+        <section class="section" aria-labelledby="features-title">
+            <div class="section-header">
+                <h2 id="features-title">What You'll Learn</h2>
+                <p class="section-description">
+                    Practical security skills you can use immediately
+                </p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3 class="feature-title">Network Security</h3>
+                    <p class="feature-description">
+                        Check if your WiFi is secure. See which devices are connected.
+                        Find security weaknesses before hackers do.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy Protection</h3>
+                    <p class="feature-description">
+                        Learn what information about you is public online.
+                        Discover tools to protect your digital privacy.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Security Education</h3>
+                    <p class="feature-description">
+                        Understand how hacking works. Learn to think like a security professional.
+                        All legal and ethical.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section" aria-labelledby="faq-title">
+            <div class="section-header">
+                <h2 id="faq-title">Common Questions</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do I need a rooted Android phone?</span>
+                        <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No! 95% of our tools work without root access. Your regular Android phone is perfect.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is it really free?</span>
+                        <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, completely free and open source. We also offer premium services (custom scripts, web development) but the toolkit itself is 100% free forever.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do I need to know how to code?</span>
+                        <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Not at all! Our guides are written for complete beginners. If you can copy and paste, you can use DedSec.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is this legal?</span>
+                        <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, when used responsibly. All our tools are for educational purposes and authorized security testing ONLY. We teach you to test YOUR OWN devices and networks, never to attack others.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do I get help if I'm stuck?</span>
+                        <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Join our community on Telegram or Discord! We have thousands of helpful members and detailed documentation. Check our FAQ page for more resources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="section" style="text-align: center;">
+            <h2>Ready to Start Learning?</h2>
+            <p class="section-description" style="margin-bottom: 32px;">
+                Join 50,000+ people learning cybersecurity on Android
+            </p>
+            <a href="Pages/guide-for-installation.html" class="btn btn-primary" style="display: inline-flex;">
+                <i class="fas fa-rocket" aria-hidden="true"></i>
+                <span>Install Now (5 Minutes)</span>
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 DedSec Project. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="Pages/privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="Pages/contact-credits.html" class="footer-link">Contact</a>
+            <a href="Pages/portfolio-github-info.html" class="footer-link">GitHub</a>
+            <a href="Pages/store.html" class="footer-link">Premium Services</a>
+        </div>
+        <p style="margin-top: 16px; font-size: 0.9rem;">Made with ❤️ for the cybersecurity community</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('nav-links');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            this.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+                this.setAttribute('aria-expanded', !isExpanded);
+            });
+        });
+
+        // Smooth scroll for skip link
+        document.querySelector('.skip-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('main-content').focus();
+            document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

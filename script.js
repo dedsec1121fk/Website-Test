@@ -9,6 +9,42 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLanguage = 'en';
 
 
+    // --- NAV WORD STACK + MENU OFFSET (keeps navbar compact so logo stays visible) ---
+    const applyNavbarWordStack = () => {
+        // Only for the navbar labels (and title). We don't want to affect normal body text.
+        const targets = document.querySelectorAll(
+            '.main-nav .nav-title h1, .main-nav .nav-action-label, .main-nav .burger-label'
+        );
+
+        const stackTextNodes = (root) => {
+            try {
+                const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                    acceptNode: (node) => (node.nodeValue && node.nodeValue.trim().length ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT)
+                });
+                const nodes = [];
+                while (walker.nextNode()) nodes.push(walker.currentNode);
+                nodes.forEach(node => {
+                    const raw = (node.nodeValue || '').trim();
+                    if (/\s+/.test(raw)) node.nodeValue = raw.split(/\s+/).join('\n');
+                });
+            } catch (_) {
+                // Fallback: do nothing
+            }
+        };
+
+        targets.forEach(stackTextNodes);
+    };
+
+    const syncNavMenuOffset = () => {
+        const nav = document.querySelector('.main-nav');
+        const menu = document.getElementById('nav-menu');
+        if (!nav || !menu) return;
+        const h = Math.ceil(nav.getBoundingClientRect().height || 70);
+        menu.style.top = `${h}px`;
+        menu.style.height = `calc(100vh - ${h}px)`;
+    };
+
+
     // --- BRAND ASSETS (Theme-aware) ---
     // IMPORTANT (GitHub Pages + subpages):
     // Any relative URL like "Assets/..." breaks on pages like /Pages/faq.html
@@ -127,6 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof window.__updateSearchLanguage === 'function') {
             window.__updateSearchLanguage();
         }
+
+        // Keep the navbar compact (so the injected logo doesn't get clipped)
+        applyNavbarWordStack();
+        syncNavMenuOffset();
     };
 
     // --- SHARED UTILITIES (COPY, CAROUSEL, ACCORDION) ---
@@ -816,6 +856,10 @@ const ensureDeterministicIds = (doc) => {
 
         // Final Setup
         window.changeLanguage(localStorage.getItem('language') || 'en');
+
+        // Ensure the slide-out menu always sits under the real navbar height
+        syncNavMenuOffset();
+        window.addEventListener('resize', syncNavMenuOffset);
 
         // Defer large disclaimer DOM injection so first paint on mobile is faster
         const defer = (fn) => {

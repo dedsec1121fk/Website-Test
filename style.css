@@ -301,7 +301,8 @@ p {
 
 .nav-title {
     flex: 1 1 auto;
-    min-width: 0;
+    /* Prevent the injected logo from being clipped when the navbar is tight */
+    min-width: 52px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -319,8 +320,14 @@ p {
     gap: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* Allow "DedSec\nProject" stacking when needed */
+    white-space: pre-line;
     min-width: 0;
+}
+
+/* Keep the injected navbar logo stable */
+.nav-title h1 img[data-site-logo="1"] {
+    flex: 0 0 auto;
 }
 
 body.light-theme .nav-title h1 {
@@ -2838,6 +2845,19 @@ body.light-theme .search-input {
 /* Nav action labels fallback (icons may fail to load) */
 .nav-action-btn span{display:inline;}
 @media (max-width:420px){.nav-action-btn span{display:none;} .nav-action-btn span.nav-action-label{display:inline !important;}}
+
+/* Stack multi-word navbar labels vertically ("Word\nWord") */
+.nav-action-btn .nav-action-label {
+  display: block;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.05;
+}
+
+.main-nav .burger-label {
+  white-space: pre-line;
+  text-align: center;
+}
 
 @media (max-width: 420px) {
   .nav-title h1 { font-size: 1.15rem; }
