@@ -20,15 +20,7 @@
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
 <meta content="English" name="language"/>
 <meta content="7 days" name="revisit-after"/>
-<meta content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-      img-src 'self' data: https: https://img.shields.io https://raw.githubusercontent.com;
-      connect-src 'self';
-      frame-ancestors 'none';
-    " http-equiv="Content-Security-Policy"/>
+<meta content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://img.shields.io https://raw.githubusercontent.com; connect-src 'self' https://api.github.com; frame-ancestors 'none';" http-equiv="Content-Security-Policy"/>
 <meta content="nosniff" http-equiv="X-Content-Type-Options"/>
 <meta content="DENY" http-equiv="X-Frame-Options"/>
 <meta content="1; mode=block" http-equiv="X-XSS-Protection"/>
@@ -43,10 +35,10 @@
 <meta content="DedSec Project — cybersecurity and Termux learning resources" property="og:image:alt"/>
 <meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
 <meta content="DedSec Project" property="og:site_name"/>
-<meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://ded-sec.space/" property="twitter:url"/>
-<meta content="DedSec Project — Free Termux Cybersecurity Toolkit" property="twitter:title"/>
-<meta content="Free, open-source cybersecurity toolkit for Termux &amp; Android — built for learning and authorized security testing." property="twitter:description"/>
+
+<meta content="https://ded-sec.space/" name="twitter:url"/>
+
+
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&amp;family=Inter:wght@400;600;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -130,7 +122,7 @@
       }
     ]
     </script>
-<link href="https://ded-sec.space/index.html" rel="canonical"/>
+<link href="https://ded-sec.space/" rel="canonical"/>
 <meta content="summary_large_image" name="twitter:card"/><meta content="DedSec Project — Free Termux Cybersecurity Toolkit" name="twitter:title"/><meta content="Free, open-source cybersecurity toolkit for Termux &amp; Android — networking, OSINT, privacy helpers, and learning modules for education and authorized security testing." name="twitter:description"/><meta content="strict-origin-when-cross-origin" name="referrer"/><meta content="en_US" property="og:locale"/><meta content="el_GR" property="og:locale:alternate"/><meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/><link href="/feed.xml" rel="alternate" title="DedSec Blog RSS" type="application/rss+xml"/><script id="ld-website" type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -158,9 +150,10 @@
 <h1>DedSec Project</h1>
 </div>
 <button aria-label="Toggle navigation" class="burger-menu" id="burger-menu">
-<span></span>
-<span></span>
-<span></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-label" data-en="Menu" data-gr="Μενού">Menu</span>
 </button>
 <div class="nav-menu" id="nav-menu">
 <a class="nav-link active" data-en="Home" data-gr="Αρχική" href="index.html">Home</a>
@@ -175,12 +168,10 @@
 </div>
 <div class="nav-actions">
 <button class="nav-action-btn" id="nav-theme-switcher">
-<i class="fas fa-moon"></i>
-<span data-en="Theme" data-gr="Θέμα">Theme</span>
+<span class="nav-action-label" data-en="Change Theme" data-gr="Αλλαγή Θέματος">Change Theme</span>
 </button>
 <button class="nav-action-btn" id="nav-lang-switcher">
-<i class="fas fa-globe"></i>
-<span data-en="Language" data-gr="Γλώσσα">Language</span>
+<span class="nav-action-label" data-en="Αλλαγή Γλώσσας" data-gr="Change Language">Αλλαγή Γλώσσας</span>
 </button>
 </div>
 </div>
@@ -395,7 +386,7 @@
                        Connect with other cybersecurity enthusiasts, get help, share knowledge, and contribute to the project.
                     </p>
 <div class="community-grid">
-<a class="community-card" href="https://github.com/dedsec1121fk/DedSec" target="_blank">
+<a class="community-card" href="https://github.com/dedsec1121fk/DedSec" rel="noopener noreferrer" target="_blank">
 <i class="fab fa-github"></i>
 <span data-en="GitHub Repository" data-gr="Αποθετήριο GitHub">GitHub Repository</span>
 </a>
@@ -411,7 +402,7 @@
                        Help us continue developing and maintaining our open-source tools by sponsoring us on GitHub.
                     </p>
 <div class="contact-grid">
-<a class="app-icon sponsor-btn" href="https://github.com/sponsors/dedsec1121fk" target="_blank">
+<a class="app-icon sponsor-btn" href="https://github.com/sponsors/dedsec1121fk" rel="noopener noreferrer" target="_blank">
 <i class="fas fa-heart"></i>
 <span data-en="Sponsor Us on GitHub" data-gr="Υποστηρίξτε μας στο GitHub">Sponsor Us on GitHub</span>
 </a>

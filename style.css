@@ -341,18 +341,32 @@ body.light-theme .nav-title h1 {
     /* Improves tap reliability on iOS/in-app browsers */
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    align-items: center;
 }
 
-.burger-menu span {
+.burger-menu .burger-line {
     width: 25px;
     height: 3px;
     background: var(--nm-text);
     transition: all 0.3s var(--ease-out-cubic);
 }
 
-.burger-menu.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-.burger-menu.active span:nth-child(2) { opacity: 0; }
-.burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+.burger-label {
+    width: auto;
+    height: auto;
+    background: none;
+    color: var(--nm-text);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1;
+    opacity: 0.9;
+    margin-top: 2px;
+    user-select: none;
+}
+
+.burger-menu.active .burger-line:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+.burger-menu.active .burger-line:nth-child(2) { opacity: 0; }
+.burger-menu.active .burger-line:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
 .nav-menu {
     position: fixed;
@@ -2823,7 +2837,7 @@ body.light-theme .search-input {
 
 /* Nav action labels fallback (icons may fail to load) */
 .nav-action-btn span{display:inline;}
-@media (max-width:420px){.nav-action-btn span{display:none;}}
+@media (max-width:420px){.nav-action-btn span{display:none;} .nav-action-btn span.nav-action-label{display:inline !important;}}
 
 @media (max-width: 420px) {
   .nav-title h1 { font-size: 1.15rem; }

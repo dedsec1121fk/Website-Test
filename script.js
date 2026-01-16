@@ -78,59 +78,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- THEME SWITCHER ---
     function initializeThemeSwitcher() {
         const themeBtn = document.getElementById('nav-theme-switcher');
+        if (!themeBtn) return;
 
-        // NOTE:
-        // On some mobile browsers, simply changing an existing <i> element's class
-        // can fail to repaint the Font Awesome glyph immediately. To make it bulletproof
-        // we always (re)resolve the icon element and replace it after updating classes.
-        const ensureThemeIcon = () => {
-            if (!themeBtn) return null;
-            let icon = themeBtn.querySelector('i');
-            if (!icon) {
-                icon = document.createElement('i');
-                themeBtn.prepend(icon);
-            }
-            return icon;
-        };
+        // Restore saved theme
+        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
 
-        const getThemeSpan = () => themeBtn?.querySelector('span') || null;
-
-        const updateThemeButton = (isLightTheme) => {
-            if (!themeBtn) return;
-
-            const themeSpan = getThemeSpan();
-            const themeIcon = ensureThemeIcon();
-            if (!themeIcon || !themeSpan) return;
-
-            if (isLightTheme) {
-                themeIcon.className = 'fas fa-sun';
-                themeSpan.setAttribute('data-en', 'Light Theme');
-                themeSpan.setAttribute('data-gr', 'Φωτεινό Θέμα');
-            } else {
-                themeIcon.className = 'fas fa-moon';
-                themeSpan.setAttribute('data-en', 'Dark Theme');
-                themeSpan.setAttribute('data-gr', 'Σκοτεινό Θέμα');
-            }
-            themeSpan.textContent = themeSpan.getAttribute(`data-${currentLanguage}`);
-
-            // Force repaint/re-evaluation of pseudo-elements by replacing the node.
-            // (Fixes the "sun icon only appears after refresh" issue.)
-            try {
-                const fresh = themeIcon.cloneNode(true);
-                themeIcon.replaceWith(fresh);
-            } catch (_) {}
-        };
-
-        themeBtn?.addEventListener('click', () => {
+        themeBtn.addEventListener('click', () => {
             document.body.classList.toggle('light-theme');
             const isLight = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            updateThemeButton(isLight);
             if (typeof applyThemeAssets === 'function') applyThemeAssets();
         });
-
-        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light-theme');
-        updateThemeButton(document.body.classList.contains('light-theme'));
     }
 
     // --- LANGUAGE MANAGEMENT ---
