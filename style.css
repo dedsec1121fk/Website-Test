@@ -279,7 +279,7 @@ p {
 
 .nav-title {
     flex: 1 1 auto;
-    /* Keep space for the injected logo, but allow the title to wrap instead of being clipped */
+    /* Keep space for the injected logo, but avoid forcing a full-width single line */
     min-width: 52px;
     overflow: visible;
     white-space: normal;
@@ -288,18 +288,18 @@ p {
 
 .nav-title h1 {
     margin: 0;
-    font-size: clamp(0.86rem, 2.6vw, 1.12rem);
+    /* Slightly smaller so the title + action buttons fit on mobile */
+    font-size: clamp(0.82rem, 2.4vw, 1.04rem);
     color: var(--nm-text-accent);
     font-family: var(--font-secondary);
     text-shadow: none;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    /* Allow "DedSec
-Project" stacking and natural wrapping on small screens */
+    gap: 8px;
+    /* Allow natural wrapping (and preserve any \n from translations) */
     white-space: pre-line;
-    line-height: 1.2;
+    line-height: 1.12;
     min-width: 0;
 }
 
@@ -451,11 +451,12 @@ body.light-theme .nav-title h1 {
     background: var(--nm-container);
     border: 1px solid var(--nm-border);
     color: var(--nm-text);
-    padding: 8px 10px;
+    /* Smaller pills so they don't crowd the title */
+    padding: 6px 8px;
     border-radius: var(--radius-lg);
     cursor: pointer;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.74rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -2824,12 +2825,12 @@ body.light-theme .search-input {
 .nav-action-btn span{display:inline;}
 @media (max-width:420px){.nav-action-btn span{display:none;} .nav-action-btn span.nav-action-label{display:inline !important;}}
 
-/* Stack multi-word navbar labels vertically ("Word\nWord") */
+/* Keep navbar button labels compact (no forced vertical stacking) */
 .nav-action-btn .nav-action-label {
-  display: block;
-  white-space: pre-line;
+  display: inline-block;
+  white-space: nowrap;
   text-align: center;
-  line-height: 1.05;
+  line-height: 1;
 }
 
 .main-nav .burger-label {
@@ -2838,7 +2839,7 @@ body.light-theme .search-input {
 }
 
 @media (max-width: 420px) {
-  .nav-title h1 { font-size: 1.15rem; }
+  .nav-title h1 { font-size: 0.98rem; }
 }
 
 .hero-section > * { position: relative; z-index: 1; }
@@ -2929,6 +2930,8 @@ body.light-theme .search-input {
 @media (max-width: 420px) {
   .main-nav { padding: 0 10px; }
   .nav-container { gap: 8px; }
+  /* Encourage the title to wrap (DedSec / Project) instead of stealing width */
+  .nav-title { max-width: 150px; }
   .nav-actions { gap: 6px; }
   .nav-action-btn { padding: 6px 8px; }
   .nav-title h1 { font-size: 0.98rem; letter-spacing: 0.02em; }
