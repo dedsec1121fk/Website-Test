@@ -207,8 +207,28 @@ i, .material-icons, .fa, .fab, .fas, .far {
 ::-webkit-scrollbar-thumb:hover { background: var(--nm-accent); }
 
 /* --- BACKGROUND IMAGE STYLES --- */
-/* Background images removed (clean solid themes) */
-body::before{content:none !important;}
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: var(--z-backdrop);
+    pointer-events: none;
+    transition: background-image 0.3s ease;
+}
+
+
+body.light-theme::before {
+    background-image: none;
+    opacity: 0;
+}
 
 /* === TEXT SIZE & SPACING OPTIMIZATIONS === */
 p {
@@ -279,27 +299,27 @@ p {
 
 .nav-title {
     flex: 1 1 auto;
-    /* Keep space for the injected logo, but avoid forcing a full-width single line */
+    /* Prevent the injected logo from being clipped when the navbar is tight */
     min-width: 52px;
-    overflow: visible;
-    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     order: 1;
 }
 
 .nav-title h1 {
     margin: 0;
-    /* Slightly smaller so the title + action buttons fit on mobile */
-    font-size: clamp(0.82rem, 2.4vw, 1.04rem);
+    font-size: clamp(0.80rem, 2.3vw, 1.05rem); 
     color: var(--nm-text-accent);
     font-family: var(--font-secondary);
     text-shadow: none;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    /* Allow natural wrapping (and preserve any \n from translations) */
+    gap: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Allow "DedSec\nProject" stacking when needed */
     white-space: pre-line;
-    line-height: 1.12;
     min-width: 0;
 }
 
@@ -451,12 +471,11 @@ body.light-theme .nav-title h1 {
     background: var(--nm-container);
     border: 1px solid var(--nm-border);
     color: var(--nm-text);
-    /* Smaller pills so they don't crowd the title */
     padding: 6px 8px;
     border-radius: var(--radius-lg);
     cursor: pointer;
     font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -1364,11 +1383,11 @@ body.light-theme .modal-overlay {
     background: var(--nm-container);
 border: 1px solid var(--nm-border);
     color: var(--nm-text);
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: var(--radius-lg);
     cursor: pointer;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -2221,7 +2240,7 @@ body.light-theme .store-page .featured-badge.badge i{ color: #000000 !important;
     }
 
     .nav-title h1 {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         gap: 8px;
     }
 
@@ -2825,12 +2844,12 @@ body.light-theme .search-input {
 .nav-action-btn span{display:inline;}
 @media (max-width:420px){.nav-action-btn span{display:none;} .nav-action-btn span.nav-action-label{display:inline !important;}}
 
-/* Keep navbar button labels compact (no forced vertical stacking) */
+/* Stack multi-word navbar labels vertically ("Word\nWord") */
 .nav-action-btn .nav-action-label {
-  display: inline-block;
-  white-space: nowrap;
+  display: block;
+  white-space: pre-line;
   text-align: center;
-  line-height: 1;
+  line-height: 1.05;
 }
 
 .main-nav .burger-label {
@@ -2839,7 +2858,7 @@ body.light-theme .search-input {
 }
 
 @media (max-width: 420px) {
-  .nav-title h1 { font-size: 0.98rem; }
+  .nav-title h1 { font-size: 1.15rem; }
 }
 
 .hero-section > * { position: relative; z-index: 1; }
@@ -2930,8 +2949,6 @@ body.light-theme .search-input {
 @media (max-width: 420px) {
   .main-nav { padding: 0 10px; }
   .nav-container { gap: 8px; }
-  /* Encourage the title to wrap (DedSec / Project) instead of stealing width */
-  .nav-title { max-width: 150px; }
   .nav-actions { gap: 6px; }
   .nav-action-btn { padding: 6px 8px; }
   .nav-title h1 { font-size: 0.98rem; letter-spacing: 0.02em; }
