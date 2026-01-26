@@ -28,7 +28,7 @@
     "descEn": "Generative AI makes scams cheaper and more convincing—but it also helps defenders. Here’s the threat map and a practical defense playbook.",
     "descGr": "Η γενετική AI κάνει τις απάτες φθηνότερες και πιο πειστικές—αλλά βοηθά και τους αμυνόμενους. Ιδού ο χάρτης απειλών και ένα πρακτικό playbook άμυνας.",
     "date": "2026-01-11",
-    "section": "AI & Security",
+    "section": "Artificial Intelligence",
     "tags": [
       "AI",
       "Cybersecurity",
@@ -45,7 +45,7 @@
     "descEn": "Robots are getting better bodies and better AI—but the scary part is not sci‑fi killers; it’s autonomy, security, and governance.",
     "descGr": "Τα ρομπότ αποκτούν καλύτερα σώματα και καλύτερη AI—αλλά το τρομακτικό δεν είναι sci‑fi δολοφόνοι· είναι η αυτονομία, η ασφάλεια και η διακυβέρνηση.",
     "date": "2026-01-11",
-    "section": "AI & Robotics",
+    "section": "Artificial Intelligence",
     "tags": [
       "Humanoid robots",
       "Autonomy",
@@ -62,7 +62,7 @@
     "descEn": "Digital identity can reduce fraud and friction—but if it becomes a mandatory gate, it can also enable mass surveillance and automated punishment.",
     "descGr": "Η ψηφιακή ταυτότητα μπορεί να μειώσει απάτες και τριβές—αλλά αν γίνει υποχρεωτική πύλη, μπορεί να επιτρέψει μαζική επιτήρηση και αυτοματοποιημένη τιμωρία.",
     "date": "2026-01-11",
-    "section": "Privacy & Governance",
+    "section": "Law",
     "tags": [
       "Digital ID",
       "Privacy",
@@ -79,7 +79,7 @@
     "descEn": "How migration becomes a pressure tool, what crime evidence actually shows, and why “overtake” narratives are usually political weapons—not data.",
     "descGr": "Πώς η μετανάστευση γίνεται εργαλείο πίεσης, τι δείχνουν πραγματικά τα δεδομένα για το έγκλημα και γιατί τα αφηγήματα «υπερίσχυσης» είναι συνήθως πολιτικά όπλα—not δεδομένα.",
     "date": "2026-01-11",
-    "section": "Society & Security",
+    "section": "Cybersecurity",
     "tags": [
       "Migration",
       "Geopolitics",
@@ -96,7 +96,7 @@
     "descEn": "A game-by-game breakdown (WD1, WD2, Legion) and the real tech stack that makes Watch Dogs feel less fictional every year.",
     "descGr": "Ανάλυση ανά παιχνίδι (WD1, WD2, Legion) και το πραγματικό tech stack που κάνει το Watch Dogs να μοιάζει όλο και λιγότερο φανταστικό.",
     "date": "2026-01-11",
-    "section": "Tech & Culture",
+    "section": "Technology",
     "tags": [
       "Watch Dogs",
       "Surveillance",
