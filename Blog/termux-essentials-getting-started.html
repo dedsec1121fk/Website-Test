@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Termux Essentials: Getting Started with the Mobile Linux Environment — DedSec Blog</title>
+<meta content="An in‑depth introduction to Termux, the powerful terminal emulator and Linux environment for Android. Learn why developers and tinkerers love it, how to set it up, which packages to install and how to stay secure." name="description"/>
+<link href="https://ded-sec.space/Blog/termux-essentials-getting-started.html" rel="canonical"/>
+<meta content="2026-01-26" property="article:published_time"/>
+<meta content="Termux" property="article:section"/>
+<meta content="Termux" property="article:tag"/>
+<meta content="Android" property="article:tag"/>
+<meta content="Shell" property="article:tag"/>
+<meta content="Security" property="article:tag"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<meta content="article" property="og:type"/>
+<meta content="https://ded-sec.space/Blog/termux-essentials-getting-started.html" property="og:url"/>
+<meta content="Termux Essentials: Getting Started with the Mobile Linux Environment | DedSec Blog" property="og:title"/>
+<meta content="An in‑depth introduction to Termux, the powerful terminal emulator and Linux environment for Android. Learn why developers and tinkerers love it, how to set it up, which packages to install and how to stay secure." property="og:description"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Termux Essentials: Getting Started with the Mobile Linux Environment | DedSec Blog" name="twitter:title"/>
+<meta content="An in‑depth introduction to Termux, the powerful terminal emulator and Linux environment for Android. Learn why developers and tinkerers love it, how to set it up, which packages to install and how to stay secure." name="twitter:description"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+<meta content="DedSec Project" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="el_GR" property="og:locale:alternate"/>
+<meta content="DedSec Project — cybersecurity and Termux learning resources" property="og:image:alt"/>
+<meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/>
+<meta content="https://ded-sec.space/Blog/termux-essentials-getting-started.html" name="twitter:url"/>
+</head>
+<body class="dark-theme">
+<nav class="main-nav">
+  <div class="nav-container">
+    <div class="nav-title">
+      <h1>DedSec Project</h1>
+    </div>
+    <button aria-label="Toggle navigation" class="burger-menu" id="burger-menu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-label" data-en="Menu" data-gr="Μενού">Menu</span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <a class="nav-link" data-en="Home" data-gr="Αρχική" href="/">Home</a>
+      <a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθε για τα Εργαλεία" href="../Pages/learn-about-the-tools.html">Learn About The Tools</a>
+      <a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../Pages/guide-for-installation.html">Guide For Installation</a>
+      <a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../Pages/faq.html">Frequently Asked Questions</a>
+      <a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../Pages/store.html">Store</a>
+      <a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../Pages/blog.html">Blog</a>
+      <a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../Pages/collaborations.html">Collaborations</a>
+      <a class="nav-link" data-en="Portfolio & GitHub" data-gr="Portfolio & GitHub" href="../Pages/portfolio-github-info.html">Portfolio & GitHub</a>
+      <a class="nav-link" data-en="Contact & Credits" data-gr="Επικοινωνία & Συντελεστές" href="../Pages/contact-credits.html">Contact & Credits</a>
+      <a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../Pages/privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-action-btn" id="nav-theme-switcher">
+        <span class="nav-action-label" data-en="Change Theme" data-gr="Αλλαγή Θέματος">Change Theme</span>
+      </button>
+      <button class="nav-action-btn" id="nav-lang-switcher">
+        <span class="nav-action-label" data-en="Αλλαγή Γλώσσας" data-gr="Change Language">Αλλαγή Γλώσσας</span>
+      </button>
+    </div>
+  </div>
+</nav>
+<article class="blog-article page-content">
+  <header class="page-header">
+    <h1 data-en="Termux Essentials: Getting Started with the Mobile Linux Environment" data-gr="Βασικά του Termux: Ξεκινώντας με το κινητό περιβάλλον Linux">Termux Essentials: Getting Started with the Mobile Linux Environment</h1>
+    <p data-en="Termux turns your Android device into a full Linux system. Discover how to set it up, customize your terminal, install packages and protect your data." data-gr="Το Termux μετατρέπει τη συσκευή Android σε ένα πλήρες σύστημα Linux. Ανακαλύψτε πώς να το εγκαταστήσετε, να προσαρμόσετε το τερματικό, να εγκαταστήσετε πακέτα και να προστατέψετε τα δεδομένα σας.">Termux turns your Android device into a full Linux system. Discover how to set it up, customize your terminal, install packages and protect your data.</p>
+    <div class="article-meta">
+      <span class="badge">Termux</span>
+      <span data-en="10 min read" data-gr="10 λεπτά ανάγνωση">10 min read</span>
+      <span>2026-01-26</span>
+    </div>
+  </header>
+  <div class="article-content">
+    <section class="content-section">
+      <h2 data-en="What Is Termux?" data-gr="Τι είναι το Termux;">What Is Termux?</h2>
+      <p data-en="Termux is a unique application that brings the power of the Linux command‑line to your Android device. Unlike traditional terminal emulators, it provides a minimal base system and an extensive collection of packages via the apt package manager. Out of the box, Termux ships with shells like Bash, Fish and Zsh, giving you a familiar environment to run commands, write scripts and manage files. The official documentation notes that Termux users can connect to remote servers with OpenSSH, install compilers for languages such as Go, Rust and Swift, and even run entire development toolchains on their phones【121798668689974†L9-L44】. This portability makes it a favourite for developers, students and hobbyists who want a pocket‑sized Linux system without rooting their devices." data-gr="Το Termux είναι μια μοναδική εφαρμογή που φέρνει τη δύναμη της γραμμής εντολών του Linux στη συσκευή Android. Σε αντίθεση με τα παραδοσιακά τερματικά, παρέχει ένα ελάχιστο βασικό σύστημα και μια εκτεταμένη συλλογή πακέτων μέσω του διαχειριστή apt. Εξ ορισμού, το Termux περιλαμβάνει κελύφη όπως Bash, Fish και Zsh, προσφέροντας ένα οικείο περιβάλλον για την εκτέλεση εντολών, τη συγγραφή σεναρίων και τη διαχείριση αρχείων. Η επίσημη τεκμηρίωση αναφέρει ότι οι χρήστες μπορούν να συνδεθούν σε απομακρυσμένους διακομιστές με το OpenSSH, να εγκαταστήσουν μεταγλωττιστές για γλώσσες όπως Go, Rust και Swift και ακόμη και να τρέξουν πλήρεις εργαλειοθήκες ανάπτυξης στα τηλέφωνά τους【121798668689974†L9-L44】. Αυτή η φορητότητα το καθιστά αγαπημένο εργαλείο για προγραμματιστές, φοιτητές και ερασιτέχνες που θέλουν ένα σύστημα Linux τσέπης χωρίς να κάνουν root τις συσκευές τους."></p>
+      <p data-en="The F‑Droid description highlights additional built‑in tools: text editors such as nano and vim, the nnn file manager, the ssh client for secure connections and the ability to compile code with gcc and clang【225166967750380†L9-L24】. You also get a Python console, the Git version control system and classic text‑based games like frotz. This combination turns Termux from a simple terminal into a versatile sandbox where you can learn programming, practice Linux commands or test scripts on the go. On the Google Play listing, Termux is described as blending terminal emulation with a large collection of Linux packages, allowing you to manage files, compile code, run a Python REPL and manage projects with Git【312329562116381†L79-L93】. For many users, this is their first introduction to the power of the command line and open‑source software." data-gr="Η περιγραφή στο F‑Droid επισημαίνει πρόσθετα ενσωματωμένα εργαλεία: επεξεργαστές κειμένου όπως nano και vim, τον διαχειριστή αρχείων nnn, τον πελάτη ssh για ασφαλείς συνδέσεις και τη δυνατότητα μεταγλώττισης κώδικα με gcc και clang【225166967750380†L9-L24】. Διαθέτει επίσης κονσόλα Python, το σύστημα ελέγχου έκδοσης Git και κλασικά παιχνίδια κειμένου όπως το frotz. Αυτός ο συνδυασμός μετατρέπει το Termux από ένα απλό τερματικό σε ένα ευέλικτο sandbox όπου μπορείτε να μάθετε προγραμματισμό, να εξασκηθείτε σε εντολές Linux ή να δοκιμάσετε σενάρια εν κινήσει. Στην καταχώριση στο Google Play, το Termux περιγράφεται ως ανάμειξη εικονικής κονσόλας με μια μεγάλη συλλογή πακέτων Linux, επιτρέποντάς σας να διαχειρίζεστε αρχεία, να μεταγλωττίζετε κώδικα, να τρέχετε μια διεπαφή Python και να διαχειρίζεστε έργα με το Git【312329562116381†L79-L93】. Για πολλούς χρήστες, αυτή είναι η πρώτη επαφή με τη δύναμη της γραμμής εντολών και του ελεύθερου λογισμικού." ></p>
+    </section>
+    <section class="content-section">
+      <h2 data-en="Setting Up and Customising Termux" data-gr="Ρύθμιση και Προσαρμογή του Termux">Setting Up and Customising Termux</h2>
+      <p data-en="Getting started with Termux is straightforward. Install it from F‑Droid or the GitHub releases page to avoid unofficial forks, then update the package repository by running <code>pkg update</code>. From there you can install packages like <code>fish</code> or <code>zsh</code> for advanced shells, <code>htop</code> for monitoring system resources and <code>curl</code> or <code>wget</code> to download files. The <code>termux-change-repo</code> command lets you switch to community mirrors for faster downloads. You can also install the <code>termux-api</code> add‑on to access device sensors from the command line. To make your terminal feel like home, create a <code>.bashrc</code> or <code>.zshrc</code> file in your home directory. Here you can set environment variables, define aliases and customise the prompt. Because Termux stores user data in <code>$HOME</code> on internal storage, your configuration persists even after app updates." data-gr="Η εκκίνηση του Termux είναι απλή. Εγκαταστήστε το από το F‑Droid ή τη σελίδα κυκλοφοριών στο GitHub για να αποφύγετε ανεπίσημα forks και στη συνέχεια ενημερώστε το αποθετήριο πακέτων με την εντολή <code>pkg update</code>. Από εκεί μπορείτε να εγκαταστήσετε πακέτα όπως <code>fish</code> ή <code>zsh</code> για προηγμένα κελύφη, <code>htop</code> για παρακολούθηση πόρων συστήματος και <code>curl</code> ή <code>wget</code> για λήψη αρχείων. Η εντολή <code>termux-change-repo</code> σας επιτρέπει να μεταβείτε σε καθρέφτες της κοινότητας για ταχύτερες λήψεις. Μπορείτε επίσης να εγκαταστήσετε το πρόσθετο <code>termux-api</code> για να αποκτήσετε πρόσβαση στους αισθητήρες της συσκευής από τη γραμμή εντολών. Για να κάνετε το τερματικό σας να μοιάζει με σπίτι, δημιουργήστε ένα αρχείο <code>.bashrc</code> ή <code>.zshrc</code> στον προσωπικό σας κατάλογο. Εδώ μπορείτε να ορίσετε μεταβλητές περιβάλλοντος, να δημιουργήσετε συντομεύσεις και να προσαρμόσετε το prompt. Επειδή το Termux αποθηκεύει τα δεδομένα του χρήστη στον φάκελο <code>$HOME</code> στην εσωτερική μνήμη, οι ρυθμίσεις σας παραμένουν ακόμη και μετά τις ενημερώσεις της εφαρμογής." ></p>
+      <p data-en="Once comfortable with basic commands, explore file management tools like <code>nnn</code> or <code>mc</code> to navigate your directories quickly. You can even use <code>vim</code> or <code>nano</code> to edit configuration files on the fly. Termux supports external keyboards and mouse input, making your phone feel like a mini‑laptop. If you prefer a graphical interface, install VNCServer and a lightweight desktop environment, then connect via a VNC client. Termux’s flexibility means you can transform your device into a coding environment, a media server or an SSH gateway—all within the Android security model." data-gr="Αφού εξοικειωθείτε με τις βασικές εντολές, εξερευνήστε εργαλεία διαχείρισης αρχείων όπως <code>nnn</code> ή <code>mc</code> για γρήγορη περιήγηση στους καταλόγους σας. Μπορείτε ακόμη να χρησιμοποιήσετε το <code>vim</code> ή το <code>nano</code> για να επεξεργαστείτε αρχεία ρυθμίσεων επιτόπου. Το Termux υποστηρίζει εξωτερικά πληκτρολόγια και εισαγωγή ποντικιού, μετατρέποντας το κινητό σε μίνι laptop. Αν προτιμάτε γραφικό περιβάλλον, εγκαταστήστε τον VNCServer και ένα ελαφρύ desktop και συνδεθείτε μέσω VNC client. Η ευελιξία του Termux σημαίνει ότι μπορείτε να μετατρέψετε τη συσκευή σε περιβάλλον ανάπτυξης κώδικα, διακομιστή πολυμέσων ή πύλη SSH—όλα μέσα στο μοντέλο ασφαλείας του Android." ></p>
+    </section>
+    <section class="content-section">
+      <h2 data-en="Package Management and Development Tools" data-gr="Διαχείριση Πακέτων και Εργαλεία Ανάπτυξης">Package Management and Development Tools</h2>
+      <p data-en="At the heart of Termux is the apt package manager, which provides access to hundreds of open‑source packages compiled for Android. You can install <code>git</code> to clone repositories, <code>python</code> and <code>pip</code> to run and install Python modules, <code>nodejs</code> for JavaScript development and <code>clang</code> or <code>gcc</code> to build C and C++ programs. Want to learn Rust or Go? Termux’s repository includes their compilers too. This makes the app a portable programming lab: write code in your favourite language, compile it locally and push it back to GitHub without leaving your phone. The F‑Droid page notes that Termux even supports playing classic interactive fiction games like Zork using frotz【225166967750380†L9-L24】, illustrating how broad the ecosystem has become." data-gr="Στον πυρήνα του Termux βρίσκεται ο διαχειριστής πακέτων apt, ο οποίος παρέχει πρόσβαση σε εκατοντάδες πακέτα ανοιχτού κώδικα που έχουν μεταγλωττιστεί για Android. Μπορείτε να εγκαταστήσετε το <code>git</code> για να κλωνοποιείτε αποθετήρια, το <code>python</code> και το <code>pip</code> για να τρέχετε και να εγκαθιστάτε αρθρώματα Python, το <code>nodejs</code> για ανάπτυξη JavaScript και το <code>clang</code> ή το <code>gcc</code> για να δημιουργείτε προγράμματα C και C++. Θέλετε να μάθετε Rust ή Go; Το αποθετήριο του Termux περιλαμβάνει και τους δικούς τους μεταγλωττιστές. Αυτό καθιστά την εφαρμογή ένα φορητό εργαστήριο προγραμματισμού: γράψτε κώδικα στη γλώσσα της επιλογής σας, μεταγλωττίστε τον τοπικά και στείλτε τον πίσω στο GitHub χωρίς να φύγετε από το κινητό. Η σελίδα F‑Droid σημειώνει ότι το Termux υποστηρίζει ακόμη και κλασικά παιχνίδια διαδραστικής μυθοπλασίας όπως το Zork μέσω της εφαρμογής frotz【225166967750380†L9-L24】, δείχνοντας πόσο ευρύ είναι το οικοσύστημα." ></p>
+      <p data-en="Because Termux runs on top of Android’s userland, you don’t need root access to install these tools. Packages are installed into the Termux home directory and will not interfere with your phone’s system libraries. Updates are delivered continuously by the Termux community, so you can stay on top of the latest versions of compilers and libraries. Many open‑source projects provide pre‑compiled binaries for Termux; for example, you can install NeoVim, tmux or even the Fish shell with a single command. By learning to manage packages, you gain experience that transfers directly to traditional Linux distributions." data-gr="Επειδή το Termux εκτελείται πάνω από το σύστημα χρήστη του Android, δεν χρειάζεστε δικαιώματα root για να εγκαταστήσετε αυτά τα εργαλεία. Τα πακέτα εγκαθίστανται στον προσωπικό κατάλογο του Termux και δεν παρεμβαίνουν στις βιβλιοθήκες συστήματος του τηλεφώνου. Οι ενημερώσεις παρέχονται συνεχώς από την κοινότητα του Termux, ώστε να έχετε πάντα τις τελευταίες εκδόσεις των μεταγλωττιστών και βιβλιοθηκών. Πολλά έργα ανοιχτού κώδικα προσφέρουν έτοιμα δυαδικά αρχεία για το Termux· για παράδειγμα, μπορείτε να εγκαταστήσετε το NeoVim, το tmux ή ακόμη και το κέλυφος Fish με μία μόνο εντολή. Μαθαίνοντας να διαχειρίζεστε πακέτα, αποκτάτε εμπειρία που μεταφέρεται απευθείας σε παραδοσιακές διανομές Linux." ></p>
+    </section>
+    <section class="content-section">
+      <h2 data-en="Security and Best Practices" data-gr="Ασφάλεια και Βέλτιστες Πρακτικές">Security and Best Practices</h2>
+      <p data-en="Using Termux responsibly means understanding Android’s security model. While you can run a local SSH server or VNC session, you should be careful not to expose these services over unsecured networks. Always set strong passwords or generate SSH keys and change default ports if you enable remote access. Termux itself doesn’t require root, which makes it safer than rooting your phone, but it does ask for storage permissions if you want to access shared files. Grant only the permissions you need and regularly update your packages to patch vulnerabilities. For sensitive work, consider using a virtual private network (VPN) and two‑factor authentication for services you connect to via Termux." data-gr="Η υπεύθυνη χρήση του Termux σημαίνει να κατανοείτε το μοντέλο ασφαλείας του Android. Παρόλο που μπορείτε να τρέξετε τοπικό διακομιστή SSH ή συνεδρία VNC, θα πρέπει να είστε προσεκτικοί ώστε να μην εκθέτετε αυτές τις υπηρεσίες σε μη ασφαλή δίκτυα. Πάντα να ορίζετε ισχυρούς κωδικούς ή να δημιουργείτε κλειδιά SSH και να αλλάζετε τις προεπιλεγμένες θύρες όταν ενεργοποιείτε απομακρυσμένη πρόσβαση. Το Termux δεν απαιτεί δικαιώματα root, κάτι που το καθιστά ασφαλέστερο από το να κάνετε root στο τηλέφωνό σας, αλλά ζητά άδειες αποθήκευσης εάν θέλετε να προσπελάσετε κοινόχρηστα αρχεία. Δώστε μόνο τις άδειες που χρειάζεστε και ενημερώνετε τα πακέτα τακτικά για να διορθώνετε τρωτά σημεία. Για ευαίσθητη εργασία, σκεφτείτε να χρησιμοποιήσετε εικονικό ιδιωτικό δίκτυο (VPN) και έλεγχο ταυτότητας δύο παραγόντων για τις υπηρεσίες στις οποίες συνδέεστε μέσω του Termux." ></p>
+      <p data-en="Beyond security, Termux encourages curiosity. Because it’s open source, you can browse the code on GitHub, contribute improvements or even build your own packages. Join the community on forums and chat groups to share tips and learn from others. Experiment with new programming languages, automate tasks on your phone or set up a lightweight development environment for your projects. The versatility of Termux shows that with the right tools, a smartphone can be much more than a consumption device—it can be a gateway to learning, creativity and empowerment." data-gr="Πέρα από την ασφάλεια, το Termux ενθαρρύνει την περιέργεια. Επειδή είναι λογισμικό ανοικτού κώδικα, μπορείτε να περιηγηθείτε στον κώδικα στο GitHub, να συμβάλετε σε βελτιώσεις ή ακόμη και να δημιουργήσετε τα δικά σας πακέτα. Συμμετέχετε στην κοινότητα σε φόρουμ και ομάδες συνομιλίας για να μοιραστείτε συμβουλές και να μάθετε από άλλους. Πειραματιστείτε με νέες γλώσσες προγραμματισμού, αυτοματοποιήστε εργασίες στο τηλέφωνό σας ή στήστε ένα ελαφρύ περιβάλλον ανάπτυξης για τα έργα σας. Η ευελιξία του Termux δείχνει ότι με τα σωστά εργαλεία, ένα smartphone μπορεί να είναι πολύ περισσότερα από μια συσκευή κατανάλωσης—μπορεί να γίνει πύλη για μάθηση, δημιουργικότητα και ενδυνάμωση." ></p>
+    </section>
+    <section class="content-section">
+      <h2 data-en="Sources" data-gr="Πηγές">Sources</h2>
+      <ul>
+        <li data-en="Termux official site – description of base system, shells, package manager, remote access and development tools【121798668689974†L9-L44】" data-gr="Επίσημος ιστότοπος Termux – περιγραφή βασικού συστήματος, κελύφη, διαχειριστή πακέτων, απομακρυσμένη πρόσβαση και εργαλεία ανάπτυξης【121798668689974†L9-L44】">Termux official site – description of base system, shells, package manager, remote access and development tools【121798668689974†L9-L44】</li>
+        <li data-en="Termux on F‑Droid – Bash, Zsh, nano, vim, nnn file manager, ssh client, compilers and games【225166967750380†L9-L24】" data-gr="Termux στο F‑Droid – Bash, Zsh, nano, vim, διαχειριστής αρχείων nnn, πελάτης ssh, μεταγλωττιστές και παιχνίδια【225166967750380†L9-L24】">Termux on F‑Droid – Bash, Zsh, nano, vim, nnn file manager, ssh client, compilers and games【225166967750380†L9-L24】</li>
+        <li data-en="Termux on Google Play – combined terminal emulator and Linux packages for code compilation, Python console and Git【312329562116381†L79-L93】" data-gr="Termux στο Google Play – συνδυασμός τερματικού και πακέτων Linux για μεταγλώττιση κώδικα, κονσόλα Python και Git【312329562116381†L79-L93】">Termux on Google Play – combined terminal emulator and Linux packages for code compilation, Python console and Git【312329562116381†L79-L93】</li>
+      </ul>
+    </section>
+  </div>
+</article>
+<footer class="main-footer">
+  <p data-lang-section="en">© 2026 DedSec Project. All Rights Reserved.</p>
+  <p class="hidden-by-default" data-lang-section="gr">© 2026 DedSec Project. Με επιφύλαξη παντός δικαιώματος.</p>
+  <p>Made by dedsec1121fk.</p>
+</footer>
+<script defer="" src="../script.js"></script>
+</body>
+</html>
