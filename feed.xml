@@ -1,155 +1,155 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DedSec Blog</title>
-    <link>https://ded-sec.space/Pages/blog.html</link>
-    <atom:link href="https://ded-sec.space/feed.xml" rel="self" type="application/rss+xml"/>
-    <description>Practical guides across technology, cybersecurity, Termux, Linux, Android, iOS, science, law, and more — in English and Greek.</description>
-    <language>en</language>
-    <lastBuildDate>Mon, 26 Jan 2026 12:00:00 +0000</lastBuildDate>
-    <item>
-      <title>Passwordless Login: Passkeys Explained for Real Life | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/passwordless-login-passkeys-explained-for-real-life.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/passwordless-login-passkeys-explained-for-real-life.html</guid>
-      <description>A clear guide to passkeys, why they reduce phishing, and how to adopt them safely across devices.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Technology</category>
-      <category>Technology</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>Phishing in 2026: A Practical Defense Playbook | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/phishing-in-2026-a-practical-defense-playbook.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/phishing-in-2026-a-practical-defense-playbook.html</guid>
-      <description>How modern phishing works (SMS, voice, QR) and a layered checklist that stops most attacks.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Cybersecurity</category>
-      <category>Cybersecurity</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>Termux Setup Basics: Storage, Updates, and Safety | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/termux-setup-basics-storage-updates-and-safety.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/termux-setup-basics-storage-updates-and-safety.html</guid>
-      <description>A beginner-friendly setup that avoids the most common Termux pitfalls on Android.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Termux</category>
-      <category>Termux</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>Linux Permissions: chmod, chown, and umask without Confusion | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/linux-permissions-chmod-chown-and-umask-without-confusion.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/linux-permissions-chmod-chown-and-umask-without-confusion.html</guid>
-      <description>Understand permissions with practical examples and safe defaults.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Linux</category>
-      <category>Linux</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>Android Privacy Checklist: Settings Worth Changing | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/android-privacy-checklist-settings-worth-changing.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/android-privacy-checklist-settings-worth-changing.html</guid>
-      <description>Quick wins for privacy: permissions, ads ID, DNS, and safer backups.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Android</category>
-      <category>Android</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>iPhone Privacy &amp; Safety Checklist | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/iphone-privacy-and-safety-checklist.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/iphone-privacy-and-safety-checklist.html</guid>
-      <description>Tighten privacy on iOS: permissions, location, analytics, and safer sharing.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>iOS</category>
-      <category>iOS</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>Why Conspiracy Theories Feel Convincing | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/why-conspiracy-theories-feel-convincing.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/why-conspiracy-theories-feel-convincing.html</guid>
-      <description>A psychology-and-media guide to the patterns that make extraordinary claims stick.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Conspiracy Theories</category>
-      <category>Conspiracy Theories</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>The Scientific Method in the Internet Age | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/the-scientific-method-in-the-internet-age.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/the-scientific-method-in-the-internet-age.html</guid>
-      <description>How hypotheses, replication, and peer review work—and how they fail sometimes.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Science</category>
-      <category>Science</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>CRISPR Basics: What Gene Editing Can (and Can’t) Do | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/crispr-basics-what-gene-editing-can-and-can-t-do.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/crispr-basics-what-gene-editing-can-and-can-t-do.html</guid>
-      <description>A grounded guide to CRISPR, off-target effects, and real-world applications.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Biology</category>
-      <category>Biology</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>How Large Language Models Work (Without the Hype) | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/how-large-language-models-work-without-the-hype.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/how-large-language-models-work-without-the-hype.html</guid>
-      <description>Tokens, training, and why LLMs sound confident even when they’re wrong.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Artificial Intelligence</category>
-      <category>Artificial Intelligence</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>GDPR for Creators: A Practical Starter Kit | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/gdpr-for-creators-a-practical-starter-kit.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/gdpr-for-creators-a-practical-starter-kit.html</guid>
-      <description>If you run a site or newsletter, here are the basics to avoid common compliance mistakes.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Law</category>
-      <category>Law</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-    <item>
-      <title>Corruption in Greece: The Mechanics, Not the Rumors | DedSec Blog</title>
-      <link>https://ded-sec.space/Blog/corruption-in-greece-the-mechanics-not-the-rumors.html</link>
-      <guid isPermaLink="true">https://ded-sec.space/Blog/corruption-in-greece-the-mechanics-not-the-rumors.html</guid>
-      <description>A systems view of corruption risks: incentives, weak controls, and how transparency helps.</description>
-      <pubDate>Mon, 26 Jan 2026 00:00:00 +0000</pubDate>
-      <category>Corruption Of Greece</category>
-      <category>Corruption Of Greece</category>
-      <category>Guide</category>
-      <category>Checklist</category>
-      <category>How-to</category>
-    </item>
-  </channel>
+<channel>
+<title>DedSec Blog</title>
+<link>https://ded-sec.space/Pages/blog.html</link>
+<atom:link href="https://ded-sec.space/feed.xml" rel="self" type="application/rss+xml"/>
+<description>Practical guides across technology, cybersecurity, Termux, Linux, Android, iOS, science, law, and more — in English and Greek.</description>
+<language>en</language>
+<lastBuildDate>Mon, 26 Jan 2026 12:00:00 +0000</lastBuildDate>
+<item>
+<title>Passwordless Login: Passkeys Explained for Real Life | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/passwordless-login-passkeys-explained-for-real-life.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/passwordless-login-passkeys-explained-for-real-life.html</guid>
+<description>A clear guide to passkeys, why they reduce phishing, and how to adopt them safely across devices.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Technology</category>
+<category>Technology</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>Phishing in 2026: A Practical Defense Playbook | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/phishing-in-2026-a-practical-defense-playbook.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/phishing-in-2026-a-practical-defense-playbook.html</guid>
+<description>How modern phishing works (SMS, voice, QR) and a layered checklist that stops most attacks.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Cybersecurity</category>
+<category>Cybersecurity</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>Termux Setup Basics: Storage, Updates, and Safety | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/termux-setup-basics-storage-updates-and-safety.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/termux-setup-basics-storage-updates-and-safety.html</guid>
+<description>A beginner-friendly setup that avoids the most common Termux pitfalls on Android.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Termux</category>
+<category>Termux</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>Linux Permissions: chmod, chown, and umask without Confusion | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/linux-permissions-chmod-chown-and-umask-without-confusion.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/linux-permissions-chmod-chown-and-umask-without-confusion.html</guid>
+<description>Understand permissions with practical examples and safe defaults.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Linux</category>
+<category>Linux</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>Android Privacy Checklist: Settings Worth Changing | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/android-privacy-checklist-settings-worth-changing.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/android-privacy-checklist-settings-worth-changing.html</guid>
+<description>Quick wins for privacy: permissions, ads ID, DNS, and safer backups.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Android</category>
+<category>Android</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>iPhone Privacy &amp; Safety Checklist | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/iphone-privacy-and-safety-checklist.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/iphone-privacy-and-safety-checklist.html</guid>
+<description>Tighten privacy on iOS: permissions, location, analytics, and safer sharing.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>iOS</category>
+<category>iOS</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>Why Conspiracy Theories Feel Convincing | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/why-conspiracy-theories-feel-convincing.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/why-conspiracy-theories-feel-convincing.html</guid>
+<description>A psychology-and-media guide to the patterns that make extraordinary claims stick.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Conspiracy Theories</category>
+<category>Conspiracy Theories</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>The Scientific Method in the Internet Age | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/the-scientific-method-in-the-internet-age.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/the-scientific-method-in-the-internet-age.html</guid>
+<description>How hypotheses, replication, and peer review work—and how they fail sometimes.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Science</category>
+<category>Science</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>CRISPR Basics: What Gene Editing Can (and Can’t) Do | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/crispr-basics-what-gene-editing-can-and-can-t-do.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/crispr-basics-what-gene-editing-can-and-can-t-do.html</guid>
+<description>A grounded guide to CRISPR, off-target effects, and real-world applications.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Biology</category>
+<category>Biology</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>How Large Language Models Work (Without the Hype) | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/how-large-language-models-work-without-the-hype.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/how-large-language-models-work-without-the-hype.html</guid>
+<description>Tokens, training, and why LLMs sound confident even when they’re wrong.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Artificial Intelligence</category>
+<category>Artificial Intelligence</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>GDPR for Creators: A Practical Starter Kit | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/gdpr-for-creators-a-practical-starter-kit.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/gdpr-for-creators-a-practical-starter-kit.html</guid>
+<description>If you run a site or newsletter, here are the basics to avoid common compliance mistakes.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Law</category>
+<category>Law</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+<item>
+<title>Corruption in Greece: The Mechanics, Not the Rumors | DedSec Blog</title>
+<link>https://ded-sec.space/Blog/corruption-in-greece-the-mechanics-not-the-rumors.html</link>
+<guid isPermaLink="true">https://ded-sec.space/Blog/corruption-in-greece-the-mechanics-not-the-rumors.html</guid>
+<description>A systems view of corruption risks: incentives, weak controls, and how transparency helps.</description>
+<pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+<category>Corruption Of Greece</category>
+<category>Corruption Of Greece</category>
+<category>Guide</category>
+<category>Checklist</category>
+<category>How-to</category>
+</item>
+</channel>
 </rss>
