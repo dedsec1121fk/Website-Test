@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><!--MAINTAIN_POST: SEO: Keep title + description accurate.-->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>AI Regulation 101: What ‘Risk-Based’ Rules Mean | DedSec Blog</title>
+<meta content="#07060d" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="A readable overview of risk tiers, documentation, and accountability." name="description"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-48.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/site.webmanifest" rel="manifest"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&amp;family=Roboto+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="https://ded-sec.space/Blog/ai-regulation-101-what-risk-based-rules-mean.html" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://ded-sec.space/Blog/ai-regulation-101-what-risk-based-rules-mean.html" property="og:url"/>
+<meta content="AI Regulation 101: What ‘Risk-Based’ Rules Mean | DedSec Blog" property="og:title"/>
+<meta content="A readable overview of risk tiers, documentation, and accountability." property="og:description"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="AI Regulation 101: What ‘Risk-Based’ Rules Mean | DedSec Blog" name="twitter:title"/>
+<meta content="A readable overview of risk tiers, documentation, and accountability." name="twitter:description"/>
+<meta content="https://ded-sec.space/Assets/Images/og/og-dark.jpg" name="twitter:image"/>
+<meta content="2026-01-26" property="article:published_time"/>
+<meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
+<meta content="DedSec Project" name="author"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="DedSec Project" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="el_GR" property="og:locale:alternate"/>
+<meta content="DedSec Project — cybersecurity and Termux learning resources" property="og:image:alt"/>
+<meta content="DedSec Project — cybersecurity and Termux learning resources" name="twitter:image:alt"/>
+<meta content="https://ded-sec.space/Blog/ai-regulation-101-what-risk-based-rules-mean.html" name="twitter:url"/>
+<meta content="Artificial Intelligence, DedSec Project, privacy, security, guides" name="keywords"/>
+<meta content="Artificial Intelligence" property="article:section"/>
+<meta content="Artificial Intelligence" property="article:tag"/>
+<meta content="DedSec Project" property="article:author"/>
+<script id="ld-blogposting" type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Regulation 101: What ‘Risk-Based’ Rules Mean",
+  "description": "A readable overview of risk tiers, documentation, and accountability.",
+  "datePublished": "2026-01-26",
+  "dateModified": "2026-01-26",
+  "mainEntityOfPage": "https://ded-sec.space/Blog/ai-regulation-101-what-risk-based-rules-mean.html",
+  "author": {
+    "@type": "Organization",
+    "name": "DedSec Project",
+    "url": "https://ded-sec.space/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DedSec Project",
+    "url": "https://ded-sec.space/"
+  },
+  "image": [
+    "https://ded-sec.space/Assets/Images/og/og-dark.jpg"
+  ],
+  "inLanguage": [
+    "en",
+    "el"
+  ],
+  "keywords": "Artificial Intelligence, DedSec Project, privacy, security, guides"
+}</script>
+</head>
+<body class="dark-theme"><!--MAINTAIN_SITE: Blog posts live in /Blog/*.html; global theme/language logic is in /script.js.-->
+<nav class="main-nav">
+<div class="nav-container">
+<div class="nav-title">
+<h1>DedSec Project</h1>
+</div>
+<button aria-label="Toggle navigation" class="burger-menu" id="burger-menu">
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-line"></span>
+<span class="burger-label" data-en="Menu" data-gr="Μενού">Menu</span>
+</button>
+<div class="nav-menu" id="nav-menu">
+<a class="nav-link" data-en="Home" data-gr="Αρχική" href="/">Home</a>
+<a class="nav-link" data-en="Learn About The Tools" data-gr="Μάθετε για τα Εργαλεία" href="../Pages/learn-about-the-tools.html">Learn About The Tools</a>
+<a class="nav-link" data-en="Guide For Installation" data-gr="Οδηγός Εγκατάστασης" href="../Pages/guide-for-installation.html">Guide For Installation</a>
+<a class="nav-link" data-en="Frequently Asked Questions" data-gr="Συχνές Ερωτήσεις" href="../Pages/faq.html">Frequently Asked Questions</a>
+<a class="nav-link" data-en="Store" data-gr="Κατάστημα" href="../Pages/store.html">Store</a><a class="nav-link active" data-en="Blog" data-gr="Ιστολόγιο" href="../Pages/blog.html">Blog</a>
+<a class="nav-link" data-en="Collaborations" data-gr="Συνεργασίες" href="../Pages/collaborations.html">Collaborations</a>
+<a class="nav-link" data-en="Portfolio &amp; GitHub" data-gr="Portfolio &amp; GitHub" href="../Pages/portfolio-github-info.html">Portfolio &amp; GitHub</a>
+<a class="nav-link" data-en="Contact &amp; Credits" data-gr="Επικοινωνία &amp; Συντελεστές" href="../Pages/contact-credits.html">Contact &amp; Credits</a>
+<a class="nav-link" data-en="Privacy Policy" data-gr="Πολιτική Απορρήτου" href="../Pages/privacy-policy.html">Privacy Policy</a>
+</div>
+<div class="nav-actions">
+<button class="nav-action-btn" id="nav-theme-switcher">
+<span class="nav-action-label" data-en="Change Theme" data-gr="Αλλαγή Θέματος">Change Theme</span>
+</button>
+<button class="nav-action-btn" id="nav-lang-switcher">
+<span class="nav-action-label" data-en="Αλλαγή Γλώσσας" data-gr="Change Language">Αλλαγή Γλώσσας</span>
+</button>
+</div>
+</div>
+</nav>
+<div class="page-content post-article">
+<div class="page-header">
+<h1 data-en="AI Regulation 101: What ‘Risk-Based’ Rules Mean" data-gr="AI Regulation 101: Τι σημαίνουν οι «κανόνες βάσει ρίσκου»">AI Regulation 101: What ‘Risk-Based’ Rules Mean</h1>
+<p data-en="A readable overview of risk tiers, documentation, and accountability." data-gr="Εύληπτη επισκόπηση για επίπεδα ρίσκου, τεκμηρίωση και λογοδοσία.">A readable overview of risk tiers, documentation, and accountability.</p>
+<div class="post-meta"><p data-en="Published: 2026-01-26 • Updated: 2026-01-26 • Reading time: 3 min" data-gr="Δημοσίευση: 2026-01-26 • Ενημέρωση: 2026-01-26 • Χρόνος ανάγνωσης: 3 λεπτά">Published: 2026-01-26 • Updated: 2026-01-26 • Reading time: 3 min</p></div>
+<div class="featured-store-cta" style="margin-top:14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+<a class="btn btn-ghost" data-en="← Back to Blog" data-gr="← Πίσω στο Blog" href="../Pages/blog.html">← Back to Blog</a>
+<a class="btn btn-primary" data-en="Install DedSec Project" data-gr="Εγκατάσταση DedSec Project" href="../Pages/guide-for-installation.html">Install DedSec Project</a>
+</div>
+<div class="toc">
+<h3 data-en="On this page" data-gr="Σε αυτή τη σελίδα">On this page</h3>
+<ul>
+<li><a data-en="1) Overview" data-gr="1) Επισκόπηση" href="#overview">1) Overview</a></li><li><a data-en="2) Key ideas" data-gr="2) Βασικές ιδέες" href="#key-ideas">2) Key ideas</a></li><li><a data-en="3) Do this today" data-gr="3) Κάν’ το σήμερα" href="#steps">3) Do this today</a></li><li><a data-en="4) Pitfalls" data-gr="4) Παγίδες" href="#pitfalls">4) Pitfalls</a></li><li><a data-en="5) Checklist" data-gr="5) Checklist" href="#checklist">5) Checklist</a></li><li><a data-en="6) Mini glossary" data-gr="6) Μικρό γλωσσάρι" href="#glossary">6) Mini glossary</a></li><li><a data-en="7) Wrap‑up" data-gr="7) Κλείσιμο" href="#wrap-up">7) Wrap‑up</a></li><li><a data-en="8) Sources" data-gr="8) Πηγές" href="#sources">8) Sources</a></li>
+</ul>
+</div>
+</div>
+
+<section id="overview" class="post-section">
+<h2 data-en="Overview" data-gr="Επισκόπηση">Overview</h2>
+<p data-en="AI Regulation 101: What ‘Risk-Based’ Rules Mean is easier to act on when you treat it as a set of small, reversible choices. Instead of chasing “perfect” setups, aim for a workflow that still works on your worst day: low battery, rushed decisions, and noisy information. A regulation requires documentation; your team builds model cards and logging from day one." data-gr="Το «AI Regulation 101: Τι σημαίνουν οι «κανόνες βάσει ρίσκου»» γίνεται πρακτικό όταν το δεις σαν μικρές, αναστρέψιμες επιλογές. Αντί να κυνηγάς το «τέλειο», στόχευσε σε μια ροή που δουλεύει και στη χειρότερη μέρα σου: χαμηλή μπαταρία, βιασύνη και θόρυβος πληροφορίας. A regulation requires documentation; your team builds model cards and logging from day one.">AI Regulation 101: What ‘Risk-Based’ Rules Mean is easier to act on when you treat it as a set of small, reversible choices. Instead of chasing “perfect” setups, aim for a workflow that still works on your worst day: low battery, rushed decisions, and noisy information. A regulation requires documentation; your team builds model cards and logging from day one.</p>
+</section>
+<section id="key-ideas" class="post-section">
+<h2 data-en="Key ideas" data-gr="Βασικές ιδέες">Key ideas</h2>
+<p data-en="Three ideas to keep in mind:" data-gr="Τρεις ιδέες που αξίζει να κρατήσεις:">Three ideas to keep in mind:</p><ul><li data-en="Regulation increasingly focuses on risk tiers and documentation." data-gr="Η ρύθμιση στρέφεται σε κανόνες βάσει ρίσκου και τεκμηρίωση.">Regulation increasingly focuses on risk tiers and documentation.</li><li data-en="LLMs predict likely text; they don’t ‘know’ like humans do." data-gr="Τα LLM προβλέπουν πιθανό κείμενο· δεν «ξέρουν» όπως οι άνθρωποι.">LLMs predict likely text; they don’t ‘know’ like humans do.</li><li data-en="Security risks include prompt injection and data leakage." data-gr="Ρίσκα ασφάλειας: prompt injection και διαρροή δεδομένων.">Security risks include prompt injection and data leakage.</li></ul>
+</section>
+<section id="steps" class="post-section">
+<h2 data-en="Do this today" data-gr="Κάν’ το σήμερα">Do this today</h2>
+<p data-en="A practical way to apply this today:" data-gr="Ένας πρακτικός τρόπος να το εφαρμόσεις σήμερα:">A practical way to apply this today:</p><ol><li data-en="Define the task and failure modes before you deploy AI." data-gr="Όρισε την εργασία και τα failure modes πριν κάνεις deploy AI.">Define the task and failure modes before you deploy AI.</li><li data-en="Evaluate with realistic data, including edge cases." data-gr="Αξιολόγησε με ρεαλιστικά δεδομένα, μαζί με edge cases.">Evaluate with realistic data, including edge cases.</li><li data-en="Keep sensitive data out of prompts and logs." data-gr="Κράτα ευαίσθητα δεδομένα έξω από prompts και logs.">Keep sensitive data out of prompts and logs.</li></ol>
+</section>
+<section id="pitfalls" class="post-section">
+<h2 data-en="Pitfalls to avoid" data-gr="Παγίδες που να αποφύγεις">Pitfalls to avoid</h2>
+<p data-en="Common pitfalls: (a) trusting a single screenshot or single setting, (b) adding tools you won’t maintain, and (c) skipping the ‘test’ step. If you can’t test it, you don’t really own it." data-gr="Συχνά λάθη: (α) εμπιστοσύνη σε ένα screenshot ή μία ρύθμιση, (β) προσθήκη εργαλείων που δεν θα συντηρήσεις, (γ) παράλειψη του «τεστ». Αν δεν το δοκιμάζεις, δεν σου ανήκει πραγματικά.">Common pitfalls: (a) trusting a single screenshot or single setting, (b) adding tools you won’t maintain, and (c) skipping the ‘test’ step. If you can’t test it, you don’t really own it.</p>
+</section>
+<section id="checklist" class="post-section">
+<h2 data-en="Reusable checklist" data-gr="Checklist για επαναχρήση">Reusable checklist</h2>
+<p data-en="Quick checklist you can reuse:" data-gr="Γρήγορο checklist για επαναχρήση:">Quick checklist you can reuse:</p><ul><li data-en="Update software and firmware." data-gr="Ενημέρωσε λογισμικό και firmware.">Update software and firmware.</li><li data-en="Turn on the strongest account protection available." data-gr="Ενεργοποίησε την ισχυρότερη προστασία λογαριασμού.">Turn on the strongest account protection available.</li><li data-en="Reduce what you share (data, permissions, extensions)." data-gr="Μείωσε ό,τι μοιράζεσαι (δεδομένα, άδειες, extensions).">Reduce what you share (data, permissions, extensions).</li><li data-en="Keep one backup path and one recovery path." data-gr="Κράτα ένα μονοπάτι backup και ένα μονοπάτι ανάκτησης.">Keep one backup path and one recovery path.</li><li data-en="Write down the 3 steps you’ll do if something goes wrong." data-gr="Γράψε τα 3 βήματα που θα κάνεις αν πάει κάτι στραβά.">Write down the 3 steps you’ll do if something goes wrong.</li></ul>
+</section>
+<section id="glossary" class="post-section">
+<h2 data-en="Mini glossary" data-gr="Μικρό γλωσσάρι">Mini glossary</h2>
+<p data-en="Mini glossary:" data-gr="Μικρό γλωσσάρι:">Mini glossary:</p><ul><li data-en="Token: Chunk of text used by models." data-gr="Token: Κομμάτι κειμένου που χρησιμοποιεί το μοντέλο.">Token: Chunk of text used by models.</li><li data-en="Hallucination: Plausible-sounding but false output." data-gr="Hallucination: Πειστικό αλλά ψευδές αποτέλεσμα.">Hallucination: Plausible-sounding but false output.</li><li data-en="Prompt injection: Manipulating model instructions via input." data-gr="Prompt injection: Χειραγώγηση οδηγιών μέσω εισόδου.">Prompt injection: Manipulating model instructions via input.</li><li data-en="Model card: Documentation of model purpose/limits." data-gr="Model card: Τεκμηρίωση σκοπού/ορίων μοντέλου.">Model card: Documentation of model purpose/limits.</li></ul>
+</section>
+<section id="wrap-up" class="post-section">
+<h2 data-en="Wrap‑up" data-gr="Κλείσιμο">Wrap‑up</h2>
+<p data-en="If you take only one thing from this post, make it this: choose fewer moving parts, document the few you keep, and rehearse once. That’s how “security” turns into muscle memory." data-gr="Αν κρατήσεις ένα πράγμα από αυτό το άρθρο: διάλεξε λιγότερα κινούμενα κομμάτια, τεκμηρίωσε αυτά που κρατάς και κάνε μια πρόβα. Έτσι η «ασφάλεια» γίνεται muscle memory.">If you take only one thing from this post, make it this: choose fewer moving parts, document the few you keep, and rehearse once. That’s how “security” turns into muscle memory.</p>
+</section>
+<section id="sources" class="post-section">
+<h2 data-en="Sources" data-gr="Πηγές">Sources</h2>
+<p data-en="Further reading used to build this article:" data-gr="Περαιτέρω ανάγνωση που χρησιμοποιήθηκε για το άρθρο:">Further reading used to build this article:</p>
+<ul><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" rel="nofollow noopener" target="_blank">NIST — AI Risk Management Framework</a></li><li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" rel="nofollow noopener" target="_blank">OWASP — Top 10 for LLM Applications</a></li><li><a href="https://ai.google/responsibility/" rel="nofollow noopener" target="_blank">Google — Responsible AI practices (overview)</a></li><li><a href="https://openai.com/safety" rel="nofollow noopener" target="_blank">OpenAI — Safety &amp; policy (overview)</a></li><li><a href="https://artificialintelligenceact.eu/" rel="nofollow noopener" target="_blank">EU — AI Act (official pages)</a></li></ul>
+</section>
+</div>
+<script defer="" src="../script.js"></script>
+</body>
+</html>
