@@ -1,117 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ded-sec.space/</loc>
-    <lastmod>2026-01-10</lastmod>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ded-sec.space/index.html</loc>
-    <lastmod>2026-01-10</lastmod>
+    <loc>https://ded-sec.space/Pages/blog.html</loc>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/llms.txt</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/collaborations.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/contact-credits.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/faq.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/guide-for-installation.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/learn-about-the-tools.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/portfolio-github-info.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/privacy-policy.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/Pages/store.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Pages/blog.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Blog/termux-new-user-guide.html</loc>
-    <lastmod>2026-01-10</lastmod>
+    <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Blog/termux-errors-fixes.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Blog/termux-run-distros.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Blog/learn-python-in-termux.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Blog/mass-surveillance-digital-id.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ded-sec.space/Blog/watch-dogs-vs-real-life-2026.html</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ded-sec.space/feed.xml</loc>
-    <lastmod>2026-01-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://ded-sec.space/llms.txt</loc>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ded-sec.space/robots.txt</loc>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ded-sec.space/site.webmanifest</loc>
+    <lastmod>2026-01-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+<url><loc>https://ded-sec.space/Blog/passwordless-login-passkeys-explained-for-real-life.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/edge-computing-at-home-smarter-faster-and-private.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/data-brokers-how-your-profile-gets-built.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/backups-that-actually-work-a-modern-3-2-1-plan.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/privacy-by-design-in-apps-small-choices-big-impact.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/phishing-in-2026-a-practical-defense-playbook.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/secure-your-home-router-in-30-minutes.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/incident-response-for-individuals-the-first-60-minutes.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/metadata-matters-choosing-messaging-apps-wisely.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/browser-hardening-settings-that-reduce-risk.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/termux-setup-basics-storage-updates-and-safety.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/python-on-termux-venv-pip-and-clean-projects.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/ssh-from-your-phone-secure-remote-admin-with-termux.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/backups-for-termux-saving-scripts-and-dotfiles.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/termux-networking-curl-dns-and-debugging-connectivity.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/linux-permissions-chmod-chown-and-umask-without-confusion.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/systemd-logs-journalctl-tips-you-ll-actually-use.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/nftables-basics-a-simple-firewall-you-can-maintain.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/bash-scripting-safety-writing-scripts-that-don-t-bite.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/performance-triage-top-free-iostat-and-what-they-mean.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/android-privacy-checklist-settings-worth-changing.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/app-permissions-explained-what-to-allow-and-when.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/adb-basics-safely-useful-commands-without-bricking-anything.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/security-updates-on-android-what-they-fix-and-how-to-track-them.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/back-up-an-android-phone-the-right-way.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/iphone-privacy-and-safety-checklist.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/icloud-security-2fa-recovery-and-what-to-turn-on.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/app-tracking-transparency-what-it-does-and-doesn-t.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/safari-hardening-extensions-settings-and-safer-browsing.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/lockdown-mode-when-it-makes-sense.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/why-conspiracy-theories-feel-convincing.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/a-simple-framework-to-check-extraordinary-claims.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/ufo-stories-curiosity-without-jumping-to-conclusions.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/the-crisis-actor-myth-how-it-spreads-and-how-to-respond.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/chemtrails-vs-contrails-what-science-actually-says.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/the-scientific-method-in-the-internet-age.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/climate-models-what-they-are-and-what-they-aren-t.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/vaccines-and-trials-reading-medical-claims-carefully.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/space-telescopes-how-we-turn-light-into-knowledge.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/p-hacking-and-significant-results-a-reader-s-guide.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/crispr-basics-what-gene-editing-can-and-can-t-do.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/the-microbiome-hype-vs-reality.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/sleep-biology-circadian-rhythms-and-better-habits.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/antibiotic-resistance-why-finish-the-course-is-nuanced.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/nutrition-basics-metabolism-without-myths.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/how-large-language-models-work-without-the-hype.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/prompt-injection-the-sneaky-security-risk-for-ai-apps.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/bias-in-ai-where-it-comes-from-and-how-to-reduce-it.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/ai-in-healthcare-promise-risk-and-safe-deployment.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/ai-regulation-101-what-risk-based-rules-mean.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/gdpr-for-creators-a-practical-starter-kit.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/cybercrime-laws-in-the-eu-what-unauthorized-access-means.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/online-contracts-terms-of-service-in-plain-language.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/defamation-online-opinion-facts-and-safer-posting.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/digital-evidence-basics-screenshots-logs-and-chain-of-custody.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/corruption-in-greece-the-mechanics-not-the-rumors.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/public-procurement-transparency-what-citizens-can-check.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/whistleblowing-in-greece-and-the-eu-rights-and-realistic-steps.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/open-data-and-diavgeia-turning-documents-into-accountability.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url><url><loc>https://ded-sec.space/Blog/integrity-tools-audits-conflict-of-interest-and-simple-controls.html</loc><lastmod>2026-01-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url></urlset>
