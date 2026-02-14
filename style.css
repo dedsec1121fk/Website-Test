@@ -318,8 +318,8 @@ p {
     gap: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* Keep title on one line */
-    white-space: nowrap;
+    /* Allow "DedSec\nProject" stacking when needed */
+    white-space: pre-line;
     min-width: 0;
 }
 
@@ -2783,8 +2783,9 @@ body.light-theme .search-input {
 .hero-title {
     margin: 0 0 10px 0;
     font-family: var(--font-secondary);
-    font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+    font-size: clamp(1.45rem, 6vw, 3.4rem);
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .hero-kicker {
@@ -3234,54 +3235,4 @@ body.light-theme .step-card{ background: rgba(255,255,255,0.86); }
   font-weight: 900;
   font-size: 0.85rem;
   letter-spacing: 0.2px;
-}
-
-/* =================================================================
-   Requested tweaks: single-line titles + roomier spacing + larger type
-   ================================================================= */
-
-/* Keep navbar title on ONE line, even on narrow screens */
-.nav-title h1 {
-  display: inline-block !important;
-  white-space: nowrap !important;
-  flex-wrap: nowrap !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Keep hero title on ONE line */
-.hero-title {
-  white-space: nowrap;
-}
-
-/* Slightly larger base type for readability */
-body {
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-/* Roomier padding across common text containers */
-.nav-container,
-.page-content {
-  max-width: 1320px;
-}
-
-.page-content { padding: 28px; }
-.content-section { padding: 26px; margin-bottom: 24px; }
-.feature-card { padding: 20px; }
-.hero-section { padding: 60px 24px; }
-
-/* Small screens: reduce title sizes so the single-line rule doesn't overflow too much */
-@media (max-width: 480px) {
-  .page-content { padding: 22px; }
-  .hero-section { padding: 52px 18px; }
-}
-
-@media (max-width: 420px) {
-  .hero-title { font-size: clamp(1.75rem, 7vw, 2.35rem); }
-  .nav-title h1 { font-size: 0.98rem; }
-}
-
-@media (min-width: 900px) {
-  body { font-size: 16px; }
 }
