@@ -318,8 +318,8 @@ p {
     gap: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    /* Allow "DedSec\nProject" stacking when needed */
-    white-space: pre-line;
+    /* Keep title on one line */
+    white-space: nowrap;
     min-width: 0;
 }
 

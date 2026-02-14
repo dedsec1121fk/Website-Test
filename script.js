@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- NAV WORD STACK + MENU OFFSET (keeps navbar compact so logo stays visible) ---
     const applyNavbarWordStack = () => {
-        // Only for the navbar labels (and title). We don't want to affect normal body text.
+        // Only for the navbar action labels (not the site title). We don't want to affect normal body text.
         const targets = document.querySelectorAll(
-            '.main-nav .nav-title h1, .main-nav .nav-action-label, .main-nav .burger-label'
+            '.main-nav .nav-action-label, .main-nav .burger-label'
         );
 
         const stackTextNodes = (root) => {
